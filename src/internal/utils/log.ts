@@ -106,6 +106,7 @@ export const formatRequestDetails = (details: {
         ([name, value]) => [
           name,
           (
+            name.toLowerCase() === 'x-cg-pro-api-key' ||
             name.toLowerCase() === 'x-cg-demo-api-key' ||
             name.toLowerCase() === 'authorization' ||
             name.toLowerCase() === 'cookie' ||

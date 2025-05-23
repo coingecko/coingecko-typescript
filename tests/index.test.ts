@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'coingecko/core/api-promise';
+import { APIPromise } from 'coingecko-typescript/core/api-promise';
 
 import util from 'node:util';
-import Coingecko from 'coingecko';
-import { APIUserAbortError } from 'coingecko';
+import Coingecko from 'coingecko-typescript';
+import { APIUserAbortError } from 'coingecko-typescript';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
@@ -23,6 +23,7 @@ describe('instantiate client', () => {
     const client = new Coingecko({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
+      proAPIKey: 'My Pro API Key',
     });
 
     test('they are used in the request', () => {
@@ -86,14 +87,14 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Coingecko({ logger: logger, logLevel: 'debug' });
+      const client = new Coingecko({ logger: logger, logLevel: 'debug', proAPIKey: 'My Pro API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).toHaveBeenCalled();
     });
 
     test('default logLevel is warn', async () => {
-      const client = new Coingecko({});
+      const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
       expect(client.logLevel).toBe('warn');
     });
 
@@ -106,7 +107,7 @@ describe('instantiate client', () => {
         error: jest.fn(),
       };
 
-      const client = new Coingecko({ logger: logger, logLevel: 'info' });
+      const client = new Coingecko({ logger: logger, logLevel: 'info', proAPIKey: 'My Pro API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -122,7 +123,7 @@ describe('instantiate client', () => {
       };
 
       process.env['COINGECKO_LOG'] = 'debug';
-      const client = new Coingecko({ logger: logger });
+      const client = new Coingecko({ logger: logger, proAPIKey: 'My Pro API Key' });
       expect(client.logLevel).toBe('debug');
 
       await forceAPIResponseForClient(client);
@@ -139,7 +140,7 @@ describe('instantiate client', () => {
       };
 
       process.env['COINGECKO_LOG'] = 'not a log level';
-      const client = new Coingecko({ logger: logger });
+      const client = new Coingecko({ logger: logger, proAPIKey: 'My Pro API Key' });
       expect(client.logLevel).toBe('warn');
       expect(warnMock).toHaveBeenCalledWith(
         'process.env[\'COINGECKO_LOG\'] was set to "not a log level", expected one of ["off","error","warn","info","debug"]',
@@ -156,7 +157,7 @@ describe('instantiate client', () => {
       };
 
       process.env['COINGECKO_LOG'] = 'debug';
-      const client = new Coingecko({ logger: logger, logLevel: 'off' });
+      const client = new Coingecko({ logger: logger, logLevel: 'off', proAPIKey: 'My Pro API Key' });
 
       await forceAPIResponseForClient(client);
       expect(debugMock).not.toHaveBeenCalled();
@@ -172,7 +173,7 @@ describe('instantiate client', () => {
       };
 
       process.env['COINGECKO_LOG'] = 'not a log level';
-      const client = new Coingecko({ logger: logger, logLevel: 'debug' });
+      const client = new Coingecko({ logger: logger, logLevel: 'debug', proAPIKey: 'My Pro API Key' });
       expect(client.logLevel).toBe('debug');
       expect(warnMock).not.toHaveBeenCalled();
     });
@@ -183,6 +184,7 @@ describe('instantiate client', () => {
       const client = new Coingecko({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
+        proAPIKey: 'My Pro API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo');
     });
@@ -191,12 +193,17 @@ describe('instantiate client', () => {
       const client = new Coingecko({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
+        proAPIKey: 'My Pro API Key',
       });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/foo?apiVersion=foo&hello=world');
     });
 
     test('overriding with `undefined`', () => {
-      const client = new Coingecko({ baseURL: 'http://localhost:5000/', defaultQuery: { hello: 'world' } });
+      const client = new Coingecko({
+        baseURL: 'http://localhost:5000/',
+        defaultQuery: { hello: 'world' },
+        proAPIKey: 'My Pro API Key',
+      });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
   });
@@ -204,6 +211,7 @@ describe('instantiate client', () => {
   test('custom fetch', async () => {
     const client = new Coingecko({
       baseURL: 'http://localhost:5000/',
+      proAPIKey: 'My Pro API Key',
       fetch: (url) => {
         return Promise.resolve(
           new Response(JSON.stringify({ url, custom: true }), {
@@ -219,12 +227,17 @@ describe('instantiate client', () => {
 
   test('explicit global fetch', async () => {
     // make sure the global fetch type is assignable to our Fetch type
-    const client = new Coingecko({ baseURL: 'http://localhost:5000/', fetch: defaultFetch });
+    const client = new Coingecko({
+      baseURL: 'http://localhost:5000/',
+      proAPIKey: 'My Pro API Key',
+      fetch: defaultFetch,
+    });
   });
 
   test('custom signal', async () => {
     const client = new Coingecko({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+      proAPIKey: 'My Pro API Key',
       fetch: (...args) => {
         return new Promise((resolve, reject) =>
           setTimeout(
@@ -254,7 +267,11 @@ describe('instantiate client', () => {
       return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Coingecko({ baseURL: 'http://localhost:5000/', fetch: testFetch });
+    const client = new Coingecko({
+      baseURL: 'http://localhost:5000/',
+      proAPIKey: 'My Pro API Key',
+      fetch: testFetch,
+    });
 
     await client.patch('/foo');
     expect(capturedRequest?.method).toEqual('PATCH');
@@ -262,12 +279,18 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new Coingecko({ baseURL: 'http://localhost:5000/custom/path/' });
+      const client = new Coingecko({
+        baseURL: 'http://localhost:5000/custom/path/',
+        proAPIKey: 'My Pro API Key',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
     test('no trailing slash', () => {
-      const client = new Coingecko({ baseURL: 'http://localhost:5000/custom/path' });
+      const client = new Coingecko({
+        baseURL: 'http://localhost:5000/custom/path',
+        proAPIKey: 'My Pro API Key',
+      });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -276,52 +299,58 @@ describe('instantiate client', () => {
     });
 
     test('explicit option', () => {
-      const client = new Coingecko({ baseURL: 'https://example.com' });
+      const client = new Coingecko({ baseURL: 'https://example.com', proAPIKey: 'My Pro API Key' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['COINGECKO_BASE_URL'] = 'https://example.com/from_env';
-      const client = new Coingecko({});
+      const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['COINGECKO_BASE_URL'] = ''; // empty
-      const client = new Coingecko({});
+      const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
       expect(client.baseURL).toEqual('https://pro-api.coingecko.com/api/v3');
     });
 
     test('blank env variable', () => {
       process.env['COINGECKO_BASE_URL'] = '  '; // blank
-      const client = new Coingecko({});
+      const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
       expect(client.baseURL).toEqual('https://pro-api.coingecko.com/api/v3');
     });
 
     test('env variable with environment', () => {
       process.env['COINGECKO_BASE_URL'] = 'https://example.com/from_env';
 
-      expect(() => new Coingecko({ environment: 'production' })).toThrowErrorMatchingInlineSnapshot(
+      expect(
+        () => new Coingecko({ proAPIKey: 'My Pro API Key', environment: 'pro' }),
+      ).toThrowErrorMatchingInlineSnapshot(
         `"Ambiguous URL; The \`baseURL\` option (or COINGECKO_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
 
-      const client = new Coingecko({ baseURL: null, environment: 'production' });
+      const client = new Coingecko({ proAPIKey: 'My Pro API Key', baseURL: null, environment: 'pro' });
       expect(client.baseURL).toEqual('https://pro-api.coingecko.com/api/v3');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Coingecko({ maxRetries: 4 });
+    const client = new Coingecko({ maxRetries: 4, proAPIKey: 'My Pro API Key' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new Coingecko({});
+    const client2 = new Coingecko({ proAPIKey: 'My Pro API Key' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   describe('withOptions', () => {
     test('creates a new client with overridden options', () => {
-      const client = new Coingecko({ baseURL: 'http://localhost:5000/', maxRetries: 3 });
+      const client = new Coingecko({
+        baseURL: 'http://localhost:5000/',
+        maxRetries: 3,
+        proAPIKey: 'My Pro API Key',
+      });
 
       const newClient = client.withOptions({
         maxRetries: 5,
@@ -346,6 +375,7 @@ describe('instantiate client', () => {
         baseURL: 'http://localhost:5000/',
         defaultHeaders: { 'X-Test-Header': 'test-value' },
         defaultQuery: { 'test-param': 'test-value' },
+        proAPIKey: 'My Pro API Key',
       });
 
       const newClient = client.withOptions({
@@ -360,7 +390,11 @@ describe('instantiate client', () => {
     });
 
     test('respects runtime property changes when creating new client', () => {
-      const client = new Coingecko({ baseURL: 'http://localhost:5000/', timeout: 1000 });
+      const client = new Coingecko({
+        baseURL: 'http://localhost:5000/',
+        timeout: 1000,
+        proAPIKey: 'My Pro API Key',
+      });
 
       // Modify the client properties directly after creation
       client.baseURL = 'http://localhost:6000/';
@@ -385,10 +419,24 @@ describe('instantiate client', () => {
       expect(newClient.buildURL('/bar', null)).toEqual('http://localhost:6000/bar');
     });
   });
+
+  test('with environment variable arguments', () => {
+    // set options via env var
+    process.env['COINGECKO_PRO_API_KEY'] = 'My Pro API Key';
+    const client = new Coingecko();
+    expect(client.proAPIKey).toBe('My Pro API Key');
+  });
+
+  test('with overridden environment variable arguments', () => {
+    // set options via env var
+    process.env['COINGECKO_PRO_API_KEY'] = 'another My Pro API Key';
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
+    expect(client.proAPIKey).toBe('My Pro API Key');
+  });
 });
 
 describe('request building', () => {
-  const client = new Coingecko({});
+  const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
 
   describe('custom headers', () => {
     test('handles undefined', () => {
@@ -407,7 +455,7 @@ describe('request building', () => {
 });
 
 describe('default encoder', () => {
-  const client = new Coingecko({});
+  const client = new Coingecko({ proAPIKey: 'My Pro API Key' });
 
   class Serializable {
     toJSON() {
@@ -492,7 +540,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Coingecko({ timeout: 10, fetch: testFetch });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -522,7 +570,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Coingecko({ fetch: testFetch, maxRetries: 4 });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
 
@@ -546,7 +594,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Coingecko({ fetch: testFetch, maxRetries: 4 });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -576,6 +624,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
     const client = new Coingecko({
+      proAPIKey: 'My Pro API Key',
       fetch: testFetch,
       maxRetries: 4,
       defaultHeaders: { 'X-Stainless-Retry-Count': null },
@@ -607,7 +656,7 @@ describe('retries', () => {
       capturedRequest = init;
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
-    const client = new Coingecko({ fetch: testFetch, maxRetries: 4 });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', fetch: testFetch, maxRetries: 4 });
 
     expect(
       await client.request({
@@ -637,7 +686,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Coingecko({ fetch: testFetch });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -667,7 +716,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Coingecko({ fetch: testFetch });
+    const client = new Coingecko({ proAPIKey: 'My Pro API Key', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);

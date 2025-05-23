@@ -8,15 +8,15 @@ export class Ping extends APIResource {
   /**
    * This endpoint allows you to **check the API server status**
    */
-  checkStatus(options?: RequestOptions): APIPromise<PingCheckStatusResponse> {
+  get(options?: RequestOptions): APIPromise<PingGetResponse> {
     return this._client.get('/ping', options);
   }
 }
 
-export interface PingCheckStatusResponse {
+export interface PingGetResponse {
   gecko_says?: string;
 }
 
 export declare namespace Ping {
-  export { type PingCheckStatusResponse as PingCheckStatusResponse };
+  export { type PingGetResponse as PingGetResponse };
 }

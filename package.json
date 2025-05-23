@@ -1,8 +1,8 @@
 {
-  "name": "coingecko",
+  "name": "coingecko-typescript",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Coingecko API",
-  "author": "Coingecko <>",
+  "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "coingecko": ".",
-    "coingecko/*": "./src/*"
+    "coingecko-typescript": ".",
+    "coingecko-typescript/*": "./src/*"
   },
   "exports": {
     ".": {

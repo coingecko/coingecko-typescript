@@ -10,21 +10,21 @@ export class AssetPlatforms extends APIResource {
    *
    * @example
    * ```ts
-   * const assetPlatforms = await client.assetPlatforms.list();
+   * const assetPlatforms = await client.assetPlatforms.get();
    * ```
    */
-  list(
-    query: AssetPlatformListParams | null | undefined = {},
+  get(
+    query: AssetPlatformGetParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<AssetPlatformListResponse> {
+  ): APIPromise<AssetPlatformGetResponse> {
     return this._client.get('/asset_platforms', { query, ...options });
   }
 }
 
-export type AssetPlatformListResponse = Array<AssetPlatformListResponse.AssetPlatformListResponseItem>;
+export type AssetPlatformGetResponse = Array<AssetPlatformGetResponse.AssetPlatformGetResponseItem>;
 
-export namespace AssetPlatformListResponse {
-  export interface AssetPlatformListResponseItem {
+export namespace AssetPlatformGetResponse {
+  export interface AssetPlatformGetResponseItem {
     /**
      * asset platform ID
      */
@@ -38,7 +38,7 @@ export namespace AssetPlatformListResponse {
     /**
      * image of the asset platform
      */
-    image?: AssetPlatformListResponseItem.Image;
+    image?: AssetPlatformGetResponseItem.Image;
 
     /**
      * chain name
@@ -56,7 +56,7 @@ export namespace AssetPlatformListResponse {
     shortname?: string;
   }
 
-  export namespace AssetPlatformListResponseItem {
+  export namespace AssetPlatformGetResponseItem {
     /**
      * image of the asset platform
      */
@@ -70,7 +70,7 @@ export namespace AssetPlatformListResponse {
   }
 }
 
-export interface AssetPlatformListParams {
+export interface AssetPlatformGetParams {
   /**
    * apply relevant filters to results
    */
@@ -79,7 +79,7 @@ export interface AssetPlatformListParams {
 
 export declare namespace AssetPlatforms {
   export {
-    type AssetPlatformListResponse as AssetPlatformListResponse,
-    type AssetPlatformListParams as AssetPlatformListParams,
+    type AssetPlatformGetResponse as AssetPlatformGetResponse,
+    type AssetPlatformGetParams as AssetPlatformGetParams,
   };
 }

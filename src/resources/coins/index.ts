@@ -1,48 +1,47 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Categories } from './categories/index';
+export {
+  Categories,
+  type CategoryGetResponse,
+  type CategoryGetListResponse,
+  type CategoryGetParams,
+} from './categories';
 export {
   CirculatingSupplyChart,
-  type CirculatingSupplyChartBase,
-  type CirculatingSupplyChartRetrieveByIDParams,
-  type CirculatingSupplyChartRetrieveRangeByIDParams,
+  type CirculatingSupplyChartGetResponse,
+  type CirculatingSupplyChartGetRangeResponse,
+  type CirculatingSupplyChartGetParams,
+  type CirculatingSupplyChartGetRangeParams,
 } from './circulating-supply-chart';
-export { Coins, type CoinsData, type CoinsTickers } from './coins';
-export { Contract, type ContractRetrieveByAddressParams } from './contract/index';
-export {
-  List,
-  type ListAllResponse,
-  type ListRecentlyAddedResponse,
-  type ListTopGainersLosersResponse,
-  type ListWithMarketDataResponse,
-  type ListAllParams,
-  type ListTopGainersLosersParams,
-  type ListWithMarketDataParams,
-} from './list';
+export { Coins, type CoinGetIDResponse, type CoinGetIDParams } from './coins';
+export { Contract, type ContractGetResponse, type ContractGetParams } from './contract/index';
+export { History, type HistoryGetResponse, type HistoryGetParams } from './history';
+export { List, type ListGetResponse, type ListGetNewResponse, type ListGetParams } from './list';
 export {
   MarketChart,
-  type CoinsMarketChart,
-  type CoinsMarketChartRange,
-  type MarketChartRetrieveByIDParams,
-  type MarketChartRetrieveRangeByIDParams,
+  type MarketChartGetResponse,
+  type MarketChartGetRangeResponse,
+  type MarketChartGetParams,
+  type MarketChartGetRangeParams,
 } from './market-chart';
+export { Markets, type MarketGetResponse, type MarketGetParams } from './markets';
 export {
   Ohlc,
-  type OhlcRetrieveByIDResponse,
-  type OhlcRetrieveRangeByIDResponse,
-  type OhlcRetrieveByIDParams,
-  type OhlcRetrieveRangeByIDParams,
+  type OhlcGetResponse,
+  type OhlcGetRangeResponse,
+  type OhlcGetParams,
+  type OhlcGetRangeParams,
 } from './ohlc';
+export { Tickers, type TickerGetResponse, type TickerGetParams } from './tickers';
 export {
-  Retrieve,
-  type RetrieveHistoricalDataByIDResponse,
-  type RetrieveByIDParams,
-  type RetrieveHistoricalDataByIDParams,
-  type RetrieveTickersByIDParams,
-} from './retrieve';
+  TopGainersLosers,
+  type TopGainersLoserGetResponse,
+  type TopGainersLoserGetParams,
+} from './top-gainers-losers';
 export {
   TotalSupplyChart,
-  type TotalSupplyChartBase,
-  type TotalSupplyChartRetrieveByIDParams,
-  type TotalSupplyChartRetrieveRangeByIDParams,
+  type TotalSupplyChartGetResponse,
+  type TotalSupplyChartGetRangeResponse,
+  type TotalSupplyChartGetParams,
+  type TotalSupplyChartGetRangeParams,
 } from './total-supply-chart';

@@ -1,75 +1,89 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
+import * as CategoriesAPI from './categories';
+import { Categories, CategoryGetListResponse, CategoryGetParams, CategoryGetResponse } from './categories';
 import * as CirculatingSupplyChartAPI from './circulating-supply-chart';
 import {
   CirculatingSupplyChart,
-  CirculatingSupplyChartBase,
-  CirculatingSupplyChartRetrieveByIDParams,
-  CirculatingSupplyChartRetrieveRangeByIDParams,
+  CirculatingSupplyChartGetParams,
+  CirculatingSupplyChartGetRangeParams,
+  CirculatingSupplyChartGetRangeResponse,
+  CirculatingSupplyChartGetResponse,
 } from './circulating-supply-chart';
+import * as HistoryAPI from './history';
+import { History, HistoryGetParams, HistoryGetResponse } from './history';
 import * as ListAPI from './list';
-import {
-  List,
-  ListAllParams,
-  ListAllResponse,
-  ListRecentlyAddedResponse,
-  ListTopGainersLosersParams,
-  ListTopGainersLosersResponse,
-  ListWithMarketDataParams,
-  ListWithMarketDataResponse,
-} from './list';
+import { List, ListGetNewResponse, ListGetParams, ListGetResponse } from './list';
 import * as MarketChartAPI from './market-chart';
 import {
-  CoinsMarketChart,
-  CoinsMarketChartRange,
   MarketChart,
-  MarketChartRetrieveByIDParams,
-  MarketChartRetrieveRangeByIDParams,
+  MarketChartGetParams,
+  MarketChartGetRangeParams,
+  MarketChartGetRangeResponse,
+  MarketChartGetResponse,
 } from './market-chart';
+import * as MarketsAPI from './markets';
+import { MarketGetParams, MarketGetResponse, Markets } from './markets';
 import * as OhlcAPI from './ohlc';
-import {
-  Ohlc,
-  OhlcRetrieveByIDParams,
-  OhlcRetrieveByIDResponse,
-  OhlcRetrieveRangeByIDParams,
-  OhlcRetrieveRangeByIDResponse,
-} from './ohlc';
-import * as RetrieveAPI from './retrieve';
-import {
-  Retrieve,
-  RetrieveByIDParams,
-  RetrieveHistoricalDataByIDParams,
-  RetrieveHistoricalDataByIDResponse,
-  RetrieveTickersByIDParams,
-} from './retrieve';
+import { Ohlc, OhlcGetParams, OhlcGetRangeParams, OhlcGetRangeResponse, OhlcGetResponse } from './ohlc';
+import * as TickersAPI from './tickers';
+import { TickerGetParams, TickerGetResponse, Tickers } from './tickers';
+import * as TopGainersLosersAPI from './top-gainers-losers';
+import { TopGainersLoserGetParams, TopGainersLoserGetResponse, TopGainersLosers } from './top-gainers-losers';
 import * as TotalSupplyChartAPI from './total-supply-chart';
 import {
   TotalSupplyChart,
-  TotalSupplyChartBase,
-  TotalSupplyChartRetrieveByIDParams,
-  TotalSupplyChartRetrieveRangeByIDParams,
+  TotalSupplyChartGetParams,
+  TotalSupplyChartGetRangeParams,
+  TotalSupplyChartGetRangeResponse,
+  TotalSupplyChartGetResponse,
 } from './total-supply-chart';
-import * as CategoriesAPI from './categories/categories';
-import { Categories } from './categories/categories';
 import * as ContractAPI from './contract/contract';
-import { Contract, ContractRetrieveByAddressParams } from './contract/contract';
+import { Contract, ContractGetParams, ContractGetResponse } from './contract/contract';
+import { APIPromise } from '../../core/api-promise';
+import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class Coins extends APIResource {
+  categories: CategoriesAPI.Categories = new CategoriesAPI.Categories(this._client);
   list: ListAPI.List = new ListAPI.List(this._client);
-  retrieve: RetrieveAPI.Retrieve = new RetrieveAPI.Retrieve(this._client);
-  marketChart: MarketChartAPI.MarketChart = new MarketChartAPI.MarketChart(this._client);
-  ohlc: OhlcAPI.Ohlc = new OhlcAPI.Ohlc(this._client);
-  contract: ContractAPI.Contract = new ContractAPI.Contract(this._client);
+  markets: MarketsAPI.Markets = new MarketsAPI.Markets(this._client);
+  topGainersLosers: TopGainersLosersAPI.TopGainersLosers = new TopGainersLosersAPI.TopGainersLosers(
+    this._client,
+  );
   circulatingSupplyChart: CirculatingSupplyChartAPI.CirculatingSupplyChart =
     new CirculatingSupplyChartAPI.CirculatingSupplyChart(this._client);
+  contract: ContractAPI.Contract = new ContractAPI.Contract(this._client);
+  history: HistoryAPI.History = new HistoryAPI.History(this._client);
+  marketChart: MarketChartAPI.MarketChart = new MarketChartAPI.MarketChart(this._client);
+  ohlc: OhlcAPI.Ohlc = new OhlcAPI.Ohlc(this._client);
+  tickers: TickersAPI.Tickers = new TickersAPI.Tickers(this._client);
   totalSupplyChart: TotalSupplyChartAPI.TotalSupplyChart = new TotalSupplyChartAPI.TotalSupplyChart(
     this._client,
   );
-  categories: CategoriesAPI.Categories = new CategoriesAPI.Categories(this._client);
+
+  /**
+   * This endpoint allows you to **query all the metadata (image, websites, socials,
+   * description, contract address, etc.) and market data (price, ATH, exchange
+   * tickers, etc.) of a coin from the CoinGecko coin page based on a particular coin
+   * ID**
+   *
+   * @example
+   * ```ts
+   * const response = await client.coins.getID('bitcoin');
+   * ```
+   */
+  getID(
+    id: string,
+    query: CoinGetIDParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<CoinGetIDResponse> {
+    return this._client.get(path`/coins/${id}`, { query, ...options });
+  }
 }
 
-export interface CoinsData {
+export interface CoinGetIDResponse {
   /**
    * coin ID
    */
@@ -98,7 +112,7 @@ export interface CoinsData {
   /**
    * coin community data
    */
-  community_data?: CoinsData.CommunityData;
+  community_data?: CoinGetIDResponse.CommunityData;
 
   /**
    * coin country of origin
@@ -118,7 +132,7 @@ export interface CoinsData {
   /**
    * coin developer data
    */
-  developer_data?: CoinsData.DeveloperData;
+  developer_data?: CoinGetIDResponse.DeveloperData;
 
   /**
    * coin genesis date
@@ -133,7 +147,7 @@ export interface CoinsData {
   /**
    * coin image url
    */
-  image?: CoinsData.Image;
+  image?: CoinGetIDResponse.Image;
 
   /**
    * coin last updated timestamp
@@ -143,7 +157,7 @@ export interface CoinsData {
   /**
    * links
    */
-  links?: CoinsData.Links;
+  links?: CoinGetIDResponse.Links;
 
   /**
    * coin name localization
@@ -158,7 +172,7 @@ export interface CoinsData {
   /**
    * coin market data
    */
-  market_data?: CoinsData.MarketData;
+  market_data?: CoinGetIDResponse.MarketData;
 
   /**
    * coin name
@@ -203,7 +217,7 @@ export interface CoinsData {
   /**
    * coin tickers
    */
-  tickers?: Array<CoinsData.Ticker>;
+  tickers?: Array<CoinGetIDResponse.Ticker>;
 
   /**
    * coin web slug
@@ -211,7 +225,7 @@ export interface CoinsData {
   web_slug?: string;
 }
 
-export namespace CoinsData {
+export namespace CoinGetIDResponse {
   /**
    * coin community data
    */
@@ -1012,233 +1026,126 @@ export namespace CoinsData {
   }
 }
 
-export interface CoinsTickers {
+export interface CoinGetIDParams {
   /**
-   * coin name
+   * include community data, default: true
    */
-  name?: string;
+  community_data?: boolean;
 
   /**
-   * list of tickers
+   * include developer data, default: true
    */
-  tickers?: Array<CoinsTickers.Ticker>;
+  developer_data?: boolean;
+
+  /**
+   * include all the localized languages in the response, default: true
+   */
+  localization?: boolean;
+
+  /**
+   * include market data, default: true
+   */
+  market_data?: boolean;
+
+  /**
+   * include sparkline 7 days data, default: false
+   */
+  sparkline?: boolean;
+
+  /**
+   * include tickers data, default: true
+   */
+  tickers?: boolean;
 }
 
-export namespace CoinsTickers {
-  export interface Ticker {
-    /**
-     * coin ticker base currency
-     */
-    base?: string;
-
-    /**
-     * coin ticker bid ask spread percentage
-     */
-    bid_ask_spread_percentage?: number;
-
-    /**
-     * coin ticker base currency coin ID
-     */
-    coin_id?: string;
-
-    /**
-     * coin ticker converted last price
-     */
-    converted_last?: Ticker.ConvertedLast;
-
-    /**
-     * coin ticker converted volume
-     */
-    converted_volume?: Ticker.ConvertedVolume;
-
-    /**
-     * coin ticker cost to move down in usd
-     */
-    cost_to_move_down_usd?: number;
-
-    /**
-     * coin ticker cost to move up in usd
-     */
-    cost_to_move_up_usd?: number;
-
-    /**
-     * coin ticker anomaly
-     */
-    is_anomaly?: boolean;
-
-    /**
-     * coin ticker stale
-     */
-    is_stale?: boolean;
-
-    /**
-     * coin ticker last price
-     */
-    last?: number;
-
-    /**
-     * coin ticker last fetch timestamp
-     */
-    last_fetch_at?: string;
-
-    /**
-     * coin ticker last traded timestamp
-     */
-    last_traded_at?: string;
-
-    /**
-     * coin ticker exchange
-     */
-    market?: Ticker.Market;
-
-    /**
-     * coin ticker target currency
-     */
-    target?: string;
-
-    /**
-     * coin ticker target currency coin ID
-     */
-    target_coin_id?: string;
-
-    /**
-     * coin ticker timestamp
-     */
-    timestamp?: string;
-
-    /**
-     * coin ticker token info url
-     */
-    token_info_url?: string | null;
-
-    /**
-     * coin ticker trade url
-     */
-    trade_url?: string;
-
-    /**
-     * coin ticker trust score
-     */
-    trust_score?: string;
-
-    /**
-     * coin ticker volume
-     */
-    volume?: number;
-  }
-
-  export namespace Ticker {
-    /**
-     * coin ticker converted last price
-     */
-    export interface ConvertedLast {
-      btc?: number;
-
-      eth?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin ticker converted volume
-     */
-    export interface ConvertedVolume {
-      btc?: number;
-
-      eth?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin ticker exchange
-     */
-    export interface Market {
-      /**
-       * exchange trading incentive
-       */
-      has_trading_incentive: boolean;
-
-      /**
-       * exchange identifier
-       */
-      identifier: string;
-
-      /**
-       * exchange name
-       */
-      name: string;
-
-      /**
-       * exchange image url
-       */
-      logo?: string;
-    }
-  }
-}
-
+Coins.Categories = Categories;
 Coins.List = List;
-Coins.Retrieve = Retrieve;
+Coins.Markets = Markets;
+Coins.TopGainersLosers = TopGainersLosers;
+Coins.CirculatingSupplyChart = CirculatingSupplyChart;
+Coins.Contract = Contract;
+Coins.History = History;
 Coins.MarketChart = MarketChart;
 Coins.Ohlc = Ohlc;
-Coins.Contract = Contract;
-Coins.CirculatingSupplyChart = CirculatingSupplyChart;
+Coins.Tickers = Tickers;
 Coins.TotalSupplyChart = TotalSupplyChart;
-Coins.Categories = Categories;
 
 export declare namespace Coins {
-  export { type CoinsData as CoinsData, type CoinsTickers as CoinsTickers };
+  export { type CoinGetIDResponse as CoinGetIDResponse, type CoinGetIDParams as CoinGetIDParams };
 
   export {
-    List as List,
-    type ListAllResponse as ListAllResponse,
-    type ListRecentlyAddedResponse as ListRecentlyAddedResponse,
-    type ListTopGainersLosersResponse as ListTopGainersLosersResponse,
-    type ListWithMarketDataResponse as ListWithMarketDataResponse,
-    type ListAllParams as ListAllParams,
-    type ListTopGainersLosersParams as ListTopGainersLosersParams,
-    type ListWithMarketDataParams as ListWithMarketDataParams,
+    Categories as Categories,
+    type CategoryGetResponse as CategoryGetResponse,
+    type CategoryGetListResponse as CategoryGetListResponse,
+    type CategoryGetParams as CategoryGetParams,
   };
 
   export {
-    Retrieve as Retrieve,
-    type RetrieveHistoricalDataByIDResponse as RetrieveHistoricalDataByIDResponse,
-    type RetrieveByIDParams as RetrieveByIDParams,
-    type RetrieveHistoricalDataByIDParams as RetrieveHistoricalDataByIDParams,
-    type RetrieveTickersByIDParams as RetrieveTickersByIDParams,
+    List as List,
+    type ListGetResponse as ListGetResponse,
+    type ListGetNewResponse as ListGetNewResponse,
+    type ListGetParams as ListGetParams,
+  };
+
+  export {
+    Markets as Markets,
+    type MarketGetResponse as MarketGetResponse,
+    type MarketGetParams as MarketGetParams,
+  };
+
+  export {
+    TopGainersLosers as TopGainersLosers,
+    type TopGainersLoserGetResponse as TopGainersLoserGetResponse,
+    type TopGainersLoserGetParams as TopGainersLoserGetParams,
+  };
+
+  export {
+    CirculatingSupplyChart as CirculatingSupplyChart,
+    type CirculatingSupplyChartGetResponse as CirculatingSupplyChartGetResponse,
+    type CirculatingSupplyChartGetRangeResponse as CirculatingSupplyChartGetRangeResponse,
+    type CirculatingSupplyChartGetParams as CirculatingSupplyChartGetParams,
+    type CirculatingSupplyChartGetRangeParams as CirculatingSupplyChartGetRangeParams,
+  };
+
+  export {
+    Contract as Contract,
+    type ContractGetResponse as ContractGetResponse,
+    type ContractGetParams as ContractGetParams,
+  };
+
+  export {
+    History as History,
+    type HistoryGetResponse as HistoryGetResponse,
+    type HistoryGetParams as HistoryGetParams,
   };
 
   export {
     MarketChart as MarketChart,
-    type CoinsMarketChart as CoinsMarketChart,
-    type CoinsMarketChartRange as CoinsMarketChartRange,
-    type MarketChartRetrieveByIDParams as MarketChartRetrieveByIDParams,
-    type MarketChartRetrieveRangeByIDParams as MarketChartRetrieveRangeByIDParams,
+    type MarketChartGetResponse as MarketChartGetResponse,
+    type MarketChartGetRangeResponse as MarketChartGetRangeResponse,
+    type MarketChartGetParams as MarketChartGetParams,
+    type MarketChartGetRangeParams as MarketChartGetRangeParams,
   };
 
   export {
     Ohlc as Ohlc,
-    type OhlcRetrieveByIDResponse as OhlcRetrieveByIDResponse,
-    type OhlcRetrieveRangeByIDResponse as OhlcRetrieveRangeByIDResponse,
-    type OhlcRetrieveByIDParams as OhlcRetrieveByIDParams,
-    type OhlcRetrieveRangeByIDParams as OhlcRetrieveRangeByIDParams,
+    type OhlcGetResponse as OhlcGetResponse,
+    type OhlcGetRangeResponse as OhlcGetRangeResponse,
+    type OhlcGetParams as OhlcGetParams,
+    type OhlcGetRangeParams as OhlcGetRangeParams,
   };
 
-  export { Contract as Contract, type ContractRetrieveByAddressParams as ContractRetrieveByAddressParams };
-
   export {
-    CirculatingSupplyChart as CirculatingSupplyChart,
-    type CirculatingSupplyChartBase as CirculatingSupplyChartBase,
-    type CirculatingSupplyChartRetrieveByIDParams as CirculatingSupplyChartRetrieveByIDParams,
-    type CirculatingSupplyChartRetrieveRangeByIDParams as CirculatingSupplyChartRetrieveRangeByIDParams,
+    Tickers as Tickers,
+    type TickerGetResponse as TickerGetResponse,
+    type TickerGetParams as TickerGetParams,
   };
 
   export {
     TotalSupplyChart as TotalSupplyChart,
-    type TotalSupplyChartBase as TotalSupplyChartBase,
-    type TotalSupplyChartRetrieveByIDParams as TotalSupplyChartRetrieveByIDParams,
-    type TotalSupplyChartRetrieveRangeByIDParams as TotalSupplyChartRetrieveRangeByIDParams,
+    type TotalSupplyChartGetResponse as TotalSupplyChartGetResponse,
+    type TotalSupplyChartGetRangeResponse as TotalSupplyChartGetRangeResponse,
+    type TotalSupplyChartGetParams as TotalSupplyChartGetParams,
+    type TotalSupplyChartGetRangeParams as TotalSupplyChartGetRangeParams,
   };
-
-  export { Categories as Categories };
 }

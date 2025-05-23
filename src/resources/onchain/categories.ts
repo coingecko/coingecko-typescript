@@ -12,13 +12,13 @@ export class Categories extends APIResource {
    *
    * @example
    * ```ts
-   * const categories = await client.onchain.categories.list();
+   * const category = await client.onchain.categories.get();
    * ```
    */
-  list(
-    query: CategoryListParams | null | undefined = {},
+  get(
+    query: CategoryGetParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<CategoryListResponse> {
+  ): APIPromise<CategoryGetResponse> {
     return this._client.get('/onchain/categories', { query, ...options });
   }
 
@@ -28,26 +28,25 @@ export class Categories extends APIResource {
    *
    * @example
    * ```ts
-   * const response =
-   *   await client.onchain.categories.listPoolsByCategory(
-   *     'pump-fun',
-   *   );
+   * const response = await client.onchain.categories.getPools(
+   *   'pump-fun',
+   * );
    * ```
    */
-  listPoolsByCategory(
+  getPools(
     categoryID: string,
-    query: CategoryListPoolsByCategoryParams | null | undefined = {},
+    query: CategoryGetPoolsParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<CategoryListPoolsByCategoryResponse> {
+  ): APIPromise<CategoryGetPoolsResponse> {
     return this._client.get(path`/onchain/categories/${categoryID}/pools`, { query, ...options });
   }
 }
 
-export interface CategoryListResponse {
-  data?: Array<CategoryListResponse.Data>;
+export interface CategoryGetResponse {
+  data?: Array<CategoryGetResponse.Data>;
 }
 
-export namespace CategoryListResponse {
+export namespace CategoryGetResponse {
   export interface Data {
     id?: string;
 
@@ -87,13 +86,13 @@ export namespace CategoryListResponse {
   }
 }
 
-export interface CategoryListPoolsByCategoryResponse {
-  data?: Array<CategoryListPoolsByCategoryResponse.Data>;
+export interface CategoryGetPoolsResponse {
+  data?: Array<CategoryGetPoolsResponse.Data>;
 
-  included?: Array<CategoryListPoolsByCategoryResponse.Included>;
+  included?: Array<CategoryGetPoolsResponse.Included>;
 }
 
-export namespace CategoryListPoolsByCategoryResponse {
+export namespace CategoryGetPoolsResponse {
   export interface Data {
     id?: string;
 
@@ -235,7 +234,7 @@ export namespace CategoryListPoolsByCategoryResponse {
   }
 }
 
-export interface CategoryListParams {
+export interface CategoryGetParams {
   /**
    * page through results Default value: `1`
    */
@@ -254,7 +253,7 @@ export interface CategoryListParams {
     | 'reserve_in_usd_desc';
 }
 
-export interface CategoryListPoolsByCategoryParams {
+export interface CategoryGetPoolsParams {
   /**
    * attributes to include, comma-separated if more than one to include Available
    * values: `base_token`, `quote_token`, `dex`, `network`. Example: `base_token` or
@@ -283,9 +282,9 @@ export interface CategoryListPoolsByCategoryParams {
 
 export declare namespace Categories {
   export {
-    type CategoryListResponse as CategoryListResponse,
-    type CategoryListPoolsByCategoryResponse as CategoryListPoolsByCategoryResponse,
-    type CategoryListParams as CategoryListParams,
-    type CategoryListPoolsByCategoryParams as CategoryListPoolsByCategoryParams,
+    type CategoryGetResponse as CategoryGetResponse,
+    type CategoryGetPoolsResponse as CategoryGetPoolsResponse,
+    type CategoryGetParams as CategoryGetParams,
+    type CategoryGetPoolsParams as CategoryGetPoolsParams,
   };
 }

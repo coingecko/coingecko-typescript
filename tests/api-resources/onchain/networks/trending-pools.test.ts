@@ -1,13 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from 'coingecko';
+import Coingecko from 'coingecko-typescript';
 
-const client = new Coingecko({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const client = new Coingecko({
+  proAPIKey: 'My Pro API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource trendingPools', () => {
   // skipped: tests are disabled for the time being
-  test.skip('list', async () => {
-    const responsePromise = client.onchain.networks.trendingPools.list();
+  test.skip('get', async () => {
+    const responsePromise = client.onchain.networks.trendingPools.get();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -18,10 +21,10 @@ describe('resource trendingPools', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('list: request options and params are passed correctly', async () => {
+  test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.onchain.networks.trendingPools.list(
+      client.onchain.networks.trendingPools.get(
         { duration: '5m', include: 'include', page: 0 },
         { path: '/_stainless_unknown_path' },
       ),
@@ -29,8 +32,8 @@ describe('resource trendingPools', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('listByNetwork', async () => {
-    const responsePromise = client.onchain.networks.trendingPools.listByNetwork('eth');
+  test.skip('getNetwork', async () => {
+    const responsePromise = client.onchain.networks.trendingPools.getNetwork('eth');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -41,10 +44,10 @@ describe('resource trendingPools', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('listByNetwork: request options and params are passed correctly', async () => {
+  test.skip('getNetwork: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.onchain.networks.trendingPools.listByNetwork(
+      client.onchain.networks.trendingPools.getNetwork(
         'eth',
         { duration: '5m', include: 'include', page: 0 },
         { path: '/_stainless_unknown_path' },

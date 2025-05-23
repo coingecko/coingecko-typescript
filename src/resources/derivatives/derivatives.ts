@@ -3,11 +3,11 @@
 import { APIResource } from '../../core/resource';
 import * as ExchangesAPI from './exchanges';
 import {
-  ExchangeIDMapResponse,
-  ExchangeListParams,
-  ExchangeListResponse,
-  ExchangeRetrieveParams,
-  ExchangeRetrieveResponse,
+  ExchangeGetIDParams,
+  ExchangeGetIDResponse,
+  ExchangeGetListResponse,
+  ExchangeGetParams,
+  ExchangeGetResponse,
   Exchanges,
 } from './exchanges';
 import { APIPromise } from '../../core/api-promise';
@@ -22,15 +22,15 @@ export class Derivatives extends APIResource {
    *
    * @example
    * ```ts
-   * const tickersList = await client.derivatives.list();
+   * const derivative = await client.derivatives.get();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<TickersList> {
+  get(options?: RequestOptions): APIPromise<DerivativeGetResponse> {
     return this._client.get('/derivatives', options);
   }
 }
 
-export interface TickersList {
+export interface DerivativeGetResponse {
   /**
    * difference of derivative price and index price
    */
@@ -102,14 +102,14 @@ export interface TickersList {
 Derivatives.Exchanges = Exchanges;
 
 export declare namespace Derivatives {
-  export { type TickersList as TickersList };
+  export { type DerivativeGetResponse as DerivativeGetResponse };
 
   export {
     Exchanges as Exchanges,
-    type ExchangeRetrieveResponse as ExchangeRetrieveResponse,
-    type ExchangeListResponse as ExchangeListResponse,
-    type ExchangeIDMapResponse as ExchangeIDMapResponse,
-    type ExchangeRetrieveParams as ExchangeRetrieveParams,
-    type ExchangeListParams as ExchangeListParams,
+    type ExchangeGetResponse as ExchangeGetResponse,
+    type ExchangeGetIDResponse as ExchangeGetIDResponse,
+    type ExchangeGetListResponse as ExchangeGetListResponse,
+    type ExchangeGetParams as ExchangeGetParams,
+    type ExchangeGetIDParams as ExchangeGetIDParams,
   };
 }

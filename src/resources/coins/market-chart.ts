@@ -12,18 +12,13 @@ export class MarketChart extends APIResource {
    *
    * @example
    * ```ts
-   * const coinsMarketChart =
-   *   await client.coins.marketChart.retrieveByID('bitcoin', {
-   *     days: 'days',
-   *     vs_currency: 'usd',
-   *   });
+   * const marketChart = await client.coins.marketChart.get(
+   *   'bitcoin',
+   *   { days: 'days', vs_currency: 'usd' },
+   * );
    * ```
    */
-  retrieveByID(
-    id: string,
-    query: MarketChartRetrieveByIDParams,
-    options?: RequestOptions,
-  ): APIPromise<CoinsMarketChart> {
+  get(id: string, query: MarketChartGetParams, options?: RequestOptions): APIPromise<MarketChartGetResponse> {
     return this._client.get(path`/coins/${id}/market_chart`, { query, ...options });
   }
 
@@ -34,23 +29,22 @@ export class MarketChart extends APIResource {
    *
    * @example
    * ```ts
-   * const coinsMarketChartRange =
-   *   await client.coins.marketChart.retrieveRangeByID(
-   *     'bitcoin',
-   *     { from: 0, to: 0, vs_currency: 'usd' },
-   *   );
+   * const response = await client.coins.marketChart.getRange(
+   *   'bitcoin',
+   *   { from: 0, to: 0, vs_currency: 'usd' },
+   * );
    * ```
    */
-  retrieveRangeByID(
+  getRange(
     id: string,
-    query: MarketChartRetrieveRangeByIDParams,
+    query: MarketChartGetRangeParams,
     options?: RequestOptions,
-  ): APIPromise<CoinsMarketChartRange> {
+  ): APIPromise<MarketChartGetRangeResponse> {
     return this._client.get(path`/coins/${id}/market_chart/range`, { query, ...options });
   }
 }
 
-export interface CoinsMarketChart {
+export interface MarketChartGetResponse {
   market_caps?: Array<Array<number>>;
 
   prices?: Array<Array<number>>;
@@ -58,7 +52,7 @@ export interface CoinsMarketChart {
   total_volumes?: Array<Array<number>>;
 }
 
-export interface CoinsMarketChartRange {
+export interface MarketChartGetRangeResponse {
   market_caps?: Array<Array<number>>;
 
   prices?: Array<Array<number>>;
@@ -66,7 +60,7 @@ export interface CoinsMarketChartRange {
   total_volumes?: Array<Array<number>>;
 }
 
-export interface MarketChartRetrieveByIDParams {
+export interface MarketChartGetParams {
   /**
    * data up to number of days ago You may use any integer or `max` for number of
    * days
@@ -110,7 +104,7 @@ export interface MarketChartRetrieveByIDParams {
     | '18';
 }
 
-export interface MarketChartRetrieveRangeByIDParams {
+export interface MarketChartGetRangeParams {
   /**
    * starting date in UNIX timestamp
    */
@@ -160,9 +154,9 @@ export interface MarketChartRetrieveRangeByIDParams {
 
 export declare namespace MarketChart {
   export {
-    type CoinsMarketChart as CoinsMarketChart,
-    type CoinsMarketChartRange as CoinsMarketChartRange,
-    type MarketChartRetrieveByIDParams as MarketChartRetrieveByIDParams,
-    type MarketChartRetrieveRangeByIDParams as MarketChartRetrieveRangeByIDParams,
+    type MarketChartGetResponse as MarketChartGetResponse,
+    type MarketChartGetRangeResponse as MarketChartGetRangeResponse,
+    type MarketChartGetParams as MarketChartGetParams,
+    type MarketChartGetRangeParams as MarketChartGetRangeParams,
   };
 }

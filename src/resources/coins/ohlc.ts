@@ -12,17 +12,13 @@ export class Ohlc extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.coins.ohlc.retrieveByID(
-   *   'bitcoin',
-   *   { days: '1', vs_currency: 'usd' },
-   * );
+   * const ohlcs = await client.coins.ohlc.get('bitcoin', {
+   *   days: '1',
+   *   vs_currency: 'usd',
+   * });
    * ```
    */
-  retrieveByID(
-    id: string,
-    query: OhlcRetrieveByIDParams,
-    options?: RequestOptions,
-  ): APIPromise<OhlcRetrieveByIDResponse> {
+  get(id: string, query: OhlcGetParams, options?: RequestOptions): APIPromise<OhlcGetResponse> {
     return this._client.get(path`/coins/${id}/ohlc`, { query, ...options });
   }
 
@@ -32,26 +28,26 @@ export class Ohlc extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.coins.ohlc.retrieveRangeByID(
+   * const response = await client.coins.ohlc.getRange(
    *   'bitcoin',
    *   { from: 0, interval: 'daily', to: 0, vs_currency: 'usd' },
    * );
    * ```
    */
-  retrieveRangeByID(
+  getRange(
     id: string,
-    query: OhlcRetrieveRangeByIDParams,
+    query: OhlcGetRangeParams,
     options?: RequestOptions,
-  ): APIPromise<OhlcRetrieveRangeByIDResponse> {
+  ): APIPromise<OhlcGetRangeResponse> {
     return this._client.get(path`/coins/${id}/ohlc/range`, { query, ...options });
   }
 }
 
-export type OhlcRetrieveByIDResponse = Array<Array<number>>;
+export type OhlcGetResponse = Array<Array<number>>;
 
-export type OhlcRetrieveRangeByIDResponse = Array<Array<number>>;
+export type OhlcGetRangeResponse = Array<Array<number>>;
 
-export interface OhlcRetrieveByIDParams {
+export interface OhlcGetParams {
   /**
    * data up to number of days ago
    */
@@ -94,7 +90,7 @@ export interface OhlcRetrieveByIDParams {
     | '18';
 }
 
-export interface OhlcRetrieveRangeByIDParams {
+export interface OhlcGetRangeParams {
   /**
    * starting date in UNIX timestamp
    */
@@ -119,9 +115,9 @@ export interface OhlcRetrieveRangeByIDParams {
 
 export declare namespace Ohlc {
   export {
-    type OhlcRetrieveByIDResponse as OhlcRetrieveByIDResponse,
-    type OhlcRetrieveRangeByIDResponse as OhlcRetrieveRangeByIDResponse,
-    type OhlcRetrieveByIDParams as OhlcRetrieveByIDParams,
-    type OhlcRetrieveRangeByIDParams as OhlcRetrieveRangeByIDParams,
+    type OhlcGetResponse as OhlcGetResponse,
+    type OhlcGetRangeResponse as OhlcGetRangeResponse,
+    type OhlcGetParams as OhlcGetParams,
+    type OhlcGetRangeParams as OhlcGetRangeParams,
   };
 }

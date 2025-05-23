@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'coingecko/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'coingecko-typescript/internal/utils/path';
 import { inspect } from 'node:util';
 
 describe('path template tag function', () => {

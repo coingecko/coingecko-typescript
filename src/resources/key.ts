@@ -11,15 +11,15 @@ export class Key extends APIResource {
    *
    * @example
    * ```ts
-   * const key = await client.key.retrieve();
+   * const key = await client.key.get();
    * ```
    */
-  retrieve(options?: RequestOptions): APIPromise<KeyRetrieveResponse> {
+  get(options?: RequestOptions): APIPromise<KeyGetResponse> {
     return this._client.get('/key', options);
   }
 }
 
-export interface KeyRetrieveResponse {
+export interface KeyGetResponse {
   current_remaining_monthly_calls?: number;
 
   current_total_monthly_calls?: number;
@@ -32,5 +32,5 @@ export interface KeyRetrieveResponse {
 }
 
 export declare namespace Key {
-  export { type KeyRetrieveResponse as KeyRetrieveResponse };
+  export { type KeyGetResponse as KeyGetResponse };
 }
