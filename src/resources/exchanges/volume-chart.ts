@@ -12,17 +12,13 @@ export class VolumeChart extends APIResource {
    *
    * @example
    * ```ts
-   * const volumeCharts =
-   *   await client.exchanges.volumeChart.retrieve('id', {
-   *     days: '1',
-   *   });
+   * const volumeCharts = await client.exchanges.volumeChart.get(
+   *   'id',
+   *   { days: '1' },
+   * );
    * ```
    */
-  retrieve(
-    id: string,
-    query: VolumeChartRetrieveParams,
-    options?: RequestOptions,
-  ): APIPromise<VolumeChartRetrieveResponse> {
+  get(id: string, query: VolumeChartGetParams, options?: RequestOptions): APIPromise<VolumeChartGetResponse> {
     return this._client.get(path`/exchanges/${id}/volume_chart`, { query, ...options });
   }
 
@@ -33,33 +29,33 @@ export class VolumeChart extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.exchanges.volumeChart.retrieveRange('id', {
+   *   await client.exchanges.volumeChart.getRange('id', {
    *     from: 0,
    *     to: 0,
    *   });
    * ```
    */
-  retrieveRange(
+  getRange(
     id: string,
-    query: VolumeChartRetrieveRangeParams,
+    query: VolumeChartGetRangeParams,
     options?: RequestOptions,
-  ): APIPromise<VolumeChartRetrieveRangeResponse> {
+  ): APIPromise<VolumeChartGetRangeResponse> {
     return this._client.get(path`/exchanges/${id}/volume_chart/range`, { query, ...options });
   }
 }
 
-export type VolumeChartRetrieveResponse = Array<Array<number>>;
+export type VolumeChartGetResponse = Array<Array<number>>;
 
-export type VolumeChartRetrieveRangeResponse = Array<Array<number>>;
+export type VolumeChartGetRangeResponse = Array<Array<number>>;
 
-export interface VolumeChartRetrieveParams {
+export interface VolumeChartGetParams {
   /**
    * data up to number of days ago
    */
   days: '1' | '7' | '14' | '30' | '90' | '180' | '365';
 }
 
-export interface VolumeChartRetrieveRangeParams {
+export interface VolumeChartGetRangeParams {
   /**
    * starting date in UNIX timestamp
    */
@@ -73,9 +69,9 @@ export interface VolumeChartRetrieveRangeParams {
 
 export declare namespace VolumeChart {
   export {
-    type VolumeChartRetrieveResponse as VolumeChartRetrieveResponse,
-    type VolumeChartRetrieveRangeResponse as VolumeChartRetrieveRangeResponse,
-    type VolumeChartRetrieveParams as VolumeChartRetrieveParams,
-    type VolumeChartRetrieveRangeParams as VolumeChartRetrieveRangeParams,
+    type VolumeChartGetResponse as VolumeChartGetResponse,
+    type VolumeChartGetRangeResponse as VolumeChartGetRangeResponse,
+    type VolumeChartGetParams as VolumeChartGetParams,
+    type VolumeChartGetRangeParams as VolumeChartGetRangeParams,
   };
 }

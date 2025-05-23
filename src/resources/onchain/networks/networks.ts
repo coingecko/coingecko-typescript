@@ -2,49 +2,41 @@
 
 import { APIResource } from '../../../core/resource';
 import * as DexesAPI from './dexes';
-import { DexListParams, DexListResponse, DexListTopPoolsParams, Dexes } from './dexes';
+import { DexGetParams, DexGetPoolsParams, DexGetPoolsResponse, DexGetResponse, Dexes } from './dexes';
 import * as NewPoolsAPI from './new-pools';
-import { NewPoolListByNetworkParams, NewPoolListParams, NewPools } from './new-pools';
-import * as PoolsAPI from './pools';
 import {
-  PoolInfo,
-  PoolListRecentTradesParams,
-  PoolListRecentTradesResponse,
-  PoolListTopParams,
-  PoolRetrieveInfoParams,
-  PoolRetrieveMultipleParams,
-  PoolRetrieveOhlcvParams,
-  PoolRetrieveOhlcvResponse,
-  PoolRetrieveParams,
-  Pools,
-} from './pools';
-import * as TokensAPI from './tokens';
-import {
-  Token,
-  TokenInfo,
-  TokenListTopHoldersParams,
-  TokenListTopHoldersResponse,
-  TokenListTopPoolsParams,
-  TokenRetrieveInfoParams,
-  TokenRetrieveMultipleParams,
-  TokenRetrieveParams,
-  Tokens,
-} from './tokens';
+  NewPoolGetNetworkParams,
+  NewPoolGetNetworkResponse,
+  NewPoolGetParams,
+  NewPoolGetResponse,
+  NewPools,
+} from './new-pools';
 import * as TrendingPoolsAPI from './trending-pools';
 import {
-  Pool,
-  TrendingPoolListByNetworkParams,
-  TrendingPoolListParams,
+  TrendingPoolGetNetworkParams,
+  TrendingPoolGetNetworkResponse,
+  TrendingPoolGetParams,
+  TrendingPoolGetResponse,
   TrendingPools,
 } from './trending-pools';
+import * as PoolsAPI from './pools/pools';
+import {
+  PoolGetAddressParams,
+  PoolGetAddressResponse,
+  PoolGetParams,
+  PoolGetResponse,
+  Pools,
+} from './pools/pools';
+import * as TokensAPI from './tokens/tokens';
+import { TokenGetAddressParams, TokenGetAddressResponse, Tokens } from './tokens/tokens';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
 export class Networks extends APIResource {
-  dexes: DexesAPI.Dexes = new DexesAPI.Dexes(this._client);
-  trendingPools: TrendingPoolsAPI.TrendingPools = new TrendingPoolsAPI.TrendingPools(this._client);
-  pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   newPools: NewPoolsAPI.NewPools = new NewPoolsAPI.NewPools(this._client);
+  trendingPools: TrendingPoolsAPI.TrendingPools = new TrendingPoolsAPI.TrendingPools(this._client);
+  dexes: DexesAPI.Dexes = new DexesAPI.Dexes(this._client);
+  pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   tokens: TokensAPI.Tokens = new TokensAPI.Tokens(this._client);
 
   /**
@@ -53,22 +45,22 @@ export class Networks extends APIResource {
    *
    * @example
    * ```ts
-   * const networks = await client.onchain.networks.list();
+   * const network = await client.onchain.networks.get();
    * ```
    */
-  list(
-    query: NetworkListParams | null | undefined = {},
+  get(
+    query: NetworkGetParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<NetworkListResponse> {
+  ): APIPromise<NetworkGetResponse> {
     return this._client.get('/onchain/networks', { query, ...options });
   }
 }
 
-export interface NetworkListResponse {
-  data?: Array<NetworkListResponse.Data>;
+export interface NetworkGetResponse {
+  data?: Array<NetworkGetResponse.Data>;
 }
 
-export namespace NetworkListResponse {
+export namespace NetworkGetResponse {
   export interface Data {
     id?: string;
 
@@ -86,64 +78,57 @@ export namespace NetworkListResponse {
   }
 }
 
-export interface NetworkListParams {
+export interface NetworkGetParams {
   /**
    * page through results Default value: 1
    */
   page?: number;
 }
 
-Networks.Dexes = Dexes;
-Networks.TrendingPools = TrendingPools;
-Networks.Pools = Pools;
 Networks.NewPools = NewPools;
+Networks.TrendingPools = TrendingPools;
+Networks.Dexes = Dexes;
+Networks.Pools = Pools;
 Networks.Tokens = Tokens;
 
 export declare namespace Networks {
-  export { type NetworkListResponse as NetworkListResponse, type NetworkListParams as NetworkListParams };
+  export { type NetworkGetResponse as NetworkGetResponse, type NetworkGetParams as NetworkGetParams };
 
   export {
-    Dexes as Dexes,
-    type DexListResponse as DexListResponse,
-    type DexListParams as DexListParams,
-    type DexListTopPoolsParams as DexListTopPoolsParams,
+    NewPools as NewPools,
+    type NewPoolGetResponse as NewPoolGetResponse,
+    type NewPoolGetNetworkResponse as NewPoolGetNetworkResponse,
+    type NewPoolGetParams as NewPoolGetParams,
+    type NewPoolGetNetworkParams as NewPoolGetNetworkParams,
   };
 
   export {
     TrendingPools as TrendingPools,
-    type Pool as Pool,
-    type TrendingPoolListParams as TrendingPoolListParams,
-    type TrendingPoolListByNetworkParams as TrendingPoolListByNetworkParams,
+    type TrendingPoolGetResponse as TrendingPoolGetResponse,
+    type TrendingPoolGetNetworkResponse as TrendingPoolGetNetworkResponse,
+    type TrendingPoolGetParams as TrendingPoolGetParams,
+    type TrendingPoolGetNetworkParams as TrendingPoolGetNetworkParams,
+  };
+
+  export {
+    Dexes as Dexes,
+    type DexGetResponse as DexGetResponse,
+    type DexGetPoolsResponse as DexGetPoolsResponse,
+    type DexGetParams as DexGetParams,
+    type DexGetPoolsParams as DexGetPoolsParams,
   };
 
   export {
     Pools as Pools,
-    type PoolInfo as PoolInfo,
-    type PoolListRecentTradesResponse as PoolListRecentTradesResponse,
-    type PoolRetrieveOhlcvResponse as PoolRetrieveOhlcvResponse,
-    type PoolRetrieveParams as PoolRetrieveParams,
-    type PoolListRecentTradesParams as PoolListRecentTradesParams,
-    type PoolListTopParams as PoolListTopParams,
-    type PoolRetrieveInfoParams as PoolRetrieveInfoParams,
-    type PoolRetrieveMultipleParams as PoolRetrieveMultipleParams,
-    type PoolRetrieveOhlcvParams as PoolRetrieveOhlcvParams,
-  };
-
-  export {
-    NewPools as NewPools,
-    type NewPoolListParams as NewPoolListParams,
-    type NewPoolListByNetworkParams as NewPoolListByNetworkParams,
+    type PoolGetResponse as PoolGetResponse,
+    type PoolGetAddressResponse as PoolGetAddressResponse,
+    type PoolGetParams as PoolGetParams,
+    type PoolGetAddressParams as PoolGetAddressParams,
   };
 
   export {
     Tokens as Tokens,
-    type Token as Token,
-    type TokenInfo as TokenInfo,
-    type TokenListTopHoldersResponse as TokenListTopHoldersResponse,
-    type TokenRetrieveParams as TokenRetrieveParams,
-    type TokenListTopHoldersParams as TokenListTopHoldersParams,
-    type TokenListTopPoolsParams as TokenListTopPoolsParams,
-    type TokenRetrieveInfoParams as TokenRetrieveInfoParams,
-    type TokenRetrieveMultipleParams as TokenRetrieveMultipleParams,
+    type TokenGetAddressResponse as TokenGetAddressResponse,
+    type TokenGetAddressParams as TokenGetAddressParams,
   };
 }

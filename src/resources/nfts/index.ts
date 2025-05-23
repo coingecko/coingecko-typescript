@@ -1,14 +1,17 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Contract, type ContractRetrieveParams, type ContractRetrieveMarketChartParams } from './contract';
+export {
+  Contract,
+  type ContractGetContractAddressResponse,
+  type ContractGetContractAddressParams,
+} from './contract/index';
+export { MarketChart, type MarketChartGetResponse, type MarketChartGetParams } from './market-chart';
 export {
   NFTs,
-  type NFTData,
-  type NFTMarketChart,
-  type NFTListResponse,
-  type NFTListWithMarketDataResponse,
-  type NFTRetrieveTickersResponse,
-  type NFTListParams,
-  type NFTListWithMarketDataParams,
-  type NFTRetrieveMarketChartParams,
+  type NFTGetIDResponse,
+  type NFTGetListResponse,
+  type NFTGetMarketsResponse,
+  type NFTGetListParams,
+  type NFTGetMarketsParams,
 } from './nfts';
+export { Tickers, type TickerGetResponse } from './tickers';

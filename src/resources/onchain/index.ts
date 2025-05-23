@@ -2,19 +2,14 @@
 
 export {
   Categories,
-  type CategoryListResponse,
-  type CategoryListPoolsByCategoryResponse,
-  type CategoryListParams,
-  type CategoryListPoolsByCategoryParams,
+  type CategoryGetResponse,
+  type CategoryGetPoolsResponse,
+  type CategoryGetParams,
+  type CategoryGetPoolsParams,
 } from './categories';
-export { Networks, type NetworkListResponse, type NetworkListParams } from './networks/index';
+export { Networks, type NetworkGetResponse, type NetworkGetParams } from './networks/index';
 export { Onchain } from './onchain';
-export {
-  Pools,
-  type PoolListTrendingSearchResponse,
-  type PoolListTrendingSearchParams,
-  type PoolMegafilterParams,
-} from './pools';
-export { Search, type SearchPoolsParams } from './search';
+export { Pools } from './pools/index';
+export { Search } from './search/index';
 export { Simple } from './simple/index';
-export { Tokens, type TokenListRecentlyUpdatedParams } from './tokens';
+export { Tokens } from './tokens/index';

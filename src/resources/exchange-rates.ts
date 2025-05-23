@@ -10,19 +10,19 @@ export class ExchangeRates extends APIResource {
    *
    * @example
    * ```ts
-   * const exchangeRates = await client.exchangeRates.list();
+   * const exchangeRate = await client.exchangeRates.get();
    * ```
    */
-  list(options?: RequestOptions): APIPromise<ExchangeRateListResponse> {
+  get(options?: RequestOptions): APIPromise<ExchangeRateGetResponse> {
     return this._client.get('/exchange_rates', options);
   }
 }
 
-export interface ExchangeRateListResponse {
-  rates?: Record<string, ExchangeRateListResponse.Rates>;
+export interface ExchangeRateGetResponse {
+  rates?: Record<string, ExchangeRateGetResponse.Rates>;
 }
 
-export namespace ExchangeRateListResponse {
+export namespace ExchangeRateGetResponse {
   export interface Rates {
     /**
      * name of the currency
@@ -47,5 +47,5 @@ export namespace ExchangeRateListResponse {
 }
 
 export declare namespace ExchangeRates {
-  export { type ExchangeRateListResponse as ExchangeRateListResponse };
+  export { type ExchangeRateGetResponse as ExchangeRateGetResponse };
 }

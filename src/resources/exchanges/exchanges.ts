@@ -1,21 +1,39 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as CoinsAPI from '../coins/coins';
+import * as TickersAPI from './tickers';
+import { TickerGetParams, TickerGetResponse, Tickers } from './tickers';
 import * as VolumeChartAPI from './volume-chart';
 import {
   VolumeChart,
-  VolumeChartRetrieveParams,
-  VolumeChartRetrieveRangeParams,
-  VolumeChartRetrieveRangeResponse,
-  VolumeChartRetrieveResponse,
+  VolumeChartGetParams,
+  VolumeChartGetRangeParams,
+  VolumeChartGetRangeResponse,
+  VolumeChartGetResponse,
 } from './volume-chart';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class Exchanges extends APIResource {
+  tickers: TickersAPI.Tickers = new TickersAPI.Tickers(this._client);
   volumeChart: VolumeChartAPI.VolumeChart = new VolumeChartAPI.VolumeChart(this._client);
+
+  /**
+   * This endpoint allows you to **query all the supported exchanges with exchanges’
+   * data (ID, name, country, ...) that have active trading volumes on CoinGecko**
+   *
+   * @example
+   * ```ts
+   * const exchange = await client.exchanges.get();
+   * ```
+   */
+  get(
+    query: ExchangeGetParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ExchangeGetResponse> {
+    return this._client.get('/exchanges', { query, ...options });
+  }
 
   /**
    * This endpoint allows you to **query exchange’s data (name, year established,
@@ -24,27 +42,11 @@ export class Exchanges extends APIResource {
    *
    * @example
    * ```ts
-   * const exchange = await client.exchanges.retrieve('binance');
+   * const response = await client.exchanges.getID('binance');
    * ```
    */
-  retrieve(id: string, options?: RequestOptions): APIPromise<ExchangeRetrieveResponse> {
+  getID(id: string, options?: RequestOptions): APIPromise<ExchangeGetIDResponse> {
     return this._client.get(path`/exchanges/${id}`, options);
-  }
-
-  /**
-   * This endpoint allows you to **query all the supported exchanges with exchanges’
-   * data (ID, name, country, ...) that have active trading volumes on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const exchanges = await client.exchanges.list();
-   * ```
-   */
-  list(
-    query: ExchangeListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<ExchangeListResponse> {
-    return this._client.get('/exchanges', { query, ...options });
   }
 
   /**
@@ -52,36 +54,81 @@ export class Exchanges extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.exchanges.listIDMap();
+   * const response = await client.exchanges.getList();
    * ```
    */
-  listIDMap(
-    query: ExchangeListIDMapParams | null | undefined = {},
+  getList(
+    query: ExchangeGetListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<ExchangeListIDMapResponse> {
+  ): APIPromise<ExchangeGetListResponse> {
     return this._client.get('/exchanges/list', { query, ...options });
-  }
-
-  /**
-   * This endpoint allows you to **query exchange's tickers based on exchange’s ID**
-   *
-   * @example
-   * ```ts
-   * const coinsTickers = await client.exchanges.retrieveTickers(
-   *   'binance',
-   * );
-   * ```
-   */
-  retrieveTickers(
-    id: string,
-    query: ExchangeRetrieveTickersParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<CoinsAPI.CoinsTickers> {
-    return this._client.get(path`/exchanges/${id}/tickers`, { query, ...options });
   }
 }
 
-export interface ExchangeRetrieveResponse {
+export interface ExchangeGetResponse {
+  /**
+   * exchange ID
+   */
+  id?: string;
+
+  /**
+   * exchange country
+   */
+  country?: string;
+
+  /**
+   * exchange description
+   */
+  description?: string;
+
+  /**
+   * exchange trading incentive
+   */
+  has_trading_incentive?: boolean;
+
+  /**
+   * exchange image url
+   */
+  image?: string;
+
+  /**
+   * exchange name
+   */
+  name?: string;
+
+  /**
+   * exchange trade volume in BTC in 24 hours
+   */
+  trade_volume_24h_btc?: number;
+
+  /**
+   * normalized trading volume by traffic in BTC in 24 hours \*refers to
+   * [`this blog`](https://blog.coingecko.com/trust-score/).
+   */
+  trade_volume_24h_btc_normalized?: number;
+
+  /**
+   * exchange trust score
+   */
+  trust_score?: number;
+
+  /**
+   * exchange trust score rank
+   */
+  trust_score_rank?: number;
+
+  /**
+   * exchange website url
+   */
+  url?: string;
+
+  /**
+   * exchange established year
+   */
+  year_established?: number;
+}
+
+export interface ExchangeGetIDResponse {
   /**
    * alert notice for exchange
    */
@@ -156,7 +203,7 @@ export interface ExchangeRetrieveResponse {
    */
   telegram_url?: string;
 
-  tickers?: Array<CoinsAPI.CoinsTickers>;
+  tickers?: Array<ExchangeGetIDResponse.Ticker>;
 
   trade_volume_24h_btc?: number;
 
@@ -192,82 +239,186 @@ export interface ExchangeRetrieveResponse {
   year_established?: number;
 }
 
-export interface ExchangeListResponse {
+export namespace ExchangeGetIDResponse {
+  export interface Ticker {
+    /**
+     * coin name
+     */
+    name?: string;
+
+    /**
+     * list of tickers
+     */
+    tickers?: Array<Ticker.Ticker>;
+  }
+
+  export namespace Ticker {
+    export interface Ticker {
+      /**
+       * coin ticker base currency
+       */
+      base?: string;
+
+      /**
+       * coin ticker bid ask spread percentage
+       */
+      bid_ask_spread_percentage?: number;
+
+      /**
+       * coin ticker base currency coin ID
+       */
+      coin_id?: string;
+
+      /**
+       * coin ticker converted last price
+       */
+      converted_last?: Ticker.ConvertedLast;
+
+      /**
+       * coin ticker converted volume
+       */
+      converted_volume?: Ticker.ConvertedVolume;
+
+      /**
+       * coin ticker cost to move down in usd
+       */
+      cost_to_move_down_usd?: number;
+
+      /**
+       * coin ticker cost to move up in usd
+       */
+      cost_to_move_up_usd?: number;
+
+      /**
+       * coin ticker anomaly
+       */
+      is_anomaly?: boolean;
+
+      /**
+       * coin ticker stale
+       */
+      is_stale?: boolean;
+
+      /**
+       * coin ticker last price
+       */
+      last?: number;
+
+      /**
+       * coin ticker last fetch timestamp
+       */
+      last_fetch_at?: string;
+
+      /**
+       * coin ticker last traded timestamp
+       */
+      last_traded_at?: string;
+
+      /**
+       * coin ticker exchange
+       */
+      market?: Ticker.Market;
+
+      /**
+       * coin ticker target currency
+       */
+      target?: string;
+
+      /**
+       * coin ticker target currency coin ID
+       */
+      target_coin_id?: string;
+
+      /**
+       * coin ticker timestamp
+       */
+      timestamp?: string;
+
+      /**
+       * coin ticker token info url
+       */
+      token_info_url?: string | null;
+
+      /**
+       * coin ticker trade url
+       */
+      trade_url?: string;
+
+      /**
+       * coin ticker trust score
+       */
+      trust_score?: string;
+
+      /**
+       * coin ticker volume
+       */
+      volume?: number;
+    }
+
+    export namespace Ticker {
+      /**
+       * coin ticker converted last price
+       */
+      export interface ConvertedLast {
+        btc?: number;
+
+        eth?: number;
+
+        usd?: number;
+      }
+
+      /**
+       * coin ticker converted volume
+       */
+      export interface ConvertedVolume {
+        btc?: number;
+
+        eth?: number;
+
+        usd?: number;
+      }
+
+      /**
+       * coin ticker exchange
+       */
+      export interface Market {
+        /**
+         * exchange trading incentive
+         */
+        has_trading_incentive: boolean;
+
+        /**
+         * exchange identifier
+         */
+        identifier: string;
+
+        /**
+         * exchange name
+         */
+        name: string;
+
+        /**
+         * exchange image url
+         */
+        logo?: string;
+      }
+    }
+  }
+}
+
+export interface ExchangeGetListResponse {
   /**
    * exchange ID
    */
   id?: string;
 
   /**
-   * exchange country
-   */
-  country?: string;
-
-  /**
-   * exchange description
-   */
-  description?: string;
-
-  /**
-   * exchange trading incentive
-   */
-  has_trading_incentive?: boolean;
-
-  /**
-   * exchange image url
-   */
-  image?: string;
-
-  /**
-   * exchange name
-   */
-  name?: string;
-
-  /**
-   * exchange trade volume in BTC in 24 hours
-   */
-  trade_volume_24h_btc?: number;
-
-  /**
-   * normalized trading volume by traffic in BTC in 24 hours \*refers to
-   * [`this blog`](https://blog.coingecko.com/trust-score/).
-   */
-  trade_volume_24h_btc_normalized?: number;
-
-  /**
-   * exchange trust score
-   */
-  trust_score?: number;
-
-  /**
-   * exchange trust score rank
-   */
-  trust_score_rank?: number;
-
-  /**
-   * exchange website url
-   */
-  url?: string;
-
-  /**
-   * exchange established year
-   */
-  year_established?: number;
-}
-
-export interface ExchangeListIDMapResponse {
-  /**
-   * exchange ID
-   */
-  id?: string;
-
-  /**
    * exchange name
    */
   name?: string;
 }
 
-export interface ExchangeListParams {
+export interface ExchangeGetParams {
   /**
    * page through results, default: 1
    */
@@ -279,59 +430,36 @@ export interface ExchangeListParams {
   per_page?: number;
 }
 
-export interface ExchangeListIDMapParams {
+export interface ExchangeGetListParams {
   /**
    * filter by status of exchanges, default: active
    */
   status?: 'active' | 'inactive';
 }
 
-export interface ExchangeRetrieveTickersParams {
-  /**
-   * filter tickers by coin IDs, comma-separated if querying more than 1 coin
-   * \*refers to [`/coins/list`](/reference/coins-list).
-   */
-  coin_ids?: string;
-
-  /**
-   * include 2% orderbook depth (Example: cost_to_move_up_usd &
-   * cost_to_move_down_usd),default: false
-   */
-  depth?: boolean;
-
-  /**
-   * include exchange logo, default: false
-   */
-  include_exchange_logo?: boolean;
-
-  /**
-   * use this to sort the order of responses, default: trust_score_desc
-   */
-  order?: 'trust_score_desc' | 'trust_score_asc' | 'volume_desc' | 'volume_asc' | 'base_target';
-
-  /**
-   * page through results
-   */
-  page?: number;
-}
-
+Exchanges.Tickers = Tickers;
 Exchanges.VolumeChart = VolumeChart;
 
 export declare namespace Exchanges {
   export {
-    type ExchangeRetrieveResponse as ExchangeRetrieveResponse,
-    type ExchangeListResponse as ExchangeListResponse,
-    type ExchangeListIDMapResponse as ExchangeListIDMapResponse,
-    type ExchangeListParams as ExchangeListParams,
-    type ExchangeListIDMapParams as ExchangeListIDMapParams,
-    type ExchangeRetrieveTickersParams as ExchangeRetrieveTickersParams,
+    type ExchangeGetResponse as ExchangeGetResponse,
+    type ExchangeGetIDResponse as ExchangeGetIDResponse,
+    type ExchangeGetListResponse as ExchangeGetListResponse,
+    type ExchangeGetParams as ExchangeGetParams,
+    type ExchangeGetListParams as ExchangeGetListParams,
+  };
+
+  export {
+    Tickers as Tickers,
+    type TickerGetResponse as TickerGetResponse,
+    type TickerGetParams as TickerGetParams,
   };
 
   export {
     VolumeChart as VolumeChart,
-    type VolumeChartRetrieveResponse as VolumeChartRetrieveResponse,
-    type VolumeChartRetrieveRangeResponse as VolumeChartRetrieveRangeResponse,
-    type VolumeChartRetrieveParams as VolumeChartRetrieveParams,
-    type VolumeChartRetrieveRangeParams as VolumeChartRetrieveRangeParams,
+    type VolumeChartGetResponse as VolumeChartGetResponse,
+    type VolumeChartGetRangeResponse as VolumeChartGetRangeResponse,
+    type VolumeChartGetParams as VolumeChartGetParams,
+    type VolumeChartGetRangeParams as VolumeChartGetRangeParams,
   };
 }

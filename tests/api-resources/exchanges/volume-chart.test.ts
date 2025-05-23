@@ -1,13 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from 'coingecko';
+import Coingecko from 'coingecko-typescript';
 
-const client = new Coingecko({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const client = new Coingecko({
+  proAPIKey: 'My Pro API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource volumeChart', () => {
   // skipped: tests are disabled for the time being
-  test.skip('retrieve: only required params', async () => {
-    const responsePromise = client.exchanges.volumeChart.retrieve('id', { days: '1' });
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.exchanges.volumeChart.get('id', { days: '1' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -18,13 +21,13 @@ describe('resource volumeChart', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieve: required and optional params', async () => {
-    const response = await client.exchanges.volumeChart.retrieve('id', { days: '1' });
+  test.skip('get: required and optional params', async () => {
+    const response = await client.exchanges.volumeChart.get('id', { days: '1' });
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieveRange: only required params', async () => {
-    const responsePromise = client.exchanges.volumeChart.retrieveRange('id', { from: 0, to: 0 });
+  test.skip('getRange: only required params', async () => {
+    const responsePromise = client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -35,7 +38,7 @@ describe('resource volumeChart', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieveRange: required and optional params', async () => {
-    const response = await client.exchanges.volumeChart.retrieveRange('id', { from: 0, to: 0 });
+  test.skip('getRange: required and optional params', async () => {
+    const response = await client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });
   });
 });

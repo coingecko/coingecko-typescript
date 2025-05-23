@@ -13,17 +13,17 @@ export class TokenLists extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.tokenLists.retrieveAll(
+   * const response = await client.tokenLists.getAllJson(
    *   'ethereum',
    * );
    * ```
    */
-  retrieveAll(assetPlatformID: string, options?: RequestOptions): APIPromise<TokenListRetrieveAllResponse> {
+  getAllJson(assetPlatformID: string, options?: RequestOptions): APIPromise<TokenListGetAllJsonResponse> {
     return this._client.get(path`/token_lists/${assetPlatformID}/all.json`, options);
   }
 }
 
-export interface TokenListRetrieveAllResponse {
+export interface TokenListGetAllJsonResponse {
   keywords?: Array<string>;
 
   logoURI?: string;
@@ -32,10 +32,10 @@ export interface TokenListRetrieveAllResponse {
 
   timestamp?: string;
 
-  tokens?: Array<TokenListRetrieveAllResponse.Token>;
+  tokens?: Array<TokenListGetAllJsonResponse.Token>;
 }
 
-export namespace TokenListRetrieveAllResponse {
+export namespace TokenListGetAllJsonResponse {
   export interface Token {
     /**
      * token contract address
@@ -70,5 +70,5 @@ export namespace TokenListRetrieveAllResponse {
 }
 
 export declare namespace TokenLists {
-  export { type TokenListRetrieveAllResponse as TokenListRetrieveAllResponse };
+  export { type TokenListGetAllJsonResponse as TokenListGetAllJsonResponse };
 }

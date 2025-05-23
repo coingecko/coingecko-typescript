@@ -12,18 +12,17 @@ export class CirculatingSupplyChart extends APIResource {
    *
    * @example
    * ```ts
-   * const circulatingSupplyChartBase =
-   *   await client.coins.circulatingSupplyChart.retrieveByID(
-   *     'bitcoin',
-   *     { days: 'days' },
-   *   );
+   * const circulatingSupplyChart =
+   *   await client.coins.circulatingSupplyChart.get('bitcoin', {
+   *     days: 'days',
+   *   });
    * ```
    */
-  retrieveByID(
+  get(
     id: string,
-    query: CirculatingSupplyChartRetrieveByIDParams,
+    query: CirculatingSupplyChartGetParams,
     options?: RequestOptions,
-  ): APIPromise<CirculatingSupplyChartBase> {
+  ): APIPromise<CirculatingSupplyChartGetResponse> {
     return this._client.get(path`/coins/${id}/circulating_supply_chart`, { query, ...options });
   }
 
@@ -33,27 +32,31 @@ export class CirculatingSupplyChart extends APIResource {
    *
    * @example
    * ```ts
-   * const circulatingSupplyChartBase =
-   *   await client.coins.circulatingSupplyChart.retrieveRangeByID(
+   * const response =
+   *   await client.coins.circulatingSupplyChart.getRange(
    *     'bitcoin',
    *     { from: 0, to: 0 },
    *   );
    * ```
    */
-  retrieveRangeByID(
+  getRange(
     id: string,
-    query: CirculatingSupplyChartRetrieveRangeByIDParams,
+    query: CirculatingSupplyChartGetRangeParams,
     options?: RequestOptions,
-  ): APIPromise<CirculatingSupplyChartBase> {
+  ): APIPromise<CirculatingSupplyChartGetRangeResponse> {
     return this._client.get(path`/coins/${id}/circulating_supply_chart/range`, { query, ...options });
   }
 }
 
-export interface CirculatingSupplyChartBase {
+export interface CirculatingSupplyChartGetResponse {
   circulating_supply?: Array<Array<number | string>>;
 }
 
-export interface CirculatingSupplyChartRetrieveByIDParams {
+export interface CirculatingSupplyChartGetRangeResponse {
+  circulating_supply?: Array<Array<number | string>>;
+}
+
+export interface CirculatingSupplyChartGetParams {
   /**
    * data up to number of days ago Valid values: any integer or `max`
    */
@@ -65,7 +68,7 @@ export interface CirculatingSupplyChartRetrieveByIDParams {
   interval?: 'daily';
 }
 
-export interface CirculatingSupplyChartRetrieveRangeByIDParams {
+export interface CirculatingSupplyChartGetRangeParams {
   /**
    * starting date in UNIX timestamp
    */
@@ -79,8 +82,9 @@ export interface CirculatingSupplyChartRetrieveRangeByIDParams {
 
 export declare namespace CirculatingSupplyChart {
   export {
-    type CirculatingSupplyChartBase as CirculatingSupplyChartBase,
-    type CirculatingSupplyChartRetrieveByIDParams as CirculatingSupplyChartRetrieveByIDParams,
-    type CirculatingSupplyChartRetrieveRangeByIDParams as CirculatingSupplyChartRetrieveRangeByIDParams,
+    type CirculatingSupplyChartGetResponse as CirculatingSupplyChartGetResponse,
+    type CirculatingSupplyChartGetRangeResponse as CirculatingSupplyChartGetRangeResponse,
+    type CirculatingSupplyChartGetParams as CirculatingSupplyChartGetParams,
+    type CirculatingSupplyChartGetRangeParams as CirculatingSupplyChartGetRangeParams,
   };
 }

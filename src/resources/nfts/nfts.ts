@@ -1,14 +1,24 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as ContractAPI from './contract';
-import { Contract, ContractRetrieveMarketChartParams, ContractRetrieveParams } from './contract';
+import * as MarketChartAPI from './market-chart';
+import { MarketChart, MarketChartGetParams, MarketChartGetResponse } from './market-chart';
+import * as TickersAPI from './tickers';
+import { TickerGetResponse, Tickers } from './tickers';
+import * as ContractAPI from './contract/contract';
+import {
+  Contract,
+  ContractGetContractAddressParams,
+  ContractGetContractAddressResponse,
+} from './contract/contract';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
 export class NFTs extends APIResource {
   contract: ContractAPI.Contract = new ContractAPI.Contract(this._client);
+  marketChart: MarketChartAPI.MarketChart = new MarketChartAPI.MarketChart(this._client);
+  tickers: TickersAPI.Tickers = new TickersAPI.Tickers(this._client);
 
   /**
    * This endpoint allows you to **query all the NFT data (name, floor price, 24hr
@@ -16,12 +26,10 @@ export class NFTs extends APIResource {
    *
    * @example
    * ```ts
-   * const nftData = await client.nfts.retrieve(
-   *   'pudgy-penguins',
-   * );
+   * const response = await client.nfts.getID('pudgy-penguins');
    * ```
    */
-  retrieve(id: string, options?: RequestOptions): APIPromise<NFTData> {
+  getID(id: string, options?: RequestOptions): APIPromise<NFTGetIDResponse> {
     return this._client.get(path`/nfts/${id}`, options);
   }
 
@@ -31,10 +39,13 @@ export class NFTs extends APIResource {
    *
    * @example
    * ```ts
-   * const nfts = await client.nfts.list();
+   * const response = await client.nfts.getList();
    * ```
    */
-  list(query: NFTListParams | null | undefined = {}, options?: RequestOptions): APIPromise<NFTListResponse> {
+  getList(
+    query: NFTGetListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<NFTGetListResponse> {
     return this._client.get('/nfts/list', { query, ...options });
   }
 
@@ -44,54 +55,18 @@ export class NFTs extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.nfts.listWithMarketData();
+   * const response = await client.nfts.getMarkets();
    * ```
    */
-  listWithMarketData(
-    query: NFTListWithMarketDataParams | null | undefined = {},
+  getMarkets(
+    query: NFTGetMarketsParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<NFTListWithMarketDataResponse> {
+  ): APIPromise<NFTGetMarketsResponse> {
     return this._client.get('/nfts/markets', { query, ...options });
-  }
-
-  /**
-   * This endpoint allows you **query historical market data of a NFT collection,
-   * including floor price, market cap, and 24hr volume, by number of days away from
-   * now**
-   *
-   * @example
-   * ```ts
-   * const nftMarketChart =
-   *   await client.nfts.retrieveMarketChart('pudgy-penguins', {
-   *     days: 'days',
-   *   });
-   * ```
-   */
-  retrieveMarketChart(
-    id: string,
-    query: NFTRetrieveMarketChartParams,
-    options?: RequestOptions,
-  ): APIPromise<NFTMarketChart> {
-    return this._client.get(path`/nfts/${id}/market_chart`, { query, ...options });
-  }
-
-  /**
-   * This endpoint allows you to **query the latest floor price and 24hr volume of a
-   * NFT collection, on each NFT marketplace, e.g. OpenSea and LooksRare**
-   *
-   * @example
-   * ```ts
-   * const response = await client.nfts.retrieveTickers(
-   *   'pudgy-penguins',
-   * );
-   * ```
-   */
-  retrieveTickers(id: string, options?: RequestOptions): APIPromise<NFTRetrieveTickersResponse> {
-    return this._client.get(path`/nfts/${id}/tickers`, options);
   }
 }
 
-export interface NFTData {
+export interface NFTGetIDResponse {
   /**
    * NFT collection ID
    */
@@ -105,22 +80,22 @@ export interface NFTData {
   /**
    * NFT collection all time highs
    */
-  ath?: NFTData.Ath;
+  ath?: NFTGetIDResponse.Ath;
 
   /**
    * NFT collection all time highs change percentage
    */
-  ath_change_percentage?: NFTData.AthChangePercentage;
+  ath_change_percentage?: NFTGetIDResponse.AthChangePercentage;
 
   /**
    * NFT collection all time highs date
    */
-  ath_date?: NFTData.AthDate;
+  ath_date?: NFTGetIDResponse.AthDate;
 
   /**
    * NFT collection banner image url
    */
-  banner_image?: NFTData.BannerImage;
+  banner_image?: NFTGetIDResponse.BannerImage;
 
   /**
    * NFT collection contract address
@@ -135,39 +110,39 @@ export interface NFTData {
   /**
    * NFT collection block explorers links
    */
-  explorers?: Array<NFTData.Explorer>;
+  explorers?: Array<NFTGetIDResponse.Explorer>;
 
   /**
    * NFT collection floor price
    */
-  floor_price?: NFTData.FloorPrice;
+  floor_price?: NFTGetIDResponse.FloorPrice;
 
   /**
    * NFT collection floor price 14 days percentage change
    */
-  floor_price_14d_percentage_change?: NFTData.FloorPrice14dPercentageChange;
+  floor_price_14d_percentage_change?: NFTGetIDResponse.FloorPrice14dPercentageChange;
 
   /**
    * NFT collection floor price 1 year percentage change
    */
-  floor_price_1y_percentage_change?: NFTData.FloorPrice1yPercentageChange;
+  floor_price_1y_percentage_change?: NFTGetIDResponse.FloorPrice1yPercentageChange;
 
-  floor_price_24h_percentage_change?: NFTData.FloorPrice24hPercentageChange;
+  floor_price_24h_percentage_change?: NFTGetIDResponse.FloorPrice24hPercentageChange;
 
   /**
    * NFT collection floor price 30 days percentage change
    */
-  floor_price_30d_percentage_change?: NFTData.FloorPrice30dPercentageChange;
+  floor_price_30d_percentage_change?: NFTGetIDResponse.FloorPrice30dPercentageChange;
 
   /**
    * NFT collection floor price 60 days percentage change
    */
-  floor_price_60d_percentage_change?: NFTData.FloorPrice60dPercentageChange;
+  floor_price_60d_percentage_change?: NFTGetIDResponse.FloorPrice60dPercentageChange;
 
   /**
    * NFT collection floor price 7 days percentage change
    */
-  floor_price_7d_percentage_change?: NFTData.FloorPrice7dPercentageChange;
+  floor_price_7d_percentage_change?: NFTGetIDResponse.FloorPrice7dPercentageChange;
 
   /**
    * NFT collection floor price in usd 24 hours percentage change
@@ -177,22 +152,22 @@ export interface NFTData {
   /**
    * NFT collection image url
    */
-  image?: NFTData.Image;
+  image?: NFTGetIDResponse.Image;
 
   /**
    * NFT collection links
    */
-  links?: NFTData.Links;
+  links?: NFTGetIDResponse.Links;
 
   /**
    * NFT collection market cap
    */
-  market_cap?: NFTData.MarketCap;
+  market_cap?: NFTGetIDResponse.MarketCap;
 
   /**
    * NFT collection market cap 24 hours percentage change
    */
-  market_cap_24h_percentage_change?: NFTData.MarketCap24hPercentageChange;
+  market_cap_24h_percentage_change?: NFTGetIDResponse.MarketCap24hPercentageChange;
 
   /**
    * coin market cap rank
@@ -262,12 +237,12 @@ export interface NFTData {
   /**
    * NFT collection volume in 24 hours
    */
-  volume_24h?: NFTData.Volume24h;
+  volume_24h?: NFTGetIDResponse.Volume24h;
 
   /**
    * NFT collection volume in 24 hours percentage change
    */
-  volume_24h_percentage_change?: NFTData.Volume24hPercentageChange;
+  volume_24h_percentage_change?: NFTGetIDResponse.Volume24hPercentageChange;
 
   /**
    * NFT collection volume in usd 24 hours percentage change
@@ -275,7 +250,7 @@ export interface NFTData {
   volume_in_usd_24h_percentage_change?: number;
 }
 
-export namespace NFTData {
+export namespace NFTGetIDResponse {
   /**
    * NFT collection all time highs
    */
@@ -433,39 +408,7 @@ export namespace NFTData {
   }
 }
 
-export interface NFTMarketChart {
-  /**
-   * NFT collection floor price in native currency
-   */
-  floor_price_native?: Array<Array<number>>;
-
-  /**
-   * NFT collection floor price in usd
-   */
-  floor_price_usd?: Array<Array<number>>;
-
-  /**
-   * NFT collection volume in 24 hours in native currency
-   */
-  h24_volume_native?: Array<Array<number>>;
-
-  /**
-   * NFT collection volume in 24 hours in usd
-   */
-  h24_volume_usd?: Array<Array<number>>;
-
-  /**
-   * NFT collection market cap in native currency
-   */
-  market_cap_native?: Array<Array<number>>;
-
-  /**
-   * NFT collection market cap in usd
-   */
-  market_cap_usd?: Array<Array<number>>;
-}
-
-export interface NFTListResponse {
+export interface NFTGetListResponse {
   /**
    * NFT collection ID
    */
@@ -492,11 +435,10 @@ export interface NFTListResponse {
   symbol?: string;
 }
 
-export type NFTListWithMarketDataResponse =
-  Array<NFTListWithMarketDataResponse.NFTListWithMarketDataResponseItem>;
+export type NFTGetMarketsResponse = Array<NFTGetMarketsResponse.NFTGetMarketsResponseItem>;
 
-export namespace NFTListWithMarketDataResponse {
-  export interface NFTListWithMarketDataResponseItem {
+export namespace NFTGetMarketsResponse {
+  export interface NFTGetMarketsResponseItem {
     /**
      * NFT collection ID
      */
@@ -520,12 +462,12 @@ export namespace NFTListWithMarketDataResponse {
     /**
      * NFT collection floor price
      */
-    floor_price?: NFTListWithMarketDataResponseItem.FloorPrice;
+    floor_price?: NFTGetMarketsResponseItem.FloorPrice;
 
     /**
      * NFT collection floor price 24 hours percentage change
      */
-    floor_price_24h_percentage_change?: NFTListWithMarketDataResponseItem.FloorPrice24hPercentageChange;
+    floor_price_24h_percentage_change?: NFTGetMarketsResponseItem.FloorPrice24hPercentageChange;
 
     /**
      * NFT collection floor price in usd 24 hours percentage change
@@ -535,17 +477,17 @@ export namespace NFTListWithMarketDataResponse {
     /**
      * NFT collection image url
      */
-    image?: NFTListWithMarketDataResponseItem.Image;
+    image?: NFTGetMarketsResponseItem.Image;
 
     /**
      * NFT collection market cap
      */
-    market_cap?: NFTListWithMarketDataResponseItem.MarketCap;
+    market_cap?: NFTGetMarketsResponseItem.MarketCap;
 
     /**
      * NFT collection market cap 24 hours percentage change
      */
-    market_cap_24h_percentage_change?: NFTListWithMarketDataResponseItem.MarketCap24hPercentageChange;
+    market_cap_24h_percentage_change?: NFTGetMarketsResponseItem.MarketCap24hPercentageChange;
 
     /**
      * coin market cap rank
@@ -610,12 +552,12 @@ export namespace NFTListWithMarketDataResponse {
     /**
      * NFT collection volume in 24 hours
      */
-    volume_24h?: NFTListWithMarketDataResponseItem.Volume24h;
+    volume_24h?: NFTGetMarketsResponseItem.Volume24h;
 
     /**
      * NFT collection volume in 24 hours percentage change
      */
-    volume_24h_percentage_change?: NFTListWithMarketDataResponseItem.Volume24hPercentageChange;
+    volume_24h_percentage_change?: NFTGetMarketsResponseItem.Volume24hPercentageChange;
 
     /**
      * NFT collection volume in usd 24 hours percentage change
@@ -623,7 +565,7 @@ export namespace NFTListWithMarketDataResponse {
     volume_in_usd_24h_percentage_change?: number;
   }
 
-  export namespace NFTListWithMarketDataResponseItem {
+  export namespace NFTGetMarketsResponseItem {
     /**
      * NFT collection floor price
      */
@@ -689,60 +631,7 @@ export namespace NFTListWithMarketDataResponse {
   }
 }
 
-export interface NFTRetrieveTickersResponse {
-  tickers?: Array<NFTRetrieveTickersResponse.Ticker>;
-}
-
-export namespace NFTRetrieveTickersResponse {
-  export interface Ticker {
-    /**
-     * NFT collection floor price in native currency
-     */
-    floor_price_in_native_currency?: number;
-
-    /**
-     * NFT collection volume in 24 hours in native currency
-     */
-    h24_volume_in_native_currency?: number;
-
-    /**
-     * NFT marketplace image url
-     */
-    image?: string;
-
-    /**
-     * NFT marketplace name
-     */
-    name?: string;
-
-    /**
-     * NFT collection native currency
-     */
-    native_currency?: string;
-
-    /**
-     * NFT collection native currency symbol
-     */
-    native_currency_symbol?: string;
-
-    /**
-     * NFT collection url in the NFT marketplace
-     */
-    nft_collection_url?: string;
-
-    /**
-     * NFT marketplace ID
-     */
-    nft_marketplace_id?: string;
-
-    /**
-     * last updated time
-     */
-    updated_at?: string;
-  }
-}
-
-export interface NFTListParams {
+export interface NFTGetListParams {
   /**
    * use this to sort the order of responses
    */
@@ -769,7 +658,7 @@ export interface NFTListParams {
   per_page?: number;
 }
 
-export interface NFTListWithMarketDataParams {
+export interface NFTGetMarketsParams {
   /**
    * filter result by asset platform (blockchain network) \*refers to
    * [`/asset_platforms`](/reference/asset-platforms-list) filter=`nft`
@@ -799,30 +688,30 @@ export interface NFTListWithMarketDataParams {
   per_page?: number;
 }
 
-export interface NFTRetrieveMarketChartParams {
-  /**
-   * data up to number of days Valid values: any integer or max
-   */
-  days: string;
-}
-
 NFTs.Contract = Contract;
+NFTs.MarketChart = MarketChart;
+NFTs.Tickers = Tickers;
 
 export declare namespace NFTs {
   export {
-    type NFTData as NFTData,
-    type NFTMarketChart as NFTMarketChart,
-    type NFTListResponse as NFTListResponse,
-    type NFTListWithMarketDataResponse as NFTListWithMarketDataResponse,
-    type NFTRetrieveTickersResponse as NFTRetrieveTickersResponse,
-    type NFTListParams as NFTListParams,
-    type NFTListWithMarketDataParams as NFTListWithMarketDataParams,
-    type NFTRetrieveMarketChartParams as NFTRetrieveMarketChartParams,
+    type NFTGetIDResponse as NFTGetIDResponse,
+    type NFTGetListResponse as NFTGetListResponse,
+    type NFTGetMarketsResponse as NFTGetMarketsResponse,
+    type NFTGetListParams as NFTGetListParams,
+    type NFTGetMarketsParams as NFTGetMarketsParams,
   };
 
   export {
     Contract as Contract,
-    type ContractRetrieveParams as ContractRetrieveParams,
-    type ContractRetrieveMarketChartParams as ContractRetrieveMarketChartParams,
+    type ContractGetContractAddressResponse as ContractGetContractAddressResponse,
+    type ContractGetContractAddressParams as ContractGetContractAddressParams,
   };
+
+  export {
+    MarketChart as MarketChart,
+    type MarketChartGetResponse as MarketChartGetResponse,
+    type MarketChartGetParams as MarketChartGetParams,
+  };
+
+  export { Tickers as Tickers, type TickerGetResponse as TickerGetResponse };
 }

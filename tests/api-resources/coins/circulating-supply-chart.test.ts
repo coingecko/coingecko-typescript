@@ -1,13 +1,16 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from 'coingecko';
+import Coingecko from 'coingecko-typescript';
 
-const client = new Coingecko({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
+const client = new Coingecko({
+  proAPIKey: 'My Pro API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource circulatingSupplyChart', () => {
   // skipped: tests are disabled for the time being
-  test.skip('retrieveByID: only required params', async () => {
-    const responsePromise = client.coins.circulatingSupplyChart.retrieveByID('bitcoin', { days: 'days' });
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.coins.circulatingSupplyChart.get('bitcoin', { days: 'days' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -18,19 +21,16 @@ describe('resource circulatingSupplyChart', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieveByID: required and optional params', async () => {
-    const response = await client.coins.circulatingSupplyChart.retrieveByID('bitcoin', {
+  test.skip('get: required and optional params', async () => {
+    const response = await client.coins.circulatingSupplyChart.get('bitcoin', {
       days: 'days',
       interval: 'daily',
     });
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieveRangeByID: only required params', async () => {
-    const responsePromise = client.coins.circulatingSupplyChart.retrieveRangeByID('bitcoin', {
-      from: 0,
-      to: 0,
-    });
+  test.skip('getRange: only required params', async () => {
+    const responsePromise = client.coins.circulatingSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -41,10 +41,7 @@ describe('resource circulatingSupplyChart', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('retrieveRangeByID: required and optional params', async () => {
-    const response = await client.coins.circulatingSupplyChart.retrieveRangeByID('bitcoin', {
-      from: 0,
-      to: 0,
-    });
+  test.skip('getRange: required and optional params', async () => {
+    const response = await client.coins.circulatingSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
   });
 });

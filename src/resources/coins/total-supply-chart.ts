@@ -12,18 +12,17 @@ export class TotalSupplyChart extends APIResource {
    *
    * @example
    * ```ts
-   * const totalSupplyChartBase =
-   *   await client.coins.totalSupplyChart.retrieveByID(
-   *     'bitcoin',
-   *     { days: 'days' },
-   *   );
+   * const totalSupplyChart =
+   *   await client.coins.totalSupplyChart.get('bitcoin', {
+   *     days: 'days',
+   *   });
    * ```
    */
-  retrieveByID(
+  get(
     id: string,
-    query: TotalSupplyChartRetrieveByIDParams,
+    query: TotalSupplyChartGetParams,
     options?: RequestOptions,
-  ): APIPromise<TotalSupplyChartBase> {
+  ): APIPromise<TotalSupplyChartGetResponse> {
     return this._client.get(path`/coins/${id}/total_supply_chart`, { query, ...options });
   }
 
@@ -33,27 +32,31 @@ export class TotalSupplyChart extends APIResource {
    *
    * @example
    * ```ts
-   * const totalSupplyChartBase =
-   *   await client.coins.totalSupplyChart.retrieveRangeByID(
-   *     'bitcoin',
-   *     { from: 0, to: 0 },
-   *   );
+   * const response =
+   *   await client.coins.totalSupplyChart.getRange('bitcoin', {
+   *     from: 0,
+   *     to: 0,
+   *   });
    * ```
    */
-  retrieveRangeByID(
+  getRange(
     id: string,
-    query: TotalSupplyChartRetrieveRangeByIDParams,
+    query: TotalSupplyChartGetRangeParams,
     options?: RequestOptions,
-  ): APIPromise<TotalSupplyChartBase> {
+  ): APIPromise<TotalSupplyChartGetRangeResponse> {
     return this._client.get(path`/coins/${id}/total_supply_chart/range`, { query, ...options });
   }
 }
 
-export interface TotalSupplyChartBase {
+export interface TotalSupplyChartGetResponse {
   total_supply?: Array<Array<number | string>>;
 }
 
-export interface TotalSupplyChartRetrieveByIDParams {
+export interface TotalSupplyChartGetRangeResponse {
+  total_supply?: Array<Array<number | string>>;
+}
+
+export interface TotalSupplyChartGetParams {
   /**
    * data up to number of days ago Valid values: any integer or `max`
    */
@@ -65,7 +68,7 @@ export interface TotalSupplyChartRetrieveByIDParams {
   interval?: 'daily';
 }
 
-export interface TotalSupplyChartRetrieveRangeByIDParams {
+export interface TotalSupplyChartGetRangeParams {
   /**
    * starting date in UNIX timestamp
    */
@@ -79,8 +82,9 @@ export interface TotalSupplyChartRetrieveRangeByIDParams {
 
 export declare namespace TotalSupplyChart {
   export {
-    type TotalSupplyChartBase as TotalSupplyChartBase,
-    type TotalSupplyChartRetrieveByIDParams as TotalSupplyChartRetrieveByIDParams,
-    type TotalSupplyChartRetrieveRangeByIDParams as TotalSupplyChartRetrieveRangeByIDParams,
+    type TotalSupplyChartGetResponse as TotalSupplyChartGetResponse,
+    type TotalSupplyChartGetRangeResponse as TotalSupplyChartGetRangeResponse,
+    type TotalSupplyChartGetParams as TotalSupplyChartGetParams,
+    type TotalSupplyChartGetRangeParams as TotalSupplyChartGetRangeParams,
   };
 }

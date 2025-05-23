@@ -2,56 +2,33 @@
 
 export {
   AssetPlatforms,
-  type AssetPlatformListResponse,
-  type AssetPlatformListParams,
+  type AssetPlatformGetResponse,
+  type AssetPlatformGetParams,
 } from './asset-platforms';
-export { Coins, type CoinsData, type CoinsTickers } from './coins/coins';
-export { Companies, type CompanyRetrievePublicTreasuryResponse } from './companies';
-export { Derivatives, type TickersList } from './derivatives/derivatives';
-export { ExchangeRates, type ExchangeRateListResponse } from './exchange-rates';
+export { Coins, type CoinGetIDResponse, type CoinGetIDParams } from './coins/coins';
+export { Companies } from './companies/companies';
+export { Derivatives, type DerivativeGetResponse } from './derivatives/derivatives';
+export { ExchangeRates, type ExchangeRateGetResponse } from './exchange-rates';
 export {
   Exchanges,
-  type ExchangeRetrieveResponse,
-  type ExchangeListResponse,
-  type ExchangeListIDMapResponse,
-  type ExchangeListParams,
-  type ExchangeListIDMapParams,
-  type ExchangeRetrieveTickersParams,
+  type ExchangeGetResponse,
+  type ExchangeGetIDResponse,
+  type ExchangeGetListResponse,
+  type ExchangeGetParams,
+  type ExchangeGetListParams,
 } from './exchanges/exchanges';
-export {
-  Global,
-  type GlobalRetrieveResponse,
-  type GlobalRetrieveDecentralizedFinanceResponse,
-  type GlobalRetrieveMarketCapChartResponse,
-  type GlobalRetrieveMarketCapChartParams,
-} from './global';
-export { Key, type KeyRetrieveResponse } from './key';
+export { Global, type GlobalGetResponse } from './global/global';
+export { Key, type KeyGetResponse } from './key';
 export {
   NFTs,
-  type NFTData,
-  type NFTMarketChart,
-  type NFTListResponse,
-  type NFTListWithMarketDataResponse,
-  type NFTRetrieveTickersResponse,
-  type NFTListParams,
-  type NFTListWithMarketDataParams,
-  type NFTRetrieveMarketChartParams,
+  type NFTGetIDResponse,
+  type NFTGetListResponse,
+  type NFTGetMarketsResponse,
+  type NFTGetListParams,
+  type NFTGetMarketsParams,
 } from './nfts/nfts';
 export { Onchain } from './onchain/onchain';
-export { Ping, type PingCheckStatusResponse } from './ping';
-export {
-  Search,
-  type SearchRetrieveResponse,
-  type SearchListTrendingResponse,
-  type SearchRetrieveParams,
-  type SearchListTrendingParams,
-} from './search';
-export {
-  Simple,
-  type SimpleGetPriceResponse,
-  type SimpleGetTokenPriceResponse,
-  type SimpleListSupportedCurrenciesResponse,
-  type SimpleGetPriceParams,
-  type SimpleGetTokenPriceParams,
-} from './simple';
-export { TokenLists, type TokenListRetrieveAllResponse } from './token-lists';
+export { Ping, type PingGetResponse } from './ping';
+export { Search, type SearchGetResponse, type SearchGetParams } from './search/search';
+export { Simple } from './simple/simple';
+export { TokenLists, type TokenListGetAllJsonResponse } from './token-lists';

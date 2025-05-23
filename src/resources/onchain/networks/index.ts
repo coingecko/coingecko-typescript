@@ -1,34 +1,32 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Dexes, type DexListResponse, type DexListParams, type DexListTopPoolsParams } from './dexes';
-export { Networks, type NetworkListResponse, type NetworkListParams } from './networks';
-export { NewPools, type NewPoolListParams, type NewPoolListByNetworkParams } from './new-pools';
+export {
+  Dexes,
+  type DexGetResponse,
+  type DexGetPoolsResponse,
+  type DexGetParams,
+  type DexGetPoolsParams,
+} from './dexes';
+export { Networks, type NetworkGetResponse, type NetworkGetParams } from './networks';
+export {
+  NewPools,
+  type NewPoolGetResponse,
+  type NewPoolGetNetworkResponse,
+  type NewPoolGetParams,
+  type NewPoolGetNetworkParams,
+} from './new-pools';
 export {
   Pools,
-  type PoolInfo,
-  type PoolListRecentTradesResponse,
-  type PoolRetrieveOhlcvResponse,
-  type PoolRetrieveParams,
-  type PoolListRecentTradesParams,
-  type PoolListTopParams,
-  type PoolRetrieveInfoParams,
-  type PoolRetrieveMultipleParams,
-  type PoolRetrieveOhlcvParams,
-} from './pools';
-export {
-  Tokens,
-  type Token,
-  type TokenInfo,
-  type TokenListTopHoldersResponse,
-  type TokenRetrieveParams,
-  type TokenListTopHoldersParams,
-  type TokenListTopPoolsParams,
-  type TokenRetrieveInfoParams,
-  type TokenRetrieveMultipleParams,
-} from './tokens';
+  type PoolGetResponse,
+  type PoolGetAddressResponse,
+  type PoolGetParams,
+  type PoolGetAddressParams,
+} from './pools/index';
+export { Tokens, type TokenGetAddressResponse, type TokenGetAddressParams } from './tokens/index';
 export {
   TrendingPools,
-  type Pool,
-  type TrendingPoolListParams,
-  type TrendingPoolListByNetworkParams,
+  type TrendingPoolGetResponse,
+  type TrendingPoolGetNetworkResponse,
+  type TrendingPoolGetParams,
+  type TrendingPoolGetNetworkParams,
 } from './trending-pools';
