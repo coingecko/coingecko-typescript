@@ -207,7 +207,7 @@ export interface CoinGetIDResponse {
   /**
    * coin status updates
    */
-  status_updates?: Array<unknown>;
+  status_updates?: Array<string>;
 
   /**
    * coin symbol
