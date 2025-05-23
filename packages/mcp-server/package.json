@@ -1,5 +1,5 @@
 {
-  "name": "coingecko-typescript-mcp",
+  "name": "coingecko-mcp",
   "version": "0.0.1-alpha.0",
   "description": "The official MCP Server for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
@@ -54,8 +54,8 @@
     "typescript": "5.8.3"
   },
   "imports": {
-    "coingecko-typescript-mcp": ".",
-    "coingecko-typescript-mcp/*": "./src/*"
+    "coingecko-mcp": ".",
+    "coingecko-mcp/*": "./src/*"
   },
   "exports": {
     ".": {
