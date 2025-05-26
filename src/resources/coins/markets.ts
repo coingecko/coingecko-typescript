@@ -128,21 +128,11 @@ export interface MarketGetResponse {
   price_change_24h?: number;
 
   /**
-   * coin 1h price change in percentage
-   */
-  price_change_percentage_1h?: number;
-
-  /**
    * coin 24hr price change in percentage
    */
   price_change_percentage_24h?: number;
 
   roi?: string;
-
-  /**
-   * coin price sparkline in 7 days
-   */
-  sparkline_in_7d?: MarketGetResponse.SparklineIn7d;
 
   /**
    * coin symbol
@@ -158,15 +148,6 @@ export interface MarketGetResponse {
    * coin total trading volume in currency
    */
   total_volume?: number;
-}
-
-export namespace MarketGetResponse {
-  /**
-   * coin price sparkline in 7 days
-   */
-  export interface SparklineIn7d {
-    price?: Array<number>;
-  }
 }
 
 export interface MarketGetParams {
