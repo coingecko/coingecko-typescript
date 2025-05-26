@@ -33,6 +33,8 @@ export namespace InfoRecentlyUpdatedGetResponse {
 
     attributes?: Data.Attributes;
 
+    relationships?: Data.Relationships;
+
     type?: string;
   }
 
@@ -40,69 +42,37 @@ export namespace InfoRecentlyUpdatedGetResponse {
     export interface Attributes {
       address?: string;
 
-      categories?: Array<string>;
-
       coingecko_coin_id?: string;
 
       description?: string;
 
-      discord_url?: string;
-
-      freeze_authority?: string;
-
-      gt_categories_id?: Array<string>;
-
       gt_score?: number;
-
-      gt_score_details?: Attributes.GtScoreDetails;
-
-      holders?: Attributes.Holders;
 
       image_url?: string;
 
-      mint_authority?: string;
+      metadata_updated_at?: string;
 
       name?: string;
 
       symbol?: string;
 
-      telegram_handle?: string;
-
-      twitter_handle?: string;
-
       websites?: Array<string>;
     }
 
-    export namespace Attributes {
-      export interface GtScoreDetails {
-        creation?: number;
+    export interface Relationships {
+      network?: Relationships.Network;
+    }
 
-        holders?: number;
-
-        info?: number;
-
-        pool?: number;
-
-        transaction?: number;
+    export namespace Relationships {
+      export interface Network {
+        data?: Network.Data;
       }
 
-      export interface Holders {
-        count?: number;
+      export namespace Network {
+        export interface Data {
+          id?: string;
 
-        distribution_percentage?: Holders.DistributionPercentage;
-
-        last_updated?: string;
-      }
-
-      export namespace Holders {
-        export interface DistributionPercentage {
-          '11_30'?: number;
-
-          '31_50'?: number;
-
-          rest?: number;
-
-          top_10?: number;
+          type?: string;
         }
       }
     }

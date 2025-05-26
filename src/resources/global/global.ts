@@ -29,13 +29,6 @@ export class Global extends APIResource {
 
 export interface GlobalGetResponse {
   data?: GlobalGetResponse.Data;
-
-  /**
-   * cryptocurrencies market cap change percentage in 24 hours in usd
-   */
-  market_cap_change_percentage_24h_usd?: number;
-
-  updated_at?: number;
 }
 
 export namespace GlobalGetResponse {
@@ -49,6 +42,11 @@ export namespace GlobalGetResponse {
      * number of ended icos
      */
     ended_icos?: number;
+
+    /**
+     * cryptocurrencies market cap change percentage in 24 hours in usd
+     */
+    market_cap_change_percentage_24h_usd?: number;
 
     /**
      * cryptocurrencies market cap percentage
@@ -79,6 +77,8 @@ export namespace GlobalGetResponse {
      * number of upcoming icos
      */
     upcoming_icos?: number;
+
+    updated_at?: number;
   }
 
   export namespace Data {
