@@ -1,6 +1,6 @@
 {
   "name": "coingecko-mcp",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The official MCP Server for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
@@ -8,10 +8,10 @@
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/coingecko-typescript.git",
+    "url": "git+https://github.com/coingecko/coingecko-typescript.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://github.com/stainless-sdks/coingecko-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/coingecko/coingecko-typescript/tree/main/packages/mcp-server#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "private": false,
