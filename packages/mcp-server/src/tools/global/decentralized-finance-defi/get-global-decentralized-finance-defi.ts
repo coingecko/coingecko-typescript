@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'global.decentralized_finance_defi',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/global/decentralized_finance_defi',
+  operationId: 'global-DeFi',
 };
 
 export const tool: Tool = {

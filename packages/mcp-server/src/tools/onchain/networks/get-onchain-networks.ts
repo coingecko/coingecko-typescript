@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks',
+  operationId: 'networks-list',
 };
 
 export const tool: Tool = {

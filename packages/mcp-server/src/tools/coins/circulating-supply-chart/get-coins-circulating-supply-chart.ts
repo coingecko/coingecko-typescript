@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'coins.circulating_supply_chart',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/coins/{id}/circulating_supply_chart',
+  operationId: 'coins-id-circulating-supply-chart',
 };
 
 export const tool: Tool = {

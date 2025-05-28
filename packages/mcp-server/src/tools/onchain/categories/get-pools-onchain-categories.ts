@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.categories',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/categories/{category_id}/pools',
+  operationId: 'pools-category',
 };
 
 export const tool: Tool = {

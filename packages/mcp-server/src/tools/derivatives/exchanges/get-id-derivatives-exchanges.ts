@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'derivatives.exchanges',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/derivatives/exchanges/{id}',
+  operationId: 'derivatives-exchanges-id',
 };
 
 export const tool: Tool = {

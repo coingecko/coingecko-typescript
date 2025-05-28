@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.search.pools',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/search/pools',
+  operationId: 'search-pools',
 };
 
 export const tool: Tool = {
