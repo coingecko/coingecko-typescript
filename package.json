@@ -1,6 +1,6 @@
 {
   "name": "coingecko-typescript",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "The official TypeScript library for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
