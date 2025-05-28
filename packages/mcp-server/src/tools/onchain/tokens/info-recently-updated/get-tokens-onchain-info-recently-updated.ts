@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.tokens.info_recently_updated',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/tokens/info_recently_updated',
+  operationId: 'tokens-info-recent-updated',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'nfts.contract',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/nfts/{asset_platform_id}/contract/{contract_address}',
+  operationId: 'nfts-contract-address',
 };
 
 export const tool: Tool = {

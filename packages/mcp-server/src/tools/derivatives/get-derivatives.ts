@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'derivatives',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/derivatives',
+  operationId: 'derivatives-tickers',
 };
 
 export const tool: Tool = {

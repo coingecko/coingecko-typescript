@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks.pools.trades',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks/{network}/pools/{pool_address}/trades',
+  operationId: 'pool-trades-contract-address',
 };
 
 export const tool: Tool = {

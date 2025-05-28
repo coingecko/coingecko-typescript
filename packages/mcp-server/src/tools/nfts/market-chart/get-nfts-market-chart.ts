@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'nfts.market_chart',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/nfts/{id}/market_chart',
+  operationId: 'nfts-id-market-chart',
 };
 
 export const tool: Tool = {

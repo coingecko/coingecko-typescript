@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.pools.trending_search',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/pools/trending_search',
+  operationId: 'trending-search-pools',
 };
 
 export const tool: Tool = {

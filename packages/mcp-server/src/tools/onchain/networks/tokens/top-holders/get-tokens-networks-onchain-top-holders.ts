@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks.tokens.top_holders',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks/{network}/tokens/{address}/top_holders',
+  operationId: 'top-token-holders-token-address',
 };
 
 export const tool: Tool = {

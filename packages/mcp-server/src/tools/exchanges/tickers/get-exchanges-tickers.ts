@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'exchanges.tickers',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/exchanges/{id}/tickers',
+  operationId: 'exchanges-id-tickers',
 };
 
 export const tool: Tool = {

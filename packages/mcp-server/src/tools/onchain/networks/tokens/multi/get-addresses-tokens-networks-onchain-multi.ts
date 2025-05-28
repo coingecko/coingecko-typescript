@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks.tokens.multi',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks/{network}/tokens/multi/{addresses}',
+  operationId: 'tokens-data-contract-addresses',
 };
 
 export const tool: Tool = {

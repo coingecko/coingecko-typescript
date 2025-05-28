@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'simple.supported_vs_currencies',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/simple/supported_vs_currencies',
+  operationId: 'simple-supported-currencies',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'search.trending',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/search/trending',
+  operationId: 'trending-search',
 };
 
 export const tool: Tool = {

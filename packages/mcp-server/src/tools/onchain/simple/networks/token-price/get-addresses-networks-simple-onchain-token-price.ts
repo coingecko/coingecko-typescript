@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.simple.networks.token_price',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/simple/networks/{network}/token_price/{addresses}',
+  operationId: 'onchain-simple-price',
 };
 
 export const tool: Tool = {

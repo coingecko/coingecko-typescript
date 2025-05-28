@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'coins.ohlc',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/coins/{id}/ohlc/range',
+  operationId: 'coins-id-ohlc-range',
 };
 
 export const tool: Tool = {
