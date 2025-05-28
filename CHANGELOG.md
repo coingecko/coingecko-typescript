@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-05-28)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Chores
+
+* improve publish-npm script --latest tag logic ([64fc958](https://github.com/coingecko/coingecko-typescript/commit/64fc9588a23823efe4feeb625df0b50c69b455ac))
+
 ## 0.1.0-alpha.1 (2025-05-27)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/coingecko/coingecko-typescript/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
