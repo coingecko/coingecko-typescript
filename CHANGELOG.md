@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-05-29)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Features
+
+* **mcp:** include http information in tools ([a074514](https://github.com/coingecko/coingecko-typescript/commit/a074514100b4a0b149bee168356d15c7079389fa))
+
+
+### Chores
+
+* **mcp:** remove duplicate assignment ([f8fbf38](https://github.com/coingecko/coingecko-typescript/commit/f8fbf382e4be449b4ca47d8fc1d677a47f468de0))
+
 ## 0.1.0-alpha.2 (2025-05-28)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
