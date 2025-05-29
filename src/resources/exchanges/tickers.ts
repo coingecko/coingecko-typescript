@@ -204,6 +204,12 @@ export interface TickerGetParams {
   depth?: boolean;
 
   /**
+   * set to `symbol` to display DEX pair base and target as symbols, default:
+   * `contract_address`
+   */
+  dex_pair_format?: 'contract_address' | 'symbol';
+
+  /**
    * include exchange logo, default: false
    */
   include_exchange_logo?: boolean;

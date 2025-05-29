@@ -65,6 +65,8 @@ export namespace MultiGetAddressesResponse {
 
       name?: string;
 
+      normalized_total_supply?: string;
+
       price_usd?: string;
 
       symbol?: string;

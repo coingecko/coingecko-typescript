@@ -69,6 +69,10 @@ export namespace MultiGetAddressesResponse {
 
       pool_created_at?: string;
 
+      pool_fee_percentage?: string;
+
+      pool_name?: string;
+
       price_change_percentage?: Attributes.PriceChangePercentage;
 
       quote_token_price_base_token?: string;
@@ -269,6 +273,11 @@ export interface MultiGetAddressesParams {
    * Available values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * Query param: include volume breakdown, default: false
+   */
+  include_volume_breakdown?: boolean;
 }
 
 export declare namespace Multi {

@@ -31,6 +31,12 @@ export const tool: Tool = {
         type: 'boolean',
         description: 'include developer data, default: true',
       },
+      dex_pair_format: {
+        type: 'string',
+        description:
+          'set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`',
+        enum: ['contract_address', 'symbol'],
+      },
       localization: {
         type: 'boolean',
         description: 'include all the localized languages in the response, default: true',

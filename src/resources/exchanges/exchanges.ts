@@ -45,8 +45,12 @@ export class Exchanges extends APIResource {
    * const response = await client.exchanges.getID('binance');
    * ```
    */
-  getID(id: string, options?: RequestOptions): APIPromise<ExchangeGetIDResponse> {
-    return this._client.get(path`/exchanges/${id}`, options);
+  getID(
+    id: string,
+    query: ExchangeGetIDParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ExchangeGetIDResponse> {
+    return this._client.get(path`/exchanges/${id}`, { query, ...options });
   }
 
   /**
@@ -430,6 +434,14 @@ export interface ExchangeGetParams {
   per_page?: number;
 }
 
+export interface ExchangeGetIDParams {
+  /**
+   * set to `symbol` to display DEX pair base and target as symbols, default:
+   * `contract_address`
+   */
+  dex_pair_format?: 'contract_address' | 'symbol';
+}
+
 export interface ExchangeGetListParams {
   /**
    * filter by status of exchanges, default: active
@@ -446,6 +458,7 @@ export declare namespace Exchanges {
     type ExchangeGetIDResponse as ExchangeGetIDResponse,
     type ExchangeGetListResponse as ExchangeGetListResponse,
     type ExchangeGetParams as ExchangeGetParams,
+    type ExchangeGetIDParams as ExchangeGetIDParams,
     type ExchangeGetListParams as ExchangeGetListParams,
   };
 

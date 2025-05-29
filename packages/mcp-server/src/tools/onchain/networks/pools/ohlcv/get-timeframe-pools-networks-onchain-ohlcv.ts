@@ -49,6 +49,10 @@ export const tool: Tool = {
         description: 'return OHLCV in USD or quote token <br> Default value: usd',
         enum: ['usd', 'token'],
       },
+      include_empty_intervals: {
+        type: 'boolean',
+        description: 'include empty intervals with no trade data, default: false',
+      },
       limit: {
         type: 'integer',
         description: 'number of OHLCV results to return, maximum 1000 <br> Default value: 100',

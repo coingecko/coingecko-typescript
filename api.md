@@ -209,7 +209,7 @@ Types:
 Methods:
 
 - <code title="get /exchanges">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">get</a>({ ...params }) -> ExchangeGetResponse</code>
-- <code title="get /exchanges/{id}">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getID</a>(id) -> ExchangeGetIDResponse</code>
+- <code title="get /exchanges/{id}">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getID</a>(id, { ...params }) -> ExchangeGetIDResponse</code>
 - <code title="get /exchanges/list">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getList</a>({ ...params }) -> ExchangeGetListResponse</code>
 
 ## Tickers
@@ -489,6 +489,16 @@ Types:
 Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{token_address}/pools">client.onchain.networks.tokens.pools.<a href="./src/resources/onchain/networks/tokens/pools.ts">get</a>(tokenAddress, { ...params }) -> PoolGetResponse</code>
+
+#### Trades
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/tokens/trades.ts">TradeGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/trades">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">get</a>(tokenAddress, { ...params }) -> TradeGetResponse</code>
 
 ## Pools
 
