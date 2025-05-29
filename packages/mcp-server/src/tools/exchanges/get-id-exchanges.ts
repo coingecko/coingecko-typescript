@@ -23,13 +23,19 @@ export const tool: Tool = {
       id: {
         type: 'string',
       },
+      dex_pair_format: {
+        type: 'string',
+        description:
+          'set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`',
+        enum: ['contract_address', 'symbol'],
+      },
     },
   },
 };
 
 export const handler = (client: Coingecko, args: Record<string, unknown> | undefined) => {
   const { id, ...body } = args as any;
-  return client.exchanges.getID(id);
+  return client.exchanges.getID(id, body);
 };
 
 export default { metadata, tool, handler };

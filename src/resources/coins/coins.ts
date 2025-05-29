@@ -1038,6 +1038,12 @@ export interface CoinGetIDParams {
   developer_data?: boolean;
 
   /**
+   * set to `symbol` to display DEX pair base and target as symbols, default:
+   * `contract_address`
+   */
+  dex_pair_format?: 'contract_address' | 'symbol';
+
+  /**
    * include all the localized languages in the response, default: true
    */
   localization?: boolean;

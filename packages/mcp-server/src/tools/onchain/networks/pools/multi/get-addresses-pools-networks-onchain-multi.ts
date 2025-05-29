@@ -31,6 +31,10 @@ export const tool: Tool = {
         description:
           'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`',
       },
+      include_volume_breakdown: {
+        type: 'boolean',
+        description: 'include volume breakdown, default: false',
+      },
     },
   },
 };

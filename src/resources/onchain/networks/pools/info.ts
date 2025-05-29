@@ -60,6 +60,8 @@ export namespace InfoGetResponse {
 
       holders?: Attributes.Holders;
 
+      image?: Attributes.Image;
+
       image_url?: string;
 
       mint_authority?: string;
@@ -106,6 +108,14 @@ export namespace InfoGetResponse {
 
           top_10?: number;
         }
+      }
+
+      export interface Image {
+        large?: string;
+
+        small?: string;
+
+        thumb?: string;
       }
     }
   }

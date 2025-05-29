@@ -200,8 +200,6 @@ export namespace PoolGetResponse {
 
       dex?: Relationships.Dex;
 
-      network?: Relationships.Network;
-
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -223,18 +221,6 @@ export namespace PoolGetResponse {
       }
 
       export namespace Dex {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-
-      export interface Network {
-        data?: Network.Data;
-      }
-
-      export namespace Network {
         export interface Data {
           id?: string;
 
@@ -317,6 +303,10 @@ export namespace PoolGetAddressResponse {
       name?: string;
 
       pool_created_at?: string;
+
+      pool_fee_percentage?: string;
+
+      pool_name?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
 
@@ -536,6 +526,11 @@ export interface PoolGetAddressParams {
    * Available values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * Query param: include volume breakdown, default: false
+   */
+  include_volume_breakdown?: boolean;
 }
 
 Pools.Multi = Multi;

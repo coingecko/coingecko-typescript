@@ -29,6 +29,7 @@ describe('resource coins', () => {
         {
           community_data: true,
           developer_data: true,
+          dex_pair_format: 'contract_address',
           localization: true,
           market_data: true,
           sparkline: true,

@@ -387,6 +387,10 @@ The following tools are available in this MCP server.
 
 - `get_tokens_networks_onchain_pools` (`read`): This endpoint allows you to **query top pools based on the provided token contract address on a network**
 
+### Resource `onchain.networks.tokens.trades`:
+
+- `get_tokens_networks_onchain_trades` (`read`): This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided token contract address on a network**
+
 ### Resource `onchain.pools.megafilter`:
 
 - `get_pools_onchain_megafilter` (`read`): This endpoint allows you to **query pools based on various filters across all networks on GeckoTerminal**
