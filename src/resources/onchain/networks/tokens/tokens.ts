@@ -9,6 +9,8 @@ import * as PoolsAPI from './pools';
 import { PoolGetParams, PoolGetResponse, Pools } from './pools';
 import * as TopHoldersAPI from './top-holders';
 import { TopHolderGetParams, TopHolderGetResponse, TopHolders } from './top-holders';
+import * as TradesAPI from './trades';
+import { TradeGetParams, TradeGetResponse, Trades } from './trades';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -18,6 +20,7 @@ export class Tokens extends APIResource {
   info: InfoAPI.Info = new InfoAPI.Info(this._client);
   topHolders: TopHoldersAPI.TopHolders = new TopHoldersAPI.TopHolders(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
+  trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
   /**
    * This endpoint allows you to **query specific token data based on the provided
@@ -74,6 +77,8 @@ export namespace TokenGetAddressResponse {
       market_cap_usd?: string;
 
       name?: string;
+
+      normalized_total_supply?: string;
 
       price_usd?: string;
 
@@ -306,6 +311,7 @@ Tokens.Multi = Multi;
 Tokens.Info = Info;
 Tokens.TopHolders = TopHolders;
 Tokens.Pools = Pools;
+Tokens.Trades = Trades;
 
 export declare namespace Tokens {
   export {
@@ -328,4 +334,10 @@ export declare namespace Tokens {
   };
 
   export { Pools as Pools, type PoolGetResponse as PoolGetResponse, type PoolGetParams as PoolGetParams };
+
+  export {
+    Trades as Trades,
+    type TradeGetResponse as TradeGetResponse,
+    type TradeGetParams as TradeGetParams,
+  };
 }

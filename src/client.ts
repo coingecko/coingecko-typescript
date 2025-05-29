@@ -36,6 +36,7 @@ import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coi
 import { Companies } from './resources/companies/companies';
 import { DerivativeGetResponse, Derivatives } from './resources/derivatives/derivatives';
 import {
+  ExchangeGetIDParams,
   ExchangeGetIDResponse,
   ExchangeGetListParams,
   ExchangeGetListResponse,
@@ -837,6 +838,7 @@ export declare namespace Coingecko {
     type ExchangeGetIDResponse as ExchangeGetIDResponse,
     type ExchangeGetListResponse as ExchangeGetListResponse,
     type ExchangeGetParams as ExchangeGetParams,
+    type ExchangeGetIDParams as ExchangeGetIDParams,
     type ExchangeGetListParams as ExchangeGetListParams,
   };
 

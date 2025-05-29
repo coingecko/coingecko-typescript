@@ -7,10 +7,13 @@ const client = new Coingecko({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource tickers', () => {
+describe('resource trades', () => {
   // skipped: tests are disabled for the time being
-  test.skip('get', async () => {
-    const responsePromise = client.exchanges.tickers.get('binance');
+  test.skip('get: only required params', async () => {
+    const responsePromise = client.onchain.networks.tokens.trades.get(
+      '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      { network: 'eth' },
+    );
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,21 +24,10 @@ describe('resource tickers', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('get: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.exchanges.tickers.get(
-        'binance',
-        {
-          coin_ids: 'coin_ids',
-          depth: true,
-          dex_pair_format: 'contract_address',
-          include_exchange_logo: true,
-          order: 'trust_score_desc',
-          page: 0,
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(Coingecko.NotFoundError);
+  test.skip('get: required and optional params', async () => {
+    const response = await client.onchain.networks.tokens.trades.get(
+      '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      { network: 'eth', trade_volume_in_usd_greater_than: 0 },
+    );
   });
 });

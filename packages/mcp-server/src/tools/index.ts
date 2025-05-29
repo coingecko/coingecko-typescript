@@ -67,6 +67,7 @@ import get_addresses_tokens_networks_onchain_multi from './onchain/networks/toke
 import get_tokens_networks_onchain_info from './onchain/networks/tokens/info/get-tokens-networks-onchain-info';
 import get_tokens_networks_onchain_top_holders from './onchain/networks/tokens/top-holders/get-tokens-networks-onchain-top-holders';
 import get_tokens_networks_onchain_pools from './onchain/networks/tokens/pools/get-tokens-networks-onchain-pools';
+import get_tokens_networks_onchain_trades from './onchain/networks/tokens/trades/get-tokens-networks-onchain-trades';
 import get_pools_onchain_megafilter from './onchain/pools/megafilter/get-pools-onchain-megafilter';
 import get_pools_onchain_trending_search from './onchain/pools/trending-search/get-pools-onchain-trending-search';
 import get_search_onchain_pools from './onchain/search/pools/get-search-onchain-pools';
@@ -168,6 +169,7 @@ addEndpoint(get_addresses_tokens_networks_onchain_multi);
 addEndpoint(get_tokens_networks_onchain_info);
 addEndpoint(get_tokens_networks_onchain_top_holders);
 addEndpoint(get_tokens_networks_onchain_pools);
+addEndpoint(get_tokens_networks_onchain_trades);
 addEndpoint(get_pools_onchain_megafilter);
 addEndpoint(get_pools_onchain_trending_search);
 addEndpoint(get_search_onchain_pools);

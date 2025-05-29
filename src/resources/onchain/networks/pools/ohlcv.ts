@@ -122,6 +122,11 @@ export interface OhlcvGetTimeframeParams {
   currency?: 'usd' | 'token';
 
   /**
+   * Query param: include empty intervals with no trade data, default: false
+   */
+  include_empty_intervals?: boolean;
+
+  /**
    * Query param: number of OHLCV results to return, maximum 1000 Default value: 100
    */
   limit?: number;

@@ -41,6 +41,18 @@ describe('resource exchanges', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('getID: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.exchanges.getID(
+        'binance',
+        { dex_pair_format: 'contract_address' },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Coingecko.NotFoundError);
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('getList', async () => {
     const responsePromise = client.exchanges.getList();
     const rawResponse = await responsePromise.asResponse();

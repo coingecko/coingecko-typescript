@@ -28,6 +28,7 @@ describe('resource tickers', () => {
         'bitcoin',
         {
           depth: true,
+          dex_pair_format: 'contract_address',
           exchange_ids: 'binance',
           include_exchange_logo: true,
           order: 'trust_score_desc',

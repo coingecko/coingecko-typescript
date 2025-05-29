@@ -28,6 +28,12 @@ export const tool: Tool = {
         description:
           'include 2% orderbook depth, ie. `cost_to_move_up_usd` and `cost_to_move_down_usd` <br> Default: false',
       },
+      dex_pair_format: {
+        type: 'string',
+        description:
+          'set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`',
+        enum: ['contract_address', 'symbol'],
+      },
       exchange_ids: {
         type: 'string',
         description: 'exchange ID <br> *refers to [`/exchanges/list`](/reference/exchanges-list).',

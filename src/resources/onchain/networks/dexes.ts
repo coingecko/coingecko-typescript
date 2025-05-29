@@ -207,8 +207,6 @@ export namespace DexGetPoolsResponse {
 
       dex?: Relationships.Dex;
 
-      network?: Relationships.Network;
-
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -230,18 +228,6 @@ export namespace DexGetPoolsResponse {
       }
 
       export namespace Dex {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-
-      export interface Network {
-        data?: Network.Data;
-      }
-
-      export namespace Network {
         export interface Data {
           id?: string;
 
