@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'global',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/global',
+  operationId: 'crypto-global',
 };
 
 export const tool: Tool = {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'nfts',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/nfts/{id}',
+  operationId: 'nfts-id',
 };
 
 export const tool: Tool = {

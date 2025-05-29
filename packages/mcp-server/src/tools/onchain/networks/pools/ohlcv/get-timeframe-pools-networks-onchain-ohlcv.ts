@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks.pools.ohlcv',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks/{network}/pools/{pool_address}/ohlcv/{timeframe}',
+  operationId: 'pool-ohlcv-contract-address',
 };
 
 export const tool: Tool = {

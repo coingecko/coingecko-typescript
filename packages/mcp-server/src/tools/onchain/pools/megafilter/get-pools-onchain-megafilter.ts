@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.pools.megafilter',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/pools/megafilter',
+  operationId: 'pools-megafilter',
 };
 
 export const tool: Tool = {

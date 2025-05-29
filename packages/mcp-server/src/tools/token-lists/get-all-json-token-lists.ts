@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'token_lists',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/token_lists/{asset_platform_id}/all.json',
+  operationId: 'token-lists',
 };
 
 export const tool: Tool = {

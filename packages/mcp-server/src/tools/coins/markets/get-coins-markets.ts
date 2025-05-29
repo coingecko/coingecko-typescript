@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'coins.markets',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/coins/markets',
+  operationId: 'coins-markets',
 };
 
 export const tool: Tool = {

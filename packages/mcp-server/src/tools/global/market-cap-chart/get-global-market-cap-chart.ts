@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'global.market_cap_chart',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/global/market_cap_chart',
+  operationId: 'global-market-cap-chart',
 };
 
 export const tool: Tool = {

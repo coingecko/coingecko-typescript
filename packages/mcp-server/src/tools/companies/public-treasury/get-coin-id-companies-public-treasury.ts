@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'companies.public_treasury',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/companies/public_treasury/{coin_id}',
+  operationId: 'companies-public-treasury',
 };
 
 export const tool: Tool = {

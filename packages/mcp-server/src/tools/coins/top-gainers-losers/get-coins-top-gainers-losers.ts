@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'coins.top_gainers_losers',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/coins/top_gainers_losers',
+  operationId: 'coins-top-gainers-losers',
 };
 
 export const tool: Tool = {

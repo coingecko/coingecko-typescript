@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'exchanges.volume_chart',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/exchanges/{id}/volume_chart/range',
+  operationId: 'exchanges-id-volume-chart-range',
 };
 
 export const tool: Tool = {

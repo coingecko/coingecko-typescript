@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'nfts.tickers',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/nfts/{id}/tickers',
+  operationId: 'nfts-id-tickers',
 };
 
 export const tool: Tool = {

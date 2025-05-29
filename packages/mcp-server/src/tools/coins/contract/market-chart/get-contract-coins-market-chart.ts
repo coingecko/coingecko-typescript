@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'coins.contract.market_chart',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/coins/{id}/contract/{contract_address}/market_chart',
+  operationId: 'contract-address-market-chart',
 };
 
 export const tool: Tool = {

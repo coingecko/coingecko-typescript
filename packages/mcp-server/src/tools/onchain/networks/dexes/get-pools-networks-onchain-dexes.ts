@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'onchain.networks.dexes',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/onchain/networks/{network}/dexes/{dex}/pools',
+  operationId: 'top-pools-dex',
 };
 
 export const tool: Tool = {

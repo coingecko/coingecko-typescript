@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   resource: 'simple.token_price',
   operation: 'read',
   tags: [],
+  httpMethod: 'get',
+  httpPath: '/simple/token_price/{id}',
+  operationId: 'simple-token-price',
 };
 
 export const tool: Tool = {
