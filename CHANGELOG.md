@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-05-30)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Chores
+
+* **deps:** bump eslint-plugin-prettier ([8da9156](https://github.com/coingecko/coingecko-typescript/commit/8da9156f0c187b22c4982e0db9bdb3c8b6ec5e1b))
+* **internal:** update jest config ([c651894](https://github.com/coingecko/coingecko-typescript/commit/c6518949563d7bb00672f515857c1ae00ec7e8c6))
+
 ## 0.1.0-alpha.5 (2025-05-30)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
