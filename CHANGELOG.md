@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-05-30)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Bug Fixes
+
+* compat with more runtimes ([e05e219](https://github.com/coingecko/coingecko-typescript/commit/e05e219ea671ac0030ad5544860b8ac9db1bb64a))
+
 ## 0.1.0-alpha.4 (2025-05-29)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
