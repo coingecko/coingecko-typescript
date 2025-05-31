@@ -7,8 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class Trades extends APIResource {
   /**
-   * This endpoint allows you to **query the last 300 trades in the past 24 hours
-   * based on the provided token contract address on a network**
+   * This endpoint allows you to **query the last 300 trades in the past 24 hours,
+   * across all pools, based on the provided token contract address on a network**
    *
    * @example
    * ```ts

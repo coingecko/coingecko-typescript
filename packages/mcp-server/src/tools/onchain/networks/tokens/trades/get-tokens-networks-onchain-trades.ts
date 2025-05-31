@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'get_tokens_networks_onchain_trades',
   description:
-    'This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided token contract address on a network**',
+    'This endpoint allows you to **query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network**',
   inputSchema: {
     type: 'object',
     properties: {
