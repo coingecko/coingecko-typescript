@@ -389,7 +389,7 @@ The following tools are available in this MCP server.
 
 ### Resource `onchain.networks.tokens.trades`:
 
-- `get_tokens_networks_onchain_trades` (`read`): This endpoint allows you to **query the last 300 trades in the past 24 hours based on the provided token contract address on a network**
+- `get_tokens_networks_onchain_trades` (`read`): This endpoint allows you to **query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network**
 
 ### Resource `onchain.pools.megafilter`:
 
