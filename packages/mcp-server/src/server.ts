@@ -19,7 +19,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'coingecko_typescript_api',
-    version: '0.1.0-alpha.9',
+    version: '0.1.0-alpha.10',
   },
   {
     capabilities: {
@@ -80,7 +80,7 @@ export function selectTools(endpoints: Endpoint[], options: ParsedOptions) {
   }
 
   if (includedTools.length === 0) {
-    includedTools.push(...dynamicTools(endpoints));
+    includedTools.push(...endpoints);
   }
 
   return applyCompatibilityTransformations(includedTools, options.capabilities);
