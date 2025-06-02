@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from 'coingecko-typescript';
+import Coingecko from '@coingecko/coingecko-typescript';
 
 const client = new Coingecko({
   proAPIKey: 'My Pro API Key',

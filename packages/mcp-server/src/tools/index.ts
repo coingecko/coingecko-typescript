@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from 'coingecko-typescript';
+import Coingecko from '@coingecko/coingecko-typescript';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 
 import get_asset_platforms from './asset-platforms/get-asset-platforms';

@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^coingecko-mcp$': '<rootDir>/src/index.ts',
-    '^coingecko-mcp/(.*)$': '<rootDir>/src/$1',
+    '^@coingecko/coingecko-mcp$': '<rootDir>/src/index.ts',
+    '^@coingecko/coingecko-mcp/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   testPathIgnorePatterns: ['scripts'],

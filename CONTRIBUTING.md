@@ -55,12 +55,12 @@ $ cd coingecko-typescript
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link coingecko-typescript
+$ yarn link @coingecko/coingecko-typescript
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global coingecko-typescript
+$ pnpm link -—global @coingecko/coingecko-typescript
 ```
 
 ## Running tests
