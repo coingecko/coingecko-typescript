@@ -198,7 +198,6 @@ The following tools are available in this MCP server.
 
 ### Resource `coins.categories`:
 
-- `get_coins_categories` (`read`): This endpoint allows you to **query all the coins categories with market data (market cap, volume, ...) on CoinGecko**
 - `get_list_coins_categories` (`read`): This endpoint allows you to **query all the coins categories on CoinGecko**
 
 ### Resource `coins.list`:
@@ -214,18 +213,12 @@ The following tools are available in this MCP server.
 
 - `get_coins_top_gainers_losers` (`read`): This endpoint allows you to **query the top 30 coins with largest price gain and loss by a specific time duration**
 
-### Resource `coins.circulating_supply_chart`:
-
-- `get_coins_circulating_supply_chart` (`read`): This endpoint allows you to **query historical circulating supply of a coin by number of days away from now based on provided coin ID**
-- `get_range_coins_circulating_supply_chart` (`read`): This endpoint allows you to **query historical circulating supply of a coin, within a range of timestamp based on the provided coin ID**
-
 ### Resource `coins.contract`:
 
 - `get_coins_contract` (`read`): This endpoint allows you to **query all the metadata (image, websites, socials, description, contract address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin from the CoinGecko coin page based on an asset platform and a particular token contract address**
 
 ### Resource `coins.contract.market_chart`:
 
-- `get_contract_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data including time in UNIX, price, market cap and 24hr volume based on asset platform and particular token contract address**
 - `get_range_contract_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data within certain time range in UNIX along with price, market cap and 24hr volume based on asset platform and particular token contract address**
 
 ### Resource `coins.history`:
@@ -234,93 +227,24 @@ The following tools are available in this MCP server.
 
 ### Resource `coins.market_chart`:
 
-- `get_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data of a coin including time in UNIX, price, market cap and 24hr volume based on particular coin ID**
 - `get_range_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data of a coin within certain time range in UNIX along with price, market cap and 24hr volume based on particular coin ID**
 
 ### Resource `coins.ohlc`:
 
-- `get_coins_ohlc` (`read`): This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin based on particular coin ID**
 - `get_range_coins_ohlc` (`read`): This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin within a range of timestamp based on particular coin ID**
-
-### Resource `coins.tickers`:
-
-- `get_coins_tickers` (`read`): This endpoint allows you to **query the coin tickers on both centralized exchange (CEX) and decentralized exchange (DEX) based on a particular coin ID**
-
-### Resource `coins.total_supply_chart`:
-
-- `get_coins_total_supply_chart` (`read`): This endpoint allows you to **query historical total supply of a coin by number of days away from now based on provided coin ID**
-- `get_range_coins_total_supply_chart` (`read`): This endpoint allows you to **query historical total supply of a coin, within a range of timestamp based on the provided coin ID**
-
-### Resource `companies.public_treasury`:
-
-- `get_coin_id_companies_public_treasury` (`read`): This endpoint allows you **query public companies’ Bitcoin or Ethereum holdings**
-
-### Resource `derivatives`:
-
-- `get_derivatives` (`read`): This endpoint allows you to **query all the tickers from derivatives exchanges on CoinGecko**
-
-### Resource `derivatives.exchanges`:
-
-- `get_derivatives_exchanges` (`read`): This endpoint allows you to **query all the derivatives exchanges with related data (ID, name, open interest, ...) on CoinGecko**
-- `get_id_derivatives_exchanges` (`read`): This endpoint allows you to **query the derivatives exchange’s related data (ID, name, open interest, ...) based on the exchanges’ ID**
-- `get_list_derivatives_exchanges` (`read`): This endpoint allows you to **query all the derivatives exchanges with ID and name on CoinGecko**
-
-### Resource `exchange_rates`:
-
-- `get_exchange_rates` (`read`): This endpoint allows you to **query BTC exchange rates with other currencies**
-
-### Resource `exchanges`:
-
-- `get_exchanges` (`read`): This endpoint allows you to **query all the supported exchanges with exchanges’ data (ID, name, country, ...) that have active trading volumes on CoinGecko**
-- `get_id_exchanges` (`read`): This endpoint allows you to **query exchange’s data (name, year established, country, ...), exchange volume in BTC and top 100 tickers based on exchange’s ID**
-- `get_list_exchanges` (`read`): This endpoint allows you to **query all the exchanges with ID and name**
-
-### Resource `exchanges.tickers`:
-
-- `get_exchanges_tickers` (`read`): This endpoint allows you to **query exchange's tickers based on exchange’s ID**
-
-### Resource `exchanges.volume_chart`:
-
-- `get_exchanges_volume_chart` (`read`): This endpoint allows you to **query the historical volume chart data with time in UNIX and trading volume data in BTC based on exchange’s ID**
-- `get_range_exchanges_volume_chart` (`read`): This endpoint allows you to **query the historical volume chart data in BTC by specifying date range in UNIX based on exchange’s ID**
 
 ### Resource `global`:
 
 - `get_global` (`read`): This endpoint allows you **query cryptocurrency global data including active cryptocurrencies, markets, total crypto market cap and etc**
 
-### Resource `global.decentralized_finance_defi`:
-
-- `get_global_decentralized_finance_defi` (`read`): This endpoint allows you **query top 100 cryptocurrency global decentralized finance (DeFi) data including DeFi market cap, trading volume**
-
-### Resource `global.market_cap_chart`:
-
-- `get_global_market_cap_chart` (`read`): This endpoint allows you to **query historical global market cap and volume data by number of days away from now**
-
-### Resource `key`:
-
-- `get_key` (`read`): This endpoint allows you to **monitor your account's API usage, including rate limits, monthly total credits, remaining credits, and more**
-
 ### Resource `nfts`:
 
 - `get_id_nfts` (`read`): This endpoint allows you to **query all the NFT data (name, floor price, 24hr volume ...) based on the NFT collection ID**
 - `get_list_nfts` (`read`): This endpoint allows you to **query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko**
-- `get_markets_nfts` (`read`): This endpoint allows you to **query all the supported NFT collections with floor price, market cap, volume and market related data on CoinGecko**
-
-### Resource `nfts.contract`:
-
-- `get_contract_address_nfts_contract` (`read`): This endpoint allows you to **query all the NFT data (name, floor price, 24hr volume ...) based on the NFT collection contract address and respective asset platform**
-
-### Resource `nfts.contract.market_chart`:
-
-- `get_contract_nfts_market_chart` (`read`): This endpoint allows you **query historical market data of a NFT collection, including floor price, market cap, and 24hr volume, by number of days away from now based on the provided contract address**
 
 ### Resource `nfts.market_chart`:
 
 - `get_nfts_market_chart` (`read`): This endpoint allows you **query historical market data of a NFT collection, including floor price, market cap, and 24hr volume, by number of days away from now**
-
-### Resource `nfts.tickers`:
-
-- `get_nfts_tickers` (`read`): This endpoint allows you to **query the latest floor price and 24hr volume of a NFT collection, on each NFT marketplace, e.g. OpenSea and LooksRare**
 
 ### Resource `onchain.categories`:
 
@@ -351,10 +275,6 @@ The following tools are available in this MCP server.
 - `get_networks_onchain_pools` (`read`): This endpoint allows you to **query all the top pools based on the provided network**
 - `get_address_networks_onchain_pools` (`read`): This endpoint allows you to **query the specific pool based on the provided network and pool address**
 
-### Resource `onchain.networks.pools.multi`:
-
-- `get_addresses_pools_networks_onchain_multi` (`read`): This endpoint allows you to **query multiple pools based on the provided network and pool address**
-
 ### Resource `onchain.networks.pools.info`:
 
 - `get_pools_networks_onchain_info` (`read`): This endpoint allows you to **query pool metadata (base and quote token details, image, socials, websites, description, contract address, etc.) based on a provided pool contract address on a network**
@@ -370,10 +290,6 @@ The following tools are available in this MCP server.
 ### Resource `onchain.networks.tokens`:
 
 - `get_address_networks_onchain_tokens` (`read`): This endpoint allows you to **query specific token data based on the provided token contract address on a network**
-
-### Resource `onchain.networks.tokens.multi`:
-
-- `get_addresses_tokens_networks_onchain_multi` (`read`): This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**
 
 ### Resource `onchain.networks.tokens.info`:
 
@@ -407,14 +323,6 @@ The following tools are available in this MCP server.
 
 - `get_addresses_networks_simple_onchain_token_price` (`read`): This endpoint allows you to **get token price based on the provided token contract address on a network**
 
-### Resource `onchain.tokens.info_recently_updated`:
-
-- `get_tokens_onchain_info_recently_updated` (`read`): This endpoint allows you to **query 100 most recently updated tokens info of a specific network or across all networks on GeckoTerminal**
-
-### Resource `ping`:
-
-- `get_ping` (`read`): This endpoint allows you to **check the API server status**
-
 ### Resource `search`:
 
 - `get_search` (`read`): This endpoint allows you to **search for coins, categories and markets listed on CoinGecko**
@@ -434,7 +342,3 @@ The following tools are available in this MCP server.
 ### Resource `simple.token_price`:
 
 - `get_id_simple_token_price` (`read`): This endpoint allows you to **query one or more token prices using their token contract addresses**
-
-### Resource `token_lists`:
-
-- `get_all_json_token_lists` (`read`): This endpoint allows you to **get full list of tokens of a blockchain network (asset platform) that is supported by [Ethereum token list standard](https://tokenlists.org/)**
