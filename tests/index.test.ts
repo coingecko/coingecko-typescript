@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'coingecko-typescript/core/api-promise';
+import { APIPromise } from '@coingecko/coingecko-typescript/core/api-promise';
 
 import util from 'node:util';
-import Coingecko from 'coingecko-typescript';
-import { APIUserAbortError } from 'coingecko-typescript';
+import Coingecko from '@coingecko/coingecko-typescript';
+import { APIUserAbortError } from '@coingecko/coingecko-typescript';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

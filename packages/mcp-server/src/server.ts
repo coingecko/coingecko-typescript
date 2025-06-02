@@ -4,7 +4,7 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Endpoint, endpoints, HandlerFunction, query } from './tools';
 import { CallToolRequestSchema, ListToolsRequestSchema, Tool } from '@modelcontextprotocol/sdk/types.js';
-import Coingecko from 'coingecko-typescript';
+import Coingecko from '@coingecko/coingecko-typescript';
 import {
   applyCompatibilityTransformations,
   ClientCapabilities,
@@ -18,7 +18,7 @@ export { endpoints } from './tools';
 // Create server instance
 export const server = new McpServer(
   {
-    name: 'coingecko_typescript_api',
+    name: 'coingecko_coingecko_typescript_api',
     version: '0.1.0-alpha.10',
   },
   {

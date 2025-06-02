@@ -26,7 +26,7 @@ node ./packages/mcp-server/dist/index.js
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npx -y coingecko-mcp`
+> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npx -y @coingecko/coingecko-mcp`
 
 ### Via MCP Client
 
@@ -40,7 +40,7 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "coingecko_typescript_api": {
+    "coingecko_coingecko_typescript_api": {
       "command": "node",
       "args": [
         "/path/to/local/coingecko-typescript/packages/mcp-server",
@@ -153,10 +153,10 @@ over time, you can manually enable or disable certain capabilities:
 
 ```js
 // Import the server, generated endpoints, or the init function
-import { server, endpoints, init } from "coingecko-mcp/server";
+import { server, endpoints, init } from "@coingecko/coingecko-mcp/server";
 
 // import a specific tool
-import getAssetPlatforms from "coingecko-mcp/tools/asset-platforms/get-asset-platforms";
+import getAssetPlatforms from "@coingecko/coingecko-mcp/tools/asset-platforms/get-asset-platforms";
 
 // initialize the server and all endpoints
 init({ server, endpoints });
