@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'coingecko-typescript/internal/to-file';
-import { toFile } from 'coingecko-typescript/core/uploads';
+import type { ResponseLike } from '@coingecko/coingecko-typescript/internal/to-file';
+import { toFile } from '@coingecko/coingecko-typescript/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('coingecko-typescript/core/uploads');
+    const uploads = await import('@coingecko/coingecko-typescript/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(

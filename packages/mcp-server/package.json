@@ -1,6 +1,6 @@
 {
-  "name": "coingecko-mcp",
-  "version": "0.1.0-alpha.10",
+  "name": "@coingecko/coingecko-mcp",
+  "version": "1.0.0",
   "description": "The official MCP Server for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "fix": "eslint --fix --ext ts,js ."
   },
   "dependencies": {
-    "coingecko-typescript": "file:../../dist/",
+    "@coingecko/coingecko-typescript": "file:../../dist/",
     "@modelcontextprotocol/sdk": "^1.6.1",
     "yargs": "^17.7.2",
     "@cloudflare/cabidela": "^0.2.4",
@@ -54,8 +54,8 @@
     "typescript": "5.8.3"
   },
   "imports": {
-    "coingecko-mcp": ".",
-    "coingecko-mcp/*": "./src/*"
+    "@coingecko/coingecko-mcp": ".",
+    "@coingecko/coingecko-mcp/*": "./src/*"
   },
   "exports": {
     ".": {

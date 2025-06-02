@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "coingecko-mcp/*": ["src/*"],
-      "coingecko-mcp": ["src/index.ts"]
+      "@coingecko/coingecko-mcp/*": ["src/*"],
+      "@coingecko/coingecko-mcp": ["src/index.ts"]
     },
     "noEmit": true,
 

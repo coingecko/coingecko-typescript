@@ -2,7 +2,7 @@
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { Metadata } from '../../';
-import Coingecko from 'coingecko-typescript';
+import Coingecko from '@coingecko/coingecko-typescript';
 
 export const metadata: Metadata = {
   resource: 'coins.markets',

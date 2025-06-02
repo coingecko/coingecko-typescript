@@ -4,33 +4,18 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
-### Building
+### Direct invocation
 
-Because it's not published yet, clone the repo and build it:
-
-```sh
-git clone git@github.com:coingecko/coingecko-typescript.git
-cd coingecko-typescript
-./scripts/bootstrap
-./scripts/build
-```
-
-### Running
+You can run the MCP Server directly via `npx`:
 
 ```sh
-# set env vars as needed
 export COINGECKO_PRO_API_KEY="My Pro API Key"
 export COINGECKO_DEMO_API_KEY="My Demo API Key"
 export COINGECKO_ENVIRONMENT="pro"
-node ./packages/mcp-server/dist/index.js
+npx -y @coingecko/coingecko-mcp@latest
 ```
 
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npx -y coingecko-mcp`
-
 ### Via MCP Client
-
-[Build the project](#building) as mentioned above.
 
 There is a partial list of existing clients at [modelcontextprotocol.io](https://modelcontextprotocol.io/clients). If you already
 have a client, consult their documentation to install the MCP server.
@@ -40,13 +25,9 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "coingecko_typescript_api": {
-      "command": "node",
-      "args": [
-        "/path/to/local/coingecko-typescript/packages/mcp-server",
-        "--client=claude",
-        "--tools=dynamic"
-      ],
+    "coingecko_coingecko_typescript_api": {
+      "command": "npx",
+      "args": ["-y", "@coingecko/coingecko-mcp", "--client=claude", "--tools=dynamic"],
       "env": {
         "COINGECKO_PRO_API_KEY": "My Pro API Key",
         "COINGECKO_DEMO_API_KEY": "My Demo API Key",
@@ -153,10 +134,10 @@ over time, you can manually enable or disable certain capabilities:
 
 ```js
 // Import the server, generated endpoints, or the init function
-import { server, endpoints, init } from "coingecko-mcp/server";
+import { server, endpoints, init } from "@coingecko/coingecko-mcp/server";
 
 // import a specific tool
-import getAssetPlatforms from "coingecko-mcp/tools/asset-platforms/get-asset-platforms";
+import getAssetPlatforms from "@coingecko/coingecko-mcp/tools/asset-platforms/get-asset-platforms";
 
 // initialize the server and all endpoints
 init({ server, endpoints });

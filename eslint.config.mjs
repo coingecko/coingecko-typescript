@@ -25,7 +25,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^coingecko-typescript(/.*)?',
+              regex: '^@coingecko/coingecko-typescript(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],
