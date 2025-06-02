@@ -80,7 +80,7 @@ export function selectTools(endpoints: Endpoint[], options: ParsedOptions) {
   }
 
   if (includedTools.length === 0) {
-    includedTools.push(...endpoints);
+    includedTools.push(...dynamicTools(endpoints));
   }
 
   return applyCompatibilityTransformations(includedTools, options.capabilities);
