@@ -27,13 +27,9 @@ const client = new Coingecko({
   environment: 'demo', // defaults to 'pro'
 });
 
-async function main() {
-  const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
+const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
 
-  console.log(price.last_updated_at);
-}
-
-main();
+console.log(price.last_updated_at);
 ```
 
 ### Request & Response types
@@ -49,12 +45,8 @@ const client = new Coingecko({
   environment: 'demo', // defaults to 'pro'
 });
 
-async function main() {
-  const params: Coingecko.Simple.PriceGetParams = { vs_currencies: 'usd', ids: 'bitcoin' };
-  const price: Coingecko.Simple.PriceGetResponse = await client.simple.price.get(params);
-}
-
-main();
+const params: Coingecko.Simple.PriceGetParams = { vs_currencies: 'usd', ids: 'bitcoin' };
+const price: Coingecko.Simple.PriceGetResponse = await client.simple.price.get(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -67,19 +59,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' }).catch(async (err) => {
-    if (err instanceof Coingecko.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' }).catch(async (err) => {
+  if (err instanceof Coingecko.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
