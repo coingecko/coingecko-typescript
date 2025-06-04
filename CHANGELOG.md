@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 (2025-06-04)
+
+Full Changelog: [v1.0.0...v1.0.1](https://github.com/coingecko/coingecko-typescript/compare/v1.0.0...v1.0.1)
+
+### Chores
+
+* adjust eslint.config.mjs ignore pattern ([6be2176](https://github.com/coingecko/coingecko-typescript/commit/6be21766e0c2d90c716584e7fe3815f6a076434a))
+* **docs:** use top-level-await in example snippets ([c76c8dc](https://github.com/coingecko/coingecko-typescript/commit/c76c8dc540828fe6241e06e8f5d7a7da55d7a8a3))
+* **internal:** fix readablestream types in node 20 ([04a6948](https://github.com/coingecko/coingecko-typescript/commit/04a6948a2b9c1efe00001207035743175b190768))
+
 ## 1.0.0 (2025-06-02)
 
 Full Changelog: [v0.1.0-alpha.10...v1.0.0](https://github.com/coingecko/coingecko-typescript/compare/v0.1.0-alpha.10...v1.0.0)
