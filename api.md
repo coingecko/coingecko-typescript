@@ -480,6 +480,26 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{address}/top_holders">client.onchain.networks.tokens.topHolders.<a href="./src/resources/onchain/networks/tokens/top-holders.ts">get</a>(address, { ...params }) -> TopHolderGetResponse</code>
 
+#### HoldersChart
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/tokens/holders-chart.ts">HoldersChartGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/holders_chart">client.onchain.networks.tokens.holdersChart.<a href="./src/resources/onchain/networks/tokens/holders-chart.ts">get</a>(tokenAddress, { ...params }) -> HoldersChartGetResponse</code>
+
+#### Ohlcv
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/tokens/ohlcv.ts">OhlcvGetTimeframeResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/ohlcv/{timeframe}">client.onchain.networks.tokens.ohlcv.<a href="./src/resources/onchain/networks/tokens/ohlcv.ts">getTimeframe</a>(timeframe, { ...params }) -> OhlcvGetTimeframeResponse</code>
+
 #### Pools
 
 Types:
