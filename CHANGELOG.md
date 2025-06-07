@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.0 (2025-06-07)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/coingecko/coingecko-typescript/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **api:** api update ([f5e8c36](https://github.com/coingecko/coingecko-typescript/commit/f5e8c36ce49096e32b3f853d19d8f195c92dd770))
+* **api:** New endpoints ([f5d13e0](https://github.com/coingecko/coingecko-typescript/commit/f5d13e06cfb547208f98755ffa00a4cad572889e))
+
 ## 1.1.0 (2025-06-07)
 
 Full Changelog: [v1.0.1...v1.1.0](https://github.com/coingecko/coingecko-typescript/compare/v1.0.1...v1.1.0)

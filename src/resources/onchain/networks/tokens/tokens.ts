@@ -1,10 +1,14 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../core/resource';
+import * as HoldersChartAPI from './holders-chart';
+import { HoldersChart, HoldersChartGetParams, HoldersChartGetResponse } from './holders-chart';
 import * as InfoAPI from './info';
 import { Info, InfoGetParams, InfoGetResponse } from './info';
 import * as MultiAPI from './multi';
 import { Multi, MultiGetAddressesParams, MultiGetAddressesResponse } from './multi';
+import * as OhlcvAPI from './ohlcv';
+import { Ohlcv, OhlcvGetTimeframeParams, OhlcvGetTimeframeResponse } from './ohlcv';
 import * as PoolsAPI from './pools';
 import { PoolGetParams, PoolGetResponse, Pools } from './pools';
 import * as TopHoldersAPI from './top-holders';
@@ -19,6 +23,8 @@ export class Tokens extends APIResource {
   multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
   info: InfoAPI.Info = new InfoAPI.Info(this._client);
   topHolders: TopHoldersAPI.TopHolders = new TopHoldersAPI.TopHolders(this._client);
+  holdersChart: HoldersChartAPI.HoldersChart = new HoldersChartAPI.HoldersChart(this._client);
+  ohlcv: OhlcvAPI.Ohlcv = new OhlcvAPI.Ohlcv(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
@@ -310,6 +316,8 @@ export interface TokenGetAddressParams {
 Tokens.Multi = Multi;
 Tokens.Info = Info;
 Tokens.TopHolders = TopHolders;
+Tokens.HoldersChart = HoldersChart;
+Tokens.Ohlcv = Ohlcv;
 Tokens.Pools = Pools;
 Tokens.Trades = Trades;
 
@@ -331,6 +339,18 @@ export declare namespace Tokens {
     TopHolders as TopHolders,
     type TopHolderGetResponse as TopHolderGetResponse,
     type TopHolderGetParams as TopHolderGetParams,
+  };
+
+  export {
+    HoldersChart as HoldersChart,
+    type HoldersChartGetResponse as HoldersChartGetResponse,
+    type HoldersChartGetParams as HoldersChartGetParams,
+  };
+
+  export {
+    Ohlcv as Ohlcv,
+    type OhlcvGetTimeframeResponse as OhlcvGetTimeframeResponse,
+    type OhlcvGetTimeframeParams as OhlcvGetTimeframeParams,
   };
 
   export { Pools as Pools, type PoolGetResponse as PoolGetResponse, type PoolGetParams as PoolGetParams };
