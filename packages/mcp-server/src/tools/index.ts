@@ -1,7 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Coingecko from '@coingecko/coingecko-typescript';
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { Metadata, Endpoint, HandlerFunction } from './types';
+
+export { Metadata, Endpoint, HandlerFunction };
 
 import get_asset_platforms from './asset-platforms/get-asset-platforms';
 import get_id_coins from './coins/get-id-coins';
@@ -47,24 +48,6 @@ import get_search_trending from './search/trending/get-search-trending';
 import get_simple_price from './simple/price/get-simple-price';
 import get_simple_supported_vs_currencies from './simple/supported-vs-currencies/get-simple-supported-vs-currencies';
 import get_id_simple_token_price from './simple/token-price/get-id-simple-token-price';
-
-export type HandlerFunction = (client: Coingecko, args: Record<string, unknown> | undefined) => Promise<any>;
-
-export type Metadata = {
-  resource: string;
-  operation: 'read' | 'write';
-  tags: string[];
-
-  httpMethod?: string;
-  httpPath?: string;
-  operationId?: string;
-};
-
-export type Endpoint = {
-  metadata: Metadata;
-  tool: Tool;
-  handler: HandlerFunction;
-};
 
 export const endpoints: Endpoint[] = [];
 

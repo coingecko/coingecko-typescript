@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0 (2025-06-07)
+
+Full Changelog: [v1.0.1...v1.1.0](https://github.com/coingecko/coingecko-typescript/compare/v1.0.1...v1.1.0)
+
+### Features
+
+* **mcp:** implement support for binary responses ([c54fdcf](https://github.com/coingecko/coingecko-typescript/commit/c54fdcf36bceed7c0440de3bd4150a652826e3b3))
+
+
+### Chores
+
+* avoid type error in certain environments ([d1dbd0f](https://github.com/coingecko/coingecko-typescript/commit/d1dbd0fb5c7127c3564a0de0580f153b2b809eae))
+
 ## 1.0.1 (2025-06-04)
 
 Full Changelog: [v1.0.0...v1.0.1](https://github.com/coingecko/coingecko-typescript/compare/v1.0.0...v1.0.1)
