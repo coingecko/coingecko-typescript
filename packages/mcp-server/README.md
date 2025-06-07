@@ -280,6 +280,14 @@ The following tools are available in this MCP server.
 
 - `get_tokens_networks_onchain_top_holders` (`read`): This endpoint allows you to **query top token holders based on the provided token contract address on a network**
 
+### Resource `onchain.networks.tokens.holders_chart`:
+
+- `get_tokens_networks_onchain_holders_chart` (`read`): This endpoint allows you to **get the historical token holders chart based on the provided token contract address on a network**
+
+### Resource `onchain.networks.tokens.ohlcv`:
+
+- `get_timeframe_tokens_networks_onchain_ohlcv` (`read`): This endpoint allows you to **get the OHLCV chart (Open, High, Low, Close, Volume) of a token based on the provided token address on a network**
+
 ### Resource `onchain.networks.tokens.pools`:
 
 - `get_tokens_networks_onchain_pools` (`read`): This endpoint allows you to **query top pools based on the provided token contract address on a network**

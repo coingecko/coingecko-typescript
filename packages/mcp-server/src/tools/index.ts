@@ -37,6 +37,8 @@ import get_pools_networks_onchain_trades from './onchain/networks/pools/trades/g
 import get_address_networks_onchain_tokens from './onchain/networks/tokens/get-address-networks-onchain-tokens';
 import get_tokens_networks_onchain_info from './onchain/networks/tokens/info/get-tokens-networks-onchain-info';
 import get_tokens_networks_onchain_top_holders from './onchain/networks/tokens/top-holders/get-tokens-networks-onchain-top-holders';
+import get_tokens_networks_onchain_holders_chart from './onchain/networks/tokens/holders-chart/get-tokens-networks-onchain-holders-chart';
+import get_timeframe_tokens_networks_onchain_ohlcv from './onchain/networks/tokens/ohlcv/get-timeframe-tokens-networks-onchain-ohlcv';
 import get_tokens_networks_onchain_pools from './onchain/networks/tokens/pools/get-tokens-networks-onchain-pools';
 import get_tokens_networks_onchain_trades from './onchain/networks/tokens/trades/get-tokens-networks-onchain-trades';
 import get_pools_onchain_megafilter from './onchain/pools/megafilter/get-pools-onchain-megafilter';
@@ -88,6 +90,8 @@ addEndpoint(get_pools_networks_onchain_trades);
 addEndpoint(get_address_networks_onchain_tokens);
 addEndpoint(get_tokens_networks_onchain_info);
 addEndpoint(get_tokens_networks_onchain_top_holders);
+addEndpoint(get_tokens_networks_onchain_holders_chart);
+addEndpoint(get_timeframe_tokens_networks_onchain_ohlcv);
 addEndpoint(get_tokens_networks_onchain_pools);
 addEndpoint(get_tokens_networks_onchain_trades);
 addEndpoint(get_pools_onchain_megafilter);
