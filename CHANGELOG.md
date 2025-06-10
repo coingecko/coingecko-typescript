@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 (2025-06-10)
+
+Full Changelog: [v1.2.0...v1.2.1](https://github.com/coingecko/coingecko-typescript/compare/v1.2.0...v1.2.1)
+
+### Chores
+
+* **mcp:** provides high-level initMcpServer function and exports known clients ([6a2476c](https://github.com/coingecko/coingecko-typescript/commit/6a2476c355f35f0cb12a70b753d3d63cd09c5f52))
+
 ## 1.2.0 (2025-06-07)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/coingecko/coingecko-typescript/compare/v1.1.0...v1.2.0)
