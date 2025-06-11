@@ -1,6 +1,6 @@
 {
   "name": "@coingecko/coingecko-mcp",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The official MCP Server for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
@@ -28,10 +28,10 @@
   },
   "dependencies": {
     "@coingecko/coingecko-typescript": "file:../../dist/",
-    "@modelcontextprotocol/sdk": "^1.6.1",
+    "@modelcontextprotocol/sdk": "^1.11.5",
     "yargs": "^17.7.2",
     "@cloudflare/cabidela": "^0.2.4",
-    "zod": "^3.24.4",
+    "zod": "^3.25.20",
     "zod-to-json-schema": "^3.24.5"
   },
   "bin": {
