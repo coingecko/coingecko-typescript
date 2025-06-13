@@ -28,9 +28,12 @@ const client = new Coingecko({
   environment: 'pro', // 'demo' to initialize the client with Demo API access
 });
 
-const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
+async function main() {
+  const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
+  console.log(price);
+}
 
-console.log(price.bitcoin.usd);
+main()
 ```
 
 ### Request & Response types
@@ -149,7 +152,7 @@ const { data: price, response: raw } = await client.simple.price
   .get({ vs_currencies: 'usd', ids: 'bitcoin' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(price.bitcoin.usd);
+console.log(price);
 ```
 
 ### Logging
