@@ -23,13 +23,14 @@ The full API of this library can be found in [api.md](api.md).
 import Coingecko from '@coingecko/coingecko-typescript';
 
 const client = new Coingecko({
-  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted
-  environment: 'demo', // defaults to 'pro'
+  proAPIKey: process.env['COINGECKO_PRO_API_KEY'],
+  // demoAPIKey: process.env['COINGECKO_DEMO_API_KEY'], // Optional, for Demo API access
+  environment: 'pro', // 'demo' to initialize the client with Demo API access
 });
 
 const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
 
-console.log(price.last_updated_at);
+console.log(price.bitcoin.usd);
 ```
 
 ### Request & Response types
@@ -41,8 +42,9 @@ This library includes TypeScript definitions for all request params and response
 import Coingecko from '@coingecko/coingecko-typescript';
 
 const client = new Coingecko({
-  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted
-  environment: 'demo', // defaults to 'pro'
+  proAPIKey: process.env['COINGECKO_PRO_API_KEY'],
+  // demoAPIKey: process.env['COINGECKO_DEMO_API_KEY'], // Optional, for Demo API access
+  environment: 'pro', // 'demo' to initialize the client with Demo API access
 });
 
 const params: Coingecko.Simple.PriceGetParams = { vs_currencies: 'usd', ids: 'bitcoin' };
@@ -147,7 +149,7 @@ const { data: price, response: raw } = await client.simple.price
   .get({ vs_currencies: 'usd', ids: 'bitcoin' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(price.last_updated_at);
+console.log(price.bitcoin.usd);
 ```
 
 ### Logging
