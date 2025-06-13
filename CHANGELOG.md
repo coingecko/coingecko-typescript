@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2025-06-13)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/coingecko/coingecko-typescript/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **api:** manual updates ([e9c62ee](https://github.com/coingecko/coingecko-typescript/commit/e9c62ee20051912ed4a7c00e7ef0991fd44441c9))
+
 ## 1.3.0 (2025-06-13)
 
 Full Changelog: [v1.2.1...v1.3.0](https://github.com/coingecko/coingecko-typescript/compare/v1.2.1...v1.3.0)
