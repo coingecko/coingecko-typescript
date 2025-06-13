@@ -29,7 +29,7 @@ const client = new Coingecko({
 
 const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' });
 
-console.log(price.usd);
+console.log(price.last_updated_at);
 ```
 
 ### Request & Response types
@@ -147,7 +147,7 @@ const { data: price, response: raw } = await client.simple.price
   .get({ vs_currencies: 'usd', ids: 'bitcoin' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(price.usd);
+console.log(price.last_updated_at);
 ```
 
 ### Logging
