@@ -66,7 +66,11 @@ export function init(params: {
   const endpointMap = Object.fromEntries(providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint]));
 
   const client =
-    params.client || new Coingecko({ environment: (readEnv('COINGECKO_ENVIRONMENT') || undefined) as any });
+    params.client ||
+    new Coingecko({
+      environment: (readEnv('COINGECKO_ENVIRONMENT') || undefined) as any,
+      defaultHeaders: { 'X-Stainless-MCP': 'true' },
+    });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
