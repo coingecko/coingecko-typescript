@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.5.0 (2025-06-14)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/coingecko/coingecko-typescript/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **mcp:** set X-Stainless-MCP header ([317c1b4](https://github.com/coingecko/coingecko-typescript/commit/317c1b4eb9e044e66cfab7f0cf81c5d095619f99))
+
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([4e6a793](https://github.com/coingecko/coingecko-typescript/commit/4e6a793c2e986947a342908182403841c503273c))
+
+
+### Chores
+
+* **internal:** add pure annotations, make base APIResource abstract ([0a7e13d](https://github.com/coingecko/coingecko-typescript/commit/0a7e13d1777f3d8c0041a5b3a28d8956d614ac53))
+
 ## 1.4.0 (2025-06-13)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/coingecko/coingecko-typescript/compare/v1.3.0...v1.4.0)
