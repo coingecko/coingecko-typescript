@@ -5,7 +5,6 @@ import type { HTTPMethod, PromiseOrValue, MergedRequestInit, FinalizedRequestIni
 import { uuid4 } from './internal/utils/uuid';
 import { validatePositiveInteger, isAbsoluteURL, safeJSON } from './internal/utils/values';
 import { sleep } from './internal/utils/sleep';
-import { type Logger, type LogLevel, parseLogLevel } from './internal/utils/log';
 export type { Logger, LogLevel } from './internal/utils/log';
 import { castToError, isAbortError } from './internal/errors';
 import type { APIResponseProps } from './internal/parse';
@@ -17,9 +16,6 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { type Fetch } from './internal/builtin-types';
-import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
-import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
   AssetPlatformGetParams,
   AssetPlatformGetResponse,
@@ -29,9 +25,6 @@ import { ExchangeRateGetResponse, ExchangeRates } from './resources/exchange-rat
 import { Key, KeyGetResponse } from './resources/key';
 import { Ping, PingGetResponse } from './resources/ping';
 import { TokenListGetAllJsonResponse, TokenLists } from './resources/token-lists';
-import { readEnv } from './internal/utils/env';
-import { formatRequestDetails, loggerFor } from './internal/utils/log';
-import { isEmptyObj } from './internal/utils/values';
 import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coins';
 import { Companies } from './resources/companies/companies';
 import { DerivativeGetResponse, Derivatives } from './resources/derivatives/derivatives';
@@ -56,6 +49,18 @@ import {
 import { Onchain } from './resources/onchain/onchain';
 import { Search, SearchGetParams, SearchGetResponse } from './resources/search/search';
 import { Simple } from './resources/simple/simple';
+import { type Fetch } from './internal/builtin-types';
+import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
+import { FinalRequestOptions, RequestOptions } from './internal/request-options';
+import { readEnv } from './internal/utils/env';
+import {
+  type LogLevel,
+  type Logger,
+  formatRequestDetails,
+  loggerFor,
+  parseLogLevel,
+} from './internal/utils/log';
+import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
   pro: 'https://pro-api.coingecko.com/api/v3',
