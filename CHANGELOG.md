@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.6.0 (2025-06-19)
+
+Full Changelog: [v1.5.0...v1.6.0](https://github.com/coingecko/coingecko-typescript/compare/v1.5.0...v1.6.0)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([b356451](https://github.com/coingecko/coingecko-typescript/commit/b356451ee15a78d85c75e584665d4506b4397a58))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([e6578d3](https://github.com/coingecko/coingecko-typescript/commit/e6578d3eae4e30107b8ad2548d81a7fb88159268))
+* **client:** refactor imports ([36f0acf](https://github.com/coingecko/coingecko-typescript/commit/36f0acf5a7d984e41f7b539414e020366fecb546))
+* **readme:** update badges ([b6a481f](https://github.com/coingecko/coingecko-typescript/commit/b6a481f92e699fcf6a92a624c836b226199000a7))
+* **readme:** use better example snippet for undocumented params ([a35d8e9](https://github.com/coingecko/coingecko-typescript/commit/a35d8e98e7093a38aaabaa3691e97b1e035d6a72))
+
 ## 1.5.0 (2025-06-14)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/coingecko/coingecko-typescript/compare/v1.4.0...v1.5.0)
