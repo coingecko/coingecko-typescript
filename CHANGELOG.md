@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.1 (2025-06-21)
+
+Full Changelog: [v1.6.0...v1.6.1](https://github.com/coingecko/coingecko-typescript/compare/v1.6.0...v1.6.1)
+
+### Bug Fixes
+
+* **client:** explicitly copy fetch in withOptions ([15d6359](https://github.com/coingecko/coingecko-typescript/commit/15d635933691519f19a77954cf8ed273c9f3c6d8))
+
 ## 1.6.0 (2025-06-19)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/coingecko/coingecko-typescript/compare/v1.5.0...v1.6.0)
