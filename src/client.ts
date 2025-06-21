@@ -241,6 +241,7 @@ export class Coingecko {
       timeout: this.timeout,
       logger: this.logger,
       logLevel: this.logLevel,
+      fetch: this.fetch,
       fetchOptions: this.fetchOptions,
       proAPIKey: this.proAPIKey,
       demoAPIKey: this.demoAPIKey,
