@@ -106,12 +106,6 @@ export interface ExchangeGetResponse {
   trade_volume_24h_btc?: number;
 
   /**
-   * normalized trading volume by traffic in BTC in 24 hours \*refers to
-   * [`this blog`](https://blog.coingecko.com/trust-score/).
-   */
-  trade_volume_24h_btc_normalized?: number;
-
-  /**
    * exchange trust score
    */
   trust_score?: number;
@@ -210,12 +204,6 @@ export interface ExchangeGetIDResponse {
   tickers?: Array<ExchangeGetIDResponse.Ticker>;
 
   trade_volume_24h_btc?: number;
-
-  /**
-   * normalized trading volume by traffic in BTC in 24 hours \*refers to
-   * [`this blog`](https://blog.coingecko.com/trust-score/).
-   */
-  trade_volume_24h_btc_normalized?: number;
 
   /**
    * exchange trust score

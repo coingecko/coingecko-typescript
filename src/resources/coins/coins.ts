@@ -259,11 +259,6 @@ export namespace CoinGetIDResponse {
      * coin telegram channel user count
      */
     telegram_channel_user_count?: number;
-
-    /**
-     * coin twitter followers
-     */
-    twitter_followers?: number;
   }
 
   /**
