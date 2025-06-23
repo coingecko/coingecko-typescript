@@ -117,6 +117,10 @@ export namespace PoolGetResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -190,6 +194,10 @@ export namespace PoolGetResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }
@@ -330,6 +338,10 @@ export namespace PoolGetAddressResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }

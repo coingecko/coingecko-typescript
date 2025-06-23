@@ -98,11 +98,6 @@ export namespace HistoryGetResponse {
      * coin reddit subscribers
      */
     reddit_subscribers?: number;
-
-    /**
-     * coin twitter followers
-     */
-    twitter_followers?: number;
   }
 
   /**
