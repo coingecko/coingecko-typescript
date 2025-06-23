@@ -100,6 +100,10 @@ export namespace NewPoolGetResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -173,6 +177,10 @@ export namespace NewPoolGetResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }
@@ -308,6 +316,10 @@ export namespace NewPoolGetNetworkResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -381,6 +393,10 @@ export namespace NewPoolGetNetworkResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }

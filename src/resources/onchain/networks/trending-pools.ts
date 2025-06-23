@@ -102,6 +102,10 @@ export namespace TrendingPoolGetResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -175,6 +179,10 @@ export namespace TrendingPoolGetResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }
@@ -310,6 +318,10 @@ export namespace TrendingPoolGetNetworkResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -383,6 +395,10 @@ export namespace TrendingPoolGetNetworkResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }

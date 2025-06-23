@@ -175,6 +175,10 @@ export namespace TokenGetAddressResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
@@ -248,6 +252,10 @@ export namespace TokenGetAddressResponse {
         h24?: string;
 
         h6?: string;
+
+        m15?: string;
+
+        m30?: string;
 
         m5?: string;
       }

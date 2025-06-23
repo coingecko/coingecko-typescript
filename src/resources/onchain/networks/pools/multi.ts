@@ -96,6 +96,10 @@ export namespace MultiGetAddressesResponse {
 
         h6?: string;
 
+        m15?: string;
+
+        m30?: string;
+
         m5?: string;
       }
 
