@@ -47,7 +47,7 @@ export namespace TokenPriceGetAddressesResponse {
 
   export namespace Data {
     export interface Attributes {
-      token_prices?: Record<string, string>;
+      token_prices?: { [key: string]: string };
     }
   }
 }

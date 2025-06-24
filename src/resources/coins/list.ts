@@ -49,7 +49,7 @@ export namespace ListGetResponse {
     /**
      * coin asset platform and contract address
      */
-    platforms?: Record<string, string>;
+    platforms?: { [key: string]: string };
 
     /**
      * coin symbol

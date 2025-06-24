@@ -122,12 +122,12 @@ export interface CoinGetIDResponse {
   /**
    * coin description
    */
-  description?: Record<string, string>;
+  description?: { [key: string]: string };
 
   /**
    * detailed coin asset platform and contract address
    */
-  detail_platforms?: Record<string, string>;
+  detail_platforms?: { [key: string]: string };
 
   /**
    * coin developer data
@@ -162,7 +162,7 @@ export interface CoinGetIDResponse {
   /**
    * coin name localization
    */
-  localization?: Record<string, string>;
+  localization?: { [key: string]: string };
 
   /**
    * coin rank by market cap
@@ -182,7 +182,7 @@ export interface CoinGetIDResponse {
   /**
    * coin asset platform and contract address
    */
-  platforms?: Record<string, string>;
+  platforms?: { [key: string]: string };
 
   /**
    * preview listing coin
