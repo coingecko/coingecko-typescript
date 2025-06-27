@@ -25,7 +25,7 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "coingecko_coingecko_typescript_api": {
+    "coingecko_api": {
       "command": "npx",
       "args": ["-y", "@coingecko/coingecko-mcp", "--client=claude", "--tools=dynamic"],
       "env": {
