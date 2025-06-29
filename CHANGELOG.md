@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.7.1 (2025-06-28)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/coingecko/coingecko-typescript/compare/v1.7.0...v1.7.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([75c2827](https://github.com/coingecko/coingecko-typescript/commit/75c282747c272c58024ee295063ce50b657873ce))
+* **client:** get fetchOptions type more reliably ([bfcf183](https://github.com/coingecko/coingecko-typescript/commit/bfcf1832d40f7409749def9cb4c572772bdb6e27))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([b54f71d](https://github.com/coingecko/coingecko-typescript/commit/b54f71d781f06769d4d531db290c140b42fabd98))
+* **docs:** use simpler mcp tool name ([0f8f66d](https://github.com/coingecko/coingecko-typescript/commit/0f8f66d13e2a1da640d6e5cdb34e0039e337dac4))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([cd28aac](https://github.com/coingecko/coingecko-typescript/commit/cd28aacf3d487a12382c3687272e356a2132fc06))
+
 ## 1.7.0 (2025-06-23)
 
 Full Changelog: [v1.6.1...v1.7.0](https://github.com/coingecko/coingecko-typescript/compare/v1.6.1...v1.7.0)

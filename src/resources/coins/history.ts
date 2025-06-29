@@ -46,7 +46,7 @@ export interface HistoryGetResponse {
   /**
    * coin localization
    */
-  localization?: Record<string, string>;
+  localization?: { [key: string]: string };
 
   /**
    * coin market data
