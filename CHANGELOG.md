@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.2 (2025-07-01)
+
+Full Changelog: [v1.7.1...v1.7.2](https://github.com/coingecko/coingecko-typescript/compare/v1.7.1...v1.7.2)
+
+### Chores
+
+* **client:** improve path param validation ([38e333d](https://github.com/coingecko/coingecko-typescript/commit/38e333da596f98482a640341cc8ac63ddcdb6942))
+
 ## 1.7.1 (2025-06-28)
 
 Full Changelog: [v1.7.0...v1.7.1](https://github.com/coingecko/coingecko-typescript/compare/v1.7.0...v1.7.1)
