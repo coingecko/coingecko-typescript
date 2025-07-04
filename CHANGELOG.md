@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.3 (2025-07-03)
+
+Full Changelog: [v1.7.2...v1.7.3](https://github.com/coingecko/coingecko-typescript/compare/v1.7.2...v1.7.3)
+
+### Chores
+
+* add docs to RequestOptions type ([c2dfd02](https://github.com/coingecko/coingecko-typescript/commit/c2dfd0280c85a14d5d393f374181aa8468c57a3c))
+
 ## 1.7.2 (2025-07-01)
 
 Full Changelog: [v1.7.1...v1.7.2](https://github.com/coingecko/coingecko-typescript/compare/v1.7.1...v1.7.2)
