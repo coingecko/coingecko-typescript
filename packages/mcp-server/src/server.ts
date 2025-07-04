@@ -26,7 +26,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'coingecko_coingecko_typescript_api',
-    version: '1.7.2',
+    version: '1.7.3',
   },
   {
     capabilities: {
