@@ -127,7 +127,7 @@ export interface CoinGetIDResponse {
   /**
    * detailed coin asset platform and contract address
    */
-  detail_platforms?: { [key: string]: string };
+  detail_platforms?: { [key: string]: CoinGetIDResponse.DetailPlatforms };
 
   /**
    * coin developer data
@@ -259,6 +259,18 @@ export namespace CoinGetIDResponse {
      * coin telegram channel user count
      */
     telegram_channel_user_count?: number;
+  }
+
+  export interface DetailPlatforms {
+    /**
+     * contract address on the platform
+     */
+    contract_address?: string;
+
+    /**
+     * decimal places for the token
+     */
+    decimal_place?: number | null;
   }
 
   /**
