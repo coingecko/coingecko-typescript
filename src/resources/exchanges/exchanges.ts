@@ -398,16 +398,20 @@ export namespace ExchangeGetIDResponse {
   }
 }
 
-export interface ExchangeGetListResponse {
-  /**
-   * exchange ID
-   */
-  id?: string;
+export type ExchangeGetListResponse = Array<ExchangeGetListResponse.ExchangeGetListResponseItem>;
 
-  /**
-   * exchange name
-   */
-  name?: string;
+export namespace ExchangeGetListResponse {
+  export interface ExchangeGetListResponseItem {
+    /**
+     * exchange ID
+     */
+    id: string;
+
+    /**
+     * exchange name
+     */
+    name: string;
+  }
 }
 
 export interface ExchangeGetParams {

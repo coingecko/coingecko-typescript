@@ -21,31 +21,35 @@ export class Price extends APIResource {
   }
 }
 
-export interface PriceGetResponse {
-  /**
-   * last updated timestamp
-   */
-  last_updated_at?: number;
+export type PriceGetResponse = { [key: string]: PriceGetResponse.item };
 
-  /**
-   * price in USD
-   */
-  usd?: number;
+export namespace PriceGetResponse {
+  export interface item {
+    /**
+     * last updated timestamp
+     */
+    last_updated_at?: number;
 
-  /**
-   * 24hr change in USD
-   */
-  usd_24h_change?: number;
+    /**
+     * price in USD
+     */
+    usd?: number;
 
-  /**
-   * 24hr volume in USD
-   */
-  usd_24h_vol?: number;
+    /**
+     * 24hr change in USD
+     */
+    usd_24h_change?: number;
 
-  /**
-   * market cap in USD
-   */
-  usd_market_cap?: number;
+    /**
+     * 24hr volume in USD
+     */
+    usd_24h_vol?: number;
+
+    /**
+     * market cap in USD
+     */
+    usd_market_cap?: number;
+  }
 }
 
 export interface PriceGetParams {

@@ -1,4 +1,4 @@
 configured_endpoints: 79
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/coingecko%2Fcoingecko-385cf003659bfe271e0b1dd36dc96d5bc1e16157ed7c9e6060f11398f0b2768d.yml
-openapi_spec_hash: ecba9632e12cb9991883fde8a575bd3b
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/coingecko%2Fcoingecko-4f8e578c640a5aece5ea603c804d6d1961d5fd64850127f28c5f907dae72e378.yml
+openapi_spec_hash: 29cbfabf2f91001958e7f305c75c88df
 config_hash: 7432ae1a3af43878a57600540a58bdf7
