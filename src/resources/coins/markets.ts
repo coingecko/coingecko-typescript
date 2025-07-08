@@ -11,7 +11,7 @@ export class Markets extends APIResource {
    *
    * @example
    * ```ts
-   * const market = await client.coins.markets.get({
+   * const markets = await client.coins.markets.get({
    *   vs_currency: 'usd',
    * });
    * ```
@@ -21,133 +21,162 @@ export class Markets extends APIResource {
   }
 }
 
-export interface MarketGetResponse {
-  /**
-   * coin ID
-   */
-  id?: string;
+export type MarketGetResponse = Array<MarketGetResponse.MarketGetResponseItem>;
 
-  /**
-   * coin all time high (ATH) in currency
-   */
-  ath?: number;
+export namespace MarketGetResponse {
+  export interface MarketGetResponseItem {
+    /**
+     * coin ID
+     */
+    id?: string;
 
-  /**
-   * coin all time high (ATH) change in percentage
-   */
-  ath_change_percentage?: number;
+    /**
+     * coin all time high (ATH) in currency
+     */
+    ath?: number | null;
 
-  /**
-   * coin all time high (ATH) date
-   */
-  ath_date?: string;
+    /**
+     * coin all time high (ATH) change in percentage
+     */
+    ath_change_percentage?: number | null;
 
-  /**
-   * coin all time low (atl) in currency
-   */
-  atl?: number;
+    /**
+     * coin all time high (ATH) date
+     */
+    ath_date?: string | null;
 
-  /**
-   * coin all time low (atl) change in percentage
-   */
-  atl_change_percentage?: number;
+    /**
+     * coin all time low (atl) in currency
+     */
+    atl?: number | null;
 
-  /**
-   * coin all time low (atl) date
-   */
-  atl_date?: string;
+    /**
+     * coin all time low (atl) change in percentage
+     */
+    atl_change_percentage?: number | null;
 
-  /**
-   * coin circulating supply
-   */
-  circulating_supply?: number;
+    /**
+     * coin all time low (atl) date
+     */
+    atl_date?: string | null;
 
-  /**
-   * coin current price in currency
-   */
-  current_price?: number;
+    /**
+     * coin circulating supply
+     */
+    circulating_supply?: number | null;
 
-  /**
-   * coin fully diluted valuation (fdv) in currency
-   */
-  fully_diluted_valuation?: number;
+    /**
+     * coin current price in currency
+     */
+    current_price?: number | null;
 
-  /**
-   * coin 24hr price high in currency
-   */
-  high_24h?: number;
+    /**
+     * coin fully diluted valuation (fdv) in currency
+     */
+    fully_diluted_valuation?: number | null;
 
-  /**
-   * coin image url
-   */
-  image?: string;
+    /**
+     * coin 24hr price high in currency
+     */
+    high_24h?: number | null;
 
-  /**
-   * coin last updated timestamp
-   */
-  last_updated?: string;
+    /**
+     * coin image url
+     */
+    image?: string;
 
-  /**
-   * coin 24hr price low in currency
-   */
-  low_24h?: number;
+    /**
+     * coin last updated timestamp
+     */
+    last_updated?: string;
 
-  /**
-   * coin market cap in currency
-   */
-  market_cap?: number;
+    /**
+     * coin 24hr price low in currency
+     */
+    low_24h?: number | null;
 
-  /**
-   * coin 24hr market cap change in currency
-   */
-  market_cap_change_24h?: number;
+    /**
+     * coin market cap in currency
+     */
+    market_cap?: number | null;
 
-  /**
-   * coin 24hr market cap change in percentage
-   */
-  market_cap_change_percentage_24h?: number;
+    /**
+     * coin 24hr market cap change in currency
+     */
+    market_cap_change_24h?: number | null;
 
-  /**
-   * coin rank by market cap
-   */
-  market_cap_rank?: number;
+    /**
+     * coin 24hr market cap change in percentage
+     */
+    market_cap_change_percentage_24h?: number | null;
 
-  /**
-   * coin max supply
-   */
-  max_supply?: number;
+    /**
+     * coin rank by market cap
+     */
+    market_cap_rank?: number | null;
 
-  /**
-   * coin name
-   */
-  name?: string;
+    /**
+     * coin max supply
+     */
+    max_supply?: number | null;
 
-  /**
-   * coin 24hr price change in currency
-   */
-  price_change_24h?: number;
+    /**
+     * coin name
+     */
+    name?: string;
 
-  /**
-   * coin 24hr price change in percentage
-   */
-  price_change_percentage_24h?: number;
+    /**
+     * coin 24hr price change in currency
+     */
+    price_change_24h?: number | null;
 
-  roi?: string;
+    /**
+     * coin 24hr price change in percentage
+     */
+    price_change_percentage_24h?: number | null;
 
-  /**
-   * coin symbol
-   */
-  symbol?: string;
+    /**
+     * return on investment data
+     */
+    roi?: MarketGetResponseItem.Roi | null;
 
-  /**
-   * coin total supply
-   */
-  total_supply?: number;
+    /**
+     * coin symbol
+     */
+    symbol?: string;
 
-  /**
-   * coin total trading volume in currency
-   */
-  total_volume?: number;
+    /**
+     * coin total supply
+     */
+    total_supply?: number | null;
+
+    /**
+     * coin total trading volume in currency
+     */
+    total_volume?: number | null;
+  }
+
+  export namespace MarketGetResponseItem {
+    /**
+     * return on investment data
+     */
+    export interface Roi {
+      /**
+       * ROI currency
+       */
+      currency: string;
+
+      /**
+       * ROI percentage
+       */
+      percentage: number;
+
+      /**
+       * ROI multiplier
+       */
+      times: number;
+    }
+  }
 }
 
 export interface MarketGetParams {
