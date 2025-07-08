@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.0 (2025-07-08)
+
+Full Changelog: [v1.7.3...v1.8.0](https://github.com/coingecko/coingecko-typescript/compare/v1.7.3...v1.8.0)
+
+### Features
+
+* **api:** api update ([14c2d5e](https://github.com/coingecko/coingecko-typescript/commit/14c2d5e82761827875b66383bd0f9dea9c99dc44))
+
 ## 1.7.3 (2025-07-03)
 
 Full Changelog: [v1.7.2...v1.7.3](https://github.com/coingecko/coingecko-typescript/compare/v1.7.2...v1.7.3)
