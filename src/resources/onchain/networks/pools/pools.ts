@@ -276,7 +276,7 @@ export namespace PoolGetResponse {
 }
 
 export interface PoolGetAddressResponse {
-  data?: Array<PoolGetAddressResponse.Data>;
+  data?: PoolGetAddressResponse.Data;
 
   included?: Array<PoolGetAddressResponse.Included>;
 }
