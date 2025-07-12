@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.10.0 (2025-07-11)
+
+Full Changelog: [v1.9.0...v1.10.0](https://github.com/coingecko/coingecko-typescript/compare/v1.9.0...v1.10.0)
+
+### Features
+
+* **mcp:** support filtering tool results by a jq expression ([e0f7de2](https://github.com/coingecko/coingecko-typescript/commit/e0f7de28437a7884a796052c40e3c5ff74fa562f))
+
+
+### Bug Fixes
+
+* **mcp:** relax input type for asTextContextResult ([5b31a3a](https://github.com/coingecko/coingecko-typescript/commit/5b31a3ac91b7614f9700bc3c150831fd8d6b7bf0))
+
+
+### Chores
+
+* make some internal functions async ([97ae2fc](https://github.com/coingecko/coingecko-typescript/commit/97ae2fc3acf7b139198ec8592127f50f3218a3e9))
+
 ## 1.9.0 (2025-07-09)
 
 Full Changelog: [v1.8.0...v1.9.0](https://github.com/coingecko/coingecko-typescript/compare/v1.8.0...v1.9.0)
