@@ -1,10 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { maybeFilter } from '@coingecko/coingecko-mcp/filtering';
-import { asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
+import { Metadata, asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import type { Metadata } from '../';
 import Coingecko from '@coingecko/coingecko-typescript';
 
 export const metadata: Metadata = {
