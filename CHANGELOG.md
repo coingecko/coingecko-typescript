@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.10.1 (2025-07-16)
+
+Full Changelog: [v1.10.0...v1.10.1](https://github.com/coingecko/coingecko-typescript/compare/v1.10.0...v1.10.1)
+
+### Bug Fixes
+
+* **mcp:** support jq filtering on cloudflare workers ([c282ffa](https://github.com/coingecko/coingecko-typescript/commit/c282ffa27f9346c4501b797f552b9e7b0298f5e3))
+
+
+### Chores
+
+* **mcp:** rework imports in tools ([fccae9a](https://github.com/coingecko/coingecko-typescript/commit/fccae9a57c148cac69751423f5596ae677785126))
+
 ## 1.10.0 (2025-07-11)
 
 Full Changelog: [v1.9.0...v1.10.0](https://github.com/coingecko/coingecko-typescript/compare/v1.9.0...v1.10.0)
