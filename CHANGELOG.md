@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.10.2 (2025-07-17)
+
+Full Changelog: [v1.10.1...v1.10.2](https://github.com/coingecko/coingecko-typescript/compare/v1.10.1...v1.10.2)
+
+### Chores
+
+* **mcp:** formatting ([2523d15](https://github.com/coingecko/coingecko-typescript/commit/2523d156e7d478a156164a331c53c85cb67c8ba1))
+* **ts:** reorder package.json imports ([159fec5](https://github.com/coingecko/coingecko-typescript/commit/159fec5e348cb1d8e439683ec139977deaaaffa5))
+
 ## 1.10.1 (2025-07-16)
 
 Full Changelog: [v1.10.0...v1.10.1](https://github.com/coingecko/coingecko-typescript/compare/v1.10.0...v1.10.1)
