@@ -55,6 +55,7 @@ export const tool: Tool = {
         description: 'include tickers data, default: true',
       },
     },
+    required: ['id'],
   },
 };
 

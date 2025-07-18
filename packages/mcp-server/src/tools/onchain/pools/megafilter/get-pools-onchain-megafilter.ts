@@ -147,6 +147,7 @@ export const tool: Tool = {
         description: 'minimum transaction count',
       },
     },
+    required: [],
   },
 };
 

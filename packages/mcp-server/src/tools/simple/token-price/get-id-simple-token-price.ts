@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'get_id_simple_token_price',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query one or more token prices using their token contract addresses**\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    last_updated_at: {\n      type: 'number',\n      description: 'last updated timestamp'\n    },\n    usd: {\n      type: 'number',\n      description: 'price in USD'\n    },\n    usd_24h_change: {\n      type: 'number',\n      description: '24hr change in USD'\n    },\n    usd_24h_vol: {\n      type: 'number',\n      description: '24hr volume in USD'\n    },\n    usd_market_cap: {\n      type: 'number',\n      description: 'market cap in USD'\n    }\n  },\n  required: []\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query one or more token prices using their token contract addresses**\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    last_updated_at: {\n      type: 'number',\n      description: 'last updated timestamp'\n    },\n    usd: {\n      type: 'number',\n      description: 'price in USD'\n    },\n    usd_24h_change: {\n      type: 'number',\n      description: '24hr change in USD'\n    },\n    usd_24h_vol: {\n      type: 'number',\n      description: '24hr volume in USD'\n    },\n    usd_market_cap: {\n      type: 'number',\n      description: 'market cap in USD'\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
@@ -84,6 +84,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
+    required: ['id', 'contract_addresses', 'vs_currencies'],
   },
 };
 
