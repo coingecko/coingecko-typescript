@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.3 (2025-07-18)
+
+Full Changelog: [v1.10.2...v1.10.3](https://github.com/coingecko/coingecko-typescript/compare/v1.10.2...v1.10.3)
+
+### Bug Fixes
+
+* **mcp:** include required section for top-level properties and support naming transformations ([426f523](https://github.com/coingecko/coingecko-typescript/commit/426f52391d919372a847a9f05b838cef090f0d9e))
+
 ## 1.10.2 (2025-07-17)
 
 Full Changelog: [v1.10.1...v1.10.2](https://github.com/coingecko/coingecko-typescript/compare/v1.10.1...v1.10.2)
