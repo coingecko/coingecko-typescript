@@ -38,6 +38,7 @@ describe('resource megafilter', () => {
           h24_volume_usd_max: 0,
           h24_volume_usd_min: 0,
           include: 'include',
+          include_unknown_honeypot_tokens: true,
           networks: 'networks',
           page: 0,
           pool_created_hour_max: 0,

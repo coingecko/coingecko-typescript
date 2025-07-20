@@ -220,6 +220,11 @@ export interface CoinGetIDResponse {
   tickers?: Array<CoinGetIDResponse.Ticker>;
 
   /**
+   * number of users watching this coin in portfolio
+   */
+  watchlist_portfolio_users?: number;
+
+  /**
    * coin web slug
    */
   web_slug?: string;
