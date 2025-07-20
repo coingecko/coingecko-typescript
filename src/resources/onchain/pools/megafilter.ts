@@ -304,6 +304,12 @@ export interface MegafilterGetParams {
   include?: string;
 
   /**
+   * when `checks` includes `no_honeypot`, set to **`true`** to also include 'unknown
+   * honeypot' tokens. Default value: `false`
+   */
+  include_unknown_honeypot_tokens?: boolean;
+
+  /**
    * filter pools by networks, comma-separated if more than one Network ID refers to
    * [/networks](/reference/networks-list)
    */

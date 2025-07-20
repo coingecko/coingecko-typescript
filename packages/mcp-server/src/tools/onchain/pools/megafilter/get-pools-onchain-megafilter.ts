@@ -73,6 +73,11 @@ export const tool: Tool = {
         description:
           'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`, `network`',
       },
+      include_unknown_honeypot_tokens: {
+        type: 'boolean',
+        description:
+          "when `checks` includes `no_honeypot`, set to **`true`** to also include  'unknown honeypot' tokens. Default value: `false`",
+      },
       networks: {
         type: 'string',
         description:
