@@ -177,6 +177,11 @@ export interface ContractGetResponse {
   tickers?: Array<ContractGetResponse.Ticker>;
 
   /**
+   * number of users watching this coin in portfolio
+   */
+  watchlist_portfolio_users?: number;
+
+  /**
    * coin web slug
    */
   web_slug?: string;
