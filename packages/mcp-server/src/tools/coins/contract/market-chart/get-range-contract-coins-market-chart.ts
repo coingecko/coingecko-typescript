@@ -81,6 +81,9 @@ export const tool: Tool = {
     },
     required: ['id', 'contract_address', 'from', 'to', 'vs_currency'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {

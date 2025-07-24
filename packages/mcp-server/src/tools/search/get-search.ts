@@ -35,6 +35,9 @@ export const tool: Tool = {
     },
     required: ['query'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
