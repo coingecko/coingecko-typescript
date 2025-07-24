@@ -68,6 +68,9 @@ export const tool: Tool = {
     },
     required: ['network', 'pool_address', 'timeframe'],
   },
+  annotations: {
+    readOnlyHint: true,
+  },
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
