@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.11.1 (2025-07-30)
+
+Full Changelog: [v1.11.0...v1.11.1](https://github.com/coingecko/coingecko-typescript/compare/v1.11.0...v1.11.1)
+
+### Chores
+
+* **internal:** codegen related update ([6181afb](https://github.com/coingecko/coingecko-typescript/commit/6181afbed5f2ee3c098c0a6d88c6fa69e34cb35e))
+* **internal:** remove redundant imports config ([c6cda80](https://github.com/coingecko/coingecko-typescript/commit/c6cda80136c4e7c764fc9917dd458a01fabf8ef1))
+
 ## 1.11.0 (2025-07-20)
 
 Full Changelog: [v1.10.3...v1.11.0](https://github.com/coingecko/coingecko-typescript/compare/v1.10.3...v1.11.0)
