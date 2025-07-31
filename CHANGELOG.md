@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.11.2 (2025-07-31)
+
+Full Changelog: [v1.11.1...v1.11.2](https://github.com/coingecko/coingecko-typescript/compare/v1.11.1...v1.11.2)
+
+### Bug Fixes
+
+* **mcp:** fix tool description of jq_filter ([55ba3c1](https://github.com/coingecko/coingecko-typescript/commit/55ba3c1a715589e7199d7b0f35a47eab7db1d10a))
+
 ## 1.11.1 (2025-07-30)
 
 Full Changelog: [v1.11.0...v1.11.1](https://github.com/coingecko/coingecko-typescript/compare/v1.11.0...v1.11.1)
