@@ -92,8 +92,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { id, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.simple.tokenPrice.getID(id, body)));
+  const { id, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.simple.tokenPrice.getID(id, body)));
 };
 
 export default { metadata, tool, handler };
