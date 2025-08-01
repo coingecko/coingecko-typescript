@@ -46,8 +46,10 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const body = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.onchain.pools.trendingSearch.get(body)));
+  const { jq_filter, ...body } = args as any;
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.onchain.pools.trendingSearch.get(body)),
+  );
 };
 
 export default { metadata, tool, handler };

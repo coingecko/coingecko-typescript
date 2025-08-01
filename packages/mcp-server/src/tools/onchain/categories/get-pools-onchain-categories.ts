@@ -63,9 +63,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { category_id, ...body } = args as any;
+  const { category_id, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.categories.getPools(category_id, body)),
+    await maybeFilter(jq_filter, await client.onchain.categories.getPools(category_id, body)),
   );
 };
 

@@ -87,9 +87,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { contract_address, ...body } = args as any;
+  const { contract_address, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.coins.contract.marketChart.getRange(contract_address, body)),
+    await maybeFilter(jq_filter, await client.coins.contract.marketChart.getRange(contract_address, body)),
   );
 };
 
