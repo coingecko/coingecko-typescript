@@ -63,9 +63,12 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { addresses, ...body } = args as any;
+  const { addresses, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.simple.networks.tokenPrice.getAddresses(addresses, body)),
+    await maybeFilter(
+      jq_filter,
+      await client.onchain.simple.networks.tokenPrice.getAddresses(addresses, body),
+    ),
   );
 };
 

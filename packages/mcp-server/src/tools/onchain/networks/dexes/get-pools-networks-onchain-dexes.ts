@@ -57,9 +57,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { dex, ...body } = args as any;
+  const { dex, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.networks.dexes.getPools(dex, body)),
+    await maybeFilter(jq_filter, await client.onchain.networks.dexes.getPools(dex, body)),
   );
 };
 

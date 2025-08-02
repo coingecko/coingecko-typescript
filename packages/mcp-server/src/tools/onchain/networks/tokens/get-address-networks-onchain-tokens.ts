@@ -48,9 +48,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { address, ...body } = args as any;
+  const { address, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.networks.tokens.getAddress(address, body)),
+    await maybeFilter(jq_filter, await client.onchain.networks.tokens.getAddress(address, body)),
   );
 };
 

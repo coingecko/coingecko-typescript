@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.11.3 (2025-08-02)
+
+Full Changelog: [v1.11.2...v1.11.3](https://github.com/coingecko/coingecko-typescript/compare/v1.11.2...v1.11.3)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([27dbd18](https://github.com/coingecko/coingecko-typescript/commit/27dbd18b7dc3f2a861fb3ed1109091bc3445d934))
+
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([a63b83a](https://github.com/coingecko/coingecko-typescript/commit/a63b83a9de3d177536aeef904b695b7115ba3d77))
+* **mcp:** reverse validJson capability option and limit scope ([247d3d0](https://github.com/coingecko/coingecko-typescript/commit/247d3d026590b397e10a74ae96ecc9abff19b93c))
+
 ## 1.11.2 (2025-07-31)
 
 Full Changelog: [v1.11.1...v1.11.2](https://github.com/coingecko/coingecko-typescript/compare/v1.11.1...v1.11.2)

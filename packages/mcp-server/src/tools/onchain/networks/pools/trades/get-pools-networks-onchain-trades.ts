@@ -52,9 +52,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { pool_address, ...body } = args as any;
+  const { pool_address, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.networks.pools.trades.get(pool_address, body)),
+    await maybeFilter(jq_filter, await client.onchain.networks.pools.trades.get(pool_address, body)),
   );
 };
 
