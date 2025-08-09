@@ -37,7 +37,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  return asTextContentResult(await maybeFilter(args, await client.coins.categories.getList()));
+  const { jq_filter } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.coins.categories.getList()));
 };
 
 export default { metadata, tool, handler };

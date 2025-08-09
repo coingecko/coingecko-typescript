@@ -74,9 +74,9 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { timeframe, ...body } = args as any;
+  const { timeframe, jq_filter, ...body } = args as any;
   return asTextContentResult(
-    await maybeFilter(args, await client.onchain.networks.pools.ohlcv.getTimeframe(timeframe, body)),
+    await maybeFilter(jq_filter, await client.onchain.networks.pools.ohlcv.getTimeframe(timeframe, body)),
   );
 };
 

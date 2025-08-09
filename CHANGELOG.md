@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.11.3 (2025-08-09)
+
+Full Changelog: [v1.11.2...v1.11.3](https://github.com/coingecko/coingecko-typescript/compare/v1.11.2...v1.11.3)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([27dbd18](https://github.com/coingecko/coingecko-typescript/commit/27dbd18b7dc3f2a861fb3ed1109091bc3445d934))
+* **mcp:** add unix socket option for remote MCP ([b3c3670](https://github.com/coingecko/coingecko-typescript/commit/b3c3670815b2c37165027fbe122a232fb431948d))
+* **mcp:** remote server with passthru auth ([d0e4de6](https://github.com/coingecko/coingecko-typescript/commit/d0e4de6a1e1e9a875c86b08258c7c3672ce8996b))
+
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([a63b83a](https://github.com/coingecko/coingecko-typescript/commit/a63b83a9de3d177536aeef904b695b7115ba3d77))
+* **mcp:** reverse validJson capability option and limit scope ([247d3d0](https://github.com/coingecko/coingecko-typescript/commit/247d3d026590b397e10a74ae96ecc9abff19b93c))
+
+
+### Chores
+
+* **internal:** move publish config ([bee2d32](https://github.com/coingecko/coingecko-typescript/commit/bee2d321ee1551059f2ad402aef8293431b0594a))
+* **internal:** update comment in script ([b56e4c9](https://github.com/coingecko/coingecko-typescript/commit/b56e4c91e0a7f59ca8f5014995cae740a05d32d9))
+* **mcp:** refactor streamable http transport ([fbdb003](https://github.com/coingecko/coingecko-typescript/commit/fbdb003028b1cb88bb06bc52e01b025ffd641435))
+* update @stainless-api/prism-cli to v5.15.0 ([4c37db1](https://github.com/coingecko/coingecko-typescript/commit/4c37db118cea22c19b8927586408115bd462e015))
+
 ## 1.11.2 (2025-07-31)
 
 Full Changelog: [v1.11.1...v1.11.2](https://github.com/coingecko/coingecko-typescript/compare/v1.11.1...v1.11.2)
