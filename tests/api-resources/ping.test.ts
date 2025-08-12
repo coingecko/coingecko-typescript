@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource ping', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.ping.get();
     const rawResponse = await responsePromise.asResponse();

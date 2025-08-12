@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource markets', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.markets.get({ vs_currency: 'usd' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource markets', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.markets.get({
       vs_currency: 'usd',

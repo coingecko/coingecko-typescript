@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource exchanges', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.derivatives.exchanges.get();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource exchanges', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -31,7 +31,7 @@ describe('resource exchanges', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getID', async () => {
     const responsePromise = client.derivatives.exchanges.getID('binance_futures');
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +43,7 @@ describe('resource exchanges', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getID: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -55,7 +55,7 @@ describe('resource exchanges', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getList', async () => {
     const responsePromise = client.derivatives.exchanges.getList();
     const rawResponse = await responsePromise.asResponse();
