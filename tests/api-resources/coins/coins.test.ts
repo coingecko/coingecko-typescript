@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource coins', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getID', async () => {
     const responsePromise = client.coins.getID('bitcoin');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource coins', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getID: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
