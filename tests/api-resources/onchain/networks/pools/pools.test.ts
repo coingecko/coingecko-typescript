@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource pools', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.onchain.networks.pools.get('eth');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource pools', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -32,7 +32,7 @@ describe('resource pools', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getAddress: only required params', async () => {
     const responsePromise = client.onchain.networks.pools.getAddress(
       '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',
@@ -47,7 +47,7 @@ describe('resource pools', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getAddress: required and optional params', async () => {
     const response = await client.onchain.networks.pools.getAddress(
       '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',

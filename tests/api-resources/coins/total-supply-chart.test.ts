@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource totalSupplyChart', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.totalSupplyChart.get('bitcoin', { days: 'days' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,12 +20,12 @@ describe('resource totalSupplyChart', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.totalSupplyChart.get('bitcoin', { days: 'days', interval: 'daily' });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getRange: only required params', async () => {
     const responsePromise = client.coins.totalSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
     const rawResponse = await responsePromise.asResponse();
@@ -37,7 +37,7 @@ describe('resource totalSupplyChart', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getRange: required and optional params', async () => {
     const response = await client.coins.totalSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
   });

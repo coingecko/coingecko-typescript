@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource ohlcv', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getTimeframe: only required params', async () => {
     const responsePromise = client.onchain.networks.pools.ohlcv.getTimeframe('day', {
       network: 'eth',
@@ -23,7 +23,7 @@ describe('resource ohlcv', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getTimeframe: required and optional params', async () => {
     const response = await client.onchain.networks.pools.ohlcv.getTimeframe('day', {
       network: 'eth',

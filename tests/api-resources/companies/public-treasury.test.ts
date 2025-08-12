@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource publicTreasury', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getCoinID', async () => {
     const responsePromise = client.companies.publicTreasury.getCoinID('bitcoin');
     const rawResponse = await responsePromise.asResponse();

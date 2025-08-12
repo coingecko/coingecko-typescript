@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource tokens', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getAddress: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.getAddress(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
@@ -23,7 +23,7 @@ describe('resource tokens', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('getAddress: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.getAddress(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
