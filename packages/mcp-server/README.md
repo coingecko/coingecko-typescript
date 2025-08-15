@@ -140,15 +140,15 @@ Authorization can be provided via the following headers:
 | `x-cg-pro-api-key` | `proAPIKey` | proKeyAuth |
 | `x-cg-demo-api-key` | `demoAPIKey` | demoKeyAuth |
 
-A configuration JSON for this server might look like this:
+A configuration JSON for this server might look like this, assuming the server is hosted at `http://localhost:3000`:
 
 ```json
 {
   "mcpServers": {
     "coingecko_coingecko_typescript_api": {
-      "url": "http://localhost:3000", # or wherever the server is hosted
+      "url": "http://localhost:3000",
       "headers": {
-        'x-cg-pro-api-key': 'My Pro API Key'
+        "x-cg-pro-api-key": "My Pro API Key"
       }
     }
   }
