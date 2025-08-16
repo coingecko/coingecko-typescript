@@ -820,6 +820,7 @@ export class Coingecko {
   simple: API.Simple = new API.Simple(this);
   tokenLists: API.TokenLists = new API.TokenLists(this);
 }
+
 Coingecko.AssetPlatforms = AssetPlatforms;
 Coingecko.Coins = Coins;
 Coingecko.Companies = Companies;
@@ -834,6 +835,7 @@ Coingecko.Ping = Ping;
 Coingecko.Search = Search;
 Coingecko.Simple = Simple;
 Coingecko.TokenLists = TokenLists;
+
 export declare namespace Coingecko {
   export type RequestOptions = Opts.RequestOptions;
 
