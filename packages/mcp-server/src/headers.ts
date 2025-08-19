@@ -6,11 +6,11 @@ import { IncomingMessage } from 'node:http';
 
 export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> => {
   const proAPIKey =
-    req.headers['x-cg-pro-api-key'] instanceof Array ?
+    Array.isArray(req.headers['x-cg-pro-api-key']) ?
       req.headers['x-cg-pro-api-key'][0]
     : req.headers['x-cg-pro-api-key'];
   const demoAPIKey =
-    req.headers['x-cg-demo-api-key'] instanceof Array ?
+    Array.isArray(req.headers['x-cg-demo-api-key']) ?
       req.headers['x-cg-demo-api-key'][0]
     : req.headers['x-cg-demo-api-key'];
   return { proAPIKey, demoAPIKey };
