@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from '@coingecko/coingecko-typescript/client';
+import { ClientOptions } from '@coingecko/coingecko-typescript';
 
 export type WorkerInput = {
   opts: ClientOptions;
