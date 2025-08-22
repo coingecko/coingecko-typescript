@@ -1,10 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { type ClientOptions } from '@coingecko/coingecko-typescript/client';
-
 import { dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import Coingecko from '@coingecko/coingecko-typescript';
+import Coingecko, { ClientOptions } from '@coingecko/coingecko-typescript';
 import { Endpoint, ContentBlock, Metadata } from './tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
