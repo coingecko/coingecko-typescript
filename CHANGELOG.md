@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.12.0 (2025-08-29)
+
+Full Changelog: [v1.11.3...v1.12.0](https://github.com/coingecko/coingecko-typescript/compare/v1.11.3...v1.12.0)
+
+### Features
+
+* **mcp:** add code execution tool ([fd832aa](https://github.com/coingecko/coingecko-typescript/commit/fd832aadc778f5f703d69b3c695fbb2ba3fb3398))
+* **mcp:** add option to infer mcp client ([cc16c77](https://github.com/coingecko/coingecko-typescript/commit/cc16c77ba0a2bbfa5af462df06116e6d605ee757))
+* **mcp:** parse query string as mcp client options in mcp server ([b0581d0](https://github.com/coingecko/coingecko-typescript/commit/b0581d08d24c3a1926fce462625cb67989fa12a7))
+
+
+### Chores
+
+* add package to package.json ([a8506f8](https://github.com/coingecko/coingecko-typescript/commit/a8506f89f3257301254692ba017165ba42ed6eb9))
+* **client:** qualify global Blob ([1d928c3](https://github.com/coingecko/coingecko-typescript/commit/1d928c3e9acfb2375d9017c09e491a391302e2f6))
+* **internal:** codegen related update ([c35261c](https://github.com/coingecko/coingecko-typescript/commit/c35261c7a3757b627db2627986305aa022216b71))
+* **internal:** codegen related update ([e3e7482](https://github.com/coingecko/coingecko-typescript/commit/e3e74826ea71d72713ccdcc520743138919bcd20))
+* **internal:** make mcp-server publishing public by defaut ([b331749](https://github.com/coingecko/coingecko-typescript/commit/b33174921e5d14976bfe3244d2ece6629be98e29))
+* **internal:** refactor array check ([4e2e7e2](https://github.com/coingecko/coingecko-typescript/commit/4e2e7e2f9e28a0cdb781b8cdc8d03742450b3071))
+* **internal:** update global Error reference ([e53ff08](https://github.com/coingecko/coingecko-typescript/commit/e53ff08bbfdb439af8cb9de50df08fda81c64752))
+* **mcp:** add cors to oauth metadata route ([0c92a85](https://github.com/coingecko/coingecko-typescript/commit/0c92a85a4cfcf215d247447fd6aa78ef4b6fa83b))
+* **mcp:** update package.json ([b157db7](https://github.com/coingecko/coingecko-typescript/commit/b157db7edeea20ecf5649c7145ece9ac66e219c4))
+* **mcp:** update types ([7247a4c](https://github.com/coingecko/coingecko-typescript/commit/7247a4c6015c7dbf44143ab1e7e0670572135287))
+* update CI script ([19977b1](https://github.com/coingecko/coingecko-typescript/commit/19977b1b745418f89542033fe103311242c9c39b))
+
 ## 1.11.3 (2025-08-16)
 
 Full Changelog: [v1.11.2...v1.11.3](https://github.com/coingecko/coingecko-typescript/compare/v1.11.2...v1.11.3)
