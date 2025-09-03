@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.13.0 (2025-09-03)
+
+Full Changelog: [v1.12.0...v1.13.0](https://github.com/coingecko/coingecko-typescript/compare/v1.12.0...v1.13.0)
+
+### Features
+
+* **mcp:** allow setting logging level ([44e711d](https://github.com/coingecko/coingecko-typescript/commit/44e711de2b329b8e6f4bfdf414d3fa1357590726))
+* **mcp:** expose client options in `streamableHTTPApp` ([6772de1](https://github.com/coingecko/coingecko-typescript/commit/6772de1dde4998268a49e296012a3bba08ba9f0d))
+
+
+### Chores
+
+* **internal:** codegen related update ([3171b83](https://github.com/coingecko/coingecko-typescript/commit/3171b836e8836eda4cd92afc6faa3b5796208970))
+
 ## 1.12.0 (2025-08-29)
 
 Full Changelog: [v1.11.3...v1.12.0](https://github.com/coingecko/coingecko-typescript/compare/v1.11.3...v1.12.0)
