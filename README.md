@@ -1,3 +1,5 @@
+[![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/coingecko-coingecko-typescript-badge.png)](https://mseep.ai/app/coingecko-coingecko-typescript)
+
 # Coingecko TypeScript API Library
 
 [![NPM version](<https://img.shields.io/npm/v/@coingecko/coingecko-typescript.svg?label=npm%20(stable)>)](https://npmjs.org/package/@coingecko/coingecko-typescript) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@coingecko/coingecko-typescript)
