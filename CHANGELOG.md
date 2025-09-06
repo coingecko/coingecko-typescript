@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.13.1 (2025-09-06)
+
+Full Changelog: [v1.13.0...v1.13.1](https://github.com/coingecko/coingecko-typescript/compare/v1.13.0...v1.13.1)
+
+### Bug Fixes
+
+* **mcp:** fix query options parsing ([580fa9a](https://github.com/coingecko/coingecko-typescript/commit/580fa9a48cb9c83b04c4606fd3ce64d25e5c231e))
+
+
+### Chores
+
+* ci build action ([66c6013](https://github.com/coingecko/coingecko-typescript/commit/66c6013051eee18ec549fc8da30d1d8060b33818))
+* **internal:** codegen related update ([86b89f4](https://github.com/coingecko/coingecko-typescript/commit/86b89f4256870f4d0d16e0876c0f8370a1273e76))
+
 ## 1.13.0 (2025-09-03)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/coingecko/coingecko-typescript/compare/v1.12.0...v1.13.0)
