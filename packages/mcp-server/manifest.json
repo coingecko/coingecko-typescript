@@ -1,5 +1,5 @@
 {
-  "dxt_version": "0.1",
+  "dxt_version": "0.2",
   "name": "@coingecko/coingecko-mcp",
   "version": "1.13.0",
   "description": "The official MCP Server for the Coingecko API",
@@ -15,7 +15,7 @@
   "documentation": "https://docs.coingecko.com",
   "server": {
     "type": "node",
-    "entry_point": "${__dirname}/index.js",
+    "entry_point": "index.js",
     "mcp_config": {
       "command": "node",
       "args": ["${__dirname}/index.js"],
@@ -39,6 +39,7 @@
       "type": "string"
     }
   },
+  "tools": [],
   "tools_generated": true,
   "compatibility": {
     "runtimes": {
