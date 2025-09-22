@@ -44,7 +44,7 @@ export const tool: Tool = {
       },
       per_page: {
         type: 'number',
-        description: 'total results per page <br> Valid values: 1...250',
+        description: 'total results per page \n Valid values: 1...250',
       },
       jq_filter: {
         type: 'string',

@@ -25,16 +25,16 @@ export const tool: Tool = {
       vs_currencies: {
         type: 'string',
         description:
-          'target currency of coins, comma-separated if querying more than 1 currency. <br> *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
+          'target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
       },
       ids: {
         type: 'string',
         description:
-          "coins' IDs, comma-separated if querying more than 1 coin. <br> *refers to [`/coins/list`](/reference/coins-list).",
+          "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/reference/coins-list).",
       },
       include_24hr_change: {
         type: 'boolean',
-        description: 'include 24hr change, default: false',
+        description: 'include 24hr change percentage, default: false',
       },
       include_24hr_vol: {
         type: 'boolean',
@@ -51,7 +51,7 @@ export const tool: Tool = {
       include_tokens: {
         type: 'string',
         description:
-          'for `symbols` lookups, specify `all` to include all matching tokens <br> Default `top` returns top-ranked tokens (by market cap or volume)',
+          'for `symbols` lookups, specify `all` to include all matching tokens \n Default `top` returns top-ranked tokens (by market cap or volume)',
         enum: ['top', 'all'],
       },
       names: {

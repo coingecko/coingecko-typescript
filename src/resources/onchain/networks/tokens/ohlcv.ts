@@ -24,7 +24,7 @@ export class Ohlcv extends APIResource {
    * ```
    */
   getTimeframe(
-    timeframe: 'day' | 'hour' | 'minute',
+    timeframe: 'day' | 'hour' | 'minute' | 'second',
     params: OhlcvGetTimeframeParams,
     options?: RequestOptions,
   ): APIPromise<OhlcvGetTimeframeResponse> {
@@ -100,7 +100,7 @@ export interface OhlcvGetTimeframeParams {
   /**
    * Query param: time period to aggregate each OHLCV Available values (day): `1`
    * Available values (hour): `1` , `4` , `12` Available values (minute): `1` , `5` ,
-   * `15` Default value: 1
+   * `15` Available values (second): `1`, `15`, `30` Default value: 1
    */
   aggregate?: string;
 

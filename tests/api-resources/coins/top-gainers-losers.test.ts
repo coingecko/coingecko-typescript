@@ -25,6 +25,7 @@ describe('resource topGainersLosers', () => {
     const response = await client.coins.topGainersLosers.get({
       vs_currency: 'usd',
       duration: '1h',
+      price_change_percentage: 'price_change_percentage',
       top_coins: '300',
     });
   });

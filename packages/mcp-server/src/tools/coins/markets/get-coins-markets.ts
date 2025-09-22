@@ -25,22 +25,22 @@ export const tool: Tool = {
       vs_currency: {
         type: 'string',
         description:
-          'target currency of coins and market data <br> *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
+          'target currency of coins and market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
       },
       category: {
         type: 'string',
         description:
-          "filter based on coins' category <br> *refers to [`/coins/categories/list`](/reference/coins-categories-list).",
+          "filter based on coins' category \n *refers to [`/coins/categories/list`](/reference/coins-categories-list).",
       },
       ids: {
         type: 'string',
         description:
-          "coins' IDs, comma-separated if querying more than 1 coin. <br> *refers to [`/coins/list`](/reference/coins-list).",
+          "coins' IDs, comma-separated if querying more than 1 coin. \n *refers to [`/coins/list`](/reference/coins-list).",
       },
       include_tokens: {
         type: 'string',
         description:
-          'for `symbols` lookups, specify `all` to include all matching tokens <br> Default `top` returns top-ranked tokens (by market cap or volume)',
+          'for `symbols` lookups, specify `all` to include all matching tokens \n Default `top` returns top-ranked tokens (by market cap or volume)',
         enum: ['top', 'all'],
       },
       locale: {
@@ -98,7 +98,7 @@ export const tool: Tool = {
       },
       per_page: {
         type: 'number',
-        description: 'total results per page, default: 100 <br> Valid values: 1...250',
+        description: 'total results per page, default: 100 \n Valid values: 1...250',
       },
       precision: {
         type: 'string',
@@ -129,7 +129,7 @@ export const tool: Tool = {
       price_change_percentage: {
         type: 'string',
         description:
-          'include price change percentage timeframe, comma-separated if query more than 1 price change percentage timeframe <br> Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y',
+          'include price change percentage timeframe, comma-separated if query more than 1 timeframe \n Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y',
       },
       sparkline: {
         type: 'boolean',

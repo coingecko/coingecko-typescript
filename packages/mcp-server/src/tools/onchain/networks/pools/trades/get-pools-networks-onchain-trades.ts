@@ -31,11 +31,11 @@ export const tool: Tool = {
       token: {
         type: 'string',
         description:
-          "return trades for token <br> use this to invert the chart <br> Available values: 'base', 'quote' or token address <br> Default value: 'base'",
+          "return trades for token \n use this to invert the chart \n Available values: 'base', 'quote' or token address \n Default value: 'base'",
       },
       trade_volume_in_usd_greater_than: {
         type: 'number',
-        description: 'filter trades by trade volume in USD greater than this value <br> Default value: 0',
+        description: 'filter trades by trade volume in USD greater than this value \n Default value: 0',
       },
       jq_filter: {
         type: 'string',

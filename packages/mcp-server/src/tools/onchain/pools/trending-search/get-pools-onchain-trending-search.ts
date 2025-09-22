@@ -25,11 +25,11 @@ export const tool: Tool = {
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`, `network`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`',
       },
       pools: {
         type: 'integer',
-        description: 'number of pools to return, maximum 10 <br> Default value: 4',
+        description: 'number of pools to return, maximum 10 \n Default value: 4',
       },
       jq_filter: {
         type: 'string',

@@ -31,7 +31,7 @@ export const tool: Tool = {
       },
       buys_duration: {
         type: 'string',
-        description: 'duration for buy transactions metric <br> Default value: 24h',
+        description: 'duration for buy transactions metric \n Default value: 24h',
         enum: ['5m', '1h', '6h', '24h'],
       },
       buys_max: {
@@ -45,12 +45,12 @@ export const tool: Tool = {
       checks: {
         type: 'string',
         description:
-          'filter options for various checks, comma-separated if more than one <br> Available values: `no_honeypot`, `good_gt_score`, `on_coingecko`, `has_social`',
+          'filter options for various checks, comma-separated if more than one \n Available values: `no_honeypot`, `good_gt_score`, `on_coingecko`, `has_social`',
       },
       dexes: {
         type: 'string',
         description:
-          'filter pools by DEXes, comma-separated if more than one <br> DEX ID refers to [/networks/{network}/dexes](/reference/dexes-list)',
+          'filter pools by DEXes, comma-separated if more than one \n DEX ID refers to [/networks/{network}/dexes](/reference/dexes-list)',
       },
       fdv_usd_max: {
         type: 'number',
@@ -71,21 +71,21 @@ export const tool: Tool = {
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`, `network`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`',
       },
       include_unknown_honeypot_tokens: {
         type: 'boolean',
         description:
-          "when `checks` includes `no_honeypot`, set to **`true`** to also include  'unknown honeypot' tokens. Default value: `false`",
+          "when `checks` includes `no_honeypot`, set to **`true`** to also include 'unknown honeypot' tokens. Default value: `false`",
       },
       networks: {
         type: 'string',
         description:
-          'filter pools by networks, comma-separated if more than one <br> Network ID refers to [/networks](/reference/networks-list)',
+          'filter pools by networks, comma-separated if more than one \n Network ID refers to [/networks](/reference/networks-list)',
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: 1',
+        description: 'page through results \n Default value: 1',
       },
       pool_created_hour_max: {
         type: 'number',
@@ -113,7 +113,7 @@ export const tool: Tool = {
       },
       sells_duration: {
         type: 'string',
-        description: 'duration for sell transactions metric <br> Default value: 24h',
+        description: 'duration for sell transactions metric \n Default value: 24h',
         enum: ['5m', '1h', '6h', '24h'],
       },
       sells_max: {
@@ -126,7 +126,7 @@ export const tool: Tool = {
       },
       sort: {
         type: 'string',
-        description: 'sort the pools by field <br> Default value: h6_trending',
+        description: 'sort the pools by field \n Default value: h6_trending',
         enum: [
           'm5_trending',
           'h1_trending',
@@ -134,13 +134,20 @@ export const tool: Tool = {
           'h24_trending',
           'h24_tx_count_desc',
           'h24_volume_usd_desc',
+          'm5_price_change_percentage_desc',
+          'h1_price_change_percentage_desc',
+          'h6_price_change_percentage_desc',
           'h24_price_change_percentage_desc',
+          'fdv_usd_asc',
+          'fdv_usd_desc',
+          'reserve_in_usd_asc',
+          'reserve_in_usd_desc',
           'pool_created_at_desc',
         ],
       },
       tx_count_duration: {
         type: 'string',
-        description: 'duration for transaction count metric <br> Default value: 24h',
+        description: 'duration for transaction count metric \n Default value: 24h',
         enum: ['5m', '1h', '6h', '24h'],
       },
       tx_count_max: {

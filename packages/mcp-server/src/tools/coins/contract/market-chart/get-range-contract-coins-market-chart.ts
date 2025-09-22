@@ -29,17 +29,19 @@ export const tool: Tool = {
         type: 'string',
       },
       from: {
-        type: 'number',
-        description: 'starting date in UNIX timestamp',
+        type: 'string',
+        description:
+          'starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n **use ISO date string for best compatibility**',
       },
       to: {
-        type: 'number',
-        description: 'ending date in UNIX timestamp',
+        type: 'string',
+        description:
+          'ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n **use ISO date string for best compatibility**',
       },
       vs_currency: {
         type: 'string',
         description:
-          'target currency of market data <br> *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
+          'target currency of market data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
       },
       interval: {
         type: 'string',

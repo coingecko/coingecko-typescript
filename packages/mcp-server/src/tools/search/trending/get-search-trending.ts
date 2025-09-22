@@ -25,7 +25,7 @@ export const tool: Tool = {
       show_max: {
         type: 'string',
         description:
-          'show max number of results available for the given type <br> Available values: `coins`, `nfts`, `categories` <br> Example: `coins` or `coins,nfts,categories`',
+          'show max number of results available for the given type \n Available values: `coins`, `nfts`, `categories` \n Example: `coins` or `coins,nfts,categories`',
       },
       jq_filter: {
         type: 'string',

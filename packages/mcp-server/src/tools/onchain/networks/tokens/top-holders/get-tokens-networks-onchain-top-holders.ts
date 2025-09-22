@@ -31,7 +31,7 @@ export const tool: Tool = {
       holders: {
         type: 'string',
         description:
-          'number of top token holders to return, you may use any integer or `max` <br> Default value: 10',
+          'number of top token holders to return, you may use any integer or `max` \n Default value: 10',
       },
       jq_filter: {
         type: 'string',

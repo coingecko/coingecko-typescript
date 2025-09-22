@@ -13,7 +13,7 @@ export class History extends APIResource {
    * @example
    * ```ts
    * const history = await client.coins.history.get('bitcoin', {
-   *   date: '30-12-2017',
+   *   date: 'date',
    * });
    * ```
    */
@@ -243,7 +243,7 @@ export namespace HistoryGetResponse {
 
 export interface HistoryGetParams {
   /**
-   * the date of data snapshot Format: `dd-mm-yyyy`
+   * date of data snapshot (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`)
    */
   date: string;
 

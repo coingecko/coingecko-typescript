@@ -20,7 +20,7 @@ export class Exchanges extends APIResource {
   volumeChart: VolumeChartAPI.VolumeChart = new VolumeChartAPI.VolumeChart(this._client);
 
   /**
-   * This endpoint allows you to **query all the supported exchanges with exchanges’
+   * This endpoint allows you to **query all the supported exchanges with exchanges'
    * data (ID, name, country, ...) that have active trading volumes on CoinGecko**
    *
    * @example
@@ -36,8 +36,8 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query exchange’s data (name, year established,
-   * country, ...), exchange volume in BTC and top 100 tickers based on exchange’s
+   * This endpoint allows you to **query exchange's data (name, year established,
+   * country, ...), exchange volume in BTC and top 100 tickers based on exchange's
    * ID**
    *
    * @example

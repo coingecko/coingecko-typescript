@@ -24,11 +24,11 @@ export const tool: Tool = {
     properties: {
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: `1`',
+        description: 'page through results \n Default value: `1`',
       },
       sort: {
         type: 'string',
-        description: 'sort the categories by field <br> Default value: `h6_volume_percentage_desc`',
+        description: 'sort the categories by field \n Default value: `h6_volume_percentage_desc`',
         enum: [
           'h1_volume_percentage_desc',
           'h6_volume_percentage_desc',

@@ -42,7 +42,12 @@ export class MarketChart extends APIResource {
    * const response =
    *   await client.coins.contract.marketChart.getRange(
    *     '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-   *     { id: 'ethereum', from: 0, to: 0, vs_currency: 'usd' },
+   *     {
+   *       id: 'ethereum',
+   *       from: 'from',
+   *       to: 'to',
+   *       vs_currency: 'usd',
+   *     },
    *   );
    * ```
    */
@@ -133,14 +138,17 @@ export interface MarketChartGetRangeParams {
   id: string;
 
   /**
-   * Query param: starting date in UNIX timestamp
+   * Query param: starting date in ISO date string (`YYYY-MM-DD` or
+   * `YYYY-MM-DDTHH:MM`) or UNIX timestamp. **use ISO date string for best
+   * compatibility**
    */
-  from: number;
+  from: string;
 
   /**
-   * Query param: ending date in UNIX timestamp
+   * Query param: ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`)
+   * or UNIX timestamp. **use ISO date string for best compatibility**
    */
-  to: number;
+  to: string;
 
   /**
    * Query param: target currency of market data \*refers to
