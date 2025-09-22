@@ -25,11 +25,15 @@ import { Entities, EntityGetListParams, EntityGetListResponse } from './resource
 import { ExchangeRateGetResponse, ExchangeRates } from './resources/exchange-rates';
 import { Key, KeyGetResponse } from './resources/key';
 import { Ping, PingGetResponse } from './resources/ping';
-import { PublicTreasury, PublicTreasuryGetEntityIDResponse } from './resources/public-treasury';
+import {
+  PublicTreasury,
+  PublicTreasuryGetCoinIDParams,
+  PublicTreasuryGetCoinIDResponse,
+  PublicTreasuryGetEntityIDResponse,
+} from './resources/public-treasury';
 import { TokenListGetAllJsonResponse, TokenLists } from './resources/token-lists';
 import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coins';
 import { DerivativeGetResponse, Derivatives } from './resources/derivatives/derivatives';
-import { Entity } from './resources/entity/entity';
 import {
   ExchangeGetIDParams,
   ExchangeGetIDResponse,
@@ -822,7 +826,6 @@ export class Coingecko {
   search: API.Search = new API.Search(this);
   simple: API.Simple = new API.Simple(this);
   tokenLists: API.TokenLists = new API.TokenLists(this);
-  entity: API.Entity = new API.Entity(this);
 }
 
 Coingecko.AssetPlatforms = AssetPlatforms;
@@ -840,7 +843,6 @@ Coingecko.PublicTreasury = PublicTreasury;
 Coingecko.Search = Search;
 Coingecko.Simple = Simple;
 Coingecko.TokenLists = TokenLists;
-Coingecko.Entity = Entity;
 
 export declare namespace Coingecko {
   export type RequestOptions = Opts.RequestOptions;
@@ -896,7 +898,9 @@ export declare namespace Coingecko {
 
   export {
     PublicTreasury as PublicTreasury,
+    type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
+    type PublicTreasuryGetCoinIDParams as PublicTreasuryGetCoinIDParams,
   };
 
   export {
@@ -908,6 +912,4 @@ export declare namespace Coingecko {
   export { Simple as Simple };
 
   export { TokenLists as TokenLists, type TokenListGetAllJsonResponse as TokenListGetAllJsonResponse };
-
-  export { Entity as Entity };
 }

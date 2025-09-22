@@ -9,6 +9,23 @@ const client = new Coingecko({
 
 describe('resource publicTreasury', () => {
   // Prism tests are disabled
+  test.skip('getCoinID: only required params', async () => {
+    const responsePromise = client.publicTreasury.getCoinID('bitcoin', { entity: 'companies' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('getCoinID: required and optional params', async () => {
+    const response = await client.publicTreasury.getCoinID('bitcoin', { entity: 'companies' });
+  });
+
+  // Prism tests are disabled
   test.skip('getEntityID', async () => {
     const responsePromise = client.publicTreasury.getEntityID('strategy');
     const rawResponse = await responsePromise.asResponse();

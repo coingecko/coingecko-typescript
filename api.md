@@ -592,10 +592,12 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetEntityIDResponse</a></code>
 
 Methods:
 
+- <code title="get /{entity}/public_treasury/{coin_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getCoinID</a>(coinID, { ...params }) -> PublicTreasuryGetCoinIDResponse</code>
 - <code title="get /public_treasury/{entity_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getEntityID</a>(entityID) -> PublicTreasuryGetEntityIDResponse</code>
 
 # Search
@@ -659,15 +661,3 @@ Types:
 Methods:
 
 - <code title="get /token_lists/{asset_platform_id}/all.json">client.tokenLists.<a href="./src/resources/token-lists.ts">getAllJson</a>(assetPlatformID) -> TokenListGetAllJsonResponse</code>
-
-# Entity
-
-## PublicTreasury
-
-Types:
-
-- <code><a href="./src/resources/entity/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
-
-Methods:
-
-- <code title="get /{entity}/public_treasury/{coin_id}">client.entity.publicTreasury.<a href="./src/resources/entity/public-treasury.ts">getCoinID</a>(coinID, { ...params }) -> PublicTreasuryGetCoinIDResponse</code>
