@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.14.0 (2025-09-20)
+
+Full Changelog: [v1.13.0...v1.14.0](https://github.com/coingecko/coingecko-typescript/compare/v1.13.0...v1.14.0)
+
+### Features
+
+* **mcp:** add docs search tool ([00b47d5](https://github.com/coingecko/coingecko-typescript/commit/00b47d511cfdcc2d910d312fc5191ed29b9540f6))
+
+
+### Bug Fixes
+
+* **ci:** set permissions for DXT publish action ([138fd3c](https://github.com/coingecko/coingecko-typescript/commit/138fd3ce6ab17f0b04964724da9bf6b1bee94bd2))
+* coerce nullable values to undefined ([e3682ab](https://github.com/coingecko/coingecko-typescript/commit/e3682aba2c4a2e3003e191f92617c869a9f287e7))
+* **mcp:** fix query options parsing ([580fa9a](https://github.com/coingecko/coingecko-typescript/commit/580fa9a48cb9c83b04c4606fd3ce64d25e5c231e))
+* **mcp:** fix uploading dxt release assets ([a0c3294](https://github.com/coingecko/coingecko-typescript/commit/a0c32945178c9a3d15c6c890589d891a3869556c))
+
+
+### Chores
+
+* ci build action ([66c6013](https://github.com/coingecko/coingecko-typescript/commit/66c6013051eee18ec549fc8da30d1d8060b33818))
+* **codegen:** internal codegen update ([077ab08](https://github.com/coingecko/coingecko-typescript/commit/077ab08d78329cd829b650b50de5868d8d0304ea))
+* do not install brew dependencies in ./scripts/bootstrap by default ([8222497](https://github.com/coingecko/coingecko-typescript/commit/82224971a2792034e72bd01475f7b5f50289d2e5))
+* **internal:** codegen related update ([86b89f4](https://github.com/coingecko/coingecko-typescript/commit/86b89f4256870f4d0d16e0876c0f8370a1273e76))
+* **internal:** gitignore .mcpb files ([7bacb41](https://github.com/coingecko/coingecko-typescript/commit/7bacb41c1e08b0b6bfe4e15c2e848a5703355959))
+* **mcp:** rename dxt to mcpb ([2d423f3](https://github.com/coingecko/coingecko-typescript/commit/2d423f3bc71baea99af046cf14899c9ed27f4db7))
+* **mcp:** upload dxt as release asset ([14ac389](https://github.com/coingecko/coingecko-typescript/commit/14ac389f3388ef85c1d8cc5c2af1afc3b58f6e56))
+
 ## 1.13.0 (2025-09-03)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/coingecko/coingecko-typescript/compare/v1.12.0...v1.13.0)

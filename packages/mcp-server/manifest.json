@@ -1,0 +1,50 @@
+{
+  "dxt_version": "0.2",
+  "name": "@coingecko/coingecko-mcp",
+  "version": "1.13.0",
+  "description": "The official MCP Server for the Coingecko API",
+  "author": {
+    "name": "Coingecko",
+    "email": "eason.lim@coingecko.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coingecko/coingecko-typescript.git"
+  },
+  "homepage": "https://github.com/coingecko/coingecko-typescript/tree/main/packages/mcp-server#readme",
+  "documentation": "https://docs.coingecko.com",
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "COINGECKO_PRO_API_KEY": "${user_config.COINGECKO_PRO_API_KEY}",
+        "COINGECKO_DEMO_API_KEY": "${user_config.COINGECKO_DEMO_API_KEY}"
+      }
+    }
+  },
+  "user_config": {
+    "COINGECKO_PRO_API_KEY": {
+      "title": "pro_api_key",
+      "description": "CoinGecko Pro API Key",
+      "required": false,
+      "type": "string"
+    },
+    "COINGECKO_DEMO_API_KEY": {
+      "title": "demo_api_key",
+      "description": "CoinGecko Demo API Key",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "tools": [],
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}
