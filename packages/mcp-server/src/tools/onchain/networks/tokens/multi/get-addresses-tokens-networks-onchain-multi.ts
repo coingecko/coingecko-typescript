@@ -6,42 +6,38 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Coingecko from '@coingecko/coingecko-typescript';
 
 export const metadata: Metadata = {
-  resource: 'onchain.networks.pools',
+  resource: 'onchain.networks.tokens.multi',
   operation: 'read',
   tags: [],
   httpMethod: 'get',
-  httpPath: '/onchain/networks/{network}/pools/{address}',
-  operationId: 'pool-address',
+  httpPath: '/onchain/networks/{network}/tokens/multi/{addresses}',
+  operationId: 'tokens-data-contract-addresses',
 };
 
 export const tool: Tool = {
-  name: 'get_address_networks_onchain_pools',
+  name: 'get_addresses_tokens_networks_onchain_multi',
   description:
-    'This endpoint allows you to **query the specific pool based on the provided network and pool address**',
+    'This endpoint allows you to **query multiple tokens data based on the provided token contract addresses on a network**',
   inputSchema: {
     type: 'object',
     properties: {
       network: {
         type: 'string',
       },
-      address: {
+      addresses: {
         type: 'string',
       },
       include: {
         type: 'string',
-        description:
-          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`',
+        description: 'attributes to include',
+        enum: ['top_pools'],
       },
       include_composition: {
         type: 'boolean',
         description: 'include pool composition, default: false',
       },
-      include_volume_breakdown: {
-        type: 'boolean',
-        description: 'include volume breakdown, default: false',
-      },
     },
-    required: ['network', 'address'],
+    required: ['network', 'addresses'],
   },
   annotations: {
     readOnlyHint: true,
@@ -49,8 +45,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { address, ...body } = args as any;
-  return asTextContentResult(await client.onchain.networks.pools.getAddress(address, body));
+  const { addresses, ...body } = args as any;
+  return asTextContentResult(await client.onchain.networks.tokens.multi.getAddresses(addresses, body));
 };
 
 export default { metadata, tool, handler };

@@ -7,21 +7,32 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Coingecko from '@coingecko/coingecko-typescript';
 
 export const metadata: Metadata = {
-  resource: 'coins.categories',
+  resource: 'exchanges.volume_chart',
   operation: 'read',
   tags: [],
   httpMethod: 'get',
-  httpPath: '/coins/categories/list',
-  operationId: 'coins-categories-list',
+  httpPath: '/exchanges/{id}/volume_chart/range',
+  operationId: 'exchanges-id-volume-chart-range',
 };
 
 export const tool: Tool = {
-  name: 'get_list_coins_categories',
+  name: 'get_range_exchanges_volume_chart',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query all the coins categories on CoinGecko**\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    category_id: {\n      type: 'string',\n      description: 'category ID'\n    },\n    name: {\n      type: 'string',\n      description: 'category name'\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query the historical volume chart data in BTC by specifying date range in UNIX based on exchange's ID**\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    type: 'array',\n    items: {\n      type: 'number'\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
+      id: {
+        type: 'string',
+      },
+      from: {
+        type: 'number',
+        description: 'starting date in UNIX timestamp ',
+      },
+      to: {
+        type: 'number',
+        description: 'ending date in UNIX timestamp',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
@@ -29,7 +40,7 @@ export const tool: Tool = {
           'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
       },
     },
-    required: [],
+    required: ['id', 'from', 'to'],
   },
   annotations: {
     readOnlyHint: true,
@@ -37,8 +48,10 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
-  const { jq_filter } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.coins.categories.getList()));
+  const { id, jq_filter, ...body } = args as any;
+  return asTextContentResult(
+    await maybeFilter(jq_filter, await client.exchanges.volumeChart.getRange(id, body)),
+  );
 };
 
 export default { metadata, tool, handler };
