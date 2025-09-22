@@ -33,9 +33,9 @@ describe('resource ohlc', () => {
   // Prism tests are disabled
   test.skip('getRange: only required params', async () => {
     const responsePromise = client.coins.ohlc.getRange('bitcoin', {
-      from: 0,
+      from: 'from',
       interval: 'daily',
-      to: 0,
+      to: 'to',
       vs_currency: 'usd',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -50,9 +50,9 @@ describe('resource ohlc', () => {
   // Prism tests are disabled
   test.skip('getRange: required and optional params', async () => {
     const response = await client.coins.ohlc.getRange('bitcoin', {
-      from: 0,
+      from: 'from',
       interval: 'daily',
-      to: 0,
+      to: 'to',
       vs_currency: 'usd',
     });
   });

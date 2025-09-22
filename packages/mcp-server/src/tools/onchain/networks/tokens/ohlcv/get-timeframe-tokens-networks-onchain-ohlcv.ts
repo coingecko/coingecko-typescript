@@ -30,12 +30,12 @@ export const tool: Tool = {
       },
       timeframe: {
         type: 'string',
-        enum: ['day', 'hour', 'minute'],
+        enum: ['day', 'hour', 'minute', 'second'],
       },
       aggregate: {
         type: 'string',
         description:
-          'time period to aggregate each OHLCV <br> Available values (day): `1` <br> Available values (hour): `1` , `4` , `12` <br> Available values (minute): `1` , `5` , `15` <br> Default value: 1',
+          'time period to aggregate each OHLCV \n Available values (day): `1` \n Available values (hour): `1` , `4` , `12` \n Available values (minute): `1` , `5` , `15` \n Available values (second): `1`, `15`, `30` \n Default value: 1',
       },
       before_timestamp: {
         type: 'integer',
@@ -43,7 +43,7 @@ export const tool: Tool = {
       },
       currency: {
         type: 'string',
-        description: 'return OHLCV in USD or quote token <br> Default value: usd',
+        description: 'return OHLCV in USD or quote token \n Default value: usd',
         enum: ['usd', 'token'],
       },
       include_empty_intervals: {
@@ -52,7 +52,7 @@ export const tool: Tool = {
       },
       limit: {
         type: 'integer',
-        description: 'number of OHLCV results to return, maximum 1000 <br> Default value: 100',
+        description: 'number of OHLCV results to return, maximum 1000 \n Default value: 100',
       },
       jq_filter: {
         type: 'string',

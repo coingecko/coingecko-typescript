@@ -27,7 +27,7 @@ export const tool: Tool = {
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: 1',
+        description: 'page through results \n Default value: 1',
       },
       jq_filter: {
         type: 'string',

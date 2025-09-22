@@ -36,7 +36,7 @@ export namespace PriceGetResponse {
     usd?: number;
 
     /**
-     * 24hr change in USD
+     * 24hr change percentage in USD
      */
     usd_24h_change?: number;
 
@@ -67,7 +67,7 @@ export interface PriceGetParams {
   ids?: string;
 
   /**
-   * include 24hr change, default: false
+   * include 24hr change percentage, default: false
    */
   include_24hr_change?: boolean;
 

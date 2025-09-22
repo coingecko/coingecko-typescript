@@ -26,8 +26,9 @@ export const tool: Tool = {
         type: 'string',
       },
       from: {
-        type: 'number',
-        description: 'starting date in UNIX timestamp',
+        type: 'string',
+        description:
+          'starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n **use ISO date string for best compatibility**',
       },
       interval: {
         type: 'string',
@@ -35,13 +36,14 @@ export const tool: Tool = {
         enum: ['daily', 'hourly'],
       },
       to: {
-        type: 'number',
-        description: 'ending date in UNIX timestamp',
+        type: 'string',
+        description:
+          'ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n **use ISO date string for best compatibility**',
       },
       vs_currency: {
         type: 'string',
         description:
-          'target currency of price data <br> *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
+          'target currency of price data \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
       },
       jq_filter: {
         type: 'string',

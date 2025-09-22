@@ -7,7 +7,7 @@ import { path } from '../../internal/utils/path';
 
 export class Tickers extends APIResource {
   /**
-   * This endpoint allows you to **query exchange's tickers based on exchange’s ID**
+   * This endpoint allows you to **query exchange's tickers based on exchange's ID**
    *
    * @example
    * ```ts
@@ -217,7 +217,14 @@ export interface TickerGetParams {
   /**
    * use this to sort the order of responses, default: trust_score_desc
    */
-  order?: 'trust_score_desc' | 'trust_score_asc' | 'volume_desc' | 'volume_asc' | 'base_target';
+  order?:
+    | 'market_cap_asc'
+    | 'market_cap_desc'
+    | 'trust_score_desc'
+    | 'trust_score_asc'
+    | 'volume_desc'
+    | 'volume_asc'
+    | 'base_target';
 
   /**
    * page through results

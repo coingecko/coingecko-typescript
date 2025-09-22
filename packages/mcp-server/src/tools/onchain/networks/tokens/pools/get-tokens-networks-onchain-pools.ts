@@ -31,15 +31,15 @@ export const tool: Tool = {
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`',
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: 1',
+        description: 'page through results \n Default value: 1',
       },
       sort: {
         type: 'string',
-        description: 'sort the pools by field <br> Default value: h24_volume_usd_liquidity_desc',
+        description: 'sort the pools by field \n Default value: h24_volume_usd_liquidity_desc',
         enum: ['h24_volume_usd_liquidity_desc', 'h24_tx_count_desc', 'h24_volume_usd_desc'],
       },
       jq_filter: {

@@ -27,6 +27,7 @@ describe('resource multi', () => {
     const response = await client.onchain.networks.tokens.multi.getAddresses('addresses', {
       network: 'eth',
       include: 'top_pools',
+      include_composition: true,
     });
   });
 });

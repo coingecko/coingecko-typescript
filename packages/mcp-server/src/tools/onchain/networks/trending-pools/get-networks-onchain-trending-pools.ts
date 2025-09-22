@@ -24,17 +24,17 @@ export const tool: Tool = {
     properties: {
       duration: {
         type: 'string',
-        description: 'duration to sort trending list by <br> Default value: 24h',
+        description: 'duration to sort trending list by \n Default value: 24h',
         enum: ['5m', '1h', '6h', '24h'],
       },
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`, `network`. <br> Example: `base_token` or `base_token,dex`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`',
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: 1',
+        description: 'page through results \n Default value: 1',
       },
       jq_filter: {
         type: 'string',

@@ -30,7 +30,7 @@ export const tool: Tool = {
       },
       trade_volume_in_usd_greater_than: {
         type: 'number',
-        description: 'filter trades by trade volume in USD greater than this value <br> Default value: 0',
+        description: 'filter trades by trade volume in USD greater than this value \n Default value: 0',
       },
       jq_filter: {
         type: 'string',

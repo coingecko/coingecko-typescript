@@ -28,15 +28,15 @@ export const tool: Tool = {
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`, `network`. <br> Example: `base_token` or `base_token,dex`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`, `network`. \n Example: `base_token` or `base_token,dex`',
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: `1`',
+        description: 'page through results \n Default value: `1`',
       },
       sort: {
         type: 'string',
-        description: 'sort the pools by field <br> Default value: `pool_created_at_desc`',
+        description: 'sort the pools by field \n Default value: `pool_created_at_desc`',
         enum: [
           'm5_trending',
           'h1_trending',

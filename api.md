@@ -156,14 +156,6 @@ Methods:
 
 ## PublicTreasury
 
-Types:
-
-- <code><a href="./src/resources/companies/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
-
-Methods:
-
-- <code title="get /companies/public_treasury/{coin_id}">client.companies.publicTreasury.<a href="./src/resources/companies/public-treasury.ts">getCoinID</a>(coinID) -> PublicTreasuryGetCoinIDResponse</code>
-
 # Derivatives
 
 Types:
