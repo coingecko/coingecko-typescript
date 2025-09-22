@@ -7,28 +7,24 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Coingecko from '@coingecko/coingecko-typescript';
 
 export const metadata: Metadata = {
-  resource: 'coins.list',
+  resource: 'exchanges',
   operation: 'read',
   tags: [],
   httpMethod: 'get',
-  httpPath: '/coins/list',
-  operationId: 'coins-list',
+  httpPath: '/exchanges/list',
+  operationId: 'exchanges-list',
 };
 
 export const tool: Tool = {
-  name: 'get_coins_list',
+  name: 'get_list_exchanges',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query all the supported coins on CoinGecko with coins ID, name and symbol**\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    type: 'object',\n    properties: {\n      id: {\n        type: 'string',\n        description: 'coin ID'\n      },\n      name: {\n        type: 'string',\n        description: 'coin name'\n      },\n      platforms: {\n        type: 'object',\n        description: 'coin asset platform and contract address',\n        additionalProperties: true\n      },\n      symbol: {\n        type: 'string',\n        description: 'coin symbol'\n      }\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **query all the exchanges with ID and name**\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    type: 'object',\n    properties: {\n      id: {\n        type: 'string',\n        description: 'exchange ID'\n      },\n      name: {\n        type: 'string',\n        description: 'exchange name'\n      }\n    },\n    required: [      'id',\n      'name'\n    ]\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
-      include_platform: {
-        type: 'boolean',
-        description: "include platform and token's contract addresses, default: false",
-      },
       status: {
         type: 'string',
-        description: 'filter by status of coins, default: active',
+        description: 'filter by status of exchanges, default: active',
         enum: ['active', 'inactive'],
       },
       jq_filter: {
@@ -47,7 +43,7 @@ export const tool: Tool = {
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
   const { jq_filter, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.coins.list.get(body)));
+  return asTextContentResult(await maybeFilter(jq_filter, await client.exchanges.getList(body)));
 };
 
 export default { metadata, tool, handler };
