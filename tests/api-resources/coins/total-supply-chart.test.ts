@@ -27,7 +27,7 @@ describe('resource totalSupplyChart', () => {
 
   // Prism tests are disabled
   test.skip('getRange: only required params', async () => {
-    const responsePromise = client.coins.totalSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
+    const responsePromise = client.coins.totalSupplyChart.getRange('bitcoin', { from: 'from', to: 'to' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,6 +39,6 @@ describe('resource totalSupplyChart', () => {
 
   // Prism tests are disabled
   test.skip('getRange: required and optional params', async () => {
-    const response = await client.coins.totalSupplyChart.getRange('bitcoin', { from: 0, to: 0 });
+    const response = await client.coins.totalSupplyChart.getRange('bitcoin', { from: 'from', to: 'to' });
   });
 });

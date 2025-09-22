@@ -64,7 +64,7 @@ export namespace InfoGetResponse {
 
       image_url?: string;
 
-      is_honeypot?: boolean;
+      is_honeypot?: boolean | string;
 
       mint_authority?: string;
 

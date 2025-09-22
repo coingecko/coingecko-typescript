@@ -33,11 +33,11 @@ export const tool: Tool = {
       vs_currencies: {
         type: 'string',
         description:
-          'target currency of coins, comma-separated if querying more than 1 currency. <br> *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
+          'target currency of coins, comma-separated if querying more than 1 currency. \n *refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).',
       },
       include_24hr_change: {
         type: 'boolean',
-        description: 'include 24hr change <br> default: false',
+        description: 'include 24hr change \n default: false',
       },
       include_24hr_vol: {
         type: 'boolean',

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.15.0 (2025-09-22)
+
+Full Changelog: [v1.14.0...v1.15.0](https://github.com/coingecko/coingecko-typescript/compare/v1.14.0...v1.15.0)
+
+### Features
+
+* **api:** api update ([33a6ea2](https://github.com/coingecko/coingecko-typescript/commit/33a6ea267fc0cc7823ffb05bf1e408104089aa74))
+
+
+### Bug Fixes
+
+* Merge public_treasury config ([d1b7774](https://github.com/coingecko/coingecko-typescript/commit/d1b777451a4dc8fce2bdcb85ea5d1f500ab43eb0))
+* Stainless config to match the latest endpoints ([4ca5e2e](https://github.com/coingecko/coingecko-typescript/commit/4ca5e2efd54ef00cfa15408859ad1c7bfeae432b))
+
 ## 1.14.0 (2025-09-20)
 
 Full Changelog: [v1.13.0...v1.14.0](https://github.com/coingecko/coingecko-typescript/compare/v1.13.0...v1.14.0)

@@ -30,7 +30,12 @@ export class Ohlc extends APIResource {
    * ```ts
    * const response = await client.coins.ohlc.getRange(
    *   'bitcoin',
-   *   { from: 0, interval: 'daily', to: 0, vs_currency: 'usd' },
+   *   {
+   *     from: 'from',
+   *     interval: 'daily',
+   *     to: 'to',
+   *     vs_currency: 'usd',
+   *   },
    * );
    * ```
    */
@@ -92,9 +97,10 @@ export interface OhlcGetParams {
 
 export interface OhlcGetRangeParams {
   /**
-   * starting date in UNIX timestamp
+   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  from: number;
+  from: string;
 
   /**
    * data interval
@@ -102,9 +108,10 @@ export interface OhlcGetRangeParams {
   interval: 'daily' | 'hourly';
 
   /**
-   * ending date in UNIX timestamp
+   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  to: number;
+  to: string;
 
   /**
    * target currency of price data \*refers to

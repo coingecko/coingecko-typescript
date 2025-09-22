@@ -23,8 +23,8 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query the derivatives exchange’s related data (ID,
-   * name, open interest, ...) based on the exchanges’ ID**
+   * This endpoint allows you to **query the derivatives exchange's related data (ID,
+   * name, open interest, ...) based on the exchanges' ID**
    *
    * @example
    * ```ts

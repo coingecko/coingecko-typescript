@@ -28,11 +28,11 @@ export const tool: Tool = {
       include: {
         type: 'string',
         description:
-          'attributes to include, comma-separated if more than one to include <br> Available values: `base_token`, `quote_token`, `dex`',
+          'attributes to include, comma-separated if more than one to include \n Available values: `base_token`, `quote_token`, `dex`',
       },
       page: {
         type: 'integer',
-        description: 'page through results <br> Default value: 1',
+        description: 'page through results \n Default value: 1',
       },
       jq_filter: {
         type: 'string',

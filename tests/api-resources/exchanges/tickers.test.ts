@@ -31,7 +31,7 @@ describe('resource tickers', () => {
           depth: true,
           dex_pair_format: 'contract_address',
           include_exchange_logo: true,
-          order: 'trust_score_desc',
+          order: 'market_cap_asc',
           page: 0,
         },
         { path: '/_stainless_unknown_path' },

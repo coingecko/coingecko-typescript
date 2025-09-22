@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource history', () => {
   // Prism tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.history.get('bitcoin', { date: '30-12-2017' });
+    const responsePromise = client.coins.history.get('bitcoin', { date: 'date' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,6 +22,6 @@ describe('resource history', () => {
 
   // Prism tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.coins.history.get('bitcoin', { date: '30-12-2017', localization: true });
+    const response = await client.coins.history.get('bitcoin', { date: 'date', localization: true });
   });
 });

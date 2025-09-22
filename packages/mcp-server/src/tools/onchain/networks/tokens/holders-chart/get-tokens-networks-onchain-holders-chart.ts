@@ -30,7 +30,7 @@ export const tool: Tool = {
       },
       days: {
         type: 'string',
-        description: 'number of days to return the historical token holders chart <br> Default value: 7',
+        description: 'number of days to return the historical token holders chart \n Default value: 7',
         enum: ['7', '30', 'max'],
       },
       jq_filter: {

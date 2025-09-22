@@ -27,7 +27,7 @@ describe('resource info', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.pools.info.get(
       '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-      { network: 'eth' },
+      { network: 'eth', include: 'pool' },
     );
   });
 });

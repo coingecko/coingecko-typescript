@@ -31,7 +31,7 @@ export class MarketChart extends APIResource {
    * ```ts
    * const response = await client.coins.marketChart.getRange(
    *   'bitcoin',
-   *   { from: 0, to: 0, vs_currency: 'usd' },
+   *   { from: 'from', to: 'to', vs_currency: 'usd' },
    * );
    * ```
    */
@@ -106,14 +106,16 @@ export interface MarketChartGetParams {
 
 export interface MarketChartGetRangeParams {
   /**
-   * starting date in UNIX timestamp
+   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  from: number;
+  from: string;
 
   /**
-   * ending date in UNIX timestamp
+   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  to: number;
+  to: string;
 
   /**
    * target currency of market data \*refers to

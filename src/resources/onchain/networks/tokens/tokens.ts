@@ -136,6 +136,10 @@ export namespace TokenGetAddressResponse {
     export interface Attributes {
       address?: string;
 
+      base_token_balance?: string;
+
+      base_token_liquidity_usd?: string;
+
       base_token_price_native_currency?: string;
 
       base_token_price_quote_token?: string;
@@ -151,6 +155,10 @@ export namespace TokenGetAddressResponse {
       pool_created_at?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
+
+      quote_token_balance?: string;
+
+      quote_token_liquidity_usd?: string;
 
       quote_token_price_base_token?: string;
 
@@ -187,6 +195,8 @@ export namespace TokenGetAddressResponse {
 
         h24?: Transactions.H24;
 
+        h6?: Transactions.H6;
+
         m15?: Transactions.M15;
 
         m30?: Transactions.M30;
@@ -206,6 +216,16 @@ export namespace TokenGetAddressResponse {
         }
 
         export interface H24 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H6 {
           buyers?: number;
 
           buys?: number;
@@ -319,6 +339,11 @@ export interface TokenGetAddressParams {
    * Query param: attributes to include
    */
   include?: 'top_pools';
+
+  /**
+   * Query param: include pool composition, default: false
+   */
+  include_composition?: boolean;
 }
 
 Tokens.Multi = Multi;

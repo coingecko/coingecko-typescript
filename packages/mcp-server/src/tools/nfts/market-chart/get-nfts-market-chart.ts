@@ -27,7 +27,7 @@ export const tool: Tool = {
       },
       days: {
         type: 'string',
-        description: 'data up to number of days <br> Valid values: any integer or max',
+        description: 'data up to number of days \n Valid values: any integer or max',
       },
       jq_filter: {
         type: 'string',

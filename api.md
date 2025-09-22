@@ -152,18 +152,6 @@ Methods:
 - <code title="get /coins/{id}/total_supply_chart">client.coins.totalSupplyChart.<a href="./src/resources/coins/total-supply-chart.ts">get</a>(id, { ...params }) -> TotalSupplyChartGetResponse</code>
 - <code title="get /coins/{id}/total_supply_chart/range">client.coins.totalSupplyChart.<a href="./src/resources/coins/total-supply-chart.ts">getRange</a>(id, { ...params }) -> TotalSupplyChartGetRangeResponse</code>
 
-# Companies
-
-## PublicTreasury
-
-Types:
-
-- <code><a href="./src/resources/companies/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
-
-Methods:
-
-- <code title="get /companies/public_treasury/{coin_id}">client.companies.publicTreasury.<a href="./src/resources/companies/public-treasury.ts">getCoinID</a>(coinID) -> PublicTreasuryGetCoinIDResponse</code>
-
 # Derivatives
 
 Types:
@@ -187,6 +175,16 @@ Methods:
 - <code title="get /derivatives/exchanges">client.derivatives.exchanges.<a href="./src/resources/derivatives/exchanges.ts">get</a>({ ...params }) -> ExchangeGetResponse</code>
 - <code title="get /derivatives/exchanges/{id}">client.derivatives.exchanges.<a href="./src/resources/derivatives/exchanges.ts">getID</a>(id, { ...params }) -> ExchangeGetIDResponse</code>
 - <code title="get /derivatives/exchanges/list">client.derivatives.exchanges.<a href="./src/resources/derivatives/exchanges.ts">getList</a>() -> ExchangeGetListResponse</code>
+
+# Entities
+
+Types:
+
+- <code><a href="./src/resources/entities.ts">EntityGetListResponse</a></code>
+
+Methods:
+
+- <code title="get /entities/list">client.entities.<a href="./src/resources/entities.ts">getList</a>({ ...params }) -> EntityGetListResponse</code>
 
 # ExchangeRates
 
@@ -589,6 +587,18 @@ Types:
 Methods:
 
 - <code title="get /ping">client.ping.<a href="./src/resources/ping.ts">get</a>() -> PingGetResponse</code>
+
+# PublicTreasury
+
+Types:
+
+- <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
+- <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetEntityIDResponse</a></code>
+
+Methods:
+
+- <code title="get /{entity}/public_treasury/{coin_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getCoinID</a>(coinID, { ...params }) -> PublicTreasuryGetCoinIDResponse</code>
+- <code title="get /public_treasury/{entity_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getEntityID</a>(entityID) -> PublicTreasuryGetEntityIDResponse</code>
 
 # Search
 

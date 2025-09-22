@@ -375,7 +375,14 @@ export interface MegafilterGetParams {
     | 'h24_trending'
     | 'h24_tx_count_desc'
     | 'h24_volume_usd_desc'
+    | 'm5_price_change_percentage_desc'
+    | 'h1_price_change_percentage_desc'
+    | 'h6_price_change_percentage_desc'
     | 'h24_price_change_percentage_desc'
+    | 'fdv_usd_asc'
+    | 'fdv_usd_desc'
+    | 'reserve_in_usd_asc'
+    | 'reserve_in_usd_desc'
     | 'pool_created_at_desc';
 
   /**

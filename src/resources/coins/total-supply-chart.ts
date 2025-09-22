@@ -34,8 +34,8 @@ export class TotalSupplyChart extends APIResource {
    * ```ts
    * const response =
    *   await client.coins.totalSupplyChart.getRange('bitcoin', {
-   *     from: 0,
-   *     to: 0,
+   *     from: 'from',
+   *     to: 'to',
    *   });
    * ```
    */
@@ -70,14 +70,16 @@ export interface TotalSupplyChartGetParams {
 
 export interface TotalSupplyChartGetRangeParams {
   /**
-   * starting date in UNIX timestamp
+   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  from: number;
+  from: string;
 
   /**
-   * ending date in UNIX timestamp
+   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **use ISO date string for best compatibility**
    */
-  to: number;
+  to: string;
 }
 
 export declare namespace TotalSupplyChart {

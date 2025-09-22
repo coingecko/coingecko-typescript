@@ -21,12 +21,18 @@ import {
   AssetPlatformGetResponse,
   AssetPlatforms,
 } from './resources/asset-platforms';
+import { Entities, EntityGetListParams, EntityGetListResponse } from './resources/entities';
 import { ExchangeRateGetResponse, ExchangeRates } from './resources/exchange-rates';
 import { Key, KeyGetResponse } from './resources/key';
 import { Ping, PingGetResponse } from './resources/ping';
+import {
+  PublicTreasury,
+  PublicTreasuryGetCoinIDParams,
+  PublicTreasuryGetCoinIDResponse,
+  PublicTreasuryGetEntityIDResponse,
+} from './resources/public-treasury';
 import { TokenListGetAllJsonResponse, TokenLists } from './resources/token-lists';
 import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coins';
-import { Companies } from './resources/companies/companies';
 import { DerivativeGetResponse, Derivatives } from './resources/derivatives/derivatives';
 import {
   ExchangeGetIDParams,
@@ -807,8 +813,8 @@ export class Coingecko {
 
   assetPlatforms: API.AssetPlatforms = new API.AssetPlatforms(this);
   coins: API.Coins = new API.Coins(this);
-  companies: API.Companies = new API.Companies(this);
   derivatives: API.Derivatives = new API.Derivatives(this);
+  entities: API.Entities = new API.Entities(this);
   exchangeRates: API.ExchangeRates = new API.ExchangeRates(this);
   exchanges: API.Exchanges = new API.Exchanges(this);
   global: API.Global = new API.Global(this);
@@ -816,6 +822,7 @@ export class Coingecko {
   nfts: API.NFTs = new API.NFTs(this);
   onchain: API.Onchain = new API.Onchain(this);
   ping: API.Ping = new API.Ping(this);
+  publicTreasury: API.PublicTreasury = new API.PublicTreasury(this);
   search: API.Search = new API.Search(this);
   simple: API.Simple = new API.Simple(this);
   tokenLists: API.TokenLists = new API.TokenLists(this);
@@ -823,8 +830,8 @@ export class Coingecko {
 
 Coingecko.AssetPlatforms = AssetPlatforms;
 Coingecko.Coins = Coins;
-Coingecko.Companies = Companies;
 Coingecko.Derivatives = Derivatives;
+Coingecko.Entities = Entities;
 Coingecko.ExchangeRates = ExchangeRates;
 Coingecko.Exchanges = Exchanges;
 Coingecko.Global = Global;
@@ -832,6 +839,7 @@ Coingecko.Key = Key;
 Coingecko.NFTs = NFTs;
 Coingecko.Onchain = Onchain;
 Coingecko.Ping = Ping;
+Coingecko.PublicTreasury = PublicTreasury;
 Coingecko.Search = Search;
 Coingecko.Simple = Simple;
 Coingecko.TokenLists = TokenLists;
@@ -851,9 +859,13 @@ export declare namespace Coingecko {
     type CoinGetIDParams as CoinGetIDParams,
   };
 
-  export { Companies as Companies };
-
   export { Derivatives as Derivatives, type DerivativeGetResponse as DerivativeGetResponse };
+
+  export {
+    Entities as Entities,
+    type EntityGetListResponse as EntityGetListResponse,
+    type EntityGetListParams as EntityGetListParams,
+  };
 
   export { ExchangeRates as ExchangeRates, type ExchangeRateGetResponse as ExchangeRateGetResponse };
 
@@ -883,6 +895,13 @@ export declare namespace Coingecko {
   export { Onchain as Onchain };
 
   export { Ping as Ping, type PingGetResponse as PingGetResponse };
+
+  export {
+    PublicTreasury as PublicTreasury,
+    type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
+    type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
+    type PublicTreasuryGetCoinIDParams as PublicTreasuryGetCoinIDParams,
+  };
 
   export {
     Search as Search,

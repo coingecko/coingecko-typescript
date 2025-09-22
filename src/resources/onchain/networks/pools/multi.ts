@@ -53,11 +53,17 @@ export namespace MultiGetAddressesResponse {
     export interface Attributes {
       address?: string;
 
+      base_token_balance?: string;
+
+      base_token_liquidity_usd?: string;
+
       base_token_price_native_currency?: string;
 
       base_token_price_quote_token?: string;
 
       base_token_price_usd?: string;
+
+      buy_volume_usd?: Attributes.BuyVolumeUsd;
 
       fdv_usd?: string;
 
@@ -67,6 +73,8 @@ export namespace MultiGetAddressesResponse {
 
       name?: string;
 
+      net_buy_volume_usd?: Attributes.NetBuyVolumeUsd;
+
       pool_created_at?: string;
 
       pool_fee_percentage?: string;
@@ -74,6 +82,10 @@ export namespace MultiGetAddressesResponse {
       pool_name?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
+
+      quote_token_balance?: string;
+
+      quote_token_liquidity_usd?: string;
 
       quote_token_price_base_token?: string;
 
@@ -83,13 +95,57 @@ export namespace MultiGetAddressesResponse {
 
       reserve_in_usd?: string;
 
+      sell_volume_usd?: Attributes.SellVolumeUsd;
+
       transactions?: Attributes.Transactions;
 
       volume_usd?: Attributes.VolumeUsd;
     }
 
     export namespace Attributes {
+      export interface BuyVolumeUsd {
+        h1?: string;
+
+        h24?: string;
+
+        h6?: string;
+
+        m15?: string;
+
+        m30?: string;
+
+        m5?: string;
+      }
+
+      export interface NetBuyVolumeUsd {
+        h1?: string;
+
+        h24?: string;
+
+        h6?: string;
+
+        m15?: string;
+
+        m30?: string;
+
+        m5?: string;
+      }
+
       export interface PriceChangePercentage {
+        h1?: string;
+
+        h24?: string;
+
+        h6?: string;
+
+        m15?: string;
+
+        m30?: string;
+
+        m5?: string;
+      }
+
+      export interface SellVolumeUsd {
         h1?: string;
 
         h24?: string;
@@ -277,6 +333,11 @@ export interface MultiGetAddressesParams {
    * Available values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * Query param: include pool composition, default: false
+   */
+  include_composition?: boolean;
 
   /**
    * Query param: include volume breakdown, default: false

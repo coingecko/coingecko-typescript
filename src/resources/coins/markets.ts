@@ -290,7 +290,7 @@ export interface MarketGetParams {
 
   /**
    * include price change percentage timeframe, comma-separated if query more than 1
-   * price change percentage timeframe Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y
+   * timeframe Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y
    */
   price_change_percentage?: string;
 

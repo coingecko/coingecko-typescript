@@ -33,8 +33,8 @@ describe('resource marketChart', () => {
   // Prism tests are disabled
   test.skip('getRange: only required params', async () => {
     const responsePromise = client.coins.marketChart.getRange('bitcoin', {
-      from: 0,
-      to: 0,
+      from: 'from',
+      to: 'to',
       vs_currency: 'usd',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -49,8 +49,8 @@ describe('resource marketChart', () => {
   // Prism tests are disabled
   test.skip('getRange: required and optional params', async () => {
     const response = await client.coins.marketChart.getRange('bitcoin', {
-      from: 0,
-      to: 0,
+      from: 'from',
+      to: 'to',
       vs_currency: 'usd',
       interval: '5m',
       precision: 'full',

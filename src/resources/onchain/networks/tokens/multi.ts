@@ -34,6 +34,8 @@ export class Multi extends APIResource {
 
 export interface MultiGetAddressesResponse {
   data?: Array<MultiGetAddressesResponse.Data>;
+
+  included?: Array<MultiGetAddressesResponse.Included>;
 }
 
 export namespace MultiGetAddressesResponse {
@@ -100,6 +102,210 @@ export namespace MultiGetAddressesResponse {
       }
     }
   }
+
+  export interface Included {
+    id?: string;
+
+    attributes?: Included.Attributes;
+
+    relationships?: Included.Relationships;
+
+    type?: string;
+  }
+
+  export namespace Included {
+    export interface Attributes {
+      address?: string;
+
+      base_token_balance?: string;
+
+      base_token_liquidity_usd?: string;
+
+      base_token_price_native_currency?: string;
+
+      base_token_price_quote_token?: string;
+
+      base_token_price_usd?: string;
+
+      fdv_usd?: string;
+
+      market_cap_usd?: string;
+
+      name?: string;
+
+      pool_created_at?: string;
+
+      price_change_percentage?: Attributes.PriceChangePercentage;
+
+      quote_token_balance?: string;
+
+      quote_token_liquidity_usd?: string;
+
+      quote_token_price_base_token?: string;
+
+      quote_token_price_native_currency?: string;
+
+      quote_token_price_usd?: string;
+
+      reserve_in_usd?: string;
+
+      transactions?: Attributes.Transactions;
+
+      volume_usd?: Attributes.VolumeUsd;
+    }
+
+    export namespace Attributes {
+      export interface PriceChangePercentage {
+        h1?: string;
+
+        h24?: string;
+
+        h6?: string;
+
+        m15?: string;
+
+        m30?: string;
+
+        m5?: string;
+      }
+
+      export interface Transactions {
+        h1?: Transactions.H1;
+
+        h24?: Transactions.H24;
+
+        h6?: Transactions.H6;
+
+        m15?: Transactions.M15;
+
+        m30?: Transactions.M30;
+
+        m5?: Transactions.M5;
+      }
+
+      export namespace Transactions {
+        export interface H1 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H24 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H6 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface M15 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface M30 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface M5 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+      }
+
+      export interface VolumeUsd {
+        h1?: string;
+
+        h24?: string;
+
+        h6?: string;
+
+        m15?: string;
+
+        m30?: string;
+
+        m5?: string;
+      }
+    }
+
+    export interface Relationships {
+      base_token?: Relationships.BaseToken;
+
+      dex?: Relationships.Dex;
+
+      quote_token?: Relationships.QuoteToken;
+    }
+
+    export namespace Relationships {
+      export interface BaseToken {
+        data?: BaseToken.Data;
+      }
+
+      export namespace BaseToken {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface Dex {
+        data?: Dex.Data;
+      }
+
+      export namespace Dex {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface QuoteToken {
+        data?: QuoteToken.Data;
+      }
+
+      export namespace QuoteToken {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+    }
+  }
 }
 
 export interface MultiGetAddressesParams {
@@ -112,6 +318,11 @@ export interface MultiGetAddressesParams {
    * Query param: attributes to include
    */
   include?: 'top_pools';
+
+  /**
+   * Query param: include pool composition, default: false
+   */
+  include_composition?: boolean;
 }
 
 export declare namespace Multi {
