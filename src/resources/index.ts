@@ -6,8 +6,9 @@ export {
   type AssetPlatformGetParams,
 } from './asset-platforms';
 export { Coins, type CoinGetIDResponse, type CoinGetIDParams } from './coins/coins';
-export { Companies } from './companies/companies';
 export { Derivatives, type DerivativeGetResponse } from './derivatives/derivatives';
+export { Entities, type EntityGetListResponse, type EntityGetListParams } from './entities';
+export { Entity } from './entity/entity';
 export { ExchangeRates, type ExchangeRateGetResponse } from './exchange-rates';
 export {
   Exchanges,
@@ -30,6 +31,7 @@ export {
 } from './nfts/nfts';
 export { Onchain } from './onchain/onchain';
 export { Ping, type PingGetResponse } from './ping';
+export { PublicTreasury, type PublicTreasuryGetEntityIDResponse } from './public-treasury';
 export { Search, type SearchGetResponse, type SearchGetParams } from './search/search';
 export { Simple } from './simple/simple';
 export { TokenLists, type TokenListGetAllJsonResponse } from './token-lists';
