@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.0 (2025-09-23)
+
+Full Changelog: [v1.15.0...v2.0.0](https://github.com/coingecko/coingecko-typescript/compare/v1.15.0...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* Re-prioritize MCP tooling
+
+### Features
+
+* **mcp:** enable experimental docs search tool ([946c99c](https://github.com/coingecko/coingecko-typescript/commit/946c99c94358ac8d5ce3a8a501ee32ebdd367e89))
+* Re-prioritize MCP tooling ([6ea7ceb](https://github.com/coingecko/coingecko-typescript/commit/6ea7ceba72c952b429550a163c8ec1e3e58a6a33))
+* Surface more tools for MCP ([fe6fed0](https://github.com/coingecko/coingecko-typescript/commit/fe6fed0ca48c5cbb67f4725f1bb90bbb1f2e8888))
+
 ## 1.15.0 (2025-09-22)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/coingecko/coingecko-typescript/compare/v1.14.0...v1.15.0)
