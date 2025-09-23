@@ -215,6 +215,10 @@ The following tools are available in this MCP server.
 
 - `get_id_coins` (`read`): This endpoint allows you to **query all the metadata (image, websites, socials, description, contract address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin from the CoinGecko coin page based on a particular coin ID**
 
+### Resource `coins.categories`:
+
+- `get_list_coins_categories` (`read`): This endpoint allows you to **query all the coins categories on CoinGecko**
+
 ### Resource `coins.list`:
 
 - `get_new_coins_list` (`read`): This endpoint allows you to **query the latest 200 coins that recently listed on CoinGecko**
@@ -231,9 +235,21 @@ The following tools are available in this MCP server.
 
 - `get_coins_contract` (`read`): This endpoint allows you to **query all the metadata (image, websites, socials, description, contract address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin from the CoinGecko coin page based on an asset platform and a particular token contract address**
 
+### Resource `coins.contract.market_chart`:
+
+- `get_range_contract_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data within certain time range in UNIX along with price, market cap and 24hr volume based on asset platform and particular token contract address**
+
 ### Resource `coins.history`:
 
 - `get_coins_history` (`read`): This endpoint allows you to **query the historical data (price, market cap, 24hrs volume, ...) at a given date for a coin based on a particular coin ID**
+
+### Resource `coins.market_chart`:
+
+- `get_range_coins_market_chart` (`read`): This endpoint allows you to **get the historical chart data of a coin within certain time range in UNIX along with price, market cap and 24hr volume based on particular coin ID**
+
+### Resource `coins.ohlc`:
+
+- `get_range_coins_ohlc` (`read`): This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin within a range of timestamp based on particular coin ID**
 
 ### Resource `exchanges`:
 
@@ -254,6 +270,8 @@ The following tools are available in this MCP server.
 
 ### Resource `nfts`:
 
+- `get_id_nfts` (`read`): This endpoint allows you to **query all the NFT data (name, floor price, 24hr volume ...) based on the NFT collection ID**
+- `get_list_nfts` (`read`): This endpoint allows you to **query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko**
 - `get_markets_nfts` (`read`): This endpoint allows you to **query all the supported NFT collections with floor price, market cap, volume and market related data on CoinGecko**
 
 ### Resource `nfts.market_chart`:
