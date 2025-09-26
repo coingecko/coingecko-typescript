@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@coingecko/coingecko-mcp/*": ["src/*"],
-      "@coingecko/coingecko-mcp": ["src/index.ts"]
+      "@coingecko/coingecko-mcp/*": ["./src/*"],
+      "@coingecko/coingecko-mcp": ["./src/index.ts"]
     },
     "noEmit": true,
 
