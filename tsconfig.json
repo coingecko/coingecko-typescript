@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@coingecko/coingecko-typescript/*": ["src/*"],
-      "@coingecko/coingecko-typescript": ["src/index.ts"]
+      "@coingecko/coingecko-typescript/*": ["./src/*"],
+      "@coingecko/coingecko-typescript": ["./src/index.ts"]
     },
     "noEmit": true,
 
