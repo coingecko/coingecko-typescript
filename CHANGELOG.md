@@ -1,5 +1,36 @@
 # Changelog
 
+## 2.1.0 (2025-10-04)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/coingecko/coingecko-typescript/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **mcp:** add option for including docs tools ([4b06334](https://github.com/coingecko/coingecko-typescript/commit/4b063349938e77d92ac037620ea25185a7d1b761))
+
+
+### Bug Fixes
+
+* **mcp:** fix cli argument parsing logic ([14aa303](https://github.com/coingecko/coingecko-typescript/commit/14aa303f8d646ae60409e92c839438e8264b0acc))
+* **mcp:** resolve a linting issue in server code ([d4ce5a7](https://github.com/coingecko/coingecko-typescript/commit/d4ce5a799a7293585fefcd6eade3dfe04c401fbf))
+
+
+### Performance Improvements
+
+* faster formatting ([18630ab](https://github.com/coingecko/coingecko-typescript/commit/18630ab93f7b26cdd070f105c7075ba71842bb4f))
+
+
+### Chores
+
+* **internal:** codegen related update ([04c9350](https://github.com/coingecko/coingecko-typescript/commit/04c9350dfac56124abbb07b1ce43d3a2c6477357))
+* **internal:** fix incremental formatting in some cases ([25390ea](https://github.com/coingecko/coingecko-typescript/commit/25390eaca179a4d2148a38a1b3e06e02c47a9dca))
+* **internal:** ignore .eslintcache ([b00e5f2](https://github.com/coingecko/coingecko-typescript/commit/b00e5f2251326086f553e4a786db777bf2378cc8))
+* **internal:** remove .eslintcache ([cea5876](https://github.com/coingecko/coingecko-typescript/commit/cea587686defd148ed7a52be43bfaf700a6ea6ee))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([95a0279](https://github.com/coingecko/coingecko-typescript/commit/95a0279097836fbc7a83cd8acc87300f8d09d547))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([33713b2](https://github.com/coingecko/coingecko-typescript/commit/33713b21be59715d2b327ba340b692404e2706c5))
+* **mcp:** allow pointing `docs_search` tool at other URLs ([bc2214d](https://github.com/coingecko/coingecko-typescript/commit/bc2214d1addcc36990cf63959237cfe108cada40))
+* update lockfile ([0b03271](https://github.com/coingecko/coingecko-typescript/commit/0b032715918ccf609bd6f06c04e29f412705ce96))
+
 ## 2.0.0 (2025-09-23)
 
 Full Changelog: [v1.15.0...v2.0.0](https://github.com/coingecko/coingecko-typescript/compare/v1.15.0...v2.0.0)
