@@ -1,6 +1,6 @@
 {
   "name": "@coingecko/coingecko-mcp",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "The official MCP Server for the Coingecko API",
   "author": "Coingecko <eason.lim@coingecko.com>",
   "types": "dist/index.d.ts",
