@@ -154,7 +154,7 @@ export interface ExchangeGetIDResponse {
   /**
    * derivatives exchange trade volume in BTC in 24 hours
    */
-  trade_volume_24h_btc?: string;
+  trade_volume_24h_btc?: number;
 
   /**
    * derivatives exchange website url
@@ -170,14 +170,28 @@ export interface ExchangeGetIDResponse {
 export namespace ExchangeGetIDResponse {
   export interface Ticker {
     /**
-     * difference of derivative price and index price
+     * derivative base asset
      */
-    basis?: number;
+    base?: string;
+
+    /**
+     * derivative bid ask spread
+     */
+    bid_ask_spread?: number;
+
+    /**
+     * derivative base asset coin ID
+     */
+    coin_id?: string;
 
     /**
      * derivative contract type
      */
     contract_type?: string;
+
+    converted_last?: Ticker.ConvertedLast;
+
+    converted_volume?: Ticker.ConvertedVolume;
 
     expired_at?: string | null;
 
@@ -187,44 +201,39 @@ export namespace ExchangeGetIDResponse {
     funding_rate?: number;
 
     /**
+     * derivative price percentage change in 24 hours
+     */
+    h24_percentage_change?: number;
+
+    /**
+     * derivative volume in 24 hours
+     */
+    h24_volume?: number;
+
+    /**
      * derivative underlying asset price
      */
     index?: number;
 
     /**
-     * derivative underlying asset
+     * difference of derivative price and index price in percentage
      */
-    index_id?: string;
+    index_basis_percentage?: number;
+
+    /**
+     * derivative last price
+     */
+    last?: number;
 
     /**
      * derivative last updated time
      */
-    last_traded_at?: number;
+    last_traded?: number;
 
     /**
-     * derivative market name
+     * derivative open interest in USD
      */
-    market?: string;
-
-    /**
-     * derivative open interest
-     */
-    open_interest?: number;
-
-    /**
-     * derivative ticker price
-     */
-    price?: string;
-
-    /**
-     * derivative ticker price percentage change in 24 hours
-     */
-    price_percentage_change_24h?: number;
-
-    /**
-     * derivative bid ask spread
-     */
-    spread?: number;
+    open_interest_usd?: number;
 
     /**
      * derivative ticker symbol
@@ -232,9 +241,37 @@ export namespace ExchangeGetIDResponse {
     symbol?: string;
 
     /**
-     * derivative volume in 24 hours
+     * derivative target asset
      */
-    volume_24h?: number;
+    target?: string;
+
+    /**
+     * derivative target asset coin ID
+     */
+    target_coin_id?: string;
+
+    /**
+     * derivative trade url
+     */
+    trade_url?: string;
+  }
+
+  export namespace Ticker {
+    export interface ConvertedLast {
+      btc?: string;
+
+      eth?: string;
+
+      usd?: string;
+    }
+
+    export interface ConvertedVolume {
+      btc?: string;
+
+      eth?: string;
+
+      usd?: string;
+    }
   }
 }
 
