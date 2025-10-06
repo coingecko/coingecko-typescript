@@ -15,7 +15,7 @@ export class Multi extends APIResource {
    * const response =
    *   await client.onchain.networks.tokens.multi.getAddresses(
    *     'addresses',
-   *     { network: 'eth' },
+   *     { network: 'solana' },
    *   );
    * ```
    */
@@ -61,6 +61,8 @@ export namespace MultiGetAddressesResponse {
 
       image_url?: string;
 
+      launchpad_details?: Attributes.LaunchpadDetails;
+
       market_cap_usd?: string;
 
       name?: string;
@@ -79,6 +81,16 @@ export namespace MultiGetAddressesResponse {
     }
 
     export namespace Attributes {
+      export interface LaunchpadDetails {
+        completed?: boolean;
+
+        completed_at?: string | null;
+
+        graduation_percentage?: number;
+
+        migrated_destination_pool_address?: string | null;
+      }
+
       export interface VolumeUsd {
         h24?: string;
       }
