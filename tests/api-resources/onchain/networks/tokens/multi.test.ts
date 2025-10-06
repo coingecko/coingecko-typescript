@@ -11,7 +11,7 @@ describe('resource multi', () => {
   // Prism tests are disabled
   test.skip('getAddresses: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.multi.getAddresses('addresses', {
-      network: 'eth',
+      network: 'solana',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,7 +25,7 @@ describe('resource multi', () => {
   // Prism tests are disabled
   test.skip('getAddresses: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.multi.getAddresses('addresses', {
-      network: 'eth',
+      network: 'solana',
       include: 'top_pools',
       include_composition: true,
     });
