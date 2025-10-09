@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.2.1 (2025-10-09)
+
+Full Changelog: [v2.2.0...v2.2.1](https://github.com/coingecko/coingecko-typescript/compare/v2.2.0...v2.2.1)
+
+### Chores
+
+* extract some types in mcp docs ([074c871](https://github.com/coingecko/coingecko-typescript/commit/074c871e520eda38f56efd21ba1ae1d9c4b9a861))
+* **internal:** use npm pack for build uploads ([ad7186d](https://github.com/coingecko/coingecko-typescript/commit/ad7186db7c452088604eecefe3d2873718d4cfac))
+
 ## 2.2.0 (2025-10-06)
 
 Full Changelog: [v2.1.0...v2.2.0](https://github.com/coingecko/coingecko-typescript/compare/v2.1.0...v2.2.0)
