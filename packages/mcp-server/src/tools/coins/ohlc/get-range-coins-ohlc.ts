@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'get_range_coins_ohlc',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin within a range of timestamp based on particular coin ID**\n\n# Response Schema\n```json\n{\n  type: 'array',\n  items: {\n    type: 'array',\n    items: {\n      type: 'number'\n    }\n  }\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nThis endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a coin within a range of timestamp based on particular coin ID**\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/ohlc_get_range_response',\n  $defs: {\n    ohlc_get_range_response: {\n      type: 'array',\n      items: {\n        type: 'array',\n        items: {\n          type: 'number'\n        }\n      }\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
