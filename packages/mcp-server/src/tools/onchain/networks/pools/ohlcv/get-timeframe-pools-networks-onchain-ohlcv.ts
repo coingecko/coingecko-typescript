@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from '@coingecko/coingecko-mcp/filtering';
-import { Metadata, asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
+import { isJqError, maybeFilter } from '@coingecko/coingecko-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Coingecko from '@coingecko/coingecko-typescript';
@@ -75,9 +75,16 @@ export const tool: Tool = {
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
   const { timeframe, jq_filter, ...body } = args as any;
-  return asTextContentResult(
-    await maybeFilter(jq_filter, await client.onchain.networks.pools.ohlcv.getTimeframe(timeframe, body)),
-  );
+  try {
+    return asTextContentResult(
+      await maybeFilter(jq_filter, await client.onchain.networks.pools.ohlcv.getTimeframe(timeframe, body)),
+    );
+  } catch (error) {
+    if (isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
