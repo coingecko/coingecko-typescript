@@ -1,5 +1,41 @@
 # Changelog
 
+## 2.3.0 (2025-11-26)
+
+Full Changelog: [v2.2.0...v2.3.0](https://github.com/coingecko/coingecko-typescript/compare/v2.2.0...v2.3.0)
+
+### Features
+
+* **mcp:** add detail field to docs search tool ([33f632a](https://github.com/coingecko/coingecko-typescript/commit/33f632ad6e74b3694a1d5d7c7f399cc178118ab3))
+* **mcp:** enable optional code execution tool on http mcp servers ([bc5fd75](https://github.com/coingecko/coingecko-typescript/commit/bc5fd7530692827bfdf149d8008ff277270b2695))
+
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([c59c43b](https://github.com/coingecko/coingecko-typescript/commit/c59c43bd3c18b3c6d50c4820ae0d448c6aab1f97))
+* **mcp:** return tool execution error on jq failure ([6f02caf](https://github.com/coingecko/coingecko-typescript/commit/6f02caf47f6e99b740b309f96632ccc4adc073f9))
+
+
+### Chores
+
+* extract some types in mcp docs ([074c871](https://github.com/coingecko/coingecko-typescript/commit/074c871e520eda38f56efd21ba1ae1d9c4b9a861))
+* **internal:** codegen related update ([ddd54ba](https://github.com/coingecko/coingecko-typescript/commit/ddd54ba989b581464bcfcb85c7688524a526b023))
+* **internal:** codegen related update ([12f6d45](https://github.com/coingecko/coingecko-typescript/commit/12f6d45b1d62b6b648a42da25c08534e5c681def))
+* **internal:** grammar fix (it's -&gt; its) ([625e0b5](https://github.com/coingecko/coingecko-typescript/commit/625e0b5d790f7cbb5f1ef29fd90db48b4f99be4e))
+* **internal:** use npm pack for build uploads ([ad7186d](https://github.com/coingecko/coingecko-typescript/commit/ad7186db7c452088604eecefe3d2873718d4cfac))
+* mcp code tool explicit error message when missing a run function ([033128d](https://github.com/coingecko/coingecko-typescript/commit/033128dc3cd0dd6fe9edaace9bb01ecdba6bea95))
+* **mcp:** add friendlier MCP code tool errors on incorrect method invocations ([32e66a5](https://github.com/coingecko/coingecko-typescript/commit/32e66a59ee776d6258c5bdbb748562291f201f46))
+* **mcp:** add line numbers to code tool errors ([73d6e38](https://github.com/coingecko/coingecko-typescript/commit/73d6e38f443c2993b2b5bef5ffa2267ebbcbf71d))
+* **mcp:** clarify http auth error ([d97ddd0](https://github.com/coingecko/coingecko-typescript/commit/d97ddd03ebbf83a4408464803ad31360f9ab6421))
+* **mcp:** upgrade jq-web ([51a0690](https://github.com/coingecko/coingecko-typescript/commit/51a0690cf7261f0bd84cd70898fc7498d590a1ee))
+* use structured error when code execution tool errors ([1430487](https://github.com/coingecko/coingecko-typescript/commit/1430487616c923b0370e6501dc69ed6cddec45d1))
+
+
+### Documentation
+
+* **mcp:** add a README button for one-click add to Cursor ([140719e](https://github.com/coingecko/coingecko-typescript/commit/140719eff1eb532d8fe22ab2495944677c478a65))
+* **mcp:** add a README link to add server to VS Code or Claude Code ([5f5f077](https://github.com/coingecko/coingecko-typescript/commit/5f5f077ce4ac50864b94619b717fdd2764312223))
+
 ## 2.2.0 (2025-10-06)
 
 Full Changelog: [v2.1.0...v2.2.0](https://github.com/coingecko/coingecko-typescript/compare/v2.1.0...v2.2.0)
