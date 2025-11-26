@@ -34,7 +34,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'coingecko_coingecko_typescript_api',
-      version: '2.2.0',
+      version: '2.3.0',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
