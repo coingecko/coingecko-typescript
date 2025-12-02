@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Metadata, asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
+import { Metadata, asErrorResult, asTextContentResult } from '@coingecko/coingecko-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import Coingecko from '@coingecko/coingecko-typescript';
@@ -46,7 +46,14 @@ export const tool: Tool = {
 
 export const handler = async (client: Coingecko, args: Record<string, unknown> | undefined) => {
   const { addresses, ...body } = args as any;
-  return asTextContentResult(await client.onchain.networks.tokens.multi.getAddresses(addresses, body));
+  try {
+    return asTextContentResult(await client.onchain.networks.tokens.multi.getAddresses(addresses, body));
+  } catch (error) {
+    if (error instanceof Coingecko.APIError) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
