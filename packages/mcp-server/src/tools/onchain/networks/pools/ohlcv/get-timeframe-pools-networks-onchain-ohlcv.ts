@@ -80,7 +80,7 @@ export const handler = async (client: Coingecko, args: Record<string, unknown> |
       await maybeFilter(jq_filter, await client.onchain.networks.pools.ohlcv.getTimeframe(timeframe, body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof Coingecko.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;

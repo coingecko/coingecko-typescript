@@ -50,7 +50,7 @@ export const handler = async (client: Coingecko, args: Record<string, unknown> |
   try {
     return asTextContentResult(await maybeFilter(jq_filter, await client.exchanges.getID(id, body)));
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof Coingecko.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;

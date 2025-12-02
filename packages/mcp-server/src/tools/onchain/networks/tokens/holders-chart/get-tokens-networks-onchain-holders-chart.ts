@@ -57,7 +57,7 @@ export const handler = async (client: Coingecko, args: Record<string, unknown> |
       ),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof Coingecko.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
