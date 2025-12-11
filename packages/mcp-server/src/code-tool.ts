@@ -42,6 +42,7 @@ export async function codeTool() {
       },
       body: JSON.stringify({
         project_name: 'coingecko',
+        client_opts: { environment: (readEnv('COINGECKO_ENVIRONMENT') || undefined) as any },
         code,
       }),
     });
