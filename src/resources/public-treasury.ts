@@ -41,6 +41,51 @@ export class PublicTreasury extends APIResource {
   getEntityID(entityID: string, options?: RequestOptions): APIPromise<PublicTreasuryGetEntityIDResponse> {
     return this._client.get(path`/public_treasury/${entityID}`, options);
   }
+
+  /**
+   * This endpoint allows you to **query historical cryptocurrency holdings chart of
+   * public companies & governments** by Entity ID and Coin ID
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.publicTreasury.getHoldingChart('bitcoin', {
+   *     entity_id: 'strategy',
+   *     days: 'days',
+   *   });
+   * ```
+   */
+  getHoldingChart(
+    coinID: string,
+    params: PublicTreasuryGetHoldingChartParams,
+    options?: RequestOptions,
+  ): APIPromise<PublicTreasuryGetHoldingChartResponse> {
+    const { entity_id, ...query } = params;
+    return this._client.get(path`/public_treasury/${entity_id}/${coinID}/holding_chart`, {
+      query,
+      ...options,
+    });
+  }
+
+  /**
+   * This endpoint allows you **query public companies & governments' cryptocurrency
+   * transaction history** by Entity ID
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.publicTreasury.getTransactionHistory(
+   *     'strategy',
+   *   );
+   * ```
+   */
+  getTransactionHistory(
+    entityID: string,
+    query: PublicTreasuryGetTransactionHistoryParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PublicTreasuryGetTransactionHistoryResponse> {
+    return this._client.get(path`/public_treasury/${entityID}/transaction_history`, { query, ...options });
+  }
 }
 
 export interface PublicTreasuryGetCoinIDResponse {
@@ -162,6 +207,60 @@ export namespace PublicTreasuryGetEntityIDResponse {
   }
 }
 
+export interface PublicTreasuryGetHoldingChartResponse {
+  holding_value_in_usd?: Array<Array<number>>;
+
+  holdings?: Array<Array<number>>;
+}
+
+export interface PublicTreasuryGetTransactionHistoryResponse {
+  transactions?: Array<PublicTreasuryGetTransactionHistoryResponse.Transaction>;
+}
+
+export namespace PublicTreasuryGetTransactionHistoryResponse {
+  export interface Transaction {
+    /**
+     * average entry value in usd after the transaction
+     */
+    average_entry_value_usd?: number;
+
+    /**
+     * coin ID
+     */
+    coin_id?: string;
+
+    /**
+     * transaction date in UNIX timestamp
+     */
+    date?: number;
+
+    /**
+     * total holding balance after the transaction
+     */
+    holding_balance?: number;
+
+    /**
+     * net change in holdings after the transaction
+     */
+    holding_net_change?: number;
+
+    /**
+     * source document URL
+     */
+    source_url?: string;
+
+    /**
+     * transaction value in usd
+     */
+    transaction_value_usd?: number;
+
+    /**
+     * transaction type: buy or sell
+     */
+    type?: 'buy' | 'sell';
+  }
+}
+
 export interface PublicTreasuryGetCoinIDParams {
   /**
    * public company or government entity
@@ -169,10 +268,64 @@ export interface PublicTreasuryGetCoinIDParams {
   entity: 'companies' | 'governments';
 }
 
+export interface PublicTreasuryGetHoldingChartParams {
+  /**
+   * Path param: public company or government entity ID \*refers to
+   * [`/entities/list`](/reference/entities-list).
+   */
+  entity_id: string;
+
+  /**
+   * Query param: data up to number of days ago Valid values:
+   * `7, 14, 30, 90, 180, 365, 730, max`
+   */
+  days: string;
+
+  /**
+   * Query param: include empty intervals with no transaction data, default: false
+   */
+  include_empty_intervals?: boolean;
+}
+
+export interface PublicTreasuryGetTransactionHistoryParams {
+  /**
+   * filter transactions by coin IDs, comma-separated if querying more than 1 coin
+   * \*refers to [`/coins/list`](/reference/coins-list).
+   */
+  coin_ids?: string;
+
+  /**
+   * use this to sort the order of transactions, default: `date_desc`
+   */
+  order?:
+    | 'date_desc'
+    | 'date_asc'
+    | 'holding_net_change_desc'
+    | 'holding_net_change_asc'
+    | 'transaction_value_usd_desc'
+    | 'transaction_value_usd_asc'
+    | 'average_cost_desc'
+    | 'average_cost_asc';
+
+  /**
+   * page through results, default: `1`
+   */
+  page?: number;
+
+  /**
+   * total results per page, default: `100` Valid values: 1...250
+   */
+  per_page?: number;
+}
+
 export declare namespace PublicTreasury {
   export {
     type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
+    type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,
+    type PublicTreasuryGetTransactionHistoryResponse as PublicTreasuryGetTransactionHistoryResponse,
     type PublicTreasuryGetCoinIDParams as PublicTreasuryGetCoinIDParams,
+    type PublicTreasuryGetHoldingChartParams as PublicTreasuryGetHoldingChartParams,
+    type PublicTreasuryGetTransactionHistoryParams as PublicTreasuryGetTransactionHistoryParams,
   };
 }

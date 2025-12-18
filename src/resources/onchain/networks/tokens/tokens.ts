@@ -13,6 +13,8 @@ import * as PoolsAPI from './pools';
 import { PoolGetParams, PoolGetResponse, Pools } from './pools';
 import * as TopHoldersAPI from './top-holders';
 import { TopHolderGetParams, TopHolderGetResponse, TopHolders } from './top-holders';
+import * as TopTradersAPI from './top-traders';
+import { TopTraderGetParams, TopTraderGetResponse, TopTraders } from './top-traders';
 import * as TradesAPI from './trades';
 import { TradeGetParams, TradeGetResponse, Trades } from './trades';
 import { APIPromise } from '../../../../core/api-promise';
@@ -27,6 +29,7 @@ export class Tokens extends APIResource {
   ohlcv: OhlcvAPI.Ohlcv = new OhlcvAPI.Ohlcv(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
+  topTraders: TopTradersAPI.TopTraders = new TopTradersAPI.TopTraders(this._client);
 
   /**
    * This endpoint allows you to **query specific token data based on the provided
@@ -361,6 +364,7 @@ Tokens.HoldersChart = HoldersChart;
 Tokens.Ohlcv = Ohlcv;
 Tokens.Pools = Pools;
 Tokens.Trades = Trades;
+Tokens.TopTraders = TopTraders;
 
 export declare namespace Tokens {
   export {
@@ -400,5 +404,11 @@ export declare namespace Tokens {
     Trades as Trades,
     type TradeGetResponse as TradeGetResponse,
     type TradeGetParams as TradeGetParams,
+  };
+
+  export {
+    TopTraders as TopTraders,
+    type TopTraderGetResponse as TopTraderGetResponse,
+    type TopTraderGetParams as TopTraderGetParams,
   };
 }

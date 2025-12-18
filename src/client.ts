@@ -30,6 +30,10 @@ import {
   PublicTreasuryGetCoinIDParams,
   PublicTreasuryGetCoinIDResponse,
   PublicTreasuryGetEntityIDResponse,
+  PublicTreasuryGetHoldingChartParams,
+  PublicTreasuryGetHoldingChartResponse,
+  PublicTreasuryGetTransactionHistoryParams,
+  PublicTreasuryGetTransactionHistoryResponse,
 } from './resources/public-treasury';
 import { TokenListGetAllJsonResponse, TokenLists } from './resources/token-lists';
 import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coins';
@@ -900,7 +904,11 @@ export declare namespace Coingecko {
     PublicTreasury as PublicTreasury,
     type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
+    type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,
+    type PublicTreasuryGetTransactionHistoryResponse as PublicTreasuryGetTransactionHistoryResponse,
     type PublicTreasuryGetCoinIDParams as PublicTreasuryGetCoinIDParams,
+    type PublicTreasuryGetHoldingChartParams as PublicTreasuryGetHoldingChartParams,
+    type PublicTreasuryGetTransactionHistoryParams as PublicTreasuryGetTransactionHistoryParams,
   };
 
   export {
