@@ -1,5 +1,34 @@
 # Changelog
 
+## 2.4.0 (2025-12-18)
+
+Full Changelog: [v2.3.0...v2.4.0](https://github.com/coingecko/coingecko-typescript/compare/v2.3.0...v2.4.0)
+
+### Features
+
+* **mcp:** add typescript check to code execution tool ([329555d](https://github.com/coingecko/coingecko-typescript/commit/329555d9b0995ed05d0057b37a36c6b525601647))
+* **mcp:** handle code mode calls in the Stainless API ([9f8bda4](https://github.com/coingecko/coingecko-typescript/commit/9f8bda4cb89a872541a2eb06966c5cfa696b851f))
+* **mcp:** return logs on code tool errors ([e5e49e3](https://github.com/coingecko/coingecko-typescript/commit/e5e49e38e84bd0a65bf3c9e9cfc75cb75c406a0d))
+
+
+### Bug Fixes
+
+* **mcp:** add client instantiation options to code tool ([db4755e](https://github.com/coingecko/coingecko-typescript/commit/db4755ec2059967770b8df2c3b7d178d2f9e4bae))
+* **mcp:** correct code tool API endpoint ([b70e1fd](https://github.com/coingecko/coingecko-typescript/commit/b70e1fd15448fdbe32d567f6655feb7e59500a5c))
+* **mcp:** pass base url to code tool ([5cb8c99](https://github.com/coingecko/coingecko-typescript/commit/5cb8c998d082c941062a6ac32c329907737c11f9))
+* **mcp:** return correct lines on typescript errors ([da27574](https://github.com/coingecko/coingecko-typescript/commit/da27574641c40f66e112d0a2c3ef14d280fe7156))
+* **mcp:** return tool execution error on api error ([38ab9c1](https://github.com/coingecko/coingecko-typescript/commit/38ab9c1d251ec80128a1109db1af28132e19b144))
+
+
+### Chores
+
+* **client:** fix logger property type ([1c4beb7](https://github.com/coingecko/coingecko-typescript/commit/1c4beb7720638761d438f723d33cc87b6c5b24e0))
+* **internal:** codegen related update ([11fef84](https://github.com/coingecko/coingecko-typescript/commit/11fef84c7a12a4242d0ac579633c385fdf00d2ac))
+* **internal:** codegen related update ([56aec1c](https://github.com/coingecko/coingecko-typescript/commit/56aec1c864439b15ac7bbd65875267e8c553c376))
+* **internal:** upgrade eslint ([5b5aa20](https://github.com/coingecko/coingecko-typescript/commit/5b5aa2043b13741eaece9ea29d42b5272fd001a2))
+* **mcp:** update lockfile ([d887158](https://github.com/coingecko/coingecko-typescript/commit/d88715842f0aec829f1c8f2210a007c6a63bb986))
+* use latest @modelcontextprotocol/sdk ([528d877](https://github.com/coingecko/coingecko-typescript/commit/528d8772bb6b895a4251595575e5dfda26548c36))
+
 ## 2.3.0 (2025-11-26)
 
 Full Changelog: [v2.2.0...v2.3.0](https://github.com/coingecko/coingecko-typescript/compare/v2.2.0...v2.3.0)
