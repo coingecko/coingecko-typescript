@@ -518,6 +518,16 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{token_address}/trades">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">get</a>(tokenAddress, { ...params }) -> TradeGetResponse</code>
 
+#### TopTraders
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/tokens/top-traders.ts">TopTraderGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network_id}/tokens/{token_address}/top_traders">client.onchain.networks.tokens.topTraders.<a href="./src/resources/onchain/networks/tokens/top-traders.ts">get</a>(tokenAddress, { ...params }) -> TopTraderGetResponse</code>
+
 ## Pools
 
 ### Megafilter
@@ -594,11 +604,15 @@ Types:
 
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetEntityIDResponse</a></code>
+- <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetHoldingChartResponse</a></code>
+- <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetTransactionHistoryResponse</a></code>
 
 Methods:
 
 - <code title="get /{entity}/public_treasury/{coin_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getCoinID</a>(coinID, { ...params }) -> PublicTreasuryGetCoinIDResponse</code>
 - <code title="get /public_treasury/{entity_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getEntityID</a>(entityID) -> PublicTreasuryGetEntityIDResponse</code>
+- <code title="get /public_treasury/{entity_id}/{coin_id}/holding_chart">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getHoldingChart</a>(coinID, { ...params }) -> PublicTreasuryGetHoldingChartResponse</code>
+- <code title="get /public_treasury/{entity_id}/transaction_history">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getTransactionHistory</a>(entityID, { ...params }) -> PublicTreasuryGetTransactionHistoryResponse</code>
 
 # Search
 
