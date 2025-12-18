@@ -36,6 +36,10 @@ export const tool: Tool = {
         type: 'boolean',
         description: 'include pool composition, default: false',
       },
+      include_inactive_source: {
+        type: 'boolean',
+        description: 'include tokens from inactive pools using the most recent swap, default: false',
+      },
     },
     required: ['network', 'addresses'],
   },

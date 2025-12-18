@@ -65,7 +65,7 @@ export interface CirculatingSupplyChartGetParams {
   /**
    * data interval
    */
-  interval?: 'daily';
+  interval?: '5m' | 'hourly' | 'daily';
 }
 
 export interface CirculatingSupplyChartGetRangeParams {

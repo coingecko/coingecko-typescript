@@ -86,6 +86,8 @@ export namespace PoolGetResponse {
 
       base_token_price_usd?: string;
 
+      community_sus_report?: number;
+
       fdv_usd?: string;
 
       market_cap_usd?: string;
@@ -103,6 +105,10 @@ export namespace PoolGetResponse {
       quote_token_price_usd?: string;
 
       reserve_in_usd?: string;
+
+      sentiment_vote_negative_percentage?: number;
+
+      sentiment_vote_positive_percentage?: number;
 
       transactions?: Attributes.Transactions;
 
@@ -571,6 +577,12 @@ export interface PoolGetParams {
    * values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * include GeckoTerminal community data (Sentiment votes, Suspicious reports)
+   * Default value: false
+   */
+  include_gt_community_data?: boolean;
 
   /**
    * page through results Default value: 1

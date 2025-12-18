@@ -121,6 +121,12 @@ export interface OhlcvGetTimeframeParams {
   include_empty_intervals?: boolean;
 
   /**
+   * Query param: include token data from inactive pools using the most recent swap,
+   * default: false
+   */
+  include_inactive_source?: boolean;
+
+  /**
    * Query param: number of OHLCV results to return, maximum 1000 Default value: 100
    */
   limit?: number;

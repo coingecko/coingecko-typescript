@@ -32,6 +32,7 @@ describe('resource ohlcv', () => {
       before_timestamp: 0,
       currency: 'usd',
       include_empty_intervals: true,
+      include_inactive_source: true,
       limit: 0,
     });
   });

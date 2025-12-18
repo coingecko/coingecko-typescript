@@ -27,7 +27,7 @@ export const tool: Tool = {
       },
       date: {
         type: 'string',
-        description: 'date of data snapshot (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`)',
+        description: 'date of data snapshot (`YYYY-MM-DD`)',
       },
       localization: {
         type: 'boolean',

@@ -28,6 +28,7 @@ describe('resource tokenPrice', () => {
       network: 'eth',
       include_24hr_price_change: true,
       include_24hr_vol: true,
+      include_inactive_source: true,
       include_market_cap: true,
       include_total_reserve_in_usd: true,
       mcap_fdv_fallback: true,

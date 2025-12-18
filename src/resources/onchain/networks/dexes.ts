@@ -93,6 +93,8 @@ export namespace DexGetPoolsResponse {
 
       base_token_price_usd?: string;
 
+      community_sus_report?: number;
+
       fdv_usd?: string;
 
       market_cap_usd?: string;
@@ -110,6 +112,10 @@ export namespace DexGetPoolsResponse {
       quote_token_price_usd?: string;
 
       reserve_in_usd?: string;
+
+      sentiment_vote_negative_percentage?: number;
+
+      sentiment_vote_positive_percentage?: number;
 
       transactions?: Attributes.Transactions;
 
@@ -300,6 +306,12 @@ export interface DexGetPoolsParams {
    * Available values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * Query param: include GeckoTerminal community data (Sentiment votes, Suspicious
+   * reports) Default value: false
+   */
+  include_gt_community_data?: boolean;
 
   /**
    * Query param: page through results Default value: 1

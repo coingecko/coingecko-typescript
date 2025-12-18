@@ -47,7 +47,17 @@ export namespace TokenPriceGetAddressesResponse {
 
   export namespace Data {
     export interface Attributes {
+      h24_price_change_percentage?: { [key: string]: string };
+
+      h24_volume_usd?: { [key: string]: string };
+
+      last_trade_timestamp?: { [key: string]: number };
+
+      market_cap_usd?: { [key: string]: string };
+
       token_prices?: { [key: string]: string };
+
+      total_reserve_in_usd?: { [key: string]: string };
     }
   }
 }
@@ -67,6 +77,12 @@ export interface TokenPriceGetAddressesParams {
    * Query param: include 24hr volume, default: false
    */
   include_24hr_vol?: boolean;
+
+  /**
+   * Query param: include token price data from inactive pools using the most recent
+   * swap, default: false
+   */
+  include_inactive_source?: boolean;
 
   /**
    * Query param: include market capitalization, default: false
