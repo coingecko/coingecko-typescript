@@ -34,7 +34,11 @@ export {
   PublicTreasury,
   type PublicTreasuryGetCoinIDResponse,
   type PublicTreasuryGetEntityIDResponse,
+  type PublicTreasuryGetHoldingChartResponse,
+  type PublicTreasuryGetTransactionHistoryResponse,
   type PublicTreasuryGetCoinIDParams,
+  type PublicTreasuryGetHoldingChartParams,
+  type PublicTreasuryGetTransactionHistoryParams,
 } from './public-treasury';
 export { Search, type SearchGetResponse, type SearchGetParams } from './search/search';
 export { Simple } from './simple/simple';

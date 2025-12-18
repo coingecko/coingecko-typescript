@@ -376,6 +376,10 @@ The following tools are available in this MCP server.
 
 - `get_tokens_networks_onchain_trades` (`read`): This endpoint allows you to **query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network**
 
+### Resource `onchain.networks.tokens.top_traders`:
+
+- `get_tokens_networks_onchain_top_traders` (`read`): This endpoint allows you to **query top token traders based on the provided token contract address on a network**
+
 ### Resource `onchain.pools.megafilter`:
 
 - `get_pools_onchain_megafilter` (`read`): This endpoint allows you to **query pools based on various filters across all networks on GeckoTerminal**
@@ -391,6 +395,11 @@ The following tools are available in this MCP server.
 ### Resource `onchain.simple.networks.token_price`:
 
 - `get_addresses_networks_simple_onchain_token_price` (`read`): This endpoint allows you to **get token price based on the provided token contract address on a network**
+
+### Resource `public_treasury`:
+
+- `get_holding_chart_public_treasury` (`read`): This endpoint allows you to **query historical cryptocurrency holdings chart of public companies & governments** by Entity ID and Coin ID
+- `get_transaction_history_public_treasury` (`read`): This endpoint allows you **query public companies & governments' cryptocurrency transaction history** by Entity ID
 
 ### Resource `search`:
 
