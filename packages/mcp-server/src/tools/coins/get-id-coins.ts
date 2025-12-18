@@ -38,6 +38,10 @@ export const tool: Tool = {
           'set to `symbol` to display DEX pair base and target as symbols, default: `contract_address`',
         enum: ['contract_address', 'symbol'],
       },
+      include_categories_details: {
+        type: 'boolean',
+        description: 'include categories details, default: false',
+      },
       localization: {
         type: 'boolean',
         description: 'include all the localized languages in the response, default: true',

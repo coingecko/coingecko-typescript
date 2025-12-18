@@ -27,7 +27,13 @@ describe('resource pools', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.pools.get(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      { network: 'eth', include: 'include', page: 0, sort: 'h24_volume_usd_liquidity_desc' },
+      {
+        network: 'eth',
+        include: 'include',
+        include_inactive_source: true,
+        page: 0,
+        sort: 'h24_volume_usd_liquidity_desc',
+      },
     );
   });
 });

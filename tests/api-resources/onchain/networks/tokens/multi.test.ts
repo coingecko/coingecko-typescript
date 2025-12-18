@@ -28,6 +28,7 @@ describe('resource multi', () => {
       network: 'solana',
       include: 'top_pools',
       include_composition: true,
+      include_inactive_source: true,
     });
   });
 });

@@ -110,6 +110,11 @@ export interface CoinGetIDResponse {
   categories?: Array<string>;
 
   /**
+   * detailed coin categories
+   */
+  categories_details?: Array<CoinGetIDResponse.CategoriesDetail>;
+
+  /**
    * coin community data
    */
   community_data?: CoinGetIDResponse.CommunityData;
@@ -143,6 +148,11 @@ export interface CoinGetIDResponse {
    * blockchain hashing algorithm
    */
   hashing_algorithm?: string;
+
+  /**
+   * coin ICO data
+   */
+  ico_data?: CoinGetIDResponse.IcoData;
 
   /**
    * coin image url
@@ -231,6 +241,18 @@ export interface CoinGetIDResponse {
 }
 
 export namespace CoinGetIDResponse {
+  export interface CategoriesDetail {
+    /**
+     * category ID
+     */
+    id?: string;
+
+    /**
+     * category name
+     */
+    name?: string;
+  }
+
   /**
    * coin community data
    */
@@ -342,6 +364,161 @@ export namespace CoinGetIDResponse {
 
       deletions?: number;
     }
+  }
+
+  /**
+   * coin ICO data
+   */
+  export interface IcoData {
+    /**
+     * accepting currencies
+     */
+    accepting_currencies?: string;
+
+    /**
+     * amount for sale
+     */
+    amount_for_sale?: number;
+
+    /**
+     * base pre-sale amount
+     */
+    base_pre_sale_amount?: number;
+
+    /**
+     * base public sale amount
+     */
+    base_public_sale_amount?: number;
+
+    /**
+     * bounty detail url
+     */
+    bounty_detail_url?: string;
+
+    /**
+     * country of origin
+     */
+    country_origin?: string;
+
+    /**
+     * detailed description
+     */
+    description?: string;
+
+    /**
+     * hardcap amount
+     */
+    hardcap_amount?: number;
+
+    /**
+     * hardcap currency
+     */
+    hardcap_currency?: string;
+
+    /**
+     * ICO end date
+     */
+    ico_end_date?: string;
+
+    /**
+     * ICO start date
+     */
+    ico_start_date?: string;
+
+    /**
+     * KYC required
+     */
+    kyc_required?: boolean;
+
+    /**
+     * ICO related links
+     */
+    links?: { [key: string]: string };
+
+    /**
+     * pre-sale available
+     */
+    pre_sale_available?: boolean;
+
+    /**
+     * pre-sale end date
+     */
+    pre_sale_end_date?: string;
+
+    /**
+     * pre-sale ended
+     */
+    pre_sale_ended?: boolean;
+
+    /**
+     * pre-sale start date
+     */
+    pre_sale_start_date?: string;
+
+    /**
+     * quote pre-sale amount
+     */
+    quote_pre_sale_amount?: number;
+
+    /**
+     * quote pre-sale currency
+     */
+    quote_pre_sale_currency?: string;
+
+    /**
+     * quote public sale amount
+     */
+    quote_public_sale_amount?: number;
+
+    /**
+     * quote public sale currency
+     */
+    quote_public_sale_currency?: string;
+
+    /**
+     * short description
+     */
+    short_desc?: string;
+
+    /**
+     * softcap amount
+     */
+    softcap_amount?: number;
+
+    /**
+     * softcap currency
+     */
+    softcap_currency?: string;
+
+    /**
+     * total raised amount
+     */
+    total_raised?: number;
+
+    /**
+     * total raised currency
+     */
+    total_raised_currency?: string;
+
+    /**
+     * whitelist available
+     */
+    whitelist_available?: boolean;
+
+    /**
+     * whitelist end date
+     */
+    whitelist_end_date?: string;
+
+    /**
+     * whitelist start date
+     */
+    whitelist_start_date?: string;
+
+    /**
+     * whitelist url
+     */
+    whitelist_url?: string;
   }
 
   /**
@@ -1054,6 +1231,11 @@ export interface CoinGetIDParams {
    * `contract_address`
    */
   dex_pair_format?: 'contract_address' | 'symbol';
+
+  /**
+   * include categories details, default: false
+   */
+  include_categories_details?: boolean;
 
   /**
    * include all the localized languages in the response, default: true

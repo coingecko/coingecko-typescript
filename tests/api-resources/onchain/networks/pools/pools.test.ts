@@ -26,7 +26,7 @@ describe('resource pools', () => {
     await expect(
       client.onchain.networks.pools.get(
         'eth',
-        { include: 'include', page: 0, sort: 'h24_tx_count_desc' },
+        { include: 'include', include_gt_community_data: true, page: 0, sort: 'h24_tx_count_desc' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

@@ -80,6 +80,8 @@ export namespace TokenGetAddressResponse {
 
       image_url?: string;
 
+      last_trade_timestamp?: number;
+
       market_cap_usd?: string;
 
       name?: string;
@@ -344,6 +346,12 @@ export interface TokenGetAddressParams {
    * Query param: include pool composition, default: false
    */
   include_composition?: boolean;
+
+  /**
+   * Query param: include token data from inactive pools using the most recent swap,
+   * default: false
+   */
+  include_inactive_source?: boolean;
 }
 
 Tokens.Multi = Multi;
