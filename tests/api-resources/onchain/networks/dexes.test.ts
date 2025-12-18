@@ -45,6 +45,7 @@ describe('resource dexes', () => {
     const response = await client.onchain.networks.dexes.getPools('sushiswap', {
       network: 'eth',
       include: 'include',
+      include_gt_community_data: true,
       page: 0,
       sort: 'h24_tx_count_desc',
     });

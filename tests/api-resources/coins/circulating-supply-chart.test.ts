@@ -24,7 +24,7 @@ describe('resource circulatingSupplyChart', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.circulatingSupplyChart.get('bitcoin', {
       days: 'days',
-      interval: 'daily',
+      interval: '5m',
     });
   });
 

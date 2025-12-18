@@ -61,6 +61,8 @@ export namespace MultiGetAddressesResponse {
 
       image_url?: string;
 
+      last_trade_timestamp?: number;
+
       launchpad_details?: Attributes.LaunchpadDetails;
 
       market_cap_usd?: string;
@@ -335,6 +337,12 @@ export interface MultiGetAddressesParams {
    * Query param: include pool composition, default: false
    */
   include_composition?: boolean;
+
+  /**
+   * Query param: include tokens from inactive pools using the most recent swap,
+   * default: false
+   */
+  include_inactive_source?: boolean;
 }
 
 export declare namespace Multi {

@@ -25,7 +25,7 @@ describe('resource trendingPools', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.networks.trendingPools.get(
-        { duration: '5m', include: 'include', page: 0 },
+        { duration: '5m', include: 'include', include_gt_community_data: true, page: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
@@ -49,7 +49,7 @@ describe('resource trendingPools', () => {
     await expect(
       client.onchain.networks.trendingPools.getNetwork(
         'eth',
-        { duration: '5m', include: 'include', page: 0 },
+        { duration: '5m', include: 'include', include_gt_community_data: true, page: 0 },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

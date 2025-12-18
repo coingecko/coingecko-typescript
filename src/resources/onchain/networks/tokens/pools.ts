@@ -56,6 +56,8 @@ export namespace PoolGetResponse {
 
       fdv_usd?: string;
 
+      last_trade_timestamp?: number;
+
       market_cap_usd?: string;
 
       name?: string;
@@ -254,6 +256,12 @@ export interface PoolGetParams {
    * Available values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
+
+  /**
+   * Query param: include tokens from inactive pools using the most recent swap,
+   * default: false
+   */
+  include_inactive_source?: boolean;
 
   /**
    * Query param: page through results Default value: 1

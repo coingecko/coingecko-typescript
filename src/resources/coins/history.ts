@@ -243,7 +243,7 @@ export namespace HistoryGetResponse {
 
 export interface HistoryGetParams {
   /**
-   * date of data snapshot (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`)
+   * date of data snapshot (`YYYY-MM-DD`)
    */
   date: string;
 

@@ -50,6 +50,10 @@ export const tool: Tool = {
         type: 'boolean',
         description: 'include empty intervals with no trade data, default: false',
       },
+      include_inactive_source: {
+        type: 'boolean',
+        description: 'include token data from inactive pools using the most recent swap, default: false',
+      },
       limit: {
         type: 'integer',
         description: 'number of OHLCV results to return, maximum 1000 \n Default value: 100',

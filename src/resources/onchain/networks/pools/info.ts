@@ -60,6 +60,8 @@ export namespace InfoGetResponse {
 
         discord_url?: string;
 
+        farcaster_url?: string;
+
         freeze_authority?: string;
 
         gt_categories_id?: Array<string>;
@@ -87,6 +89,8 @@ export namespace InfoGetResponse {
         twitter_handle?: string;
 
         websites?: Array<string>;
+
+        zora_url?: string;
       }
 
       export namespace Attributes {
