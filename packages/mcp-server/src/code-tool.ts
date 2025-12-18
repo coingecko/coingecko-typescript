@@ -38,6 +38,7 @@ export async function codeTool() {
         client_envs: JSON.stringify({
           COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY'),
           COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY'),
+          COINGECKO_BASE_URL: readEnv('COINGECKO_BASE_URL'),
         }),
       },
       body: JSON.stringify({
