@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.0.0 (2025-12-23)
+
+Full Changelog: [v2.5.0...v3.0.0](https://github.com/coingecko/coingecko-typescript/compare/v2.5.0...v3.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Features
+
+* **api:** api update ([006ad17](https://github.com/coingecko/coingecko-typescript/commit/006ad17f169ca009dac4fc387f75efc22d44c7b0))
+
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([b20be48](https://github.com/coingecko/coingecko-typescript/commit/b20be485120dd8f34ed3fcf8c5fe15a6ff85838f))
+
 ## 2.5.0 (2025-12-18)
 
 Full Changelog: [v2.4.0...v2.5.0](https://github.com/coingecko/coingecko-typescript/compare/v2.4.0...v2.5.0)
