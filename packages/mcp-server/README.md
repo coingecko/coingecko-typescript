@@ -43,7 +43,7 @@ For clients with a configuration JSON, it might look something like this:
 If you use Cursor, you can install the MCP server by using the button below. You will need to set your environment variables
 in Cursor's `mcp.json`, which can be found in Cursor Settings > Tools & MCP > New MCP Server.
 
-[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=@coingecko/coingecko-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBjb2luZ2Vja28vY29pbmdlY2tvLW1jcCJdLCJlbnYiOnsiQ09JTkdFQ0tPX1BST19BUElfS0VZIjoiU2V0IHlvdXIgQ09JTkdFQ0tPX1BST19BUElfS0VZIGhlcmUuIiwiQ09JTkdFQ0tPX0RFTU9fQVBJX0tFWSI6IlNldCB5b3VyIENPSU5HRUNLT19ERU1PX0FQSV9LRVkgaGVyZS4ifX0)
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en-US/install-mcp?name=%40coingecko%2Fcoingecko-mcp&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBjb2luZ2Vja28vY29pbmdlY2tvLW1jcCJdLCJlbnYiOnsiQ09JTkdFQ0tPX1BST19BUElfS0VZIjoiU2V0IHlvdXIgQ09JTkdFQ0tPX1BST19BUElfS0VZIGhlcmUuIiwiQ09JTkdFQ0tPX0RFTU9fQVBJX0tFWSI6IlNldCB5b3VyIENPSU5HRUNLT19ERU1PX0FQSV9LRVkgaGVyZS4ifX0)
 
 ### VS Code
 
@@ -58,7 +58,7 @@ If you use Claude Code, you can install the MCP server by running the command be
 environment variables in Claude Code's `.claude.json`, which can be found in your home directory.
 
 ```
-claude mcp add --transport stdio coingecko_coingecko_typescript_api --env COINGECKO_PRO_API_KEY="Your COINGECKO_PRO_API_KEY here." COINGECKO_DEMO_API_KEY="Your COINGECKO_DEMO_API_KEY here." -- npx -y @coingecko/coingecko-mcp
+claude mcp add coingecko_coingecko_mcp_api --env COINGECKO_PRO_API_KEY="Your COINGECKO_PRO_API_KEY here." COINGECKO_DEMO_API_KEY="Your COINGECKO_DEMO_API_KEY here." -- npx -y @coingecko/coingecko-mcp
 ```
 
 ## Code Mode
