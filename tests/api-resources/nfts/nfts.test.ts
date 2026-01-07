@@ -37,7 +37,11 @@ describe('resource nfts', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.nfts.getList(
-        { order: 'h24_volume_usd_asc', page: 0, per_page: 0 },
+        {
+          order: 'h24_volume_usd_asc',
+          page: 0,
+          per_page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
@@ -60,7 +64,12 @@ describe('resource nfts', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.nfts.getMarkets(
-        { asset_platform_id: 'ethereum', order: 'h24_volume_native_asc', page: 0, per_page: 0 },
+        {
+          asset_platform_id: 'ethereum',
+          order: 'h24_volume_native_asc',
+          page: 0,
+          per_page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

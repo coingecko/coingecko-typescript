@@ -25,7 +25,12 @@ describe('resource pools', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.search.pools.get(
-        { include: 'include', network: 'eth', page: 0, query: 'weth' },
+        {
+          include: 'include',
+          network: 'eth',
+          page: 0,
+          query: 'weth',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
