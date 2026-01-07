@@ -27,7 +27,12 @@ describe('resource tokens', () => {
   test.skip('getAddress: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.getAddress(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      { network: 'eth', include: 'top_pools', include_composition: true, include_inactive_source: true },
+      {
+        network: 'eth',
+        include: 'top_pools',
+        include_composition: true,
+        include_inactive_source: true,
+      },
     );
   });
 });
