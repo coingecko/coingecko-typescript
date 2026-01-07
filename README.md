@@ -66,15 +66,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const price = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' }).catch(async (err) => {
-  if (err instanceof Coingecko.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const price = await client.simple.price
+  .get({ vs_currencies: 'usd', ids: 'bitcoin' })
+  .catch(async (err) => {
+    if (err instanceof Coingecko.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -146,7 +148,9 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Coingecko();
 
-const response = await client.simple.price.get({ vs_currencies: 'usd', ids: 'bitcoin' }).asResponse();
+const response = await client.simple.price
+  .get({ vs_currencies: 'usd', ids: 'bitcoin' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
