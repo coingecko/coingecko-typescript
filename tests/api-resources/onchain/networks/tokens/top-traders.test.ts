@@ -27,7 +27,12 @@ describe('resource topTraders', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.topTraders.get(
       '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
-      { network_id: 'base', include_address_label: true, sort: 'realized_pnl_usd_desc', traders: 'traders' },
+      {
+        network_id: 'base',
+        include_address_label: true,
+        sort: 'realized_pnl_usd_desc',
+        traders: 'traders',
+      },
     );
   });
 });

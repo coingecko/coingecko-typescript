@@ -26,7 +26,12 @@ describe('resource pools', () => {
     await expect(
       client.onchain.networks.pools.get(
         'eth',
-        { include: 'include', include_gt_community_data: true, page: 0, sort: 'h24_tx_count_desc' },
+        {
+          include: 'include',
+          include_gt_community_data: true,
+          page: 0,
+          sort: 'h24_tx_count_desc',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
@@ -51,7 +56,12 @@ describe('resource pools', () => {
   test.skip('getAddress: required and optional params', async () => {
     const response = await client.onchain.networks.pools.getAddress(
       '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',
-      { network: 'eth', include: 'include', include_composition: true, include_volume_breakdown: true },
+      {
+        network: 'eth',
+        include: 'include',
+        include_composition: true,
+        include_volume_breakdown: true,
+      },
     );
   });
 });

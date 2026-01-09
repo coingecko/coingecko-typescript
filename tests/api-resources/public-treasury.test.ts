@@ -79,7 +79,12 @@ describe('resource publicTreasury', () => {
     await expect(
       client.publicTreasury.getTransactionHistory(
         'strategy',
-        { coin_ids: 'coin_ids', order: 'date_desc', page: 0, per_page: 0 },
+        {
+          coin_ids: 'coin_ids',
+          order: 'date_desc',
+          page: 0,
+          per_page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

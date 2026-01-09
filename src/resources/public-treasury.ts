@@ -88,61 +88,125 @@ export class PublicTreasury extends APIResource {
   }
 }
 
-export interface PublicTreasuryGetCoinIDResponse {
-  companies?: Array<PublicTreasuryGetCoinIDResponse.Company>;
-
-  /**
-   * market cap dominance
-   */
-  market_cap_dominance?: number;
-
-  /**
-   * total crypto holdings of companies or government
-   */
-  total_holdings?: number;
-
-  /**
-   * total crypto holdings value in usd
-   */
-  total_value_usd?: number;
-}
+export type PublicTreasuryGetCoinIDResponse =
+  | PublicTreasuryGetCoinIDResponse.CompaniesTreasury
+  | PublicTreasuryGetCoinIDResponse.GovernmentsTreasury;
 
 export namespace PublicTreasuryGetCoinIDResponse {
-  export interface Company {
-    /**
-     * company incorporated or government country
-     */
-    country?: string;
+  export interface CompaniesTreasury {
+    companies: Array<CompaniesTreasury.Company>;
 
     /**
-     * company or government name
+     * market cap dominance
      */
-    name?: string;
+    market_cap_dominance: number;
 
     /**
-     * percentage of total crypto supply
+     * total crypto holdings of companies
      */
-    percentage_of_total_supply?: number;
+    total_holdings: number;
 
     /**
-     * company symbol
+     * total crypto holdings value in usd
      */
-    symbol?: string;
+    total_value_usd: number;
+  }
+
+  export namespace CompaniesTreasury {
+    export interface Company {
+      /**
+       * company incorporated or government country
+       */
+      country?: string;
+
+      /**
+       * company or government name
+       */
+      name?: string;
+
+      /**
+       * percentage of total crypto supply
+       */
+      percentage_of_total_supply?: number;
+
+      /**
+       * company symbol
+       */
+      symbol?: string;
+
+      /**
+       * total current value of crypto holdings in usd
+       */
+      total_current_value_usd?: number;
+
+      /**
+       * total entry value in usd
+       */
+      total_entry_value_usd?: number;
+
+      /**
+       * total crypto holdings
+       */
+      total_holdings?: number;
+    }
+  }
+
+  export interface GovernmentsTreasury {
+    governments: Array<GovernmentsTreasury.Government>;
 
     /**
-     * total current value of crypto holdings in usd
+     * market cap dominance
      */
-    total_current_value_usd?: number;
+    market_cap_dominance: number;
 
     /**
-     * total entry value in usd
+     * total crypto holdings of governments
      */
-    total_entry_value_usd?: number;
+    total_holdings: number;
 
     /**
-     * total crypto holdings of company
+     * total crypto holdings value in usd
      */
-    total_holdings?: number;
+    total_value_usd: number;
+  }
+
+  export namespace GovernmentsTreasury {
+    export interface Government {
+      /**
+       * company incorporated or government country
+       */
+      country?: string;
+
+      /**
+       * company or government name
+       */
+      name?: string;
+
+      /**
+       * percentage of total crypto supply
+       */
+      percentage_of_total_supply?: number;
+
+      /**
+       * company symbol
+       */
+      symbol?: string;
+
+      /**
+       * total current value of crypto holdings in usd
+       */
+      total_current_value_usd?: number;
+
+      /**
+       * total entry value in usd
+       */
+      total_entry_value_usd?: number;
+
+      /**
+       * total crypto holdings
+       */
+      total_holdings?: number;
+    }
   }
 }
 
