@@ -54,6 +54,7 @@ export function codeTool(): McpTool {
   };
   const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
+    const intent = args.intent as string | undefined;
 
     // this is not required, but passing a Stainless API key for the matching project_name
     // will allow you to run code-mode queries against non-published versions of your SDK.
@@ -75,6 +76,7 @@ export function codeTool(): McpTool {
       body: JSON.stringify({
         project_name: 'coingecko',
         code,
+        intent,
         client_opts: { environment: (readEnv('COINGECKO_ENVIRONMENT') || undefined) as any },
       } satisfies WorkerInput),
     });
