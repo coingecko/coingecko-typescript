@@ -4,6 +4,7 @@ import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult }
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { Coingecko } from '@coingecko/coingecko-typescript';
 
 const prompt = `Runs JavaScript code to interact with the Coingecko API.
 
@@ -52,7 +53,7 @@ export function codeTool(): McpTool {
       required: ['code'],
     },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: Coingecko, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
     const intent = args.intent as string | undefined;
 
@@ -68,9 +69,9 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY'),
-          COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY'),
-          COINGECKO_BASE_URL: readEnv('COINGECKO_BASE_URL'),
+          COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY') ?? client.proAPIKey ?? undefined,
+          COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY') ?? client.demoAPIKey ?? undefined,
+          COINGECKO_BASE_URL: readEnv('COINGECKO_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
