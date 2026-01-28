@@ -1,5 +1,50 @@
 # Changelog
 
+## 3.0.0 (2026-01-28)
+
+Full Changelog: [v2.5.0...v3.0.0](https://github.com/coingecko/coingecko-typescript/compare/v2.5.0...v3.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Features
+
+* **api:** api update ([006ad17](https://github.com/coingecko/coingecko-typescript/commit/006ad17f169ca009dac4fc387f75efc22d44c7b0))
+
+
+### Bug Fixes
+
+* **mcp:** allow falling back for required env variables ([4ac4ab7](https://github.com/coingecko/coingecko-typescript/commit/4ac4ab74a2c9d4b7739b358d8f7676ceff686150))
+* **mcp:** correct code tool api output types ([85a2fad](https://github.com/coingecko/coingecko-typescript/commit/85a2fad8f64ba42f2e213befd4e363a1237b9975))
+* **mcp:** fix options parsing ([a50613e](https://github.com/coingecko/coingecko-typescript/commit/a50613e970d8b10b5cc9c4e10f5c97347cdc06b9))
+* **mcp:** update code tool prompt ([299bb47](https://github.com/coingecko/coingecko-typescript/commit/299bb4718946475a33816393fab9547f7808db90))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([392be37](https://github.com/coingecko/coingecko-typescript/commit/392be37dc3f51c1cf6cd3d7856d9351db86afb4d))
+* **ci:** upgrade `actions/github-script` ([548c9d0](https://github.com/coingecko/coingecko-typescript/commit/548c9d039ca4126c06645d4066f84d19e0c8dcd9))
+* **internal:** codegen related update ([7043217](https://github.com/coingecko/coingecko-typescript/commit/70432178fba54d13c226629569b4bfc7ce0f927c))
+* **internal:** codegen related update ([3d557d4](https://github.com/coingecko/coingecko-typescript/commit/3d557d4c52f6bc1feda88f24caceb2720878ee4a))
+* **internal:** codegen related update ([9311153](https://github.com/coingecko/coingecko-typescript/commit/93111532d304cf124b1ddfeaf7d7ef1d40097f59))
+* **internal:** codegen related update ([e9c0d74](https://github.com/coingecko/coingecko-typescript/commit/e9c0d74f80aceb7b6e241115220e16225d20bf10))
+* **internal:** codegen related update ([19e1b16](https://github.com/coingecko/coingecko-typescript/commit/19e1b164c7ab37644dfea9c2130369b22eb4dd93))
+* **internal:** codegen related update ([b699d5c](https://github.com/coingecko/coingecko-typescript/commit/b699d5cc6d784bd8f01fedc581c8cb81103b83a9))
+* **internal:** update `actions/checkout` version ([908d952](https://github.com/coingecko/coingecko-typescript/commit/908d9527e03452f0868f8e008eeabf5b073753b4))
+* **internal:** update lock file ([025e8a3](https://github.com/coingecko/coingecko-typescript/commit/025e8a3743e936b1d3e80f76421f2f4ac6e08f95))
+* **internal:** upgrade babel, qs, js-yaml ([9fbad0a](https://github.com/coingecko/coingecko-typescript/commit/9fbad0a722306f0a6136a13f3f16608acbc954ee))
+* **mcp:** add intent param to execute tool ([abcf2c9](https://github.com/coingecko/coingecko-typescript/commit/abcf2c94ccbea76a797906a42fb41f210529cc62))
+* **mcp:** pass intent param to execute handler ([364b2f5](https://github.com/coingecko/coingecko-typescript/commit/364b2f5da74f69b286f64d146bcb4d08c7ce44c0))
+* **mcp:** remove deprecated tool schemes ([b20be48](https://github.com/coingecko/coingecko-typescript/commit/b20be485120dd8f34ed3fcf8c5fe15a6ff85838f))
+* **mcp:** upgrade dependencies ([800fdc7](https://github.com/coingecko/coingecko-typescript/commit/800fdc79d2001efdbaa8fcd5cbce8632b9b65a10))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([d2ead25](https://github.com/coingecko/coingecko-typescript/commit/d2ead25de955ac200f47cf8e2241e21c9e4c4f65))
+
 ## 2.5.0 (2025-12-18)
 
 Full Changelog: [v2.4.0...v2.5.0](https://github.com/coingecko/coingecko-typescript/compare/v2.4.0...v2.5.0)
