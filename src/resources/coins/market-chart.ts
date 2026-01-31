@@ -31,7 +31,11 @@ export class MarketChart extends APIResource {
    * ```ts
    * const response = await client.coins.marketChart.getRange(
    *   'bitcoin',
-   *   { from: 'from', to: 'to', vs_currency: 'usd' },
+   *   {
+   *     from: 'from',
+   *     to: 'to',
+   *     vs_currency: 'usd',
+   *   },
    * );
    * ```
    */

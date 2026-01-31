@@ -25,7 +25,11 @@ describe('resource newPools', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.networks.newPools.get(
-        { include: 'include', include_gt_community_data: true, page: 0 },
+        {
+          include: 'include',
+          include_gt_community_data: true,
+          page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
@@ -49,7 +53,11 @@ describe('resource newPools', () => {
     await expect(
       client.onchain.networks.newPools.getNetwork(
         'eth',
-        { include: 'include', include_gt_community_data: true, page: 0 },
+        {
+          include: 'include',
+          include_gt_community_data: true,
+          page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

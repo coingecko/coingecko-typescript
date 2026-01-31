@@ -27,7 +27,11 @@ describe('resource trades', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.pools.trades.get(
       '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-      { network: 'eth', token: 'token', trade_volume_in_usd_greater_than: 0 },
+      {
+        network: 'eth',
+        token: 'token',
+        trade_volume_in_usd_greater_than: 0,
+      },
     );
   });
 });

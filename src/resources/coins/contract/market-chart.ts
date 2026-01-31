@@ -16,7 +16,11 @@ export class MarketChart extends APIResource {
    * const marketChart =
    *   await client.coins.contract.marketChart.get(
    *     '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-   *     { id: 'ethereum', days: 'days', vs_currency: 'usd' },
+   *     {
+   *       id: 'ethereum',
+   *       days: 'days',
+   *       vs_currency: 'usd',
+   *     },
    *   );
    * ```
    */
