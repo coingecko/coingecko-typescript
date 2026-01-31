@@ -71,7 +71,10 @@ export function codeTool(): McpTool {
         client_envs: JSON.stringify({
           COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY') ?? client.proAPIKey ?? undefined,
           COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY') ?? client.demoAPIKey ?? undefined,
-          COINGECKO_BASE_URL: readEnv('COINGECKO_BASE_URL') ?? client.baseURL ?? undefined,
+          COINGECKO_BASE_URL:
+            readEnv('COINGECKO_BASE_URL') ?? readEnv('COINGECKO_ENVIRONMENT') ?
+              undefined
+            : client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
