@@ -57,7 +57,7 @@ export const newMcpServer = async () =>
   new McpServer(
     {
       name: 'coingecko_coingecko_typescript_api',
-      version: '2.5.0',
+      version: '3.0.0',
     },
     {
       instructions: await getInstructions(),
