@@ -2,75 +2,79 @@
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { Endpoint, endpoints, HandlerFunction, query } from './tools';
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
   SetLevelRequestSchema,
-  Implementation,
-  Tool,
 } from '@modelcontextprotocol/sdk/types.js';
 import { ClientOptions } from '@coingecko/coingecko-typescript';
 import Coingecko from '@coingecko/coingecko-typescript';
-import {
-  applyCompatibilityTransformations,
-  ClientCapabilities,
-  defaultClientCapabilities,
-  knownClients,
-  parseEmbeddedJSON,
-} from './compat';
-import { dynamicTools } from './dynamic-tools';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
 import { McpOptions } from './options';
+import { HandlerFunction, McpTool } from './types';
 
 export { McpOptions } from './options';
-export { ClientType } from './compat';
-export { Filter } from './tools';
 export { ClientOptions } from '@coingecko/coingecko-typescript';
-export { endpoints } from './tools';
 
-export const newMcpServer = () =>
+async function getInstructions() {
+  // This API key is optional; providing it allows the server to fetch instructions for unreleased versions.
+  const stainlessAPIKey = readEnv('STAINLESS_API_KEY');
+  const response = await fetch(
+    readEnv('CODE_MODE_INSTRUCTIONS_URL') ?? 'https://api.stainless.com/api/ai/instructions/coingecko',
+    {
+      method: 'GET',
+      headers: { ...(stainlessAPIKey && { Authorization: stainlessAPIKey }) },
+    },
+  );
+
+  let instructions: string | undefined;
+  if (!response.ok) {
+    console.warn(
+      'Warning: failed to retrieve MCP server instructions. Proceeding with default instructions...',
+    );
+
+    instructions = `
+      This is the coingecko MCP server. You will use Code Mode to help the user perform
+      actions. You can use search_docs tool to learn about how to take action with this server. Then,
+      you will write TypeScript code using the execute tool take action. It is CRITICAL that you be
+      thoughtful and deliberate when executing code. Always try to entirely solve the problem in code
+      block: it can be as long as you need to get the job done!
+    `;
+  }
+
+  instructions ??= ((await response.json()) as { instructions: string }).instructions;
+  instructions = `
+    The current time in Unix timestamps is ${Date.now()}.
+
+    ${instructions}
+  `;
+
+  return instructions;
+}
+
+export const newMcpServer = async () =>
   new McpServer(
     {
       name: 'coingecko_coingecko_typescript_api',
-      version: '2.5.0',
+      version: '3.0.0',
     },
-    { capabilities: { tools: {}, logging: {} } },
+    {
+      instructions: await getInstructions(),
+      capabilities: { tools: {}, logging: {} },
+    },
   );
-
-// Create server instance
-export const server = newMcpServer();
 
 /**
  * Initializes the provided MCP Server with the given tools and handlers.
  * If not provided, the default client, tools and handlers will be used.
  */
-export function initMcpServer(params: {
+export async function initMcpServer(params: {
   server: Server | McpServer;
   clientOptions?: ClientOptions;
   mcpOptions?: McpOptions;
 }) {
   const server = params.server instanceof McpServer ? params.server.server : params.server;
-  const mcpOptions = params.mcpOptions ?? {};
-
-  let providedEndpoints: Endpoint[] | null = null;
-  let endpointMap: Record<string, Endpoint> | null = null;
-
-  const initTools = async (implementation?: Implementation) => {
-    if (implementation && (!mcpOptions.client || mcpOptions.client === 'infer')) {
-      mcpOptions.client =
-        implementation.name.toLowerCase().includes('claude') ? 'claude'
-        : implementation.name.toLowerCase().includes('cursor') ? 'cursor'
-        : undefined;
-      mcpOptions.capabilities = {
-        ...(mcpOptions.client && knownClients[mcpOptions.client]),
-        ...mcpOptions.capabilities,
-      };
-    }
-    providedEndpoints ??= await selectTools(endpoints, mcpOptions);
-    endpointMap ??= Object.fromEntries(providedEndpoints.map((endpoint) => [endpoint.tool.name, endpoint]));
-  };
 
   const logAtLevel =
     (level: 'debug' | 'info' | 'warning' | 'error') =>
@@ -97,26 +101,23 @@ export function initMcpServer(params: {
     },
   });
 
+  const providedTools = selectTools(params.mcpOptions);
+  const toolMap = Object.fromEntries(providedTools.map((mcpTool) => [mcpTool.tool.name, mcpTool]));
+
   server.setRequestHandler(ListToolsRequestSchema, async () => {
-    if (providedEndpoints === null) {
-      await initTools(server.getClientVersion());
-    }
     return {
-      tools: providedEndpoints!.map((endpoint) => endpoint.tool),
+      tools: providedTools.map((mcpTool) => mcpTool.tool),
     };
   });
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
-    if (endpointMap === null) {
-      await initTools(server.getClientVersion());
-    }
     const { name, arguments: args } = request.params;
-    const endpoint = endpointMap![name];
-    if (!endpoint) {
+    const mcpTool = toolMap[name];
+    if (!mcpTool) {
       throw new Error(`Unknown tool: ${name}`);
     }
 
-    return executeHandler(endpoint.tool, endpoint.handler, client, args, mcpOptions.capabilities);
+    return executeHandler(mcpTool.handler, client, args);
   });
 
   server.setRequestHandler(SetLevelRequestSchema, async (request) => {
@@ -146,47 +147,22 @@ export function initMcpServer(params: {
 /**
  * Selects the tools to include in the MCP Server based on the provided options.
  */
-export async function selectTools(endpoints: Endpoint[], options?: McpOptions): Promise<Endpoint[]> {
-  const filteredEndpoints = query(options?.filters ?? [], endpoints);
-
-  let includedTools = filteredEndpoints.slice();
-
-  if (includedTools.length > 0) {
-    if (options?.includeDynamicTools) {
-      includedTools = dynamicTools(includedTools);
-    }
-  } else {
-    if (options?.includeAllTools) {
-      includedTools = endpoints.slice();
-    } else if (options?.includeDynamicTools) {
-      includedTools = dynamicTools(endpoints);
-    } else if (options?.includeCodeTools) {
-      includedTools = [await codeTool()];
-    } else {
-      includedTools = endpoints.slice();
-    }
-  }
+export function selectTools(options?: McpOptions): McpTool[] {
+  const includedTools = [codeTool()];
   if (options?.includeDocsTools ?? true) {
     includedTools.push(docsSearchTool);
   }
-  const capabilities = { ...defaultClientCapabilities, ...options?.capabilities };
-  return applyCompatibilityTransformations(includedTools, capabilities);
+  return includedTools;
 }
 
 /**
  * Runs the provided handler with the given client and arguments.
  */
 export async function executeHandler(
-  tool: Tool,
   handler: HandlerFunction,
   client: Coingecko,
   args: Record<string, unknown> | undefined,
-  compatibilityOptions?: Partial<ClientCapabilities>,
 ) {
-  const options = { ...defaultClientCapabilities, ...compatibilityOptions };
-  if (!options.validJson && args) {
-    args = parseEmbeddedJSON(args, tool.inputSchema);
-  }
   return await handler(client, args || {});
 }
 
@@ -205,4 +181,11 @@ export const readEnvOrError = (env: string): string => {
     throw new Error(`Environment variable ${env} is not set`);
   }
   return envValue;
+};
+
+export const requireValue = <T>(value: T | undefined, description: string): T => {
+  if (value === undefined) {
+    throw new Error(`Missing required value: ${description}`);
+  }
+  return value;
 };

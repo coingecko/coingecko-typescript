@@ -12,7 +12,11 @@ describe('resource marketChart', () => {
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.contract.marketChart.get(
       '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      { id: 'ethereum', days: 'days', vs_currency: 'usd' },
+      {
+        id: 'ethereum',
+        days: 'days',
+        vs_currency: 'usd',
+      },
     );
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -27,7 +31,13 @@ describe('resource marketChart', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.contract.marketChart.get(
       '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      { id: 'ethereum', days: 'days', vs_currency: 'usd', interval: '5m', precision: 'full' },
+      {
+        id: 'ethereum',
+        days: 'days',
+        vs_currency: 'usd',
+        interval: '5m',
+        precision: 'full',
+      },
     );
   });
 
@@ -35,7 +45,12 @@ describe('resource marketChart', () => {
   test.skip('getRange: only required params', async () => {
     const responsePromise = client.coins.contract.marketChart.getRange(
       '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      { id: 'ethereum', from: 'from', to: 'to', vs_currency: 'usd' },
+      {
+        id: 'ethereum',
+        from: 'from',
+        to: 'to',
+        vs_currency: 'usd',
+      },
     );
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -50,7 +65,14 @@ describe('resource marketChart', () => {
   test.skip('getRange: required and optional params', async () => {
     const response = await client.coins.contract.marketChart.getRange(
       '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      { id: 'ethereum', from: 'from', to: 'to', vs_currency: 'usd', interval: '5m', precision: 'full' },
+      {
+        id: 'ethereum',
+        from: 'from',
+        to: 'to',
+        vs_currency: 'usd',
+        interval: '5m',
+        precision: 'full',
+      },
     );
   });
 });
