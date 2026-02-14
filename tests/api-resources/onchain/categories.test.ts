@@ -49,7 +49,11 @@ describe('resource categories', () => {
     await expect(
       client.onchain.categories.getPools(
         'pump-fun',
-        { include: 'include', page: 0, sort: 'm5_trending' },
+        {
+          include: 'include',
+          page: 0,
+          sort: 'm5_trending',
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

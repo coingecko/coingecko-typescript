@@ -3,7 +3,7 @@
 import { IncomingMessage } from 'node:http';
 import { ClientOptions } from '@coingecko/coingecko-typescript';
 
-export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> => {
+export const parseAuthHeaders = (req: IncomingMessage, required?: boolean): Partial<ClientOptions> => {
   const proAPIKey =
     Array.isArray(req.headers['x-cg-pro-api-key']) ?
       req.headers['x-cg-pro-api-key'][0]

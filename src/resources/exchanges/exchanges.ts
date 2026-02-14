@@ -91,7 +91,7 @@ export interface ExchangeGetResponse {
   has_trading_incentive?: boolean;
 
   /**
-   * exchange image url
+   * exchange image URL
    */
   image?: string;
 
@@ -116,7 +116,7 @@ export interface ExchangeGetResponse {
   trust_score_rank?: number;
 
   /**
-   * exchange website url
+   * exchange website URL
    */
   url?: string;
 

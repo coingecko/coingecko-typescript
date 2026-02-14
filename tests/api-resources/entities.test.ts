@@ -25,7 +25,11 @@ describe('resource entities', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.entities.getList(
-        { entity_type: 'company', page: 0, per_page: 0 },
+        {
+          entity_type: 'company',
+          page: 0,
+          per_page: 0,
+        },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
