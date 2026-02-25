@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource tokenPrice', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getID: only required params', async () => {
     const responsePromise = client.simple.tokenPrice.getID('ethereum', {
       contract_addresses: 'contract_addresses',
@@ -23,7 +23,7 @@ describe('resource tokenPrice', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getID: required and optional params', async () => {
     const response = await client.simple.tokenPrice.getID('ethereum', {
       contract_addresses: 'contract_addresses',

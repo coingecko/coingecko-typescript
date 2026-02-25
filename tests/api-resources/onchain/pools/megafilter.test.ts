@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource megafilter', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.onchain.pools.megafilter.get();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource megafilter', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -43,6 +43,9 @@ describe('resource megafilter', () => {
           page: 0,
           pool_created_hour_max: 0,
           pool_created_hour_min: 0,
+          price_change_percentage_duration: '5m',
+          price_change_percentage_max: 0,
+          price_change_percentage_min: 0,
           reserve_in_usd_max: 0,
           reserve_in_usd_min: 0,
           sell_tax_percentage_max: 0,

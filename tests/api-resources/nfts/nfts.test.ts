@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource nfts', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getID', async () => {
     const responsePromise = client.nfts.getID('pudgy-penguins');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource nfts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getList', async () => {
     const responsePromise = client.nfts.getList();
     const rawResponse = await responsePromise.asResponse();
@@ -32,7 +32,7 @@ describe('resource nfts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getList: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -47,7 +47,7 @@ describe('resource nfts', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getMarkets', async () => {
     const responsePromise = client.nfts.getMarkets();
     const rawResponse = await responsePromise.asResponse();
@@ -59,7 +59,7 @@ describe('resource nfts', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getMarkets: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(

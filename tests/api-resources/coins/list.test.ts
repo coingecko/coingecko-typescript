@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource list', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.coins.list.get();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource list', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -31,7 +31,7 @@ describe('resource list', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getNew', async () => {
     const responsePromise = client.coins.list.getNew();
     const rawResponse = await responsePromise.asResponse();

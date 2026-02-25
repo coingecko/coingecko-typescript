@@ -610,7 +610,7 @@ Types:
 Methods:
 
 - <code title="get /{entity}/public_treasury/{coin_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getCoinID</a>(coinID, { ...params }) -> PublicTreasuryGetCoinIDResponse</code>
-- <code title="get /public_treasury/{entity_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getEntityID</a>(entityID) -> PublicTreasuryGetEntityIDResponse</code>
+- <code title="get /public_treasury/{entity_id}">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getEntityID</a>(entityID, { ...params }) -> PublicTreasuryGetEntityIDResponse</code>
 - <code title="get /public_treasury/{entity_id}/{coin_id}/holding_chart">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getHoldingChart</a>(coinID, { ...params }) -> PublicTreasuryGetHoldingChartResponse</code>
 - <code title="get /public_treasury/{entity_id}/transaction_history">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getTransactionHistory</a>(entityID, { ...params }) -> PublicTreasuryGetTransactionHistoryResponse</code>
 

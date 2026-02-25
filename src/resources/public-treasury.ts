@@ -23,8 +23,8 @@ export class PublicTreasury extends APIResource {
     params: PublicTreasuryGetCoinIDParams,
     options?: RequestOptions,
   ): APIPromise<PublicTreasuryGetCoinIDResponse> {
-    const { entity } = params;
-    return this._client.get(path`/${entity}/public_treasury/${coinID}`, options);
+    const { entity, ...query } = params;
+    return this._client.get(path`/${entity}/public_treasury/${coinID}`, { query, ...options });
   }
 
   /**
@@ -38,8 +38,12 @@ export class PublicTreasury extends APIResource {
    * );
    * ```
    */
-  getEntityID(entityID: string, options?: RequestOptions): APIPromise<PublicTreasuryGetEntityIDResponse> {
-    return this._client.get(path`/public_treasury/${entityID}`, options);
+  getEntityID(
+    entityID: string,
+    query: PublicTreasuryGetEntityIDParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PublicTreasuryGetEntityIDResponse> {
+    return this._client.get(path`/public_treasury/${entityID}`, { query, ...options });
   }
 
   /**
@@ -227,6 +231,11 @@ export interface PublicTreasuryGetEntityIDResponse {
   holdings?: Array<PublicTreasuryGetEntityIDResponse.Holding>;
 
   /**
+   * market to net asset value ratio
+   */
+  m_nav?: number;
+
+  /**
    * entity name
    */
   name?: string;
@@ -237,6 +246,16 @@ export interface PublicTreasuryGetEntityIDResponse {
   symbol?: string;
 
   /**
+   * total asset value per share in USD
+   */
+  total_asset_value_per_share_usd?: number;
+
+  /**
+   * total current value of all holdings in USD
+   */
+  total_treasury_value_usd?: number;
+
+  /**
    * official Twitter handle of the entity
    */
   twitter_screen_name?: string;
@@ -245,6 +264,11 @@ export interface PublicTreasuryGetEntityIDResponse {
    * entity type: company or government
    */
   type?: string;
+
+  /**
+   * unrealized profit and loss (current value - total entry value)
+   */
+  unrealized_pnl?: number;
 
   /**
    * official website URL of the entity
@@ -260,14 +284,94 @@ export namespace PublicTreasuryGetEntityIDResponse {
     amount?: number;
 
     /**
+     * amount of cryptocurrency per share
+     */
+    amount_per_share?: number;
+
+    /**
+     * average entry cost per unit in USD
+     */
+    average_entry_value_usd?: number;
+
+    /**
      * coin ID
      */
     coin_id?: string;
 
     /**
+     * current value of holdings in USD
+     */
+    current_value_usd?: number;
+
+    /**
+     * percentage of entity's total treasury value
+     */
+    entity_value_usd_percentage?: number;
+
+    /**
+     * holding amount changes over different timeframes (only present if
+     * holding_amount_change param is used)
+     */
+    holding_amount_change?: Holding.HoldingAmountChange;
+
+    /**
+     * holding change percentages over different timeframes (only present if
+     * holding_change_percentage param is used)
+     */
+    holding_change_percentage?: Holding.HoldingChangePercentage;
+
+    /**
      * percentage of total crypto supply
      */
     percentage_of_total_supply?: number;
+
+    /**
+     * total entry cost/purchase value in USD
+     */
+    total_entry_value_usd?: number;
+
+    /**
+     * unrealized profit and loss for this holding
+     */
+    unrealized_pnl?: number;
+  }
+
+  export namespace Holding {
+    /**
+     * holding amount changes over different timeframes (only present if
+     * holding_amount_change param is used)
+     */
+    export interface HoldingAmountChange {
+      '14d'?: number;
+
+      '1y'?: number;
+
+      '30d'?: number;
+
+      '7d'?: number;
+
+      '90d'?: number;
+
+      ytd?: number;
+    }
+
+    /**
+     * holding change percentages over different timeframes (only present if
+     * holding_change_percentage param is used)
+     */
+    export interface HoldingChangePercentage {
+      '14d'?: number;
+
+      '1y'?: number;
+
+      '30d'?: number;
+
+      '7d'?: number;
+
+      '90d'?: number;
+
+      ytd?: number;
+    }
   }
 }
 
@@ -327,9 +431,38 @@ export namespace PublicTreasuryGetTransactionHistoryResponse {
 
 export interface PublicTreasuryGetCoinIDParams {
   /**
-   * public company or government entity
+   * Path param: public company or government entity
    */
   entity: 'companies' | 'governments';
+
+  /**
+   * Query param: Sort order for results
+   */
+  order?: 'total_holdings_usd_desc' | 'total_holdings_usd_asc';
+
+  /**
+   * Query param: Page number to return
+   */
+  page?: number;
+
+  /**
+   * Query param: Number of results to return per page
+   */
+  per_page?: number;
+}
+
+export interface PublicTreasuryGetEntityIDParams {
+  /**
+   * include holding amount change for specified timeframes, comma-separated if
+   * querying more than 1 timeframe Valid values: 7d, 14d, 30d, 90d, 1y, ytd
+   */
+  holding_amount_change?: string;
+
+  /**
+   * include holding change percentage for specified timeframes, comma-separated if
+   * querying more than 1 timeframe Valid values: 7d, 14d, 30d, 90d, 1y, ytd
+   */
+  holding_change_percentage?: string;
 }
 
 export interface PublicTreasuryGetHoldingChartParams {
@@ -389,6 +522,7 @@ export declare namespace PublicTreasury {
     type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,
     type PublicTreasuryGetTransactionHistoryResponse as PublicTreasuryGetTransactionHistoryResponse,
     type PublicTreasuryGetCoinIDParams as PublicTreasuryGetCoinIDParams,
+    type PublicTreasuryGetEntityIDParams as PublicTreasuryGetEntityIDParams,
     type PublicTreasuryGetHoldingChartParams as PublicTreasuryGetHoldingChartParams,
     type PublicTreasuryGetTransactionHistoryParams as PublicTreasuryGetTransactionHistoryParams,
   };

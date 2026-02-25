@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource tokenPrice', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getAddresses: only required params', async () => {
     const responsePromise = client.onchain.simple.networks.tokenPrice.getAddresses('addresses', {
       network: 'eth',
@@ -22,7 +22,7 @@ describe('resource tokenPrice', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getAddresses: required and optional params', async () => {
     const response = await client.onchain.simple.networks.tokenPrice.getAddresses('addresses', {
       network: 'eth',

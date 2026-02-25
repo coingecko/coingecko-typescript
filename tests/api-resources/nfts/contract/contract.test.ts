@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource contract', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getContractAddress: only required params', async () => {
     const responsePromise = client.nfts.contract.getContractAddress(
       '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
@@ -23,7 +23,7 @@ describe('resource contract', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getContractAddress: required and optional params', async () => {
     const response = await client.nfts.contract.getContractAddress(
       '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
