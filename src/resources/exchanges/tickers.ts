@@ -132,7 +132,7 @@ export namespace TickerGetResponse {
     /**
      * coin ticker trust score
      */
-    trust_score?: string;
+    trust_score?: string | null;
 
     /**
      * coin ticker volume

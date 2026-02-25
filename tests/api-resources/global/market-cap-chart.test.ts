@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource marketCapChart', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.global.marketCapChart.get({ days: '1' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource marketCapChart', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.global.marketCapChart.get({ days: '1', vs_currency: 'usd' });
   });

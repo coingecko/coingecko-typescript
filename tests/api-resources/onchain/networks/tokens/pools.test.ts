@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource pools', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.pools.get(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
@@ -23,13 +23,14 @@ describe('resource pools', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.pools.get(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
       {
         network: 'eth',
         include: 'include',
+        include_gt_community_data: true,
         include_inactive_source: true,
         page: 0,
         sort: 'h24_volume_usd_liquidity_desc',

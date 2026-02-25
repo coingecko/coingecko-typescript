@@ -37,6 +37,7 @@ export {
   type PublicTreasuryGetHoldingChartResponse,
   type PublicTreasuryGetTransactionHistoryResponse,
   type PublicTreasuryGetCoinIDParams,
+  type PublicTreasuryGetEntityIDParams,
   type PublicTreasuryGetHoldingChartParams,
   type PublicTreasuryGetTransactionHistoryParams,
 } from './public-treasury';

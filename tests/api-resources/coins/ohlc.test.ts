@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource ohlc', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.ohlc.get('bitcoin', { days: '1', vs_currency: 'usd' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource ohlc', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.ohlc.get('bitcoin', {
       days: '1',
@@ -30,7 +30,7 @@ describe('resource ohlc', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getRange: only required params', async () => {
     const responsePromise = client.coins.ohlc.getRange('bitcoin', {
       from: 'from',
@@ -47,7 +47,7 @@ describe('resource ohlc', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getRange: required and optional params', async () => {
     const response = await client.coins.ohlc.getRange('bitcoin', {
       from: 'from',

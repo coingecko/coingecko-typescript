@@ -58,11 +58,27 @@ export namespace TopHolderGetResponse {
 
         amount?: string;
 
+        average_buy_price_usd?: string;
+
+        explorer_url?: string;
+
         label?: string;
 
         percentage?: string;
 
         rank?: number;
+
+        realized_pnl_percentage?: string;
+
+        realized_pnl_usd?: string;
+
+        total_buy_count?: number;
+
+        total_sell_count?: number;
+
+        unrealized_pnl_percentage?: string;
+
+        unrealized_pnl_usd?: string;
 
         value?: string;
       }
@@ -81,6 +97,11 @@ export interface TopHolderGetParams {
    * `max` Default value: 10
    */
   holders?: string;
+
+  /**
+   * Query param: include PnL details for token holders, default: false
+   */
+  include_pnl_details?: boolean;
 }
 
 export declare namespace TopHolders {

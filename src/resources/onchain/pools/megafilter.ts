@@ -331,6 +331,21 @@ export interface MegafilterGetParams {
   pool_created_hour_min?: number;
 
   /**
+   * duration for price change percentage metric
+   */
+  price_change_percentage_duration?: '5m' | '1h' | '6h' | '24h';
+
+  /**
+   * maximum price change percentage
+   */
+  price_change_percentage_max?: number;
+
+  /**
+   * minimum price change percentage
+   */
+  price_change_percentage_min?: number;
+
+  /**
    * maximum reserve in USD
    */
   reserve_in_usd_max?: number;
@@ -374,7 +389,9 @@ export interface MegafilterGetParams {
     | 'h6_trending'
     | 'h24_trending'
     | 'h24_tx_count_desc'
+    | 'h24_tx_count_asc'
     | 'h24_volume_usd_desc'
+    | 'h24_volume_usd_asc'
     | 'm5_price_change_percentage_asc'
     | 'h1_price_change_percentage_asc'
     | 'h6_price_change_percentage_asc'
@@ -387,6 +404,8 @@ export interface MegafilterGetParams {
     | 'fdv_usd_desc'
     | 'reserve_in_usd_asc'
     | 'reserve_in_usd_desc'
+    | 'price_asc'
+    | 'price_desc'
     | 'pool_created_at_desc';
 
   /**

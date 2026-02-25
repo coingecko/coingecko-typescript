@@ -180,6 +180,11 @@ export interface CoinGetIDResponse {
   market_cap_rank?: number;
 
   /**
+   * coin rank by market cap including rehypothecated tokens
+   */
+  market_cap_rank_with_rehypothecated?: number;
+
+  /**
    * coin market data
    */
   market_data?: CoinGetIDResponse.MarketData;
@@ -724,6 +729,11 @@ export namespace CoinGetIDResponse {
     market_cap_rank?: number;
 
     /**
+     * coin rank by market cap including rehypothecated tokens
+     */
+    market_cap_rank_with_rehypothecated?: number;
+
+    /**
      * coin max supply
      */
     max_supply?: number;
@@ -1162,7 +1172,7 @@ export namespace CoinGetIDResponse {
     /**
      * coin ticker trust score
      */
-    trust_score?: string;
+    trust_score?: string | null;
 
     /**
      * coin ticker volume

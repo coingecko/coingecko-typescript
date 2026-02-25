@@ -116,6 +116,11 @@ export namespace MarketGetResponse {
     market_cap_rank?: number | null;
 
     /**
+     * coin rank by market cap including rehypothecated tokens
+     */
+    market_cap_rank_with_rehypothecated?: number | null;
+
+    /**
      * coin max supply
      */
     max_supply?: number | null;
@@ -197,6 +202,12 @@ export interface MarketGetParams {
    * [`/coins/list`](/reference/coins-list).
    */
   ids?: string;
+
+  /**
+   * include rehypothecated tokens in results, default: false When true, returns
+   * `market_cap_rank_with_rehypothecated` field
+   */
+  include_rehypothecated?: boolean;
 
   /**
    * for `symbols` lookups, specify `all` to include all matching tokens Default

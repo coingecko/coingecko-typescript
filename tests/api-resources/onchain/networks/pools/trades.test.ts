@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource trades', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.onchain.networks.pools.trades.get(
       '0x06da0fd433c1a5d7a4faa01111c044910a184553',
@@ -23,7 +23,7 @@ describe('resource trades', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.pools.trades.get(
       '0x06da0fd433c1a5d7a4faa01111c044910a184553',

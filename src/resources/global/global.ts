@@ -79,6 +79,11 @@ export namespace GlobalGetResponse {
     upcoming_icos?: number;
 
     updated_at?: number;
+
+    /**
+     * cryptocurrencies volume change percentage in 24 hours in usd
+     */
+    volume_change_percentage_24h_usd?: number;
   }
 
   export namespace Data {

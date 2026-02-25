@@ -20,6 +20,18 @@ export class Key extends APIResource {
 }
 
 export interface KeyGetResponse {
+  /**
+   * Specific monthly credit limit configured for the API key used to authenticate
+   * this request
+   */
+  api_key_monthly_call_credit?: number;
+
+  /**
+   * Specific request per minute configured for the API key used to authenticate this
+   * request
+   */
+  api_key_rate_limit_request_per_minute?: number;
+
   current_remaining_monthly_calls?: number;
 
   current_total_monthly_calls?: number;

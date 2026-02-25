@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource marketChart', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.nfts.contract.marketChart.get(
       '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
@@ -23,7 +23,7 @@ describe('resource marketChart', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.nfts.contract.marketChart.get(
       '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',

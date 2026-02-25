@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource decentralizedFinanceDefi', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.global.decentralizedFinanceDefi.get();
     const rawResponse = await responsePromise.asResponse();

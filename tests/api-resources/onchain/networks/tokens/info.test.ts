@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource info', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.info.get(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
@@ -23,7 +23,7 @@ describe('resource info', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.info.get(
       '0xdac17f958d2ee523a2206206994597c13d831ec7',
