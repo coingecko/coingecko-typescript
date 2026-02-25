@@ -127,6 +127,11 @@ export interface ContractGetResponse {
   market_cap_rank?: number;
 
   /**
+   * coin rank by market cap including rehypothecated tokens
+   */
+  market_cap_rank_with_rehypothecated?: number;
+
+  /**
    * coin market data
    */
   market_data?: ContractGetResponse.MarketData;
@@ -502,6 +507,11 @@ export namespace ContractGetResponse {
      * coin rank by market cap
      */
     market_cap_rank?: number;
+
+    /**
+     * coin rank by market cap including rehypothecated tokens
+     */
+    market_cap_rank_with_rehypothecated?: number;
 
     /**
      * coin max supply
@@ -942,7 +952,7 @@ export namespace ContractGetResponse {
     /**
      * coin ticker trust score
      */
-    trust_score?: string;
+    trust_score?: string | null;
 
     /**
      * coin ticker volume

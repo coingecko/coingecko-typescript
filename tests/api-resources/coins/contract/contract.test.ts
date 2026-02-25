@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource contract', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.contract.get('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', {
       id: 'ethereum',
@@ -22,7 +22,7 @@ describe('resource contract', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.contract.get('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', {
       id: 'ethereum',

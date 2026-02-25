@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource tokenLists', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getAllJson', async () => {
     const responsePromise = client.tokenLists.getAllJson('ethereum');
     const rawResponse = await responsePromise.asResponse();

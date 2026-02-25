@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource topHolders', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.topHolders.get(
       '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
@@ -23,11 +23,15 @@ describe('resource topHolders', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.topHolders.get(
       '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
-      { network: 'base', holders: 'holders' },
+      {
+        network: 'base',
+        holders: 'holders',
+        include_pnl_details: true,
+      },
     );
   });
 });

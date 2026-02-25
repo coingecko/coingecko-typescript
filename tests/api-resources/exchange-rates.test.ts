@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource exchangeRates', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.exchangeRates.get();
     const rawResponse = await responsePromise.asResponse();

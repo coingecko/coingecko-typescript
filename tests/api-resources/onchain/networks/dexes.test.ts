@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource dexes', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.onchain.networks.dexes.get('eth');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource dexes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
@@ -28,7 +28,7 @@ describe('resource dexes', () => {
     ).rejects.toThrow(Coingecko.NotFoundError);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getPools: only required params', async () => {
     const responsePromise = client.onchain.networks.dexes.getPools('sushiswap', { network: 'eth' });
     const rawResponse = await responsePromise.asResponse();
@@ -40,7 +40,7 @@ describe('resource dexes', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('getPools: required and optional params', async () => {
     const response = await client.onchain.networks.dexes.getPools('sushiswap', {
       network: 'eth',

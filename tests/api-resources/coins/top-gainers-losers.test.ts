@@ -8,7 +8,7 @@ const client = new Coingecko({
 });
 
 describe('resource topGainersLosers', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: only required params', async () => {
     const responsePromise = client.coins.topGainersLosers.get({ vs_currency: 'usd' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource topGainersLosers', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.topGainersLosers.get({
       vs_currency: 'usd',
