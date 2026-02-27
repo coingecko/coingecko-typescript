@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.1.0 (2026-02-27)
+
+Full Changelog: [v3.0.0...v3.1.0](https://github.com/coingecko/coingecko-typescript/compare/v3.0.0...v3.1.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([f029472](https://github.com/coingecko/coingecko-typescript/commit/f029472640afad4474955fe2742c249cfa97cc22))
+
+
+### Bug Fixes
+
+* **mcp:** update prompt ([5e99a3a](https://github.com/coingecko/coingecko-typescript/commit/5e99a3a7cf39b1e8cc88b1801874dc1e20a8d244))
+
+
+### Chores
+
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([578129b](https://github.com/coingecko/coingecko-typescript/commit/578129b130254cf3bad546328db7f981339be1ff))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([b51f78d](https://github.com/coingecko/coingecko-typescript/commit/b51f78db3084e778837c216b512bbb8b96335f69))
+* **internal:** move stringifyQuery implementation to internal function ([af180c8](https://github.com/coingecko/coingecko-typescript/commit/af180c8d1ec70bb5b479049825e3536942d01b28))
+
 ## 3.0.0 (2026-02-25)
 
 Full Changelog: [v2.5.0...v3.0.0](https://github.com/coingecko/coingecko-typescript/compare/v2.5.0...v3.0.0)
