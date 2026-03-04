@@ -153,7 +153,7 @@ const remoteStainlessHandler = async ({
     headers: {
       ...(reqContext.stainlessApiKey && { Authorization: reqContext.stainlessApiKey }),
       'Content-Type': 'application/json',
-      client_envs: JSON.stringify({
+      'x-stainless-mcp-client-envs': JSON.stringify({
         COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY') ?? client.proAPIKey ?? undefined,
         COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY') ?? client.demoAPIKey ?? undefined,
         COINGECKO_BASE_URL:
