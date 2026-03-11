@@ -11,19 +11,6 @@ interface InstructionsCacheEntry {
 
 const instructionsCache = new Map<string, InstructionsCacheEntry>();
 
-// Periodically evict stale entries so the cache doesn't grow unboundedly.
-const _cacheCleanupInterval = setInterval(() => {
-  const now = Date.now();
-  for (const [key, entry] of instructionsCache) {
-    if (now - entry.fetchedAt > INSTRUCTIONS_CACHE_TTL_MS) {
-      instructionsCache.delete(key);
-    }
-  }
-}, INSTRUCTIONS_CACHE_TTL_MS);
-
-// Don't keep the process alive just for cleanup.
-_cacheCleanupInterval.unref();
-
 export async function getInstructions(stainlessApiKey: string | undefined): Promise<string> {
   const cacheKey = stainlessApiKey ?? '';
   const cached = instructionsCache.get(cacheKey);
