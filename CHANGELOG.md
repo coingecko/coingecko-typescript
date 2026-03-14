@@ -1,5 +1,36 @@
 # Changelog
 
+## 3.1.0 (2026-03-14)
+
+Full Changelog: [v3.0.0...v3.1.0](https://github.com/coingecko/coingecko-typescript/compare/v3.0.0...v3.1.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([f029472](https://github.com/coingecko/coingecko-typescript/commit/f029472640afad4474955fe2742c249cfa97cc22))
+
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([6ed9ffd](https://github.com/coingecko/coingecko-typescript/commit/6ed9ffdd6e88ec0af56bbb8c7b99aafb41749307))
+* **mcp:** update prompt ([5e99a3a](https://github.com/coingecko/coingecko-typescript/commit/5e99a3a7cf39b1e8cc88b1801874dc1e20a8d244))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([bd57a94](https://github.com/coingecko/coingecko-typescript/commit/bd57a942ddd33754309d4947c53a022ca3f1e3cd))
+* **internal:** bump @modelcontextprotocol/sdk, @hono/node-server, and minimatch ([98ac251](https://github.com/coingecko/coingecko-typescript/commit/98ac2518018970601c0f7c33904eceed60269554))
+* **internal:** codegen related update ([eac863d](https://github.com/coingecko/coingecko-typescript/commit/eac863d3a37f1c2bb7e59b42401013dada5868f0))
+* **internal:** codegen related update ([1c4f603](https://github.com/coingecko/coingecko-typescript/commit/1c4f603f5d6a1dddf0f80b8a96d1f040a7ab2449))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([578129b](https://github.com/coingecko/coingecko-typescript/commit/578129b130254cf3bad546328db7f981339be1ff))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([b51f78d](https://github.com/coingecko/coingecko-typescript/commit/b51f78db3084e778837c216b512bbb8b96335f69))
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([2654d84](https://github.com/coingecko/coingecko-typescript/commit/2654d8478d64652156435b1b8073c1f0bcf2f4b6))
+* **internal:** move stringifyQuery implementation to internal function ([af180c8](https://github.com/coingecko/coingecko-typescript/commit/af180c8d1ec70bb5b479049825e3536942d01b28))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([b84775d](https://github.com/coingecko/coingecko-typescript/commit/b84775dffe0d861fa0fbf410a5747a13d3f502ba))
+* **internal:** update dependencies to address dependabot vulnerabilities ([c6ec1d3](https://github.com/coingecko/coingecko-typescript/commit/c6ec1d30df704cab938ed7e27a593c5a425a00bb))
+* **internal:** use x-stainless-mcp-client-envs header for MCP remote code tool calls ([ddac6bc](https://github.com/coingecko/coingecko-typescript/commit/ddac6bc318d556938c94c051b1b9ee51d8a7388f))
+* **mcp-server:** improve instructions ([2aeef2d](https://github.com/coingecko/coingecko-typescript/commit/2aeef2df5c387994c95241de7fce3185978c33d4))
+* **mcp-server:** return access instructions for 404 without API key ([51caa26](https://github.com/coingecko/coingecko-typescript/commit/51caa26dd0cd77fb0defd55b2a4115434ac58941))
+
 ## 3.0.0 (2026-02-25)
 
 Full Changelog: [v2.5.0...v3.0.0](https://github.com/coingecko/coingecko-typescript/compare/v2.5.0...v3.0.0)
