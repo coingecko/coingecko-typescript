@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.1.1 (2026-03-17)
+
+Full Changelog: [v3.1.0...v3.1.1](https://github.com/coingecko/coingecko-typescript/compare/v3.1.0...v3.1.1)
+
+### Chores
+
+* **internal:** support x-stainless-mcp-client-permissions headers in MCP servers ([d695bc1](https://github.com/coingecko/coingecko-typescript/commit/d695bc1f09479e8b8c5895d563a97b42f59ba866))
+* **internal:** tweak CI branches ([d727076](https://github.com/coingecko/coingecko-typescript/commit/d727076f35cb92e1443f0298cff729fa7d5e3a63))
+
 ## 3.1.0 (2026-03-14)
 
 Full Changelog: [v3.0.0...v3.1.0](https://github.com/coingecko/coingecko-typescript/compare/v3.0.0...v3.1.0)
