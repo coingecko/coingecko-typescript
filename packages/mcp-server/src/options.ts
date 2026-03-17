@@ -8,12 +8,14 @@ import { readEnv } from './util';
 
 export type CLIOptions = McpOptions & {
   debug: boolean;
+  logFormat: 'json' | 'pretty';
   transport: 'stdio' | 'http';
   port: number | undefined;
   socket: string | undefined;
 };
 
 export type McpOptions = {
+  includeCodeTool?: boolean | undefined;
   includeDocsTools?: boolean | undefined;
   stainlessApiKey?: string | undefined;
   codeAllowHttpGets?: boolean | undefined;
@@ -51,6 +53,11 @@ export function parseCLIOptions(): CLIOptions {
         "Where to run code execution in code tool; 'stainless-sandbox' will execute code in Stainless-hosted sandboxes whereas 'local' will execute code locally on the MCP server machine.",
     })
     .option('debug', { type: 'boolean', description: 'Enable debug logging' })
+    .option('log-format', {
+      type: 'string',
+      choices: ['json', 'pretty'],
+      description: 'Format for log output; defaults to json unless tty is detected',
+    })
     .option('no-tools', {
       type: 'string',
       array: true,
@@ -92,11 +99,17 @@ export function parseCLIOptions(): CLIOptions {
     : argv.tools?.includes(toolType) ? true
     : undefined;
 
+  const includeCodeTool = shouldIncludeToolType('code');
   const includeDocsTools = shouldIncludeToolType('docs');
 
   const transport = argv.transport as 'stdio' | 'http';
+  const logFormat =
+    argv.logFormat ? (argv.logFormat as 'json' | 'pretty')
+    : process.stderr.isTTY ? 'pretty'
+    : 'json';
 
   return {
+    ...(includeCodeTool !== undefined && { includeCodeTool }),
     ...(includeDocsTools !== undefined && { includeDocsTools }),
     debug: !!argv.debug,
     stainlessApiKey: argv.stainlessApiKey,
@@ -105,6 +118,7 @@ export function parseCLIOptions(): CLIOptions {
     codeBlockedMethods: argv.codeBlockedMethods,
     codeExecutionMode: argv.codeExecutionMode as McpCodeExecutionMode,
     transport,
+    logFormat,
     port: argv.port,
     socket: argv.socket,
   };
@@ -129,13 +143,19 @@ export function parseQueryOptions(defaultOptions: McpOptions, query: unknown): M
   const queryObject = typeof query === 'string' ? qs.parse(query) : query;
   const queryOptions = QueryOptions.parse(queryObject);
 
+  let codeTool: boolean | undefined =
+    queryOptions.no_tools && queryOptions.no_tools?.includes('code') ? false
+    : queryOptions.tools?.includes('code') ? true
+    : defaultOptions.includeCodeTool;
+
   let docsTools: boolean | undefined =
     queryOptions.no_tools && queryOptions.no_tools?.includes('docs') ? false
     : queryOptions.tools?.includes('docs') ? true
     : defaultOptions.includeDocsTools;
 
   return {
-    codeExecutionMode: defaultOptions.codeExecutionMode,
+    ...(codeTool !== undefined && { includeCodeTool: codeTool }),
     ...(docsTools !== undefined && { includeDocsTools: docsTools }),
+    codeExecutionMode: defaultOptions.codeExecutionMode,
   };
 }
