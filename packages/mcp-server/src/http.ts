@@ -23,7 +23,8 @@ const newServer = async ({
   res: express.Response;
 }): Promise<McpServer | null> => {
   const stainlessApiKey = getStainlessApiKey(req, mcpOptions);
-  const server = await newMcpServer(stainlessApiKey);
+  const customInstructionsPath = mcpOptions.customInstructionsPath;
+  const server = await newMcpServer({ stainlessApiKey, customInstructionsPath });
 
   const authOptions = parseClientAuthHeaders(req, false);
 
@@ -40,15 +41,48 @@ const newServer = async ({
     }
   }
 
+  // Parse x-stainless-mcp-client-permissions header to override permission options
+  //
+  // Note: Permissions are best-effort and intended to prevent clients from doing unexpected things;
+  // they're not a hard security boundary, so we allow arbitrary, client-driven overrides.
+  //
+  // See the Stainless MCP documentation for more details.
+  let effectiveMcpOptions = mcpOptions;
+  const clientPermissionsHeader = req.headers['x-stainless-mcp-client-permissions'];
+  if (typeof clientPermissionsHeader === 'string') {
+    try {
+      const parsed = JSON.parse(clientPermissionsHeader);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        effectiveMcpOptions = {
+          ...mcpOptions,
+          ...(typeof parsed.allow_http_gets === 'boolean' && { codeAllowHttpGets: parsed.allow_http_gets }),
+          ...(Array.isArray(parsed.allowed_methods) && { codeAllowedMethods: parsed.allowed_methods }),
+          ...(Array.isArray(parsed.blocked_methods) && { codeBlockedMethods: parsed.blocked_methods }),
+        };
+        getLogger().info(
+          { clientPermissions: parsed },
+          'Overriding code execution permissions from x-stainless-mcp-client-permissions header',
+        );
+      }
+    } catch (error) {
+      getLogger().warn({ error }, 'Failed to parse x-stainless-mcp-client-permissions header');
+    }
+  }
+
   await initMcpServer({
     server: server,
-    mcpOptions: mcpOptions,
+    mcpOptions: effectiveMcpOptions,
     clientOptions: {
       ...clientOptions,
       ...authOptions,
     },
     stainlessApiKey: stainlessApiKey,
     upstreamClientEnvs,
+    mcpSessionId: (req as any).mcpSessionId,
+    mcpClientInfo:
+      typeof req.body?.params?.clientInfo?.name === 'string' ?
+        { name: req.body.params.clientInfo.name, version: String(req.body.params.clientInfo.version ?? '') }
+      : undefined,
   });
 
   return server;
@@ -106,6 +140,17 @@ export const streamableHTTPApp = ({
   const app = express();
   app.set('query parser', 'extended');
   app.use(express.json());
+  app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+    const existing = req.headers['mcp-session-id'];
+    const sessionId = (Array.isArray(existing) ? existing[0] : existing) || crypto.randomUUID();
+    (req as any).mcpSessionId = sessionId;
+    const origWriteHead = res.writeHead.bind(res);
+    res.writeHead = function (statusCode: number, ...rest: any[]) {
+      res.setHeader('mcp-session-id', sessionId);
+      return origWriteHead(statusCode, ...rest);
+    } as typeof res.writeHead;
+    next();
+  });
   app.use(
     pinoHttp({
       logger: getLogger(),
