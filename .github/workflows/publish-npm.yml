@@ -17,7 +17,8 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write # required for gh release upload
+      id-token: write # required for auth with npm registry
 
     steps:
       - uses: actions/checkout@v6
