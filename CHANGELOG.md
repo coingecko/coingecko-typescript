@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.1.2 (2026-04-14)
+
+Full Changelog: [v3.1.1...v3.1.2](https://github.com/coingecko/coingecko-typescript/compare/v3.1.1...v3.1.2)
+
+### Chores
+
+* **internal:** codegen related update ([c5b7848](https://github.com/coingecko/coingecko-typescript/commit/c5b7848db087f9e4e33c6dbe368f2d81fd3ded79))
+* **internal:** codegen related update ([9fb880d](https://github.com/coingecko/coingecko-typescript/commit/9fb880da6c9dc93c37dbdfcb24f77326d57f3535))
+* **internal:** fix MCP docker image builds in yarn projects ([55db6fc](https://github.com/coingecko/coingecko-typescript/commit/55db6fccb950123747a66ae85b9bd834586e8ae6))
+* **internal:** fix MCP server import ordering ([edd40aa](https://github.com/coingecko/coingecko-typescript/commit/edd40aa83f1212f74d489b996286560e636de602))
+* **internal:** improve local docs search for MCP servers ([a4a7632](https://github.com/coingecko/coingecko-typescript/commit/a4a76325c5e81e380d3766092e9c0b1c0629bec3))
+* **internal:** show error causes in MCP servers when running in local mode ([8afeac0](https://github.com/coingecko/coingecko-typescript/commit/8afeac08abcab44ee43c54347151cbf2b5052a58))
+* **internal:** support type annotations when running MCP in local execution mode ([12a76cc](https://github.com/coingecko/coingecko-typescript/commit/12a76cce2cfb0131c3edaa32d6eea4e4601a78d4))
+* **internal:** use link instead of file in MCP server package.json files ([24e1c38](https://github.com/coingecko/coingecko-typescript/commit/24e1c38bb7db1d8df129f10a03b5a1e5c1b44cdf))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([40f495c](https://github.com/coingecko/coingecko-typescript/commit/40f495cf8f7d26c7ee9508f1063bc61ab1d1ccea))
+* **mcp-server:** log client info ([6f0dc70](https://github.com/coingecko/coingecko-typescript/commit/6f0dc70e136ed5f86c232620218ac7ab21d9f50b))
+* npm trusted publisher supprot ([564ce5a](https://github.com/coingecko/coingecko-typescript/commit/564ce5a15538adbd195c2fd9f3bd585effba04e5))
+
 ## 3.1.1 (2026-03-31)
 
 Full Changelog: [v3.1.0...v3.1.1](https://github.com/coingecko/coingecko-typescript/compare/v3.1.0...v3.1.1)
