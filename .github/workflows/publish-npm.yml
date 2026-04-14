@@ -17,15 +17,17 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write # required for gh release upload
+      id-token: write # required for auth with npm registry
 
     steps:
       - uses: actions/checkout@v6
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: |
@@ -41,7 +43,6 @@ jobs:
           yarn tsn scripts/publish-packages.ts "{ \"paths_released\": \"$PATHS_RELEASED\" }"
         env:
           INPUT_PATH: ${{ github.event.inputs.path }}
-          NPM_TOKEN: ${{ secrets.COINGECKO_NPM_TOKEN || secrets.NPM_TOKEN }}
 
       - name: Upload MCP Server DXT GitHub release asset
         run: |
