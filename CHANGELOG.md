@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.1.4 (2026-04-15)
+
+Full Changelog: [v3.1.3...v3.1.4](https://github.com/coingecko/coingecko-typescript/compare/v3.1.3...v3.1.4)
+
+### Chores
+
+* remove release doctor, we don't need npm token anymore so its redundant ([76cc604](https://github.com/coingecko/coingecko-typescript/commit/76cc60418c6806f24f02232293557bc0efd87613))
+* replace yarn with npx ([6c6afe8](https://github.com/coingecko/coingecko-typescript/commit/6c6afe83d29ac72378931afc8575329fbd5c6674))
+
 ## 3.1.3 (2026-04-15)
 
 Full Changelog: [v3.1.2...v3.1.3](https://github.com/coingecko/coingecko-typescript/compare/v3.1.2...v3.1.3)
