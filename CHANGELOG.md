@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.5 (2026-04-15)
+
+Full Changelog: [v3.1.4...v3.1.5](https://github.com/coingecko/coingecko-typescript/compare/v3.1.4...v3.1.5)
+
+### Chores
+
+* trusted publisher requires npm&gt;11, node20 doesnt include npm>11 ([4ee9b74](https://github.com/coingecko/coingecko-typescript/commit/4ee9b742d9b763d747b4c0f0656845fcd94eb051))
+
 ## 3.1.4 (2026-04-15)
 
 Full Changelog: [v3.1.3...v3.1.4](https://github.com/coingecko/coingecko-typescript/compare/v3.1.3...v3.1.4)
