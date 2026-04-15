@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.6 (2026-04-15)
+
+Full Changelog: [v3.1.5...v3.1.6](https://github.com/coingecko/coingecko-typescript/compare/v3.1.5...v3.1.6)
+
+### Chores
+
+* add registry url so setup node generated .npmrc, I dont thinkt this will fix but trying ([35e8b5e](https://github.com/coingecko/coingecko-typescript/commit/35e8b5e6669b9fd0a7db5c4cb3afd8883a9c8e5e))
+
 ## 3.1.5 (2026-04-15)
 
 Full Changelog: [v3.1.4...v3.1.5](https://github.com/coingecko/coingecko-typescript/compare/v3.1.4...v3.1.5)
