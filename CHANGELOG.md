@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.7 (2026-04-17)
+
+Full Changelog: [v3.1.6...v3.1.7](https://github.com/coingecko/coingecko-typescript/compare/v3.1.6...v3.1.7)
+
 ## 3.1.6 (2026-04-15)
 
 Full Changelog: [v3.1.5...v3.1.6](https://github.com/coingecko/coingecko-typescript/compare/v3.1.5...v3.1.6)
