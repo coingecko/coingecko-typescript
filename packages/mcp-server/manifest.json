@@ -18,7 +18,9 @@
     "entry_point": "index.js",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/index.js"],
+      "args": [
+        "${__dirname}/index.js"
+      ],
       "env": {
         "COINGECKO_PRO_API_KEY": "${user_config.COINGECKO_PRO_API_KEY}",
         "COINGECKO_DEMO_API_KEY": "${user_config.COINGECKO_DEMO_API_KEY}"
@@ -46,5 +48,7 @@
       "node": ">=18.0.0"
     }
   },
-  "keywords": ["api"]
+  "keywords": [
+    "api"
+  ]
 }
