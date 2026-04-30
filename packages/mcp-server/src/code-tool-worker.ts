@@ -145,6 +145,7 @@ const fuse = new Fuse(
     'client.global.decentralizedFinanceDefi.get',
     'client.global.marketCapChart.get',
     'client.key.get',
+    'client.news.get',
     'client.nfts.getID',
     'client.nfts.getList',
     'client.nfts.getMarkets',

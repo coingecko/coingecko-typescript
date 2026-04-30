@@ -13,7 +13,7 @@ export {
   type CirculatingSupplyChartGetParams,
   type CirculatingSupplyChartGetRangeParams,
 } from './circulating-supply-chart';
-export { Coins, type CoinGetIDResponse, type CoinGetIDParams } from './coins';
+export { Coins, type DetailPlatformData, type CoinGetIDResponse, type CoinGetIDParams } from './coins';
 export { Contract, type ContractGetResponse, type ContractGetParams } from './contract/index';
 export { History, type HistoryGetResponse, type HistoryGetParams } from './history';
 export { List, type ListGetResponse, type ListGetNewResponse, type ListGetParams } from './list';

@@ -44,9 +44,9 @@ export class VolumeChart extends APIResource {
   }
 }
 
-export type VolumeChartGetResponse = Array<Array<number>>;
+export type VolumeChartGetResponse = Array<Array<number | string>>;
 
-export type VolumeChartGetRangeResponse = Array<Array<number>>;
+export type VolumeChartGetRangeResponse = Array<Array<number | string>>;
 
 export interface VolumeChartGetParams {
   /**

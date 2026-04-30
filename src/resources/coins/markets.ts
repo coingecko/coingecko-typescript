@@ -169,17 +169,17 @@ export namespace MarketGetResponse {
       /**
        * ROI currency
        */
-      currency: string;
+      currency?: string;
 
       /**
        * ROI percentage
        */
-      percentage: number;
+      percentage?: number;
 
       /**
        * ROI multiplier
        */
-      times: number;
+      times?: number;
     }
   }
 }

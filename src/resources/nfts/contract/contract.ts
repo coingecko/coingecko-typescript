@@ -63,7 +63,7 @@ export interface ContractGetContractAddressResponse {
   /**
    * NFT collection banner image url
    */
-  banner_image?: ContractGetContractAddressResponse.BannerImage;
+  banner_image?: string;
 
   /**
    * NFT collection contract address
@@ -140,7 +140,7 @@ export interface ContractGetContractAddressResponse {
   /**
    * coin market cap rank
    */
-  market_cap_rank?: number;
+  market_cap_rank?: number | null;
 
   /**
    * NFT collection name
@@ -170,7 +170,7 @@ export interface ContractGetContractAddressResponse {
   /**
    * NFT collection one day average sale price
    */
-  one_day_average_sale_price?: number;
+  one_day_average_sale_price?: number | null;
 
   /**
    * NFT collection one day average sale price 24 hours percentage change
@@ -180,7 +180,7 @@ export interface ContractGetContractAddressResponse {
   /**
    * NFT collection one day sales
    */
-  one_day_sales?: number;
+  one_day_sales?: number | null;
 
   /**
    * NFT collection one day sales 24 hours percentage change
@@ -216,6 +216,11 @@ export interface ContractGetContractAddressResponse {
    * NFT collection volume in usd 24 hours percentage change
    */
   volume_in_usd_24h_percentage_change?: number;
+
+  /**
+   * NFT collection web slug
+   */
+  web_slug?: string;
 }
 
 export namespace ContractGetContractAddressResponse {
@@ -244,13 +249,6 @@ export namespace ContractGetContractAddressResponse {
     native_currency?: string;
 
     usd?: string;
-  }
-
-  /**
-   * NFT collection banner image url
-   */
-  export interface BannerImage {
-    small?: string;
   }
 
   export interface Explorer {

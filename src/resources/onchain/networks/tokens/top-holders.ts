@@ -62,7 +62,7 @@ export namespace TopHolderGetResponse {
 
         explorer_url?: string;
 
-        label?: string;
+        label?: string | null;
 
         percentage?: string;
 

@@ -46,6 +46,8 @@ export namespace InfoGetResponse {
 
       coingecko_coin_id?: string;
 
+      decimals?: number;
+
       description?: string;
 
       discord_url?: string;
@@ -54,11 +56,13 @@ export namespace InfoGetResponse {
 
       freeze_authority?: string;
 
-      gt_categories_id?: Array<string>;
+      gt_category_ids?: Array<string>;
 
       gt_score?: number;
 
       gt_score_details?: Attributes.GtScoreDetails;
+
+      gt_verified?: boolean;
 
       holders?: Attributes.Holders;
 

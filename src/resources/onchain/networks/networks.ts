@@ -21,6 +21,7 @@ import {
 } from './trending-pools';
 import * as PoolsAPI from './pools/pools';
 import {
+  PoolData,
   PoolGetAddressParams,
   PoolGetAddressResponse,
   PoolGetParams,
@@ -120,6 +121,7 @@ export declare namespace Networks {
 
   export {
     Pools as Pools,
+    type PoolData as PoolData,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
     type PoolGetParams as PoolGetParams,

@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
+import * as PublicTreasuryAPI from './public-treasury';
 import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
@@ -92,125 +93,84 @@ export class PublicTreasury extends APIResource {
   }
 }
 
+export interface TreasuryEntity {
+  /**
+   * company incorporated or government country
+   */
+  country?: string;
+
+  /**
+   * company or government name
+   */
+  name?: string;
+
+  /**
+   * percentage of total crypto supply
+   */
+  percentage_of_total_supply?: number;
+
+  /**
+   * company symbol
+   */
+  symbol?: string;
+
+  /**
+   * total current value of crypto holdings in usd
+   */
+  total_current_value_usd?: number;
+
+  /**
+   * total entry value in usd
+   */
+  total_entry_value_usd?: number;
+
+  /**
+   * total crypto holdings
+   */
+  total_holdings?: number;
+}
+
 export type PublicTreasuryGetCoinIDResponse =
   | PublicTreasuryGetCoinIDResponse.CompaniesTreasury
   | PublicTreasuryGetCoinIDResponse.GovernmentsTreasury;
 
 export namespace PublicTreasuryGetCoinIDResponse {
   export interface CompaniesTreasury {
-    companies: Array<CompaniesTreasury.Company>;
+    companies?: Array<PublicTreasuryAPI.TreasuryEntity>;
 
     /**
      * market cap dominance
      */
-    market_cap_dominance: number;
+    market_cap_dominance?: number;
 
     /**
      * total crypto holdings of companies
      */
-    total_holdings: number;
+    total_holdings?: number;
 
     /**
      * total crypto holdings value in usd
      */
-    total_value_usd: number;
-  }
-
-  export namespace CompaniesTreasury {
-    export interface Company {
-      /**
-       * company incorporated or government country
-       */
-      country?: string;
-
-      /**
-       * company or government name
-       */
-      name?: string;
-
-      /**
-       * percentage of total crypto supply
-       */
-      percentage_of_total_supply?: number;
-
-      /**
-       * company symbol
-       */
-      symbol?: string;
-
-      /**
-       * total current value of crypto holdings in usd
-       */
-      total_current_value_usd?: number;
-
-      /**
-       * total entry value in usd
-       */
-      total_entry_value_usd?: number;
-
-      /**
-       * total crypto holdings
-       */
-      total_holdings?: number;
-    }
+    total_value_usd?: number;
   }
 
   export interface GovernmentsTreasury {
-    governments: Array<GovernmentsTreasury.Government>;
+    governments?: Array<PublicTreasuryAPI.TreasuryEntity>;
 
     /**
      * market cap dominance
      */
-    market_cap_dominance: number;
+    market_cap_dominance?: number;
 
     /**
      * total crypto holdings of governments
      */
-    total_holdings: number;
+    total_holdings?: number;
 
     /**
      * total crypto holdings value in usd
      */
-    total_value_usd: number;
-  }
-
-  export namespace GovernmentsTreasury {
-    export interface Government {
-      /**
-       * company incorporated or government country
-       */
-      country?: string;
-
-      /**
-       * company or government name
-       */
-      name?: string;
-
-      /**
-       * percentage of total crypto supply
-       */
-      percentage_of_total_supply?: number;
-
-      /**
-       * company symbol
-       */
-      symbol?: string;
-
-      /**
-       * total current value of crypto holdings in usd
-       */
-      total_current_value_usd?: number;
-
-      /**
-       * total entry value in usd
-       */
-      total_entry_value_usd?: number;
-
-      /**
-       * total crypto holdings
-       */
-      total_holdings?: number;
-    }
+    total_value_usd?: number;
   }
 }
 
@@ -517,6 +477,7 @@ export interface PublicTreasuryGetTransactionHistoryParams {
 
 export declare namespace PublicTreasury {
   export {
+    type TreasuryEntity as TreasuryEntity,
     type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
     type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,
