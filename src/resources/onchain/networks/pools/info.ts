@@ -60,11 +60,11 @@ export namespace InfoGetResponse {
 
         description?: string;
 
-        discord_url?: string;
+        discord_url?: string | null;
 
-        farcaster_url?: string;
+        farcaster_url?: string | null;
 
-        freeze_authority?: string;
+        freeze_authority?: string | null;
 
         gt_category_ids?: Array<string>;
 
@@ -82,19 +82,19 @@ export namespace InfoGetResponse {
 
         is_honeypot?: boolean | string;
 
-        mint_authority?: string;
+        mint_authority?: string | null;
 
         name?: string;
 
         symbol?: string;
 
-        telegram_handle?: string;
+        telegram_handle?: string | null;
 
         twitter_handle?: string;
 
         websites?: Array<string>;
 
-        zora_url?: string;
+        zora_url?: string | null;
       }
 
       export namespace Attributes {
@@ -120,13 +120,13 @@ export namespace InfoGetResponse {
 
         export namespace Holders {
           export interface DistributionPercentage {
-            '11_30'?: number;
+            '11_30'?: string;
 
-            '31_50'?: number;
+            '31_50'?: string;
 
-            rest?: number;
+            rest?: string;
 
-            top_10?: number;
+            top_10?: string;
           }
         }
 

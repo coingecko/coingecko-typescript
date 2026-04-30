@@ -60,7 +60,7 @@ export namespace PoolGetResponse {
 
       last_trade_timestamp?: number;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 

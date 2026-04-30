@@ -12,7 +12,7 @@ export class Exchanges extends APIResource {
    *
    * @example
    * ```ts
-   * const exchange = await client.derivatives.exchanges.get();
+   * const exchanges = await client.derivatives.exchanges.get();
    * ```
    */
   get(
@@ -56,61 +56,65 @@ export class Exchanges extends APIResource {
   }
 }
 
-export interface ExchangeGetResponse {
-  /**
-   * derivatives exchange ID
-   */
-  id?: string;
+export type ExchangeGetResponse = Array<ExchangeGetResponse.ExchangeGetResponseItem>;
 
-  /**
-   * derivatives exchange incorporated country
-   */
-  country?: string | null;
+export namespace ExchangeGetResponse {
+  export interface ExchangeGetResponseItem {
+    /**
+     * derivatives exchange ID
+     */
+    id?: string;
 
-  /**
-   * derivatives exchange description
-   */
-  description?: string;
+    /**
+     * derivatives exchange incorporated country
+     */
+    country?: string | null;
 
-  /**
-   * derivatives exchange image url
-   */
-  image?: string;
+    /**
+     * derivatives exchange description
+     */
+    description?: string;
 
-  /**
-   * derivatives exchange name
-   */
-  name?: string;
+    /**
+     * derivatives exchange image url
+     */
+    image?: string;
 
-  /**
-   * number of futures pairs in the derivatives exchange
-   */
-  number_of_futures_pairs?: number;
+    /**
+     * derivatives exchange name
+     */
+    name?: string;
 
-  /**
-   * number of perpetual pairs in the derivatives exchange
-   */
-  number_of_perpetual_pairs?: number;
+    /**
+     * number of futures pairs in the derivatives exchange
+     */
+    number_of_futures_pairs?: number;
 
-  /**
-   * derivatives exchange open interest in BTC
-   */
-  open_interest_btc?: number;
+    /**
+     * number of perpetual pairs in the derivatives exchange
+     */
+    number_of_perpetual_pairs?: number;
 
-  /**
-   * derivatives exchange trade volume in BTC in 24 hours
-   */
-  trade_volume_24h_btc?: string;
+    /**
+     * derivatives exchange open interest in BTC
+     */
+    open_interest_btc?: number;
 
-  /**
-   * derivatives exchange website url
-   */
-  url?: string;
+    /**
+     * derivatives exchange trade volume in BTC in 24 hours
+     */
+    trade_volume_24h_btc?: string;
 
-  /**
-   * derivatives exchange established year
-   */
-  year_established?: number | null;
+    /**
+     * derivatives exchange website url
+     */
+    url?: string;
+
+    /**
+     * derivatives exchange established year
+     */
+    year_established?: number | null;
+  }
 }
 
 export interface ExchangeGetIDResponse {
@@ -275,16 +279,20 @@ export namespace ExchangeGetIDResponse {
   }
 }
 
-export interface ExchangeGetListResponse {
-  /**
-   * derivatives exchange ID
-   */
-  id?: string;
+export type ExchangeGetListResponse = Array<ExchangeGetListResponse.ExchangeGetListResponseItem>;
 
-  /**
-   * derivatives exchange name
-   */
-  name?: string;
+export namespace ExchangeGetListResponse {
+  export interface ExchangeGetListResponseItem {
+    /**
+     * derivatives exchange ID
+     */
+    id?: string;
+
+    /**
+     * derivatives exchange name
+     */
+    name?: string;
+  }
 }
 
 export interface ExchangeGetParams {

@@ -11,7 +11,7 @@ export class Categories extends APIResource {
    *
    * @example
    * ```ts
-   * const category = await client.coins.categories.get();
+   * const categories = await client.coins.categories.get();
    * ```
    */
   get(
@@ -34,63 +34,71 @@ export class Categories extends APIResource {
   }
 }
 
-export interface CategoryGetResponse {
-  /**
-   * category ID
-   */
-  id?: string;
+export type CategoryGetResponse = Array<CategoryGetResponse.CategoryGetResponseItem>;
 
-  /**
-   * category description
-   */
-  content?: string;
+export namespace CategoryGetResponse {
+  export interface CategoryGetResponseItem {
+    /**
+     * category ID
+     */
+    id?: string;
 
-  /**
-   * category market cap
-   */
-  market_cap?: number;
+    /**
+     * category description
+     */
+    content?: string;
 
-  /**
-   * category market cap change in 24 hours
-   */
-  market_cap_change_24h?: number;
+    /**
+     * category market cap
+     */
+    market_cap?: number;
 
-  /**
-   * category name
-   */
-  name?: string;
+    /**
+     * category market cap change in 24 hours
+     */
+    market_cap_change_24h?: number;
 
-  /**
-   * images of top 3 coins in the category
-   */
-  top_3_coins?: Array<string>;
+    /**
+     * category name
+     */
+    name?: string;
 
-  /**
-   * IDs of top 3 coins in the category
-   */
-  top_3_coins_id?: Array<string>;
+    /**
+     * images of top 3 coins in the category
+     */
+    top_3_coins?: Array<string>;
 
-  /**
-   * category last updated time
-   */
-  updated_at?: string;
+    /**
+     * IDs of top 3 coins in the category
+     */
+    top_3_coins_id?: Array<string>;
 
-  /**
-   * category volume in 24 hours
-   */
-  volume_24h?: number;
+    /**
+     * category last updated time
+     */
+    updated_at?: string;
+
+    /**
+     * category volume in 24 hours
+     */
+    volume_24h?: number;
+  }
 }
 
-export interface CategoryGetListResponse {
-  /**
-   * category ID
-   */
-  category_id?: string;
+export type CategoryGetListResponse = Array<CategoryGetListResponse.CategoryGetListResponseItem>;
 
-  /**
-   * category name
-   */
-  name?: string;
+export namespace CategoryGetListResponse {
+  export interface CategoryGetListResponseItem {
+    /**
+     * category ID
+     */
+    category_id?: string;
+
+    /**
+     * category name
+     */
+    name?: string;
+  }
 }
 
 export interface CategoryGetParams {

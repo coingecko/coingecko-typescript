@@ -25,7 +25,7 @@ export class Exchanges extends APIResource {
    *
    * @example
    * ```ts
-   * const exchange = await client.exchanges.get();
+   * const exchanges = await client.exchanges.get();
    * ```
    */
   get(
@@ -69,61 +69,65 @@ export class Exchanges extends APIResource {
   }
 }
 
-export interface ExchangeGetResponse {
-  /**
-   * exchange ID
-   */
-  id?: string;
+export type ExchangeGetResponse = Array<ExchangeGetResponse.ExchangeGetResponseItem>;
 
-  /**
-   * exchange country
-   */
-  country?: string | null;
+export namespace ExchangeGetResponse {
+  export interface ExchangeGetResponseItem {
+    /**
+     * exchange ID
+     */
+    id?: string;
 
-  /**
-   * exchange description
-   */
-  description?: string;
+    /**
+     * exchange country
+     */
+    country?: string | null;
 
-  /**
-   * exchange trading incentive
-   */
-  has_trading_incentive?: boolean | null;
+    /**
+     * exchange description
+     */
+    description?: string;
 
-  /**
-   * exchange image URL
-   */
-  image?: string;
+    /**
+     * exchange trading incentive
+     */
+    has_trading_incentive?: boolean | null;
 
-  /**
-   * exchange name
-   */
-  name?: string;
+    /**
+     * exchange image URL
+     */
+    image?: string;
 
-  /**
-   * exchange trade volume in BTC in 24 hours
-   */
-  trade_volume_24h_btc?: number;
+    /**
+     * exchange name
+     */
+    name?: string;
 
-  /**
-   * exchange trust score
-   */
-  trust_score?: number;
+    /**
+     * exchange trade volume in BTC in 24 hours
+     */
+    trade_volume_24h_btc?: number;
 
-  /**
-   * exchange trust score rank
-   */
-  trust_score_rank?: number;
+    /**
+     * exchange trust score
+     */
+    trust_score?: number;
 
-  /**
-   * exchange website URL
-   */
-  url?: string;
+    /**
+     * exchange trust score rank
+     */
+    trust_score_rank?: number;
 
-  /**
-   * exchange established year
-   */
-  year_established?: number | null;
+    /**
+     * exchange website URL
+     */
+    url?: string;
+
+    /**
+     * exchange established year
+     */
+    year_established?: number | null;
+  }
 }
 
 export interface ExchangeGetIDResponse {

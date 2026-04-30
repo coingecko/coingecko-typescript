@@ -406,31 +406,35 @@ export namespace NFTGetIDResponse {
   }
 }
 
-export interface NFTGetListResponse {
-  /**
-   * NFT collection ID
-   */
-  id?: string;
+export type NFTGetListResponse = Array<NFTGetListResponse.NFTGetListResponseItem>;
 
-  /**
-   * NFT collection asset platform ID
-   */
-  asset_platform_id?: string;
+export namespace NFTGetListResponse {
+  export interface NFTGetListResponseItem {
+    /**
+     * NFT collection ID
+     */
+    id?: string;
 
-  /**
-   * NFT collection contract address
-   */
-  contract_address?: string;
+    /**
+     * NFT collection asset platform ID
+     */
+    asset_platform_id?: string;
 
-  /**
-   * NFT collection name
-   */
-  name?: string;
+    /**
+     * NFT collection contract address
+     */
+    contract_address?: string;
 
-  /**
-   * NFT collection symbol
-   */
-  symbol?: string;
+    /**
+     * NFT collection name
+     */
+    name?: string;
+
+    /**
+     * NFT collection symbol
+     */
+    symbol?: string;
+  }
 }
 
 export type NFTGetMarketsResponse = Array<NFTGetMarketsResponse.NFTGetMarketsResponseItem>;

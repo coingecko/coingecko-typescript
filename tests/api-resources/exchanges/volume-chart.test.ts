@@ -27,7 +27,7 @@ describe('resource volumeChart', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: only required params', async () => {
-    const responsePromise = client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });
+    const responsePromise = client.exchanges.volumeChart.getRange('id', { from: 1672531200, to: 1675123200 });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,6 +39,6 @@ describe('resource volumeChart', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: required and optional params', async () => {
-    const response = await client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });
+    const response = await client.exchanges.volumeChart.getRange('id', { from: 1672531200, to: 1675123200 });
   });
 });
