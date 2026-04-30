@@ -132,19 +132,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.coins.categories.get',
     params: ['order?: string;'],
     response:
-      '{ id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }',
+      '{ id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }[]',
     markdown:
-      "## get\n\n`client.coins.categories.get(order?: string): { id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }`\n\n**get** `/coins/categories`\n\nThis endpoint allows you to **query all the coins categories with market data (market cap, volume, ...) on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  sort results by field, default: market_cap_desc\n\n### Returns\n\n- `{ id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }`\n\n  - `id?: string`\n  - `content?: string`\n  - `market_cap?: number`\n  - `market_cap_change_24h?: number`\n  - `name?: string`\n  - `top_3_coins?: string[]`\n  - `top_3_coins_id?: string[]`\n  - `updated_at?: string`\n  - `volume_24h?: number`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst category = await client.coins.categories.get();\n\nconsole.log(category);\n```",
+      "## get\n\n`client.coins.categories.get(order?: string): { id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }[]`\n\n**get** `/coins/categories`\n\nThis endpoint allows you to **query all the coins categories with market data (market cap, volume, ...) on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  sort results by field, default: market_cap_desc\n\n### Returns\n\n- `{ id?: string; content?: string; market_cap?: number; market_cap_change_24h?: number; name?: string; top_3_coins?: string[]; top_3_coins_id?: string[]; updated_at?: string; volume_24h?: number; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst categories = await client.coins.categories.get();\n\nconsole.log(categories);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.categories.get',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst category = await client.coins.categories.get();\n\nconsole.log(category.id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst categories = await client.coins.categories.get();\n\nconsole.log(categories);",
       },
       python: {
         method: 'coins.categories.get',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncategory = client.coins.categories.get()\nprint(category.id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncategories = client.coins.categories.get()\nprint(categories)',
       },
       http: {
         example:
@@ -160,19 +160,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'This endpoint allows you to **query all the coins categories on CoinGecko**',
     stainlessPath: '(resource) coins.categories > (method) get_list',
     qualified: 'client.coins.categories.getList',
-    response: '{ category_id?: string; name?: string; }',
+    response: '{ category_id?: string; name?: string; }[]',
     markdown:
-      "## get_list\n\n`client.coins.categories.getList(): { category_id?: string; name?: string; }`\n\n**get** `/coins/categories/list`\n\nThis endpoint allows you to **query all the coins categories on CoinGecko**\n\n### Returns\n\n- `{ category_id?: string; name?: string; }`\n\n  - `category_id?: string`\n  - `name?: string`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.categories.getList();\n\nconsole.log(response);\n```",
+      "## get_list\n\n`client.coins.categories.getList(): { category_id?: string; name?: string; }[]`\n\n**get** `/coins/categories/list`\n\nThis endpoint allows you to **query all the coins categories on CoinGecko**\n\n### Returns\n\n- `{ category_id?: string; name?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.categories.getList();\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.categories.getList',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.categories.getList();\n\nconsole.log(response.category_id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.categories.getList();\n\nconsole.log(response);",
       },
       python: {
         method: 'coins.categories.get_list',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.categories.get_list()\nprint(response.category_id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.categories.get_list()\nprint(response)',
       },
       http: {
         example:
@@ -772,19 +772,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) derivatives > (method) get',
     qualified: 'client.derivatives.get',
     response:
-      '{ basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }',
+      '{ basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }[]',
     markdown:
-      "## get\n\n`client.derivatives.get(): { basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }`\n\n**get** `/derivatives`\n\nThis endpoint allows you to **query all the tickers from derivatives exchanges on CoinGecko**\n\n### Returns\n\n- `{ basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }`\n\n  - `basis?: number`\n  - `contract_type?: string`\n  - `expired_at?: string`\n  - `funding_rate?: number`\n  - `index?: number`\n  - `index_id?: string`\n  - `last_traded_at?: number`\n  - `market?: string`\n  - `open_interest?: number`\n  - `price?: string`\n  - `price_percentage_change_24h?: number`\n  - `spread?: number`\n  - `symbol?: string`\n  - `volume_24h?: number`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst derivative = await client.derivatives.get();\n\nconsole.log(derivative);\n```",
+      "## get\n\n`client.derivatives.get(): { basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }[]`\n\n**get** `/derivatives`\n\nThis endpoint allows you to **query all the tickers from derivatives exchanges on CoinGecko**\n\n### Returns\n\n- `{ basis?: number; contract_type?: string; expired_at?: string; funding_rate?: number; index?: number; index_id?: string; last_traded_at?: number; market?: string; open_interest?: number; price?: string; price_percentage_change_24h?: number; spread?: number; symbol?: string; volume_24h?: number; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst derivatives = await client.derivatives.get();\n\nconsole.log(derivatives);\n```",
     perLanguage: {
       typescript: {
         method: 'client.derivatives.get',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst derivative = await client.derivatives.get();\n\nconsole.log(derivative.index_id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst derivatives = await client.derivatives.get();\n\nconsole.log(derivatives);",
       },
       python: {
         method: 'derivatives.get',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nderivative = client.derivatives.get()\nprint(derivative.index_id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nderivatives = client.derivatives.get()\nprint(derivatives)',
       },
       http: {
         example:
@@ -803,19 +803,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.derivatives.exchanges.get',
     params: ['order?: string;', 'page?: number;', 'per_page?: number;'],
     response:
-      '{ id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }',
+      '{ id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }[]',
     markdown:
-      "## get\n\n`client.derivatives.exchanges.get(order?: string, page?: number, per_page?: number): { id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }`\n\n**get** `/derivatives/exchanges`\n\nThis endpoint allows you to **query all the derivatives exchanges with related data (ID, name, open interest, ...) on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  use this to sort the order of responses, default: open_interest_btc_desc\n\n- `page?: number`\n  page through results, default: 1\n\n- `per_page?: number`\n  total results per page\n\n### Returns\n\n- `{ id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }`\n\n  - `id?: string`\n  - `country?: string`\n  - `description?: string`\n  - `image?: string`\n  - `name?: string`\n  - `number_of_futures_pairs?: number`\n  - `number_of_perpetual_pairs?: number`\n  - `open_interest_btc?: number`\n  - `trade_volume_24h_btc?: string`\n  - `url?: string`\n  - `year_established?: number`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst exchange = await client.derivatives.exchanges.get();\n\nconsole.log(exchange);\n```",
+      "## get\n\n`client.derivatives.exchanges.get(order?: string, page?: number, per_page?: number): { id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }[]`\n\n**get** `/derivatives/exchanges`\n\nThis endpoint allows you to **query all the derivatives exchanges with related data (ID, name, open interest, ...) on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  use this to sort the order of responses, default: open_interest_btc_desc\n\n- `page?: number`\n  page through results, default: 1\n\n- `per_page?: number`\n  total results per page\n\n### Returns\n\n- `{ id?: string; country?: string; description?: string; image?: string; name?: string; number_of_futures_pairs?: number; number_of_perpetual_pairs?: number; open_interest_btc?: number; trade_volume_24h_btc?: string; url?: string; year_established?: number; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst exchanges = await client.derivatives.exchanges.get();\n\nconsole.log(exchanges);\n```",
     perLanguage: {
       typescript: {
         method: 'client.derivatives.exchanges.get',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchange = await client.derivatives.exchanges.get();\n\nconsole.log(exchange.id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchanges = await client.derivatives.exchanges.get();\n\nconsole.log(exchanges);",
       },
       python: {
         method: 'derivatives.exchanges.get',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchange = client.derivatives.exchanges.get()\nprint(exchange.id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchanges = client.derivatives.exchanges.get()\nprint(exchanges)',
       },
       http: {
         example:
@@ -832,19 +832,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'This endpoint allows you to **query all the derivatives exchanges with ID and name on CoinGecko**',
     stainlessPath: '(resource) derivatives.exchanges > (method) get_list',
     qualified: 'client.derivatives.exchanges.getList',
-    response: '{ id?: string; name?: string; }',
+    response: '{ id?: string; name?: string; }[]',
     markdown:
-      "## get_list\n\n`client.derivatives.exchanges.getList(): { id?: string; name?: string; }`\n\n**get** `/derivatives/exchanges/list`\n\nThis endpoint allows you to **query all the derivatives exchanges with ID and name on CoinGecko**\n\n### Returns\n\n- `{ id?: string; name?: string; }`\n\n  - `id?: string`\n  - `name?: string`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.derivatives.exchanges.getList();\n\nconsole.log(response);\n```",
+      "## get_list\n\n`client.derivatives.exchanges.getList(): { id?: string; name?: string; }[]`\n\n**get** `/derivatives/exchanges/list`\n\nThis endpoint allows you to **query all the derivatives exchanges with ID and name on CoinGecko**\n\n### Returns\n\n- `{ id?: string; name?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.derivatives.exchanges.getList();\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.derivatives.exchanges.getList',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.derivatives.exchanges.getList();\n\nconsole.log(response.id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.derivatives.exchanges.getList();\n\nconsole.log(response);",
       },
       python: {
         method: 'derivatives.exchanges.get_list',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.derivatives.exchanges.get_list()\nprint(response.id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.derivatives.exchanges.get_list()\nprint(response)',
       },
       http: {
         example:
@@ -952,19 +952,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.exchanges.get',
     params: ['page?: number;', 'per_page?: number;'],
     response:
-      '{ id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }',
+      '{ id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }[]',
     markdown:
-      "## get\n\n`client.exchanges.get(page?: number, per_page?: number): { id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }`\n\n**get** `/exchanges`\n\nThis endpoint allows you to **query all the supported exchanges with exchanges' data (ID, name, country, ...) that have active trading volumes on CoinGecko**\n\n### Parameters\n\n- `page?: number`\n  page through results, default: 1\n\n- `per_page?: number`\n  total results per page, default: 100 \n Valid values: 1...250\n\n### Returns\n\n- `{ id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }`\n\n  - `id?: string`\n  - `country?: string`\n  - `description?: string`\n  - `has_trading_incentive?: boolean`\n  - `image?: string`\n  - `name?: string`\n  - `trade_volume_24h_btc?: number`\n  - `trust_score?: number`\n  - `trust_score_rank?: number`\n  - `url?: string`\n  - `year_established?: number`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst exchange = await client.exchanges.get();\n\nconsole.log(exchange);\n```",
+      "## get\n\n`client.exchanges.get(page?: number, per_page?: number): { id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }[]`\n\n**get** `/exchanges`\n\nThis endpoint allows you to **query all the supported exchanges with exchanges' data (ID, name, country, ...) that have active trading volumes on CoinGecko**\n\n### Parameters\n\n- `page?: number`\n  page through results, default: 1\n\n- `per_page?: number`\n  total results per page, default: 100 \n Valid values: 1...250\n\n### Returns\n\n- `{ id?: string; country?: string; description?: string; has_trading_incentive?: boolean; image?: string; name?: string; trade_volume_24h_btc?: number; trust_score?: number; trust_score_rank?: number; url?: string; year_established?: number; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst exchanges = await client.exchanges.get();\n\nconsole.log(exchanges);\n```",
     perLanguage: {
       typescript: {
         method: 'client.exchanges.get',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchange = await client.exchanges.get();\n\nconsole.log(exchange.id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchanges = await client.exchanges.get();\n\nconsole.log(exchanges);",
       },
       python: {
         method: 'exchanges.get',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchange = client.exchanges.get()\nprint(exchange.id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchanges = client.exchanges.get()\nprint(exchanges)',
       },
       http: {
         example:
@@ -1112,17 +1112,17 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     params: ['id: string;', 'from: number;', 'to: number;'],
     response: 'number | string[][]',
     markdown:
-      "## get_range\n\n`client.exchanges.volumeChart.getRange(id: string, from: number, to: number): number | string[][]`\n\n**get** `/exchanges/{id}/volume_chart/range`\n\nThis endpoint allows you to **query the historical volume chart data in BTC by specifying date range in UNIX based on exchange's ID**\n\n### Parameters\n\n- `id: string`\n\n- `from: number`\n  starting date in UNIX timestamp \n\n- `to: number`\n  ending date in UNIX timestamp\n\n### Returns\n\n- `number | string[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });\n\nconsole.log(response);\n```",
+      "## get_range\n\n`client.exchanges.volumeChart.getRange(id: string, from: number, to: number): number | string[][]`\n\n**get** `/exchanges/{id}/volume_chart/range`\n\nThis endpoint allows you to **query the historical volume chart data in BTC by specifying date range in UNIX based on exchange's ID**\n\n### Parameters\n\n- `id: string`\n\n- `from: number`\n  starting date in UNIX timestamp \n\n- `to: number`\n  ending date in UNIX timestamp\n\n### Returns\n\n- `number | string[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.exchanges.volumeChart.getRange('id', { from: 1672531200, to: 1675123200 });\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.exchanges.volumeChart.getRange',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });\n\nconsole.log(response);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.exchanges.volumeChart.getRange('id', {\n  from: 1672531200,\n  to: 1675123200,\n});\n\nconsole.log(response);",
       },
       python: {
         method: 'exchanges.volume_chart.get_range',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.exchanges.volume_chart.get_range(\n    id="id",\n    from_=0,\n    to=0,\n)\nprint(response)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.exchanges.volume_chart.get_range(\n    id="id",\n    from_=1672531200,\n    to=1675123200,\n)\nprint(response)',
       },
       http: {
         example:
@@ -1297,19 +1297,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.nfts.getList',
     params: ['order?: string;', 'page?: number;', 'per_page?: number;'],
     response:
-      '{ id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }',
+      '{ id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }[]',
     markdown:
-      "## get_list\n\n`client.nfts.getList(order?: string, page?: number, per_page?: number): { id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }`\n\n**get** `/nfts/list`\n\nThis endpoint allows you to **query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  use this to sort the order of responses\n\n- `page?: number`\n  page through results\n\n- `per_page?: number`\n  total results per page \n Valid values: 1...250\n\n### Returns\n\n- `{ id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }`\n\n  - `id?: string`\n  - `asset_platform_id?: string`\n  - `contract_address?: string`\n  - `name?: string`\n  - `symbol?: string`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.nfts.getList();\n\nconsole.log(response);\n```",
+      "## get_list\n\n`client.nfts.getList(order?: string, page?: number, per_page?: number): { id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }[]`\n\n**get** `/nfts/list`\n\nThis endpoint allows you to **query all supported NFTs with ID, contract address, name, asset platform ID and symbol on CoinGecko**\n\n### Parameters\n\n- `order?: string`\n  use this to sort the order of responses\n\n- `page?: number`\n  page through results\n\n- `per_page?: number`\n  total results per page \n Valid values: 1...250\n\n### Returns\n\n- `{ id?: string; asset_platform_id?: string; contract_address?: string; name?: string; symbol?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.nfts.getList();\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.nfts.getList',
         example:
-          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.getList();\n\nconsole.log(response.id);",
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.getList();\n\nconsole.log(response);",
       },
       python: {
         method: 'nfts.get_list',
         example:
-          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.get_list()\nprint(response.id)',
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.get_list()\nprint(response)',
       },
       http: {
         example:
@@ -2104,7 +2104,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       '{ data?: { id?: string; attributes?: { address?: string; categories?: string[]; coingecko_coin_id?: string; decimals?: number; description?: string; discord_url?: string; farcaster_url?: string; freeze_authority?: string; gt_category_ids?: string[]; gt_score?: number; gt_score_details?: object; gt_verified?: boolean; holders?: object; image?: object; image_url?: string; is_honeypot?: boolean | string; mint_authority?: string; name?: string; symbol?: string; telegram_handle?: string; twitter_handle?: string; websites?: string[]; zora_url?: string; }; type?: string; }; }',
     markdown:
-      "## get\n\n`client.onchain.networks.tokens.info.get(network: string, address: string): { data?: object; }`\n\n**get** `/onchain/networks/{network}/tokens/{address}/info`\n\nThis endpoint allows you to **query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**\n\n### Parameters\n\n- `network: string`\n\n- `address: string`\n\n### Returns\n\n- `{ data?: { id?: string; attributes?: { address?: string; categories?: string[]; coingecko_coin_id?: string; decimals?: number; description?: string; discord_url?: string; farcaster_url?: string; freeze_authority?: string; gt_category_ids?: string[]; gt_score?: number; gt_score_details?: object; gt_verified?: boolean; holders?: object; image?: object; image_url?: string; is_honeypot?: boolean | string; mint_authority?: string; name?: string; symbol?: string; telegram_handle?: string; twitter_handle?: string; websites?: string[]; zora_url?: string; }; type?: string; }; }`\n\n  - `data?: { id?: string; attributes?: { address?: string; categories?: string[]; coingecko_coin_id?: string; decimals?: number; description?: string; discord_url?: string; farcaster_url?: string; freeze_authority?: string; gt_category_ids?: string[]; gt_score?: number; gt_score_details?: { creation?: number; holders?: number; info?: number; pool?: number; transaction?: number; }; gt_verified?: boolean; holders?: { count?: number; distribution_percentage?: { 11_30?: number; 31_50?: number; rest?: number; top_10?: number; }; last_updated?: string; }; image?: { large?: string; small?: string; thumb?: string; }; image_url?: string; is_honeypot?: boolean | string; mint_authority?: string; name?: string; symbol?: string; telegram_handle?: string; twitter_handle?: string; websites?: string[]; zora_url?: string; }; type?: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst info = await client.onchain.networks.tokens.info.get('0xdac17f958d2ee523a2206206994597c13d831ec7', { network: 'eth' });\n\nconsole.log(info);\n```",
+      "## get\n\n`client.onchain.networks.tokens.info.get(network: string, address: string): { data?: object; }`\n\n**get** `/onchain/networks/{network}/tokens/{address}/info`\n\nThis endpoint allows you to **query token metadata (name, symbol, CoinGecko ID, image, socials, websites, description, etc.) based on a provided token contract address on a network**\n\n### Parameters\n\n- `network: string`\n\n- `address: string`\n\n### Returns\n\n- `{ data?: { id?: string; attributes?: { address?: string; categories?: string[]; coingecko_coin_id?: string; decimals?: number; description?: string; discord_url?: string; farcaster_url?: string; freeze_authority?: string; gt_category_ids?: string[]; gt_score?: number; gt_score_details?: object; gt_verified?: boolean; holders?: object; image?: object; image_url?: string; is_honeypot?: boolean | string; mint_authority?: string; name?: string; symbol?: string; telegram_handle?: string; twitter_handle?: string; websites?: string[]; zora_url?: string; }; type?: string; }; }`\n\n  - `data?: { id?: string; attributes?: { address?: string; categories?: string[]; coingecko_coin_id?: string; decimals?: number; description?: string; discord_url?: string; farcaster_url?: string; freeze_authority?: string; gt_category_ids?: string[]; gt_score?: number; gt_score_details?: { creation?: number; holders?: number; info?: number; pool?: number; transaction?: number; }; gt_verified?: boolean; holders?: { count?: number; distribution_percentage?: { 11_30?: string; 31_50?: string; rest?: string; top_10?: string; }; last_updated?: string; }; image?: { large?: string; small?: string; thumb?: string; }; image_url?: string; is_honeypot?: boolean | string; mint_authority?: string; name?: string; symbol?: string; telegram_handle?: string; twitter_handle?: string; websites?: string[]; zora_url?: string; }; type?: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst info = await client.onchain.networks.tokens.info.get('0xdac17f958d2ee523a2206206994597c13d831ec7', { network: 'eth' });\n\nconsole.log(info);\n```",
     perLanguage: {
       typescript: {
         method: 'client.onchain.networks.tokens.info.get',

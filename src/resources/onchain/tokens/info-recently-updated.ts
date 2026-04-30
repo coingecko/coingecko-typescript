@@ -42,7 +42,7 @@ export namespace InfoRecentlyUpdatedGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
