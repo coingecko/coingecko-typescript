@@ -29,7 +29,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'coingecko_coingecko_typescript_api',
-      version: '4.0.0',
+      version: '5.0.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
