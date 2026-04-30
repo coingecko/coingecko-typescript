@@ -1,5 +1,18 @@
 # Changelog
 
+## 5.1.0 (2026-04-30)
+
+Full Changelog: [v5.0.0...v5.1.0](https://github.com/coingecko/coingecko-typescript/compare/v5.0.0...v5.1.0)
+
+### Features
+
+* Annotate execute readOnlyHint ([4de7dab](https://github.com/coingecko/coingecko-typescript/commit/4de7dab47b9bb3088ec44f8039336def344c794c))
+
+
+### Bug Fixes
+
+* Remove Makefile ([37c2f87](https://github.com/coingecko/coingecko-typescript/commit/37c2f87cda60328a45d9cc48f61cdf4920c8b3c2))
+
 ## 5.0.0 (2026-04-30)
 
 Full Changelog: [v4.0.0...v5.0.0](https://github.com/coingecko/coingecko-typescript/compare/v4.0.0...v5.0.0)
