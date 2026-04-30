@@ -75,6 +75,9 @@ export function codeTool({
       },
       required: ['code'],
     },
+    annotations: {
+      readOnlyHint: true,
+    },
   };
 
   const logger = getLogger();
