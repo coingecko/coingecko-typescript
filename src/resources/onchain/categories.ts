@@ -109,7 +109,7 @@ export namespace CategoryGetPoolsResponse {
 
       base_token_price_native_currency?: string;
 
-      base_token_price_quote_token?: string;
+      base_token_price_quote_token?: string | null;
 
       base_token_price_usd?: string;
 
@@ -127,7 +127,7 @@ export namespace CategoryGetPoolsResponse {
 
       price_change_percentage?: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      quote_token_price_base_token?: string | null;
 
       quote_token_price_native_currency?: string;
 

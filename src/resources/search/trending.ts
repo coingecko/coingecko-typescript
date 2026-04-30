@@ -160,7 +160,7 @@ export namespace TrendingGetResponse {
 
   export namespace Coin {
     export interface Data {
-      content?: string;
+      content?: Data.Content | null;
 
       /**
        * coin market cap in usd
@@ -204,6 +204,12 @@ export namespace TrendingGetResponse {
     }
 
     export namespace Data {
+      export interface Content {
+        description?: string;
+
+        title?: string;
+      }
+
       /**
        * coin price change percentage in 24 hours
        */
@@ -258,7 +264,7 @@ export namespace TrendingGetResponse {
 
   export namespace NFT {
     export interface Data {
-      content?: string;
+      content?: Data.Content | null;
 
       /**
        * NFT collection floor price
@@ -284,6 +290,14 @@ export namespace TrendingGetResponse {
        * NFT collection sparkline image url
        */
       sparkline?: string;
+    }
+
+    export namespace Data {
+      export interface Content {
+        description?: string;
+
+        title?: string;
+      }
     }
   }
 }

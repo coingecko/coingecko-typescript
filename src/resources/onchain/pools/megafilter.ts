@@ -50,9 +50,9 @@ export namespace MegafilterGetResponse {
 
       base_token_price_usd?: string;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 
@@ -93,6 +93,8 @@ export namespace MegafilterGetResponse {
 
         h24?: Transactions.H24;
 
+        h6?: Transactions.H6;
+
         m15?: Transactions.M15;
 
         m30?: Transactions.M30;
@@ -112,6 +114,16 @@ export namespace MegafilterGetResponse {
         }
 
         export interface H24 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H6 {
           buyers?: number;
 
           buys?: number;
@@ -172,6 +184,8 @@ export namespace MegafilterGetResponse {
 
       dex?: Relationships.Dex;
 
+      network?: Relationships.Network;
+
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -193,6 +207,18 @@ export namespace MegafilterGetResponse {
       }
 
       export namespace Dex {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface Network {
+        data?: Network.Data;
+      }
+
+      export namespace Network {
         export interface Data {
           id?: string;
 

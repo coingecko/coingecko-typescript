@@ -147,14 +147,14 @@ export interface ExchangeGetIDResponse {
   /**
    * derivatives exchange open interest in BTC
    */
-  open_interest_btc?: number;
+  open_interest_btc?: number | null;
 
   tickers?: Array<ExchangeGetIDResponse.Ticker>;
 
   /**
    * derivatives exchange trade volume in BTC in 24 hours
    */
-  trade_volume_24h_btc?: number;
+  trade_volume_24h_btc?: string;
 
   /**
    * derivatives exchange website url

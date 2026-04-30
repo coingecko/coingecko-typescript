@@ -5,6 +5,7 @@ export { Multi, type MultiGetAddressesResponse, type MultiGetAddressesParams } f
 export { Ohlcv, type OhlcvGetTimeframeResponse, type OhlcvGetTimeframeParams } from './ohlcv';
 export {
   Pools,
+  type PoolData,
   type PoolGetResponse,
   type PoolGetAddressResponse,
   type PoolGetParams,

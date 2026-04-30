@@ -24,7 +24,7 @@ export class InfoRecentlyUpdated extends APIResource {
 }
 
 export interface InfoRecentlyUpdatedGetResponse {
-  data?: InfoRecentlyUpdatedGetResponse.Data;
+  data?: Array<InfoRecentlyUpdatedGetResponse.Data>;
 }
 
 export namespace InfoRecentlyUpdatedGetResponse {
@@ -44,7 +44,13 @@ export namespace InfoRecentlyUpdatedGetResponse {
 
       coingecko_coin_id?: string;
 
+      decimals?: number;
+
       description?: string;
+
+      discord_url?: string | null;
+
+      farcaster_url?: string | null;
 
       gt_score?: number;
 
@@ -56,7 +62,13 @@ export namespace InfoRecentlyUpdatedGetResponse {
 
       symbol?: string;
 
+      telegram_handle?: string | null;
+
+      twitter_handle?: string | null;
+
       websites?: Array<string>;
+
+      zora_url?: string | null;
     }
 
     export interface Relationships {

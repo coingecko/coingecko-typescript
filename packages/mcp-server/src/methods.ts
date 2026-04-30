@@ -233,6 +233,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/key',
   },
   {
+    clientCallName: 'client.news.get',
+    fullyQualifiedName: 'news.get',
+    httpMethod: 'get',
+    httpPath: '/news',
+  },
+  {
     clientCallName: 'client.nfts.getID',
     fullyQualifiedName: 'nfts.getID',
     httpMethod: 'get',

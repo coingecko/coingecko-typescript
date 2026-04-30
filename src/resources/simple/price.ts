@@ -7,7 +7,7 @@ import { RequestOptions } from '../../internal/request-options';
 export class Price extends APIResource {
   /**
    * This endpoint allows you to **query the prices of one or more coins by using
-   * their unique Coin API IDs**
+   * their unique Coin API IDs, symbols, or names**
    *
    * @example
    * ```ts

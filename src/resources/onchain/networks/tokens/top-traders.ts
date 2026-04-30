@@ -66,7 +66,7 @@ export namespace TopTraderGetResponse {
 
         realized_pnl_usd?: string;
 
-        token_balance?: string;
+        token_balance?: string | null;
 
         total_buy_count?: number;
 
@@ -82,7 +82,7 @@ export namespace TopTraderGetResponse {
 
         type?: string;
 
-        unrealized_pnl_usd?: string;
+        unrealized_pnl_usd?: string | null;
       }
     }
   }

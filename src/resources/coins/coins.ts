@@ -83,6 +83,18 @@ export class Coins extends APIResource {
   }
 }
 
+export interface DetailPlatformData {
+  /**
+   * contract address on the platform
+   */
+  contract_address?: string;
+
+  /**
+   * decimal places for the token
+   */
+  decimal_place?: number | null;
+}
+
 export interface CoinGetIDResponse {
   /**
    * coin ID
@@ -97,7 +109,7 @@ export interface CoinGetIDResponse {
   /**
    * coin asset platform ID
    */
-  asset_platform_id?: string;
+  asset_platform_id?: string | null;
 
   /**
    * blockchain block time in minutes
@@ -132,7 +144,7 @@ export interface CoinGetIDResponse {
   /**
    * detailed coin asset platform and contract address
    */
-  detail_platforms?: { [key: string]: CoinGetIDResponse.DetailPlatforms };
+  detail_platforms?: { [key: string]: DetailPlatformData };
 
   /**
    * coin developer data
@@ -142,17 +154,17 @@ export interface CoinGetIDResponse {
   /**
    * coin genesis date
    */
-  genesis_date?: string;
+  genesis_date?: string | null;
 
   /**
    * blockchain hashing algorithm
    */
-  hashing_algorithm?: string;
+  hashing_algorithm?: string | null;
 
   /**
    * coin ICO data
    */
-  ico_data?: CoinGetIDResponse.IcoData;
+  ico_data?: CoinGetIDResponse.IcoData | null;
 
   /**
    * coin image url
@@ -177,7 +189,7 @@ export interface CoinGetIDResponse {
   /**
    * coin rank by market cap
    */
-  market_cap_rank?: number;
+  market_cap_rank?: number | null;
 
   /**
    * coin rank by market cap including rehypothecated tokens
@@ -197,7 +209,7 @@ export interface CoinGetIDResponse {
   /**
    * coin asset platform and contract address
    */
-  platforms?: { [key: string]: string };
+  platforms?: { [key: string]: string | null };
 
   /**
    * preview listing coin
@@ -207,17 +219,17 @@ export interface CoinGetIDResponse {
   /**
    * public notice
    */
-  public_notice?: string;
+  public_notice?: string | null;
 
   /**
    * coin sentiment votes down percentage
    */
-  sentiment_votes_down_percentage?: number;
+  sentiment_votes_down_percentage?: number | null;
 
   /**
    * coin sentiment votes up percentage
    */
-  sentiment_votes_up_percentage?: number;
+  sentiment_votes_up_percentage?: number | null;
 
   /**
    * coin status updates
@@ -291,18 +303,6 @@ export namespace CoinGetIDResponse {
      * coin telegram channel user count
      */
     telegram_channel_user_count?: number;
-  }
-
-  export interface DetailPlatforms {
-    /**
-     * contract address on the platform
-     */
-    contract_address?: string;
-
-    /**
-     * decimal places for the token
-     */
-    decimal_place?: number | null;
   }
 
   /**
@@ -744,6 +744,16 @@ export namespace CoinGetIDResponse {
     mcap_to_tvl_ratio?: number;
 
     /**
+     * tokens outstanding in the market, circulated/tradable or planned for circulation
+     */
+    outstanding_supply?: number | null;
+
+    /**
+     * outstanding token value in USD
+     */
+    outstanding_token_value_usd?: number | null;
+
+    /**
      * coin 24hr price change in currency
      */
     price_change_24h?: number;
@@ -1105,6 +1115,11 @@ export namespace CoinGetIDResponse {
     coin_id?: string;
 
     /**
+     * coin market cap in usd
+     */
+    coin_mcap_usd?: number;
+
+    /**
      * coin ticker converted last price
      */
     converted_last?: Ticker.ConvertedLast;
@@ -1281,7 +1296,11 @@ Coins.Tickers = Tickers;
 Coins.TotalSupplyChart = TotalSupplyChart;
 
 export declare namespace Coins {
-  export { type CoinGetIDResponse as CoinGetIDResponse, type CoinGetIDParams as CoinGetIDParams };
+  export {
+    type DetailPlatformData as DetailPlatformData,
+    type CoinGetIDResponse as CoinGetIDResponse,
+    type CoinGetIDParams as CoinGetIDParams,
+  };
 
   export {
     Categories as Categories,

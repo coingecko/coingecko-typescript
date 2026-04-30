@@ -33,6 +33,11 @@ export interface TokenListGetAllJsonResponse {
   timestamp?: string;
 
   tokens?: Array<TokenListGetAllJsonResponse.Token>;
+
+  /**
+   * token list version
+   */
+  version?: TokenListGetAllJsonResponse.Version;
 }
 
 export namespace TokenListGetAllJsonResponse {
@@ -66,6 +71,17 @@ export namespace TokenListGetAllJsonResponse {
      * token symbol
      */
     symbol?: string;
+  }
+
+  /**
+   * token list version
+   */
+  export interface Version {
+    major?: number;
+
+    minor?: number;
+
+    patch?: number;
   }
 }
 
