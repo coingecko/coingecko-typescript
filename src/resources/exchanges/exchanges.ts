@@ -25,7 +25,7 @@ export class Exchanges extends APIResource {
    *
    * @example
    * ```ts
-   * const exchange = await client.exchanges.get();
+   * const exchanges = await client.exchanges.get();
    * ```
    */
   get(
@@ -69,68 +69,72 @@ export class Exchanges extends APIResource {
   }
 }
 
-export interface ExchangeGetResponse {
-  /**
-   * exchange ID
-   */
-  id?: string;
+export type ExchangeGetResponse = Array<ExchangeGetResponse.ExchangeGetResponseItem>;
 
-  /**
-   * exchange country
-   */
-  country?: string;
+export namespace ExchangeGetResponse {
+  export interface ExchangeGetResponseItem {
+    /**
+     * exchange ID
+     */
+    id?: string;
 
-  /**
-   * exchange description
-   */
-  description?: string;
+    /**
+     * exchange country
+     */
+    country?: string | null;
 
-  /**
-   * exchange trading incentive
-   */
-  has_trading_incentive?: boolean;
+    /**
+     * exchange description
+     */
+    description?: string;
 
-  /**
-   * exchange image URL
-   */
-  image?: string;
+    /**
+     * exchange trading incentive
+     */
+    has_trading_incentive?: boolean | null;
 
-  /**
-   * exchange name
-   */
-  name?: string;
+    /**
+     * exchange image URL
+     */
+    image?: string;
 
-  /**
-   * exchange trade volume in BTC in 24 hours
-   */
-  trade_volume_24h_btc?: number;
+    /**
+     * exchange name
+     */
+    name?: string;
 
-  /**
-   * exchange trust score
-   */
-  trust_score?: number;
+    /**
+     * exchange trade volume in BTC in 24 hours
+     */
+    trade_volume_24h_btc?: number;
 
-  /**
-   * exchange trust score rank
-   */
-  trust_score_rank?: number;
+    /**
+     * exchange trust score
+     */
+    trust_score?: number;
 
-  /**
-   * exchange website URL
-   */
-  url?: string;
+    /**
+     * exchange trust score rank
+     */
+    trust_score_rank?: number;
 
-  /**
-   * exchange established year
-   */
-  year_established?: number;
+    /**
+     * exchange website URL
+     */
+    url?: string;
+
+    /**
+     * exchange established year
+     */
+    year_established?: number | null;
+  }
 }
 
 export interface ExchangeGetIDResponse {
   /**
    * alert notice for exchange
    */
-  alert_notice?: string;
+  alert_notice?: string | null;
 
   /**
    * exchange type (true for centralized, false for decentralized)
@@ -145,7 +149,7 @@ export interface ExchangeGetIDResponse {
   /**
    * exchange incorporated country
    */
-  country?: string;
+  country?: string | null;
 
   /**
    * exchange description
@@ -155,12 +159,12 @@ export interface ExchangeGetIDResponse {
   /**
    * exchange facebook url
    */
-  facebook_url?: string;
+  facebook_url?: string | null;
 
   /**
    * exchange trading incentive
    */
-  has_trading_incentive?: boolean;
+  has_trading_incentive?: boolean | null;
 
   /**
    * exchange image url
@@ -172,9 +176,9 @@ export interface ExchangeGetIDResponse {
    */
   name?: string;
 
-  other_url_1?: string;
+  other_url_1?: string | null;
 
-  other_url_2?: string;
+  other_url_2?: string | null;
 
   /**
    * number of trading pairs on the exchange
@@ -184,22 +188,27 @@ export interface ExchangeGetIDResponse {
   /**
    * public notice for exchange
    */
-  public_notice?: string;
+  public_notice?: string | null;
 
   /**
    * exchange reddit url
    */
-  reddit_url?: string;
+  reddit_url?: string | null;
 
   /**
    * exchange slack url
    */
-  slack_url?: string;
+  slack_url?: string | null;
+
+  /**
+   * exchange status updates
+   */
+  status_updates?: Array<ExchangeGetIDResponse.StatusUpdate>;
 
   /**
    * exchange telegram url
    */
-  telegram_url?: string;
+  telegram_url?: string | null;
 
   tickers?: Array<ExchangeGetIDResponse.Ticker>;
 
@@ -218,7 +227,7 @@ export interface ExchangeGetIDResponse {
   /**
    * exchange twitter handle
    */
-  twitter_handle?: string;
+  twitter_handle?: string | null;
 
   /**
    * exchange website url
@@ -228,10 +237,48 @@ export interface ExchangeGetIDResponse {
   /**
    * exchange established year
    */
-  year_established?: number;
+  year_established?: number | null;
 }
 
 export namespace ExchangeGetIDResponse {
+  export interface StatusUpdate {
+    category?: string;
+
+    created_at?: string;
+
+    description?: string;
+
+    pin?: boolean;
+
+    project?: StatusUpdate.Project;
+
+    user?: string;
+
+    user_title?: string;
+  }
+
+  export namespace StatusUpdate {
+    export interface Project {
+      id?: string;
+
+      image?: Project.Image;
+
+      name?: string;
+
+      type?: string;
+    }
+
+    export namespace Project {
+      export interface Image {
+        large?: string;
+
+        small?: string;
+
+        thumb?: string;
+      }
+    }
+  }
+
   export interface Ticker {
     /**
      * coin name
@@ -260,6 +307,11 @@ export namespace ExchangeGetIDResponse {
        * coin ticker base currency coin ID
        */
       coin_id?: string;
+
+      /**
+       * coin market cap in usd
+       */
+      coin_mcap_usd?: number;
 
       /**
        * coin ticker converted last price
@@ -377,22 +429,22 @@ export namespace ExchangeGetIDResponse {
         /**
          * exchange trading incentive
          */
-        has_trading_incentive: boolean;
+        has_trading_incentive?: boolean;
 
         /**
          * exchange identifier
          */
-        identifier: string;
-
-        /**
-         * exchange name
-         */
-        name: string;
+        identifier?: string;
 
         /**
          * exchange image url
          */
         logo?: string;
+
+        /**
+         * exchange name
+         */
+        name?: string;
       }
     }
   }
@@ -405,12 +457,12 @@ export namespace ExchangeGetListResponse {
     /**
      * exchange ID
      */
-    id: string;
+    id?: string;
 
     /**
      * exchange name
      */
-    name: string;
+    name?: string;
   }
 }
 

@@ -48,7 +48,7 @@ export namespace AssetPlatformGetResponse {
     /**
      * chain native coin ID
      */
-    native_coin_id?: string;
+    native_coin_id?: string | null;
 
     /**
      * chain shortname

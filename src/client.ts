@@ -25,6 +25,7 @@ import {
 import { Entities, EntityGetListParams, EntityGetListResponse } from './resources/entities';
 import { ExchangeRateGetResponse, ExchangeRates } from './resources/exchange-rates';
 import { Key, KeyGetResponse } from './resources/key';
+import { News, NewsGetParams, NewsGetResponse } from './resources/news';
 import { Ping, PingGetResponse } from './resources/ping';
 import {
   PublicTreasury,
@@ -36,9 +37,10 @@ import {
   PublicTreasuryGetHoldingChartResponse,
   PublicTreasuryGetTransactionHistoryParams,
   PublicTreasuryGetTransactionHistoryResponse,
+  TreasuryEntity,
 } from './resources/public-treasury';
 import { TokenListGetAllJsonResponse, TokenLists } from './resources/token-lists';
-import { CoinGetIDParams, CoinGetIDResponse, Coins } from './resources/coins/coins';
+import { CoinGetIDParams, CoinGetIDResponse, Coins, DetailPlatformData } from './resources/coins/coins';
 import { DerivativeGetResponse, Derivatives } from './resources/derivatives/derivatives';
 import {
   ExchangeGetIDParams,
@@ -236,6 +238,18 @@ export class Coingecko {
     this.maxRetries = options.maxRetries ?? 2;
     this.fetch = options.fetch ?? Shims.getDefaultFetch();
     this.#encoder = Opts.FallbackEncoder;
+
+    const customHeadersEnv = readEnv('COINGECKO_CUSTOM_HEADERS');
+    if (customHeadersEnv) {
+      const parsed: Record<string, string> = {};
+      for (const line of customHeadersEnv.split('\n')) {
+        const colon = line.indexOf(':');
+        if (colon >= 0) {
+          parsed[line.substring(0, colon).trim()] = line.substring(colon + 1).trim();
+        }
+      }
+      options.defaultHeaders = { ...parsed, ...options.defaultHeaders };
+    }
 
     this._options = options;
 
@@ -828,6 +842,7 @@ export class Coingecko {
   exchanges: API.Exchanges = new API.Exchanges(this);
   global: API.Global = new API.Global(this);
   key: API.Key = new API.Key(this);
+  news: API.News = new API.News(this);
   nfts: API.NFTs = new API.NFTs(this);
   onchain: API.Onchain = new API.Onchain(this);
   ping: API.Ping = new API.Ping(this);
@@ -845,6 +860,7 @@ Coingecko.ExchangeRates = ExchangeRates;
 Coingecko.Exchanges = Exchanges;
 Coingecko.Global = Global;
 Coingecko.Key = Key;
+Coingecko.News = News;
 Coingecko.NFTs = NFTs;
 Coingecko.Onchain = Onchain;
 Coingecko.Ping = Ping;
@@ -864,6 +880,7 @@ export declare namespace Coingecko {
 
   export {
     Coins as Coins,
+    type DetailPlatformData as DetailPlatformData,
     type CoinGetIDResponse as CoinGetIDResponse,
     type CoinGetIDParams as CoinGetIDParams,
   };
@@ -892,6 +909,8 @@ export declare namespace Coingecko {
 
   export { Key as Key, type KeyGetResponse as KeyGetResponse };
 
+  export { News as News, type NewsGetResponse as NewsGetResponse, type NewsGetParams as NewsGetParams };
+
   export {
     NFTs as NFTs,
     type NFTGetIDResponse as NFTGetIDResponse,
@@ -907,6 +926,7 @@ export declare namespace Coingecko {
 
   export {
     PublicTreasury as PublicTreasury,
+    type TreasuryEntity as TreasuryEntity,
     type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
     type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,

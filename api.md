@@ -12,6 +12,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/coins/coins.ts">DetailPlatformData</a></code>
 - <code><a href="./src/resources/coins/coins.ts">CoinGetIDResponse</a></code>
 
 Methods:
@@ -272,6 +273,16 @@ Methods:
 
 - <code title="get /key">client.key.<a href="./src/resources/key.ts">get</a>() -> KeyGetResponse</code>
 
+# News
+
+Types:
+
+- <code><a href="./src/resources/news.ts">NewsGetResponse</a></code>
+
+Methods:
+
+- <code title="get /news">client.news.<a href="./src/resources/news.ts">get</a>({ ...params }) -> NewsGetResponse</code>
+
 # NFTs
 
 Types:
@@ -390,6 +401,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolData</a></code>
 - <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolGetResponse</a></code>
 - <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolGetAddressResponse</a></code>
 
@@ -602,6 +614,7 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/public-treasury.ts">TreasuryEntity</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetEntityIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetHoldingChartResponse</a></code>

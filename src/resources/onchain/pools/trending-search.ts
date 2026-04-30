@@ -46,7 +46,7 @@ export namespace TrendingSearchGetResponse {
 
       fdv_usd?: string;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 

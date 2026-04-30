@@ -95,7 +95,7 @@ export interface NFTGetIDResponse {
   /**
    * NFT collection banner image url
    */
-  banner_image?: NFTGetIDResponse.BannerImage;
+  banner_image?: string;
 
   /**
    * NFT collection contract address
@@ -172,7 +172,7 @@ export interface NFTGetIDResponse {
   /**
    * coin market cap rank
    */
-  market_cap_rank?: number;
+  market_cap_rank?: number | null;
 
   /**
    * NFT collection name
@@ -202,7 +202,7 @@ export interface NFTGetIDResponse {
   /**
    * NFT collection one day average sale price
    */
-  one_day_average_sale_price?: number;
+  one_day_average_sale_price?: number | null;
 
   /**
    * NFT collection one day average sale price 24 hours percentage change
@@ -212,7 +212,7 @@ export interface NFTGetIDResponse {
   /**
    * NFT collection one day sales
    */
-  one_day_sales?: number;
+  one_day_sales?: number | null;
 
   /**
    * NFT collection one day sales 24 hours percentage change
@@ -248,6 +248,11 @@ export interface NFTGetIDResponse {
    * NFT collection volume in usd 24 hours percentage change
    */
   volume_in_usd_24h_percentage_change?: number;
+
+  /**
+   * NFT collection web slug
+   */
+  web_slug?: string;
 }
 
 export namespace NFTGetIDResponse {
@@ -276,13 +281,6 @@ export namespace NFTGetIDResponse {
     native_currency?: string;
 
     usd?: string;
-  }
-
-  /**
-   * NFT collection banner image url
-   */
-  export interface BannerImage {
-    small?: string;
   }
 
   export interface Explorer {
@@ -408,31 +406,35 @@ export namespace NFTGetIDResponse {
   }
 }
 
-export interface NFTGetListResponse {
-  /**
-   * NFT collection ID
-   */
-  id?: string;
+export type NFTGetListResponse = Array<NFTGetListResponse.NFTGetListResponseItem>;
 
-  /**
-   * NFT collection asset platform ID
-   */
-  asset_platform_id?: string;
+export namespace NFTGetListResponse {
+  export interface NFTGetListResponseItem {
+    /**
+     * NFT collection ID
+     */
+    id?: string;
 
-  /**
-   * NFT collection contract address
-   */
-  contract_address?: string;
+    /**
+     * NFT collection asset platform ID
+     */
+    asset_platform_id?: string;
 
-  /**
-   * NFT collection name
-   */
-  name?: string;
+    /**
+     * NFT collection contract address
+     */
+    contract_address?: string;
 
-  /**
-   * NFT collection symbol
-   */
-  symbol?: string;
+    /**
+     * NFT collection name
+     */
+    name?: string;
+
+    /**
+     * NFT collection symbol
+     */
+    symbol?: string;
+  }
 }
 
 export type NFTGetMarketsResponse = Array<NFTGetMarketsResponse.NFTGetMarketsResponseItem>;
@@ -452,12 +454,12 @@ export namespace NFTGetMarketsResponse {
     /**
      * NFT collection contract address
      */
-    contract_address?: string;
+    contract_address?: string | null;
 
     /**
      * NFT collection description
      */
-    description?: string;
+    description?: string | null;
 
     /**
      * NFT collection floor price
@@ -512,7 +514,7 @@ export namespace NFTGetMarketsResponse {
     /**
      * number of unique address owning the NFTs
      */
-    number_of_unique_addresses?: number;
+    number_of_unique_addresses?: number | null;
 
     /**
      * number of unique address owning the NFTs 24 hours percentage change
@@ -522,7 +524,7 @@ export namespace NFTGetMarketsResponse {
     /**
      * NFT collection one day average sale price
      */
-    one_day_average_sale_price?: number;
+    one_day_average_sale_price?: number | null;
 
     /**
      * NFT collection one day average sale price 24 hours percentage change
@@ -532,7 +534,7 @@ export namespace NFTGetMarketsResponse {
     /**
      * NFT collection one day sales
      */
-    one_day_sales?: number;
+    one_day_sales?: number | null;
 
     /**
      * NFT collection one day sales 24 hours percentage change
@@ -547,7 +549,7 @@ export namespace NFTGetMarketsResponse {
     /**
      * NFT collection total supply
      */
-    total_supply?: number;
+    total_supply?: number | null;
 
     /**
      * NFT collection volume in 24 hours

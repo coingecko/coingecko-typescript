@@ -58,27 +58,27 @@ export namespace TopHolderGetResponse {
 
         amount?: string;
 
-        average_buy_price_usd?: string;
+        average_buy_price_usd?: string | null;
 
         explorer_url?: string;
 
-        label?: string;
+        label?: string | null;
 
         percentage?: string;
 
         rank?: number;
 
-        realized_pnl_percentage?: string;
+        realized_pnl_percentage?: string | null;
 
-        realized_pnl_usd?: string;
+        realized_pnl_usd?: string | null;
 
-        total_buy_count?: number;
+        total_buy_count?: number | null;
 
-        total_sell_count?: number;
+        total_sell_count?: number | null;
 
-        unrealized_pnl_percentage?: string;
+        unrealized_pnl_percentage?: string | null;
 
-        unrealized_pnl_usd?: string;
+        unrealized_pnl_usd?: string | null;
 
         value?: string;
       }

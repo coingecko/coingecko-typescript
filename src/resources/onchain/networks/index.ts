@@ -17,6 +17,7 @@ export {
 } from './new-pools';
 export {
   Pools,
+  type PoolData,
   type PoolGetResponse,
   type PoolGetAddressResponse,
   type PoolGetParams,

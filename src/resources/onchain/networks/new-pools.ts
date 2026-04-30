@@ -63,17 +63,17 @@ export namespace NewPoolGetResponse {
     export interface Attributes {
       address?: string;
 
-      base_token_price_native_currency?: string;
+      base_token_price_native_currency?: string | null;
 
-      base_token_price_quote_token?: string;
+      base_token_price_quote_token?: string | null;
 
       base_token_price_usd?: string;
 
       community_sus_report?: number;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 
@@ -81,9 +81,9 @@ export namespace NewPoolGetResponse {
 
       price_change_percentage?: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      quote_token_price_base_token?: string | null;
 
-      quote_token_price_native_currency?: string;
+      quote_token_price_native_currency?: string | null;
 
       quote_token_price_usd?: string;
 
@@ -118,6 +118,8 @@ export namespace NewPoolGetResponse {
 
         h24?: Transactions.H24;
 
+        h6?: Transactions.H6;
+
         m15?: Transactions.M15;
 
         m30?: Transactions.M30;
@@ -137,6 +139,16 @@ export namespace NewPoolGetResponse {
         }
 
         export interface H24 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H6 {
           buyers?: number;
 
           buys?: number;
@@ -197,6 +209,8 @@ export namespace NewPoolGetResponse {
 
       dex?: Relationships.Dex;
 
+      network?: Relationships.Network;
+
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -218,6 +232,18 @@ export namespace NewPoolGetResponse {
       }
 
       export namespace Dex {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface Network {
+        data?: Network.Data;
+      }
+
+      export namespace Network {
         export interface Data {
           id?: string;
 
@@ -285,17 +311,17 @@ export namespace NewPoolGetNetworkResponse {
     export interface Attributes {
       address?: string;
 
-      base_token_price_native_currency?: string;
+      base_token_price_native_currency?: string | null;
 
-      base_token_price_quote_token?: string;
+      base_token_price_quote_token?: string | null;
 
       base_token_price_usd?: string;
 
       community_sus_report?: number;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 
@@ -303,9 +329,9 @@ export namespace NewPoolGetNetworkResponse {
 
       price_change_percentage?: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      quote_token_price_base_token?: string | null;
 
-      quote_token_price_native_currency?: string;
+      quote_token_price_native_currency?: string | null;
 
       quote_token_price_usd?: string;
 
@@ -340,6 +366,8 @@ export namespace NewPoolGetNetworkResponse {
 
         h24?: Transactions.H24;
 
+        h6?: Transactions.H6;
+
         m15?: Transactions.M15;
 
         m30?: Transactions.M30;
@@ -359,6 +387,16 @@ export namespace NewPoolGetNetworkResponse {
         }
 
         export interface H24 {
+          buyers?: number;
+
+          buys?: number;
+
+          sellers?: number;
+
+          sells?: number;
+        }
+
+        export interface H6 {
           buyers?: number;
 
           buys?: number;
@@ -419,6 +457,8 @@ export namespace NewPoolGetNetworkResponse {
 
       dex?: Relationships.Dex;
 
+      network?: Relationships.Network;
+
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -440,6 +480,18 @@ export namespace NewPoolGetNetworkResponse {
       }
 
       export namespace Dex {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface Network {
+        data?: Network.Data;
+      }
+
+      export namespace Network {
         export interface Data {
           id?: string;
 

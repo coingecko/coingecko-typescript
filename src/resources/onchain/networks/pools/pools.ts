@@ -59,6 +59,264 @@ export class Pools extends APIResource {
   }
 }
 
+export interface PoolData {
+  id?: string;
+
+  attributes?: PoolData.Attributes;
+
+  relationships?: PoolData.Relationships;
+
+  type?: string;
+}
+
+export namespace PoolData {
+  export interface Attributes {
+    address?: string;
+
+    base_token_balance?: string;
+
+    base_token_liquidity_usd?: string;
+
+    base_token_price_native_currency?: string;
+
+    base_token_price_quote_token?: string;
+
+    base_token_price_usd?: string;
+
+    buy_volume_usd?: Attributes.BuyVolumeUsd;
+
+    fdv_usd?: string | null;
+
+    locked_liquidity_percentage?: string | null;
+
+    market_cap_usd?: string | null;
+
+    name?: string;
+
+    net_buy_volume_usd?: Attributes.NetBuyVolumeUsd;
+
+    pool_created_at?: string;
+
+    pool_fee_percentage?: string | null;
+
+    pool_name?: string;
+
+    price_change_percentage?: Attributes.PriceChangePercentage;
+
+    quote_token_balance?: string;
+
+    quote_token_liquidity_usd?: string;
+
+    quote_token_price_base_token?: string;
+
+    quote_token_price_native_currency?: string;
+
+    quote_token_price_usd?: string;
+
+    reserve_in_usd?: string;
+
+    sell_volume_usd?: Attributes.SellVolumeUsd;
+
+    transactions?: Attributes.Transactions;
+
+    volume_usd?: Attributes.VolumeUsd;
+  }
+
+  export namespace Attributes {
+    export interface BuyVolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    export interface NetBuyVolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    export interface PriceChangePercentage {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    export interface SellVolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    export interface Transactions {
+      h1?: Transactions.H1;
+
+      h24?: Transactions.H24;
+
+      h6?: Transactions.H6;
+
+      m15?: Transactions.M15;
+
+      m30?: Transactions.M30;
+
+      m5?: Transactions.M5;
+    }
+
+    export namespace Transactions {
+      export interface H1 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+
+      export interface H24 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+
+      export interface H6 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+
+      export interface M15 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+
+      export interface M30 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+
+      export interface M5 {
+        buyers?: number;
+
+        buys?: number;
+
+        sellers?: number;
+
+        sells?: number;
+      }
+    }
+
+    export interface VolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+  }
+
+  export interface Relationships {
+    base_token?: Relationships.BaseToken;
+
+    dex?: Relationships.Dex;
+
+    quote_token?: Relationships.QuoteToken;
+  }
+
+  export namespace Relationships {
+    export interface BaseToken {
+      data?: BaseToken.Data;
+    }
+
+    export namespace BaseToken {
+      export interface Data {
+        id?: string;
+
+        type?: string;
+      }
+    }
+
+    export interface Dex {
+      data?: Dex.Data;
+    }
+
+    export namespace Dex {
+      export interface Data {
+        id?: string;
+
+        type?: string;
+      }
+    }
+
+    export interface QuoteToken {
+      data?: QuoteToken.Data;
+    }
+
+    export namespace QuoteToken {
+      export interface Data {
+        id?: string;
+
+        type?: string;
+      }
+    }
+  }
+}
+
 export interface PoolGetResponse {
   data?: Array<PoolGetResponse.Data>;
 
@@ -80,17 +338,17 @@ export namespace PoolGetResponse {
     export interface Attributes {
       address?: string;
 
-      base_token_price_native_currency?: string;
+      base_token_price_native_currency?: string | null;
 
-      base_token_price_quote_token?: string;
+      base_token_price_quote_token?: string | null;
 
       base_token_price_usd?: string;
 
       community_sus_report?: number;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 
@@ -98,9 +356,9 @@ export namespace PoolGetResponse {
 
       price_change_percentage?: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      quote_token_price_base_token?: string | null;
 
-      quote_token_price_native_currency?: string;
+      quote_token_price_native_currency?: string | null;
 
       quote_token_price_usd?: string;
 
@@ -117,284 +375,6 @@ export namespace PoolGetResponse {
 
     export namespace Attributes {
       export interface PriceChangePercentage {
-        h1?: string;
-
-        h24?: string;
-
-        h6?: string;
-
-        m15?: string;
-
-        m30?: string;
-
-        m5?: string;
-      }
-
-      export interface Transactions {
-        h1?: Transactions.H1;
-
-        h24?: Transactions.H24;
-
-        m15?: Transactions.M15;
-
-        m30?: Transactions.M30;
-
-        m5?: Transactions.M5;
-      }
-
-      export namespace Transactions {
-        export interface H1 {
-          buyers?: number;
-
-          buys?: number;
-
-          sellers?: number;
-
-          sells?: number;
-        }
-
-        export interface H24 {
-          buyers?: number;
-
-          buys?: number;
-
-          sellers?: number;
-
-          sells?: number;
-        }
-
-        export interface M15 {
-          buyers?: number;
-
-          buys?: number;
-
-          sellers?: number;
-
-          sells?: number;
-        }
-
-        export interface M30 {
-          buyers?: number;
-
-          buys?: number;
-
-          sellers?: number;
-
-          sells?: number;
-        }
-
-        export interface M5 {
-          buyers?: number;
-
-          buys?: number;
-
-          sellers?: number;
-
-          sells?: number;
-        }
-      }
-
-      export interface VolumeUsd {
-        h1?: string;
-
-        h24?: string;
-
-        h6?: string;
-
-        m15?: string;
-
-        m30?: string;
-
-        m5?: string;
-      }
-    }
-
-    export interface Relationships {
-      base_token?: Relationships.BaseToken;
-
-      dex?: Relationships.Dex;
-
-      quote_token?: Relationships.QuoteToken;
-    }
-
-    export namespace Relationships {
-      export interface BaseToken {
-        data?: BaseToken.Data;
-      }
-
-      export namespace BaseToken {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-
-      export interface Dex {
-        data?: Dex.Data;
-      }
-
-      export namespace Dex {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-
-      export interface QuoteToken {
-        data?: QuoteToken.Data;
-      }
-
-      export namespace QuoteToken {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-    }
-  }
-
-  export interface Included {
-    id?: string;
-
-    attributes?: Included.Attributes;
-
-    type?: string;
-  }
-
-  export namespace Included {
-    export interface Attributes {
-      address?: string;
-
-      coingecko_coin_id?: string;
-
-      decimals?: number;
-
-      image_url?: string;
-
-      name?: string;
-
-      symbol?: string;
-    }
-  }
-}
-
-export interface PoolGetAddressResponse {
-  data?: PoolGetAddressResponse.Data;
-
-  included?: Array<PoolGetAddressResponse.Included>;
-}
-
-export namespace PoolGetAddressResponse {
-  export interface Data {
-    id?: string;
-
-    attributes?: Data.Attributes;
-
-    relationships?: Data.Relationships;
-
-    type?: string;
-  }
-
-  export namespace Data {
-    export interface Attributes {
-      address?: string;
-
-      base_token_balance?: string;
-
-      base_token_liquidity_usd?: string;
-
-      base_token_price_native_currency?: string;
-
-      base_token_price_quote_token?: string;
-
-      base_token_price_usd?: string;
-
-      buy_volume_usd?: Attributes.BuyVolumeUsd;
-
-      fdv_usd?: string;
-
-      locked_liquidity_percentage?: string;
-
-      market_cap_usd?: string;
-
-      name?: string;
-
-      net_buy_volume_usd?: Attributes.NetBuyVolumeUsd;
-
-      pool_created_at?: string;
-
-      pool_fee_percentage?: string;
-
-      pool_name?: string;
-
-      price_change_percentage?: Attributes.PriceChangePercentage;
-
-      quote_token_balance?: string;
-
-      quote_token_liquidity_usd?: string;
-
-      quote_token_price_base_token?: string;
-
-      quote_token_price_native_currency?: string;
-
-      quote_token_price_usd?: string;
-
-      reserve_in_usd?: string;
-
-      sell_volume_usd?: Attributes.SellVolumeUsd;
-
-      transactions?: Attributes.Transactions;
-
-      volume_usd?: Attributes.VolumeUsd;
-    }
-
-    export namespace Attributes {
-      export interface BuyVolumeUsd {
-        h1?: string;
-
-        h24?: string;
-
-        h6?: string;
-
-        m15?: string;
-
-        m30?: string;
-
-        m5?: string;
-      }
-
-      export interface NetBuyVolumeUsd {
-        h1?: string;
-
-        h24?: string;
-
-        h6?: string;
-
-        m15?: string;
-
-        m30?: string;
-
-        m5?: string;
-      }
-
-      export interface PriceChangePercentage {
-        h1?: string;
-
-        h24?: string;
-
-        h6?: string;
-
-        m15?: string;
-
-        m30?: string;
-
-        m5?: string;
-      }
-
-      export interface SellVolumeUsd {
         h1?: string;
 
         h24?: string;
@@ -504,6 +484,8 @@ export namespace PoolGetAddressResponse {
 
       dex?: Relationships.Dex;
 
+      network?: Relationships.Network;
+
       quote_token?: Relationships.QuoteToken;
     }
 
@@ -532,6 +514,18 @@ export namespace PoolGetAddressResponse {
         }
       }
 
+      export interface Network {
+        data?: Network.Data;
+      }
+
+      export namespace Network {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
       export interface QuoteToken {
         data?: QuoteToken.Data;
       }
@@ -546,6 +540,38 @@ export namespace PoolGetAddressResponse {
     }
   }
 
+  export interface Included {
+    id?: string;
+
+    attributes?: Included.Attributes;
+
+    type?: string;
+  }
+
+  export namespace Included {
+    export interface Attributes {
+      address?: string;
+
+      coingecko_coin_id?: string;
+
+      decimals?: number;
+
+      image_url?: string;
+
+      name?: string;
+
+      symbol?: string;
+    }
+  }
+}
+
+export interface PoolGetAddressResponse {
+  data?: PoolData;
+
+  included?: Array<PoolGetAddressResponse.Included>;
+}
+
+export namespace PoolGetAddressResponse {
   export interface Included {
     id?: string;
 
@@ -625,6 +651,7 @@ Pools.Trades = Trades;
 
 export declare namespace Pools {
   export {
+    type PoolData as PoolData,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
     type PoolGetParams as PoolGetParams,

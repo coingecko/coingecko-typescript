@@ -30,8 +30,8 @@ export class VolumeChart extends APIResource {
    * ```ts
    * const response =
    *   await client.exchanges.volumeChart.getRange('id', {
-   *     from: 0,
-   *     to: 0,
+   *     from: 1672531200,
+   *     to: 1675123200,
    *   });
    * ```
    */
@@ -44,9 +44,9 @@ export class VolumeChart extends APIResource {
   }
 }
 
-export type VolumeChartGetResponse = Array<Array<number>>;
+export type VolumeChartGetResponse = Array<Array<number | string>>;
 
-export type VolumeChartGetRangeResponse = Array<Array<number>>;
+export type VolumeChartGetRangeResponse = Array<Array<number | string>>;
 
 export interface VolumeChartGetParams {
   /**

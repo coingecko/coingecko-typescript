@@ -22,7 +22,7 @@ export class Derivatives extends APIResource {
    *
    * @example
    * ```ts
-   * const derivative = await client.derivatives.get();
+   * const derivatives = await client.derivatives.get();
    * ```
    */
   get(options?: RequestOptions): APIPromise<DerivativeGetResponse> {
@@ -30,73 +30,77 @@ export class Derivatives extends APIResource {
   }
 }
 
-export interface DerivativeGetResponse {
-  /**
-   * difference of derivative price and index price
-   */
-  basis?: number;
+export type DerivativeGetResponse = Array<DerivativeGetResponse.DerivativeGetResponseItem>;
 
-  /**
-   * derivative contract type
-   */
-  contract_type?: string;
+export namespace DerivativeGetResponse {
+  export interface DerivativeGetResponseItem {
+    /**
+     * difference of derivative price and index price
+     */
+    basis?: number;
 
-  expired_at?: string | null;
+    /**
+     * derivative contract type
+     */
+    contract_type?: string;
 
-  /**
-   * derivative funding rate
-   */
-  funding_rate?: number;
+    expired_at?: string | null;
 
-  /**
-   * derivative underlying asset price
-   */
-  index?: number;
+    /**
+     * derivative funding rate
+     */
+    funding_rate?: number;
 
-  /**
-   * derivative underlying asset
-   */
-  index_id?: string;
+    /**
+     * derivative underlying asset price
+     */
+    index?: number;
 
-  /**
-   * derivative last updated time
-   */
-  last_traded_at?: number;
+    /**
+     * derivative underlying asset
+     */
+    index_id?: string;
 
-  /**
-   * derivative market name
-   */
-  market?: string;
+    /**
+     * derivative last updated time
+     */
+    last_traded_at?: number;
 
-  /**
-   * derivative open interest
-   */
-  open_interest?: number;
+    /**
+     * derivative market name
+     */
+    market?: string;
 
-  /**
-   * derivative ticker price
-   */
-  price?: string;
+    /**
+     * derivative open interest
+     */
+    open_interest?: number;
 
-  /**
-   * derivative ticker price percentage change in 24 hours
-   */
-  price_percentage_change_24h?: number;
+    /**
+     * derivative ticker price
+     */
+    price?: string;
 
-  /**
-   * derivative bid ask spread
-   */
-  spread?: number;
+    /**
+     * derivative ticker price percentage change in 24 hours
+     */
+    price_percentage_change_24h?: number;
 
-  /**
-   * derivative ticker symbol
-   */
-  symbol?: string;
+    /**
+     * derivative bid ask spread
+     */
+    spread?: number;
 
-  /**
-   * derivative volume in 24 hours
-   */
-  volume_24h?: number;
+    /**
+     * derivative ticker symbol
+     */
+    symbol?: string;
+
+    /**
+     * derivative volume in 24 hours
+     */
+    volume_24h?: number;
+  }
 }
 
 Derivatives.Exchanges = Exchanges;

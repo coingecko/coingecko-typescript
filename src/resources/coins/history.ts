@@ -77,12 +77,12 @@ export namespace HistoryGetResponse {
     /**
      * coin facebook likes
      */
-    facebook_likes?: number;
+    facebook_likes?: number | null;
 
     /**
      * coin reddit accounts active 48h
      */
-    reddit_accounts_active_48h?: number;
+    reddit_accounts_active_48h?: number | null;
 
     /**
      * coin reddit average comments 48h
@@ -97,7 +97,7 @@ export namespace HistoryGetResponse {
     /**
      * coin reddit subscribers
      */
-    reddit_subscribers?: number;
+    reddit_subscribers?: number | null;
   }
 
   /**
@@ -232,12 +232,12 @@ export namespace HistoryGetResponse {
     /**
      * coin alexa rank
      */
-    alexa_rank?: number;
+    alexa_rank?: number | null;
 
     /**
      * coin bing matches
      */
-    bing_matches?: number;
+    bing_matches?: number | null;
   }
 }
 

@@ -53,19 +53,19 @@ export namespace MultiGetAddressesResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
       fdv_usd?: string;
 
-      image_url?: string;
+      image_url?: string | null;
 
       last_trade_timestamp?: number;
 
       launchpad_details?: Attributes.LaunchpadDetails;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 
@@ -143,7 +143,7 @@ export namespace MultiGetAddressesResponse {
 
       fdv_usd?: string;
 
-      market_cap_usd?: string;
+      market_cap_usd?: string | null;
 
       name?: string;
 

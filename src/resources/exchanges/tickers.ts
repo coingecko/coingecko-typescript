@@ -55,6 +55,11 @@ export namespace TickerGetResponse {
     coin_id?: string;
 
     /**
+     * coin market cap in usd
+     */
+    coin_mcap_usd?: number;
+
+    /**
      * coin ticker converted last price
      */
     converted_last?: Ticker.ConvertedLast;
@@ -170,22 +175,22 @@ export namespace TickerGetResponse {
       /**
        * exchange trading incentive
        */
-      has_trading_incentive: boolean;
+      has_trading_incentive?: boolean;
 
       /**
        * exchange identifier
        */
-      identifier: string;
-
-      /**
-       * exchange name
-       */
-      name: string;
+      identifier?: string;
 
       /**
        * exchange image url
        */
       logo?: string;
+
+      /**
+       * exchange name
+       */
+      name?: string;
     }
   }
 }
