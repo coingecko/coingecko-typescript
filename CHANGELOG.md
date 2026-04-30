@@ -1,5 +1,32 @@
 # Changelog
 
+## 5.0.0 (2026-04-30)
+
+Full Changelog: [v4.0.0...v5.0.0](https://github.com/coingecko/coingecko-typescript/compare/v4.0.0...v5.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* AIP updates; fix!: Pydantic response model
+
+### Features
+
+* AIP updates; fix!: Pydantic response model ([f7aa98b](https://github.com/coingecko/coingecko-typescript/commit/f7aa98be6512fec49a262f68dfe07b6f37dce630))
+* support setting headers via env ([c4bfb7b](https://github.com/coingecko/coingecko-typescript/commit/c4bfb7b0b30d30c71c1bdc9331af530fece6bfff))
+
+
+### Bug Fixes
+
+* Remove orphaned MCP tools ([2eefd83](https://github.com/coingecko/coingecko-typescript/commit/2eefd839db943c2c2dac4103b777dbb19c69d532))
+
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([718ec79](https://github.com/coingecko/coingecko-typescript/commit/718ec796efa7baf232427e5d434d5cbfc402508d))
+* **format:** run eslint and prettier separately ([f0272cc](https://github.com/coingecko/coingecko-typescript/commit/f0272cc9d663d42f4eeff18c6bb28d4cec108cf3))
+* **internal:** codegen related update ([1c00380](https://github.com/coingecko/coingecko-typescript/commit/1c00380824b566940a4b6358fdbd2ce78f405912))
+* **internal:** more robust bootstrap script ([17ef44c](https://github.com/coingecko/coingecko-typescript/commit/17ef44c3e3db95df23226e6d0934b2e3563b86af))
+* restructure docs search code ([753a1d8](https://github.com/coingecko/coingecko-typescript/commit/753a1d8b1d5c53d04c817fe6e14839b2268096a2))
+
 ## 4.0.0 (2026-04-17)
 
 Full Changelog: [v3.1.7...v4.0.0](https://github.com/coingecko/coingecko-typescript/compare/v3.1.7...v4.0.0)
