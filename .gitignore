@@ -11,3 +11,6 @@ dist-deno
 .eslintcache
 dist-bundle
 *.mcpb
+
+# Custom
+Makefile
