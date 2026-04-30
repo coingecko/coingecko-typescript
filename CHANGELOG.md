@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.1.1 (2026-04-30)
+
+Full Changelog: [v5.1.0...v5.1.1](https://github.com/coingecko/coingecko-typescript/compare/v5.1.0...v5.1.1)
+
+### Bug Fixes
+
+* Remove redundant tools/types ([1d6e22a](https://github.com/coingecko/coingecko-typescript/commit/1d6e22af0cb26a48bdf31d56e2381469939f1dcb))
+
 ## 5.1.0 (2026-04-30)
 
 Full Changelog: [v5.0.0...v5.1.0](https://github.com/coingecko/coingecko-typescript/compare/v5.0.0...v5.1.0)
