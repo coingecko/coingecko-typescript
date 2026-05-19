@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from '@coingecko/coingecko-typescript/internal/to-file';
 import { toFile } from '@coingecko/coingecko-typescript/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
