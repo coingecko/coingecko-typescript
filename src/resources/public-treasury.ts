@@ -59,15 +59,15 @@ export class PublicTreasury extends APIResource {
 }
 
 export type PublicTreasuryGetCoinIDResponse =
-  | PublicTreasuryGetCoinIDResponse.UnionMember0
-  | PublicTreasuryGetCoinIDResponse.UnionMember1;
+  | PublicTreasuryGetCoinIDResponse.CompanyTreasury
+  | PublicTreasuryGetCoinIDResponse.GovernmentTreasury;
 
 export namespace PublicTreasuryGetCoinIDResponse {
-  export interface UnionMember0 {
+  export interface CompanyTreasury {
     /**
      * List of companies holding crypto
      */
-    companies: Array<UnionMember0.Company>;
+    companies: Array<CompanyTreasury.Company>;
 
     /**
      * Market cap dominance percentage
@@ -85,7 +85,7 @@ export namespace PublicTreasuryGetCoinIDResponse {
     total_value_usd: number;
   }
 
-  export namespace UnionMember0 {
+  export namespace CompanyTreasury {
     export interface Company {
       /**
        * Country code
@@ -124,11 +124,11 @@ export namespace PublicTreasuryGetCoinIDResponse {
     }
   }
 
-  export interface UnionMember1 {
+  export interface GovernmentTreasury {
     /**
      * List of governments holding crypto
      */
-    governments: Array<UnionMember1.Government>;
+    governments: Array<GovernmentTreasury.Government>;
 
     /**
      * Market cap dominance percentage
@@ -146,7 +146,7 @@ export namespace PublicTreasuryGetCoinIDResponse {
     total_value_usd: number;
   }
 
-  export namespace UnionMember1 {
+  export namespace GovernmentTreasury {
     export interface Government {
       /**
        * Country code
