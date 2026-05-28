@@ -1,23 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../core/resource';
+import * as TokensAPI from './tokens';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
 export class Multi extends APIResource {
   /**
-   * This endpoint allows you to **query multiple tokens data based on the provided
-   * token contract addresses on a network**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.networks.tokens.multi.getAddresses(
-   *     'addresses',
-   *     { network: 'solana' },
-   *   );
-   * ```
+   * To query multiple tokens data based on the provided token contract addresses on
+   * a network
    */
   getAddresses(
     addresses: string,
@@ -33,90 +25,15 @@ export class Multi extends APIResource {
 }
 
 export interface MultiGetAddressesResponse {
-  data?: Array<MultiGetAddressesResponse.Data>;
+  data: Array<TokensAPI.TokenItem>;
 
+  /**
+   * Included top pool data, present when include=top_pools is specified
+   */
   included?: Array<MultiGetAddressesResponse.Included>;
 }
 
 export namespace MultiGetAddressesResponse {
-  export interface Data {
-    id?: string;
-
-    attributes?: Data.Attributes;
-
-    relationships?: Data.Relationships;
-
-    type?: string;
-  }
-
-  export namespace Data {
-    export interface Attributes {
-      address?: string;
-
-      coingecko_coin_id?: string | null;
-
-      decimals?: number;
-
-      fdv_usd?: string;
-
-      image_url?: string | null;
-
-      last_trade_timestamp?: number;
-
-      launchpad_details?: Attributes.LaunchpadDetails;
-
-      market_cap_usd?: string | null;
-
-      name?: string;
-
-      normalized_total_supply?: string;
-
-      price_usd?: string;
-
-      symbol?: string;
-
-      total_reserve_in_usd?: string;
-
-      total_supply?: string;
-
-      volume_usd?: Attributes.VolumeUsd;
-    }
-
-    export namespace Attributes {
-      export interface LaunchpadDetails {
-        completed?: boolean;
-
-        completed_at?: string | null;
-
-        graduation_percentage?: number;
-
-        migrated_destination_pool_address?: string | null;
-      }
-
-      export interface VolumeUsd {
-        h24?: string;
-      }
-    }
-
-    export interface Relationships {
-      top_pools?: Relationships.TopPools;
-    }
-
-    export namespace Relationships {
-      export interface TopPools {
-        data?: Array<TopPools.Data>;
-      }
-
-      export namespace TopPools {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-    }
-  }
-
   export interface Included {
     id?: string;
 
@@ -131,17 +48,13 @@ export namespace MultiGetAddressesResponse {
     export interface Attributes {
       address?: string;
 
-      base_token_balance?: string;
-
-      base_token_liquidity_usd?: string;
-
       base_token_price_native_currency?: string;
 
       base_token_price_quote_token?: string;
 
       base_token_price_usd?: string;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
       market_cap_usd?: string | null;
 
@@ -150,10 +63,6 @@ export namespace MultiGetAddressesResponse {
       pool_created_at?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
-
-      quote_token_balance?: string;
-
-      quote_token_liquidity_usd?: string;
 
       quote_token_price_base_token?: string;
 
@@ -324,23 +233,24 @@ export namespace MultiGetAddressesResponse {
 
 export interface MultiGetAddressesParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include
+   * Query param: Attributes to include.
    */
   include?: 'top_pools';
 
   /**
-   * Query param: include pool composition, default: false
+   * Query param: Include pool composition. Default: `false`
    */
   include_composition?: boolean;
 
   /**
-   * Query param: include tokens from inactive pools using the most recent swap,
-   * default: false
+   * Query param: Include tokens from inactive pools using the most recent swap.
+   * Default: `false`
    */
   include_inactive_source?: boolean;
 }

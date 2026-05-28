@@ -33,7 +33,7 @@ describe('resource categories', () => {
 
   // Mock server tests are disabled
   test.skip('getPools', async () => {
-    const responsePromise = client.onchain.categories.getPools('pump-fun');
+    const responsePromise = client.onchain.categories.getPools('category_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -48,7 +48,7 @@ describe('resource categories', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.categories.getPools(
-        'pump-fun',
+        'category_id',
         {
           include: 'include',
           page: 0,

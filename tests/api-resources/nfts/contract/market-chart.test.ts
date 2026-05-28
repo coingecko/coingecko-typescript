@@ -10,10 +10,10 @@ const client = new Coingecko({
 describe('resource marketChart', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.nfts.contract.marketChart.get(
-      '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
-      { asset_platform_id: 'ethereum', days: 'days' },
-    );
+    const responsePromise = client.nfts.contract.marketChart.get('contract_address', {
+      asset_platform_id: 'asset_platform_id',
+      days: 'days',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,9 +25,9 @@ describe('resource marketChart', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.nfts.contract.marketChart.get(
-      '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
-      { asset_platform_id: 'ethereum', days: 'days' },
-    );
+    const response = await client.nfts.contract.marketChart.get('contract_address', {
+      asset_platform_id: 'asset_platform_id',
+      days: 'days',
+    });
   });
 });

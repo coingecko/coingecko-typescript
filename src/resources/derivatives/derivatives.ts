@@ -17,13 +17,7 @@ export class Derivatives extends APIResource {
   exchanges: ExchangesAPI.Exchanges = new ExchangesAPI.Exchanges(this._client);
 
   /**
-   * This endpoint allows you to **query all the tickers from derivatives exchanges
-   * on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const derivatives = await client.derivatives.get();
-   * ```
+   * To query all the tickers from derivatives exchanges on CoinGecko
    */
   get(options?: RequestOptions): APIPromise<DerivativeGetResponse> {
     return this._client.get('/derivatives', options);
@@ -35,71 +29,74 @@ export type DerivativeGetResponse = Array<DerivativeGetResponse.DerivativeGetRes
 export namespace DerivativeGetResponse {
   export interface DerivativeGetResponseItem {
     /**
-     * difference of derivative price and index price
+     * Difference of derivative price and index price
      */
-    basis?: number;
+    basis: number;
 
     /**
-     * derivative contract type
+     * Derivative contract type
      */
-    contract_type?: string;
-
-    expired_at?: string | null;
+    contract_type: string;
 
     /**
-     * derivative funding rate
+     * Derivative expiry time in UNIX timestamp
      */
-    funding_rate?: number;
+    expired_at: number | null;
 
     /**
-     * derivative underlying asset price
+     * Derivative funding rate
      */
-    index?: number;
+    funding_rate: number;
 
     /**
-     * derivative underlying asset
+     * Derivative underlying asset price
      */
-    index_id?: string;
+    index: number;
 
     /**
-     * derivative last updated time
+     * Derivative underlying asset
      */
-    last_traded_at?: number;
+    index_id: string;
 
     /**
-     * derivative market name
+     * Derivative last traded time in UNIX timestamp
      */
-    market?: string;
+    last_traded_at: number;
 
     /**
-     * derivative open interest
+     * Derivative market name
      */
-    open_interest?: number;
+    market: string;
 
     /**
-     * derivative ticker price
+     * Derivative open interest
      */
-    price?: string;
+    open_interest: number;
 
     /**
-     * derivative ticker price percentage change in 24 hours
+     * Derivative ticker price
      */
-    price_percentage_change_24h?: number;
+    price: string;
 
     /**
-     * derivative bid ask spread
+     * Derivative ticker price percentage change in 24 hours
      */
-    spread?: number;
+    price_percentage_change_24h: number;
 
     /**
-     * derivative ticker symbol
+     * Derivative bid-ask spread
      */
-    symbol?: string;
+    spread: number;
 
     /**
-     * derivative volume in 24 hours
+     * Derivative ticker symbol
      */
-    volume_24h?: number;
+    symbol: string;
+
+    /**
+     * Derivative trading volume in 24 hours
+     */
+    volume_24h: number;
   }
 }
 

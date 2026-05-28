@@ -37,7 +37,7 @@ describe('resource exchanges', () => {
 
   // Mock server tests are disabled
   test.skip('getID', async () => {
-    const responsePromise = client.derivatives.exchanges.getID('binance_futures');
+    const responsePromise = client.derivatives.exchanges.getID('id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -52,7 +52,7 @@ describe('resource exchanges', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.derivatives.exchanges.getID(
-        'binance_futures',
+        'id',
         { include_tickers: 'all' },
         { path: '/_stainless_unknown_path' },
       ),

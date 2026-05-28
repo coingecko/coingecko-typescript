@@ -20,13 +20,8 @@ export class Exchanges extends APIResource {
   volumeChart: VolumeChartAPI.VolumeChart = new VolumeChartAPI.VolumeChart(this._client);
 
   /**
-   * This endpoint allows you to **query all the supported exchanges with exchanges'
-   * data (ID, name, country, ...) that have active trading volumes on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const exchanges = await client.exchanges.get();
-   * ```
+   * To query all the supported exchanges with exchanges' data (ID, name, country,
+   * etc.) that have active trading volumes on CoinGecko
    */
   get(
     query: ExchangeGetParams | null | undefined = {},
@@ -36,14 +31,8 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query exchange's data (name, year established,
-   * country, ...), exchange volume in BTC and top 100 tickers based on exchange's
-   * ID**
-   *
-   * @example
-   * ```ts
-   * const response = await client.exchanges.getID('binance');
-   * ```
+   * To query exchange's data (name, year established, country, etc.), exchange
+   * volume in BTC and top 100 tickers based on exchange's ID
    */
   getID(
     id: string,
@@ -54,12 +43,7 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query all the exchanges with ID and name**
-   *
-   * @example
-   * ```ts
-   * const response = await client.exchanges.getList();
-   * ```
+   * To query all the exchanges with ID and name
    */
   getList(
     query: ExchangeGetListParams | null | undefined = {},
@@ -74,201 +58,252 @@ export type ExchangeGetResponse = Array<ExchangeGetResponse.ExchangeGetResponseI
 export namespace ExchangeGetResponse {
   export interface ExchangeGetResponseItem {
     /**
-     * exchange ID
+     * Exchange ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * exchange country
+     * Country where the exchange is based
      */
-    country?: string | null;
+    country: string | null;
 
     /**
-     * exchange description
+     * Exchange description
      */
-    description?: string;
+    description: string;
 
     /**
-     * exchange trading incentive
+     * Whether the exchange has trading incentive
      */
-    has_trading_incentive?: boolean | null;
+    has_trading_incentive: boolean;
 
     /**
-     * exchange image URL
+     * Exchange logo URL
      */
-    image?: string;
+    image: string;
 
     /**
-     * exchange name
+     * Exchange name
      */
-    name?: string;
+    name: string;
 
     /**
-     * exchange trade volume in BTC in 24 hours
+     * Exchange 24h trading volume in BTC
      */
-    trade_volume_24h_btc?: number;
+    trade_volume_24h_btc: number;
 
     /**
-     * exchange trust score
+     * Exchange trust score
      */
-    trust_score?: number;
+    trust_score: number | null;
 
     /**
-     * exchange trust score rank
+     * Exchange trust score rank
      */
-    trust_score_rank?: number;
+    trust_score_rank: number | null;
 
     /**
-     * exchange website URL
+     * Exchange website URL
      */
-    url?: string;
+    url: string;
 
     /**
-     * exchange established year
+     * Year the exchange was established
      */
-    year_established?: number | null;
+    year_established: number | null;
   }
 }
 
 export interface ExchangeGetIDResponse {
   /**
-   * alert notice for exchange
+   * Alert notice
    */
-  alert_notice?: string | null;
+  alert_notice: string;
 
   /**
-   * exchange type (true for centralized, false for decentralized)
+   * Whether the exchange is centralized
    */
-  centralized?: boolean;
+  centralized: boolean;
 
   /**
-   * number of coins listed on the exchange
+   * Number of coins listed
    */
-  coins?: number;
+  coins: number;
 
   /**
-   * exchange incorporated country
+   * Country where the exchange is based
    */
-  country?: string | null;
+  country: string | null;
 
   /**
-   * exchange description
+   * Exchange description
    */
-  description?: string;
+  description: string;
 
   /**
-   * exchange facebook url
+   * Facebook URL
    */
-  facebook_url?: string | null;
+  facebook_url: string;
 
   /**
-   * exchange trading incentive
+   * Whether the exchange has trading incentive
    */
-  has_trading_incentive?: boolean | null;
+  has_trading_incentive: boolean;
 
   /**
-   * exchange image url
+   * Exchange logo URL
    */
-  image?: string;
+  image: string;
 
   /**
-   * exchange name
+   * Exchange name
    */
-  name?: string;
-
-  other_url_1?: string | null;
-
-  other_url_2?: string | null;
+  name: string;
 
   /**
-   * number of trading pairs on the exchange
+   * Other URL 1
    */
-  pairs?: number;
+  other_url_1: string;
 
   /**
-   * public notice for exchange
+   * Other URL 2
    */
-  public_notice?: string | null;
+  other_url_2: string;
 
   /**
-   * exchange reddit url
+   * Number of trading pairs
    */
-  reddit_url?: string | null;
+  pairs: number;
 
   /**
-   * exchange slack url
+   * Public notice
    */
-  slack_url?: string | null;
+  public_notice: string;
 
   /**
-   * exchange status updates
+   * Reddit URL
    */
-  status_updates?: Array<ExchangeGetIDResponse.StatusUpdate>;
+  reddit_url: string;
 
   /**
-   * exchange telegram url
+   * Slack URL
    */
-  telegram_url?: string | null;
-
-  tickers?: Array<ExchangeGetIDResponse.Ticker>;
-
-  trade_volume_24h_btc?: number;
+  slack_url: string;
 
   /**
-   * exchange trust score
+   * Status updates
    */
-  trust_score?: number;
+  status_updates: Array<ExchangeGetIDResponse.StatusUpdate>;
 
   /**
-   * exchange trust score rank
+   * Telegram URL
    */
-  trust_score_rank?: number;
+  telegram_url: string;
 
   /**
-   * exchange twitter handle
+   * Exchange tickers
    */
-  twitter_handle?: string | null;
+  tickers: Array<ExchangeGetIDResponse.Ticker>;
 
   /**
-   * exchange website url
+   * Exchange 24h trading volume in BTC
    */
-  url?: string;
+  trade_volume_24h_btc: number;
 
   /**
-   * exchange established year
+   * Exchange trust score
    */
-  year_established?: number | null;
+  trust_score: number | null;
+
+  /**
+   * Exchange trust score rank
+   */
+  trust_score_rank: number | null;
+
+  /**
+   * Twitter handle
+   */
+  twitter_handle: string;
+
+  /**
+   * Exchange website URL
+   */
+  url: string;
+
+  /**
+   * Year the exchange was established
+   */
+  year_established: number | null;
 }
 
 export namespace ExchangeGetIDResponse {
   export interface StatusUpdate {
+    /**
+     * Status update category
+     */
     category?: string;
 
+    /**
+     * Status update creation time
+     */
     created_at?: string;
 
+    /**
+     * Status update description
+     */
     description?: string;
 
+    /**
+     * Whether status update is pinned
+     */
     pin?: boolean;
 
+    /**
+     * Project information
+     */
     project?: StatusUpdate.Project;
 
+    /**
+     * Status update user
+     */
     user?: string;
 
+    /**
+     * Status update user title
+     */
     user_title?: string;
   }
 
   export namespace StatusUpdate {
+    /**
+     * Project information
+     */
     export interface Project {
+      /**
+       * Project ID
+       */
       id?: string;
 
+      /**
+       * Project image URLs
+       */
       image?: Project.Image;
 
+      /**
+       * Project name
+       */
       name?: string;
 
+      /**
+       * Project type
+       */
       type?: string;
     }
 
     export namespace Project {
+      /**
+       * Project image URLs
+       */
       export interface Image {
         large?: string;
 
@@ -281,171 +316,142 @@ export namespace ExchangeGetIDResponse {
 
   export interface Ticker {
     /**
-     * coin name
+     * Ticker base currency
      */
-    name?: string;
+    base?: string;
 
     /**
-     * list of tickers
+     * Bid-ask spread percentage
      */
-    tickers?: Array<Ticker.Ticker>;
+    bid_ask_spread_percentage?: number;
+
+    /**
+     * Base currency coin ID
+     */
+    coin_id?: string;
+
+    /**
+     * Coin market cap in USD
+     */
+    coin_mcap_usd?: number;
+
+    /**
+     * Converted last price
+     */
+    converted_last?: Ticker.ConvertedLast;
+
+    /**
+     * Converted trading volume
+     */
+    converted_volume?: Ticker.ConvertedVolume;
+
+    /**
+     * Whether ticker is anomalous
+     */
+    is_anomaly?: boolean;
+
+    /**
+     * Whether ticker is stale
+     */
+    is_stale?: boolean;
+
+    /**
+     * Last price
+     */
+    last?: number;
+
+    /**
+     * Last fetch timestamp
+     */
+    last_fetch_at?: string;
+
+    /**
+     * Last traded timestamp
+     */
+    last_traded_at?: string;
+
+    /**
+     * Exchange information
+     */
+    market?: Ticker.Market;
+
+    /**
+     * Ticker target currency
+     */
+    target?: string;
+
+    /**
+     * Target currency coin ID
+     */
+    target_coin_id?: string;
+
+    /**
+     * Ticker timestamp
+     */
+    timestamp?: string;
+
+    /**
+     * Token info URL
+     */
+    token_info_url?: string | null;
+
+    /**
+     * Trade URL
+     */
+    trade_url?: string;
+
+    /**
+     * Trust score
+     */
+    trust_score?: string | null;
+
+    /**
+     * Trading volume
+     */
+    volume?: number;
   }
 
   export namespace Ticker {
-    export interface Ticker {
-      /**
-       * coin ticker base currency
-       */
-      base?: string;
+    /**
+     * Converted last price
+     */
+    export interface ConvertedLast {
+      btc?: number;
 
-      /**
-       * coin ticker bid ask spread percentage
-       */
-      bid_ask_spread_percentage?: number;
+      eth?: number;
 
-      /**
-       * coin ticker base currency coin ID
-       */
-      coin_id?: string;
-
-      /**
-       * coin market cap in usd
-       */
-      coin_mcap_usd?: number;
-
-      /**
-       * coin ticker converted last price
-       */
-      converted_last?: Ticker.ConvertedLast;
-
-      /**
-       * coin ticker converted volume
-       */
-      converted_volume?: Ticker.ConvertedVolume;
-
-      /**
-       * coin ticker cost to move down in usd
-       */
-      cost_to_move_down_usd?: number;
-
-      /**
-       * coin ticker cost to move up in usd
-       */
-      cost_to_move_up_usd?: number;
-
-      /**
-       * coin ticker anomaly
-       */
-      is_anomaly?: boolean;
-
-      /**
-       * coin ticker stale
-       */
-      is_stale?: boolean;
-
-      /**
-       * coin ticker last price
-       */
-      last?: number;
-
-      /**
-       * coin ticker last fetch timestamp
-       */
-      last_fetch_at?: string;
-
-      /**
-       * coin ticker last traded timestamp
-       */
-      last_traded_at?: string;
-
-      /**
-       * coin ticker exchange
-       */
-      market?: Ticker.Market;
-
-      /**
-       * coin ticker target currency
-       */
-      target?: string;
-
-      /**
-       * coin ticker target currency coin ID
-       */
-      target_coin_id?: string;
-
-      /**
-       * coin ticker timestamp
-       */
-      timestamp?: string;
-
-      /**
-       * coin ticker token info url
-       */
-      token_info_url?: string | null;
-
-      /**
-       * coin ticker trade url
-       */
-      trade_url?: string;
-
-      /**
-       * coin ticker trust score
-       */
-      trust_score?: string | null;
-
-      /**
-       * coin ticker volume
-       */
-      volume?: number;
+      usd?: number;
     }
 
-    export namespace Ticker {
+    /**
+     * Converted trading volume
+     */
+    export interface ConvertedVolume {
+      btc?: number;
+
+      eth?: number;
+
+      usd?: number;
+    }
+
+    /**
+     * Exchange information
+     */
+    export interface Market {
       /**
-       * coin ticker converted last price
+       * Exchange trading incentive
        */
-      export interface ConvertedLast {
-        btc?: number;
-
-        eth?: number;
-
-        usd?: number;
-      }
-
-      /**
-       * coin ticker converted volume
-       */
-      export interface ConvertedVolume {
-        btc?: number;
-
-        eth?: number;
-
-        usd?: number;
-      }
+      has_trading_incentive?: boolean;
 
       /**
-       * coin ticker exchange
+       * Exchange identifier
        */
-      export interface Market {
-        /**
-         * exchange trading incentive
-         */
-        has_trading_incentive?: boolean;
+      identifier?: string;
 
-        /**
-         * exchange identifier
-         */
-        identifier?: string;
-
-        /**
-         * exchange image url
-         */
-        logo?: string;
-
-        /**
-         * exchange name
-         */
-        name?: string;
-      }
+      /**
+       * Exchange name
+       */
+      name?: string;
     }
   }
 }
@@ -455,32 +461,32 @@ export type ExchangeGetListResponse = Array<ExchangeGetListResponse.ExchangeGetL
 export namespace ExchangeGetListResponse {
   export interface ExchangeGetListResponseItem {
     /**
-     * exchange ID
+     * Exchange ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * exchange name
+     * Exchange name
      */
-    name?: string;
+    name: string;
   }
 }
 
 export interface ExchangeGetParams {
   /**
-   * page through results, default: 1
+   * Page through results. Default: 1
    */
   page?: number;
 
   /**
-   * total results per page, default: 100 Valid values: 1...250
+   * Total results per page. Default: 100. Valid values: 1...250
    */
   per_page?: number;
 }
 
 export interface ExchangeGetIDParams {
   /**
-   * set to `symbol` to display DEX pair base and target as symbols, default:
+   * Set to `symbol` to display DEX pair base and target as symbols. Default:
    * `contract_address`
    */
   dex_pair_format?: 'contract_address' | 'symbol';
@@ -488,7 +494,7 @@ export interface ExchangeGetIDParams {
 
 export interface ExchangeGetListParams {
   /**
-   * filter by status of exchanges, default: active
+   * Filter by status of exchanges. Default: `active`
    */
   status?: 'active' | 'inactive';
 }

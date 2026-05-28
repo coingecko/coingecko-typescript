@@ -7,14 +7,7 @@ import { path } from '../../internal/utils/path';
 
 export class Tickers extends APIResource {
   /**
-   * This endpoint allows you to **query exchange's tickers based on exchange's ID**
-   *
-   * @example
-   * ```ts
-   * const ticker = await client.exchanges.tickers.get(
-   *   'binance',
-   * );
-   * ```
+   * To query exchange's tickers based on exchange's ID
    */
   get(
     id: string,
@@ -27,127 +20,127 @@ export class Tickers extends APIResource {
 
 export interface TickerGetResponse {
   /**
-   * coin name
+   * Coin name
    */
-  name?: string;
+  name: string;
 
   /**
-   * list of tickers
+   * List of tickers
    */
-  tickers?: Array<TickerGetResponse.Ticker>;
+  tickers: Array<TickerGetResponse.Ticker>;
 }
 
 export namespace TickerGetResponse {
   export interface Ticker {
     /**
-     * coin ticker base currency
+     * Ticker base currency
      */
-    base?: string;
+    base: string;
 
     /**
-     * coin ticker bid ask spread percentage
+     * Bid-ask spread percentage
      */
-    bid_ask_spread_percentage?: number;
+    bid_ask_spread_percentage: number;
 
     /**
-     * coin ticker base currency coin ID
+     * Base currency coin ID
      */
-    coin_id?: string;
+    coin_id: string;
 
     /**
-     * coin market cap in usd
+     * Coin market cap in USD
      */
-    coin_mcap_usd?: number;
+    coin_mcap_usd: number;
 
     /**
-     * coin ticker converted last price
+     * Converted last price
      */
-    converted_last?: Ticker.ConvertedLast;
+    converted_last: Ticker.ConvertedLast;
 
     /**
-     * coin ticker converted volume
+     * Converted trading volume
      */
-    converted_volume?: Ticker.ConvertedVolume;
+    converted_volume: Ticker.ConvertedVolume;
 
     /**
-     * coin ticker cost to move down in usd
+     * Whether ticker is anomalous
+     */
+    is_anomaly: boolean;
+
+    /**
+     * Whether ticker is stale
+     */
+    is_stale: boolean;
+
+    /**
+     * Last price
+     */
+    last: number;
+
+    /**
+     * Last fetch timestamp
+     */
+    last_fetch_at: string;
+
+    /**
+     * Last traded timestamp
+     */
+    last_traded_at: string;
+
+    /**
+     * Exchange information
+     */
+    market: Ticker.Market;
+
+    /**
+     * Ticker target currency
+     */
+    target: string;
+
+    /**
+     * Target currency coin ID
+     */
+    target_coin_id: string;
+
+    /**
+     * Ticker timestamp
+     */
+    timestamp: string;
+
+    /**
+     * Token info URL
+     */
+    token_info_url: string | null;
+
+    /**
+     * Trade URL
+     */
+    trade_url: string;
+
+    /**
+     * Trust score
+     */
+    trust_score: string | null;
+
+    /**
+     * Trading volume
+     */
+    volume: number;
+
+    /**
+     * Cost to move price down by 2% in USD
      */
     cost_to_move_down_usd?: number;
 
     /**
-     * coin ticker cost to move up in usd
+     * Cost to move price up by 2% in USD
      */
     cost_to_move_up_usd?: number;
-
-    /**
-     * coin ticker anomaly
-     */
-    is_anomaly?: boolean;
-
-    /**
-     * coin ticker stale
-     */
-    is_stale?: boolean;
-
-    /**
-     * coin ticker last price
-     */
-    last?: number;
-
-    /**
-     * coin ticker last fetch timestamp
-     */
-    last_fetch_at?: string;
-
-    /**
-     * coin ticker last traded timestamp
-     */
-    last_traded_at?: string;
-
-    /**
-     * coin ticker exchange
-     */
-    market?: Ticker.Market;
-
-    /**
-     * coin ticker target currency
-     */
-    target?: string;
-
-    /**
-     * coin ticker target currency coin ID
-     */
-    target_coin_id?: string;
-
-    /**
-     * coin ticker timestamp
-     */
-    timestamp?: string;
-
-    /**
-     * coin ticker token info url
-     */
-    token_info_url?: string | null;
-
-    /**
-     * coin ticker trade url
-     */
-    trade_url?: string;
-
-    /**
-     * coin ticker trust score
-     */
-    trust_score?: string | null;
-
-    /**
-     * coin ticker volume
-     */
-    volume?: number;
   }
 
   export namespace Ticker {
     /**
-     * coin ticker converted last price
+     * Converted last price
      */
     export interface ConvertedLast {
       btc?: number;
@@ -158,7 +151,7 @@ export namespace TickerGetResponse {
     }
 
     /**
-     * coin ticker converted volume
+     * Converted trading volume
      */
     export interface ConvertedVolume {
       btc?: number;
@@ -169,26 +162,26 @@ export namespace TickerGetResponse {
     }
 
     /**
-     * coin ticker exchange
+     * Exchange information
      */
     export interface Market {
       /**
-       * exchange trading incentive
+       * Exchange trading incentive
        */
       has_trading_incentive?: boolean;
 
       /**
-       * exchange identifier
+       * Exchange identifier
        */
       identifier?: string;
 
       /**
-       * exchange image url
+       * Exchange logo URL
        */
       logo?: string;
 
       /**
-       * exchange name
+       * Exchange name
        */
       name?: string;
     }
@@ -197,30 +190,30 @@ export namespace TickerGetResponse {
 
 export interface TickerGetParams {
   /**
-   * filter tickers by coin IDs, comma-separated if querying more than 1 coin
+   * Filter tickers by coin IDs, comma-separated if querying more than 1 coin.
    * \*refers to [`/coins/list`](/reference/coins-list).
    */
   coin_ids?: string;
 
   /**
-   * include 2% orderbook depth (Example: cost_to_move_up_usd &
-   * cost_to_move_down_usd),default: false
+   * Include 2% orderbook depth (cost_to_move_up_usd and cost_to_move_down_usd).
+   * Default: false
    */
   depth?: boolean;
 
   /**
-   * set to `symbol` to display DEX pair base and target as symbols, default:
+   * Set to `symbol` to display DEX pair base and target as symbols. Default:
    * `contract_address`
    */
   dex_pair_format?: 'contract_address' | 'symbol';
 
   /**
-   * include exchange logo, default: false
+   * Include exchange logo. Default: false
    */
   include_exchange_logo?: boolean;
 
   /**
-   * use this to sort the order of responses, default: trust_score_desc
+   * Sort the order of responses. Default: `trust_score_desc`
    */
   order?:
     | 'market_cap_asc'
@@ -232,7 +225,7 @@ export interface TickerGetParams {
     | 'base_target';
 
   /**
-   * page through results
+   * Page through results.
    */
   page?: number;
 }

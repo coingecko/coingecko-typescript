@@ -7,16 +7,8 @@ import { path } from '../../internal/utils/path';
 
 export class TotalSupplyChart extends APIResource {
   /**
-   * This endpoint allows you to **query historical total supply of a coin by number
-   * of days away from now based on provided coin ID**
-   *
-   * @example
-   * ```ts
-   * const totalSupplyChart =
-   *   await client.coins.totalSupplyChart.get('bitcoin', {
-   *     days: 'days',
-   *   });
-   * ```
+   * To query historical total supply of a coin by number of days away from now based
+   * on provided coin ID
    */
   get(
     id: string,
@@ -27,17 +19,8 @@ export class TotalSupplyChart extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query historical total supply of a coin, within a
-   * range of timestamp based on the provided coin ID**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.coins.totalSupplyChart.getRange('bitcoin', {
-   *     from: 'from',
-   *     to: 'to',
-   *   });
-   * ```
+   * To query historical total supply of a coin, within a range of timestamp based on
+   * the provided coin ID
    */
   getRange(
     id: string,
@@ -49,35 +32,41 @@ export class TotalSupplyChart extends APIResource {
 }
 
 export interface TotalSupplyChartGetResponse {
-  total_supply?: Array<Array<number | string>>;
+  /**
+   * Total supply data points as [timestamp, supply] pairs
+   */
+  total_supply: Array<Array<number | string>>;
 }
 
 export interface TotalSupplyChartGetRangeResponse {
-  total_supply?: Array<Array<number | string>>;
+  /**
+   * Total supply data points as [timestamp, supply] pairs
+   */
+  total_supply: Array<Array<number | string>>;
 }
 
 export interface TotalSupplyChartGetParams {
   /**
-   * data up to number of days ago Valid values: any integer or `max`
+   * Data up to number of days ago. Valid values: any integer or `max`.
    */
   days: string;
 
   /**
-   * data interval
+   * Data interval.
    */
   interval?: 'daily';
 }
 
 export interface TotalSupplyChartGetRangeParams {
   /**
-   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   from: string;
 
   /**
-   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   to: string;
 }

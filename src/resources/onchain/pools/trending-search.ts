@@ -6,14 +6,7 @@ import { RequestOptions } from '../../../internal/request-options';
 
 export class TrendingSearch extends APIResource {
   /**
-   * This endpoint allows you to **query all the trending search pools across all
-   * networks on GeckoTerminal**
-   *
-   * @example
-   * ```ts
-   * const trendingSearch =
-   *   await client.onchain.pools.trendingSearch.get();
-   * ```
+   * To query all the trending search pools across all networks on GeckoTerminal
    */
   get(
     query: TrendingSearchGetParams | null | undefined = {},
@@ -24,47 +17,89 @@ export class TrendingSearch extends APIResource {
 }
 
 export interface TrendingSearchGetResponse {
-  data?: Array<TrendingSearchGetResponse.Data>;
+  data: Array<TrendingSearchGetResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<TrendingSearchGetResponse.Included>;
 }
 
 export namespace TrendingSearchGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      fdv_usd?: string;
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
 
-      market_cap_usd?: string | null;
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
 
-      name?: string;
+      /**
+       * Pool name
+       */
+      name: string;
 
-      pool_created_at?: string;
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
 
-      reserve_in_usd?: string;
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
 
-      trending_rank?: number;
+      /**
+       * Trending search rank (0-based)
+       */
+      trending_rank: number;
 
-      volume_usd?: Attributes.VolumeUsd;
+      /**
+       * Volume in USD
+       */
+      volume_usd: Attributes.VolumeUsd;
     }
 
     export namespace Attributes {
+      /**
+       * Volume in USD
+       */
       export interface VolumeUsd {
         h24?: string;
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
@@ -138,11 +173,13 @@ export namespace TrendingSearchGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_asset_platform_id?: string;
+
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -153,13 +190,13 @@ export namespace TrendingSearchGetResponse {
 
 export interface TrendingSearchGetParams {
   /**
-   * attributes to include, comma-separated if more than one to include Available
-   * values: `base_token`, `quote_token`, `dex`, `network`
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`, `network`
    */
   include?: string;
 
   /**
-   * number of pools to return, maximum 10 Default value: 4
+   * Number of pools to return, maximum 10. Default value: 4
    */
   pools?: number;
 }

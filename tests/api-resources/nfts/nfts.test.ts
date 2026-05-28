@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource nfts', () => {
   // Mock server tests are disabled
   test.skip('getID', async () => {
-    const responsePromise = client.nfts.getID('pudgy-penguins');
+    const responsePromise = client.nfts.getID('id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -65,7 +65,7 @@ describe('resource nfts', () => {
     await expect(
       client.nfts.getMarkets(
         {
-          asset_platform_id: 'ethereum',
+          asset_platform_id: 'asset_platform_id',
           order: 'h24_volume_native_asc',
           page: 0,
           per_page: 0,

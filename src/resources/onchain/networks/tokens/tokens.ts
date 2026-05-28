@@ -22,27 +22,18 @@ import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
 export class Tokens extends APIResource {
-  multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
-  info: InfoAPI.Info = new InfoAPI.Info(this._client);
-  topHolders: TopHoldersAPI.TopHolders = new TopHoldersAPI.TopHolders(this._client);
   holdersChart: HoldersChartAPI.HoldersChart = new HoldersChartAPI.HoldersChart(this._client);
+  info: InfoAPI.Info = new InfoAPI.Info(this._client);
+  multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
   ohlcv: OhlcvAPI.Ohlcv = new OhlcvAPI.Ohlcv(this._client);
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
-  trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
+  topHolders: TopHoldersAPI.TopHolders = new TopHoldersAPI.TopHolders(this._client);
   topTraders: TopTradersAPI.TopTraders = new TopTradersAPI.TopTraders(this._client);
+  trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
   /**
-   * This endpoint allows you to **query specific token data based on the provided
-   * token contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.networks.tokens.getAddress(
-   *     '0xdac17f958d2ee523a2206206994597c13d831ec7',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To query specific token data based on the provided token contract address on a
+   * network
    */
   getAddress(
     address: string,
@@ -54,79 +45,151 @@ export class Tokens extends APIResource {
   }
 }
 
-export interface TokenGetAddressResponse {
-  data?: TokenGetAddressResponse.Data;
+export interface TokenItem {
+  /**
+   * Token identifier
+   */
+  id: string;
 
+  attributes: TokenItem.Attributes;
+
+  relationships: TokenItem.Relationships;
+
+  /**
+   * Resource type
+   */
+  type: string;
+}
+
+export namespace TokenItem {
+  export interface Attributes {
+    /**
+     * Token contract address
+     */
+    address: string;
+
+    /**
+     * CoinGecko coin ID
+     */
+    coingecko_coin_id: string | null;
+
+    /**
+     * Token decimals
+     */
+    decimals: number;
+
+    /**
+     * Fully diluted valuation in USD
+     */
+    fdv_usd: string | null;
+
+    /**
+     * Token image URL
+     */
+    image_url: string | null;
+
+    /**
+     * Market cap in USD
+     */
+    market_cap_usd: string | null;
+
+    /**
+     * Token name
+     */
+    name: string;
+
+    /**
+     * Normalized token total supply
+     */
+    normalized_total_supply: string;
+
+    /**
+     * Token price in USD
+     */
+    price_usd: string | null;
+
+    /**
+     * Token symbol
+     */
+    symbol: string;
+
+    /**
+     * Total reserve in USD across all pools
+     */
+    total_reserve_in_usd: string;
+
+    /**
+     * Token total supply
+     */
+    total_supply: string;
+
+    /**
+     * Volume in USD
+     */
+    volume_usd: Attributes.VolumeUsd;
+
+    /**
+     * Last trade timestamp in UNIX
+     */
+    last_trade_timestamp?: string;
+
+    /**
+     * Launchpad details for pump-style tokens
+     */
+    launchpad_details?: Attributes.LaunchpadDetails;
+  }
+
+  export namespace Attributes {
+    /**
+     * Volume in USD
+     */
+    export interface VolumeUsd {
+      h24?: string;
+    }
+
+    /**
+     * Launchpad details for pump-style tokens
+     */
+    export interface LaunchpadDetails {
+      completed?: boolean;
+
+      completed_at?: string | null;
+
+      graduation_percentage?: number;
+
+      migrated_destination_pool_address?: string | null;
+    }
+  }
+
+  export interface Relationships {
+    top_pools?: Relationships.TopPools;
+  }
+
+  export namespace Relationships {
+    export interface TopPools {
+      data?: Array<TopPools.Data>;
+    }
+
+    export namespace TopPools {
+      export interface Data {
+        id?: string;
+
+        type?: string;
+      }
+    }
+  }
+}
+
+export interface TokenGetAddressResponse {
+  data: TokenItem;
+
+  /**
+   * Included top pool data, present when include=top_pools is specified
+   */
   included?: Array<TokenGetAddressResponse.Included>;
 }
 
 export namespace TokenGetAddressResponse {
-  export interface Data {
-    id?: string;
-
-    attributes?: Data.Attributes;
-
-    relationships?: Data.Relationships;
-
-    type?: string;
-  }
-
-  export namespace Data {
-    export interface Attributes {
-      address?: string;
-
-      coingecko_coin_id?: string;
-
-      decimals?: number;
-
-      fdv_usd?: string;
-
-      image_url?: string;
-
-      last_trade_timestamp?: number;
-
-      market_cap_usd?: string;
-
-      name?: string;
-
-      normalized_total_supply?: string;
-
-      price_usd?: string;
-
-      symbol?: string;
-
-      total_reserve_in_usd?: string;
-
-      total_supply?: string;
-
-      volume_usd?: Attributes.VolumeUsd;
-    }
-
-    export namespace Attributes {
-      export interface VolumeUsd {
-        h24?: string;
-      }
-    }
-
-    export interface Relationships {
-      top_pools?: Relationships.TopPools;
-    }
-
-    export namespace Relationships {
-      export interface TopPools {
-        data?: Array<TopPools.Data>;
-      }
-
-      export namespace TopPools {
-        export interface Data {
-          id?: string;
-
-          type?: string;
-        }
-      }
-    }
-  }
-
   export interface Included {
     id?: string;
 
@@ -141,29 +204,23 @@ export namespace TokenGetAddressResponse {
     export interface Attributes {
       address?: string;
 
-      base_token_balance?: string;
-
-      base_token_liquidity_usd?: string;
-
       base_token_price_native_currency?: string;
 
       base_token_price_quote_token?: string;
 
       base_token_price_usd?: string;
 
-      fdv_usd?: string;
+      fdv_usd?: string | null;
 
-      market_cap_usd?: string;
+      last_trade_timestamp?: string;
+
+      market_cap_usd?: string | null;
 
       name?: string;
 
       pool_created_at?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
-
-      quote_token_balance?: string;
-
-      quote_token_liquidity_usd?: string;
 
       quote_token_price_base_token?: string;
 
@@ -336,60 +393,56 @@ export namespace TokenGetAddressResponse {
 
 export interface TokenGetAddressParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include
+   * Query param: Attributes to include.
    */
   include?: 'top_pools';
 
   /**
-   * Query param: include pool composition, default: false
+   * Query param: Include pool composition. Default: `false`
    */
   include_composition?: boolean;
 
   /**
-   * Query param: include token data from inactive pools using the most recent swap,
-   * default: false
+   * Query param: Include token data from inactive pools using the most recent swap.
+   * Default: `false`
    */
   include_inactive_source?: boolean;
 }
 
-Tokens.Multi = Multi;
-Tokens.Info = Info;
-Tokens.TopHolders = TopHolders;
 Tokens.HoldersChart = HoldersChart;
+Tokens.Info = Info;
+Tokens.Multi = Multi;
 Tokens.Ohlcv = Ohlcv;
 Tokens.Pools = Pools;
-Tokens.Trades = Trades;
+Tokens.TopHolders = TopHolders;
 Tokens.TopTraders = TopTraders;
+Tokens.Trades = Trades;
 
 export declare namespace Tokens {
   export {
+    type TokenItem as TokenItem,
     type TokenGetAddressResponse as TokenGetAddressResponse,
     type TokenGetAddressParams as TokenGetAddressParams,
-  };
-
-  export {
-    Multi as Multi,
-    type MultiGetAddressesResponse as MultiGetAddressesResponse,
-    type MultiGetAddressesParams as MultiGetAddressesParams,
-  };
-
-  export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
-
-  export {
-    TopHolders as TopHolders,
-    type TopHolderGetResponse as TopHolderGetResponse,
-    type TopHolderGetParams as TopHolderGetParams,
   };
 
   export {
     HoldersChart as HoldersChart,
     type HoldersChartGetResponse as HoldersChartGetResponse,
     type HoldersChartGetParams as HoldersChartGetParams,
+  };
+
+  export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
+
+  export {
+    Multi as Multi,
+    type MultiGetAddressesResponse as MultiGetAddressesResponse,
+    type MultiGetAddressesParams as MultiGetAddressesParams,
   };
 
   export {
@@ -401,14 +454,20 @@ export declare namespace Tokens {
   export { Pools as Pools, type PoolGetResponse as PoolGetResponse, type PoolGetParams as PoolGetParams };
 
   export {
-    Trades as Trades,
-    type TradeGetResponse as TradeGetResponse,
-    type TradeGetParams as TradeGetParams,
+    TopHolders as TopHolders,
+    type TopHolderGetResponse as TopHolderGetResponse,
+    type TopHolderGetParams as TopHolderGetParams,
   };
 
   export {
     TopTraders as TopTraders,
     type TopTraderGetResponse as TopTraderGetResponse,
     type TopTraderGetParams as TopTraderGetParams,
+  };
+
+  export {
+    Trades as Trades,
+    type TradeGetResponse as TradeGetResponse,
+    type TradeGetParams as TradeGetParams,
   };
 }

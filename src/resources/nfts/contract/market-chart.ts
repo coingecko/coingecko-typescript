@@ -7,18 +7,9 @@ import { path } from '../../../internal/utils/path';
 
 export class MarketChart extends APIResource {
   /**
-   * This endpoint allows you **query historical market data of a NFT collection,
-   * including floor price, market cap, and 24hr volume, by number of days away from
-   * now based on the provided contract address**
-   *
-   * @example
-   * ```ts
-   * const marketChart =
-   *   await client.nfts.contract.marketChart.get(
-   *     '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
-   *     { asset_platform_id: 'ethereum', days: 'days' },
-   *   );
-   * ```
+   * To query historical market data of a NFT collection, including floor price,
+   * market cap, and 24hr volume, by number of days away from now based on the
+   * provided contract address
    */
   get(
     contractAddress: string,
@@ -35,45 +26,45 @@ export class MarketChart extends APIResource {
 
 export interface MarketChartGetResponse {
   /**
-   * NFT collection floor price in native currency
+   * NFT collection floor price in native currency as [timestamp, price] pairs
    */
-  floor_price_native?: Array<Array<number>>;
+  floor_price_native: Array<Array<number>>;
 
   /**
-   * NFT collection floor price in usd
+   * NFT collection floor price in USD as [timestamp, price] pairs
    */
-  floor_price_usd?: Array<Array<number>>;
+  floor_price_usd: Array<Array<number>>;
 
   /**
-   * NFT collection volume in 24 hours in native currency
+   * NFT collection 24h volume in native currency as [timestamp, volume] pairs
    */
-  h24_volume_native?: Array<Array<number>>;
+  h24_volume_native: Array<Array<number>>;
 
   /**
-   * NFT collection volume in 24 hours in usd
+   * NFT collection 24h volume in USD as [timestamp, volume] pairs
    */
-  h24_volume_usd?: Array<Array<number>>;
+  h24_volume_usd: Array<Array<number>>;
 
   /**
-   * NFT collection market cap in native currency
+   * NFT collection market cap in native currency as [timestamp, market_cap] pairs
    */
-  market_cap_native?: Array<Array<number>>;
+  market_cap_native: Array<Array<number>>;
 
   /**
-   * NFT collection market cap in usd
+   * NFT collection market cap in USD as [timestamp, market_cap] pairs
    */
-  market_cap_usd?: Array<Array<number>>;
+  market_cap_usd: Array<Array<number>>;
 }
 
 export interface MarketChartGetParams {
   /**
-   * Path param: asset platform ID \*refers to
-   * [`/asset_platforms`](/reference/asset-platforms-list)
+   * Path param: Asset platform ID. \*refers to
+   * [`/asset_platforms`](/reference/asset-platforms-list).
    */
   asset_platform_id: string;
 
   /**
-   * Query param: data up to number of days ago Valid values: any integer or max
+   * Query param: Data up to number of days ago. Valid values: any integer or `max`
    */
   days: string;
 }

@@ -22,6 +22,6 @@ describe('resource marketCapChart', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.global.marketCapChart.get({ days: '1', vs_currency: 'usd' });
+    const response = await client.global.marketCapChart.get({ days: '1', vs_currency: 'vs_currency' });
   });
 });

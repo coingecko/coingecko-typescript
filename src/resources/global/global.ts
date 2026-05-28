@@ -14,13 +14,8 @@ export class Global extends APIResource {
   marketCapChart: MarketCapChartAPI.MarketCapChart = new MarketCapChartAPI.MarketCapChart(this._client);
 
   /**
-   * This endpoint allows you **query cryptocurrency global data including active
-   * cryptocurrencies, markets, total crypto market cap and etc**
-   *
-   * @example
-   * ```ts
-   * const global = await client.global.get();
-   * ```
+   * To query cryptocurrency global data including active cryptocurrencies, markets,
+   * total crypto market cap and etc
    */
   get(options?: RequestOptions): APIPromise<GlobalGetResponse> {
     return this._client.get('/global', options);
@@ -28,91 +23,65 @@ export class Global extends APIResource {
 }
 
 export interface GlobalGetResponse {
-  data?: GlobalGetResponse.Data;
+  data: GlobalGetResponse.Data;
 }
 
 export namespace GlobalGetResponse {
   export interface Data {
     /**
-     * number of active cryptocurrencies
+     * Number of active cryptocurrencies
      */
-    active_cryptocurrencies?: number;
+    active_cryptocurrencies: number;
 
     /**
-     * number of ended icos
+     * Number of ended ICOs
      */
-    ended_icos?: number;
+    ended_icos: number;
 
     /**
-     * cryptocurrencies market cap change percentage in 24 hours in usd
+     * Market cap change percentage in 24 hours in USD
      */
-    market_cap_change_percentage_24h_usd?: number;
+    market_cap_change_percentage_24h_usd: number;
 
     /**
-     * cryptocurrencies market cap percentage
+     * Market cap percentage by coin
      */
-    market_cap_percentage?: Data.MarketCapPercentage;
+    market_cap_percentage: { [key: string]: number };
 
     /**
-     * number of exchanges
+     * Number of exchanges
      */
-    markets?: number;
+    markets: number;
 
     /**
-     * number of ongoing icos
+     * Number of ongoing ICOs
      */
-    ongoing_icos?: number;
+    ongoing_icos: number;
 
     /**
-     * cryptocurrencies total market cap
+     * Total cryptocurrency market cap by currency
      */
-    total_market_cap?: Data.TotalMarketCap;
+    total_market_cap: { [key: string]: number };
 
     /**
-     * cryptocurrencies total volume
+     * Total cryptocurrency volume by currency
      */
-    total_volume?: Data.TotalVolume;
+    total_volume: { [key: string]: number };
 
     /**
-     * number of upcoming icos
+     * Number of upcoming ICOs
      */
-    upcoming_icos?: number;
-
-    updated_at?: number;
+    upcoming_icos: number;
 
     /**
-     * cryptocurrencies volume change percentage in 24 hours in usd
+     * Last updated time in UNIX timestamp
      */
-    volume_change_percentage_24h_usd?: number;
-  }
-
-  export namespace Data {
-    /**
-     * cryptocurrencies market cap percentage
-     */
-    export interface MarketCapPercentage {
-      btc?: number;
-
-      eth?: number;
-    }
+    updated_at: number;
 
     /**
-     * cryptocurrencies total market cap
+     * Volume change percentage in 24 hours in USD
      */
-    export interface TotalMarketCap {
-      btc?: number;
-
-      eth?: number;
-    }
-
-    /**
-     * cryptocurrencies total volume
-     */
-    export interface TotalVolume {
-      btc?: number;
-
-      eth?: number;
-    }
+    volume_change_percentage_24h_usd: number;
   }
 }
 

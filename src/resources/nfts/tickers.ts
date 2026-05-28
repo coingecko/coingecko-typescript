@@ -7,15 +7,8 @@ import { path } from '../../internal/utils/path';
 
 export class Tickers extends APIResource {
   /**
-   * This endpoint allows you to **query the latest floor price and 24hr volume of a
-   * NFT collection, on each NFT marketplace, e.g. OpenSea and LooksRare**
-   *
-   * @example
-   * ```ts
-   * const ticker = await client.nfts.tickers.get(
-   *   'pudgy-penguins',
-   * );
-   * ```
+   * To query the latest floor price and 24hr volume of a NFT collection, on each NFT
+   * marketplace, e.g. OpenSea and Blur
    */
   get(id: string, options?: RequestOptions): APIPromise<TickerGetResponse> {
     return this._client.get(path`/nfts/${id}/tickers`, options);
@@ -23,7 +16,7 @@ export class Tickers extends APIResource {
 }
 
 export interface TickerGetResponse {
-  tickers?: Array<TickerGetResponse.Ticker>;
+  tickers: Array<TickerGetResponse.Ticker>;
 }
 
 export namespace TickerGetResponse {
@@ -31,47 +24,47 @@ export namespace TickerGetResponse {
     /**
      * NFT collection floor price in native currency
      */
-    floor_price_in_native_currency?: number;
+    floor_price_in_native_currency: number;
 
     /**
      * NFT collection volume in 24 hours in native currency
      */
-    h24_volume_in_native_currency?: number;
+    h24_volume_in_native_currency: number;
 
     /**
-     * NFT marketplace image url
+     * NFT marketplace image URL
      */
-    image?: string;
+    image: string;
 
     /**
      * NFT marketplace name
      */
-    name?: string;
+    name: string;
 
     /**
      * NFT collection native currency
      */
-    native_currency?: string;
+    native_currency: string;
 
     /**
      * NFT collection native currency symbol
      */
-    native_currency_symbol?: string;
+    native_currency_symbol: string;
 
     /**
-     * NFT collection url in the NFT marketplace
+     * NFT collection URL in the NFT marketplace
      */
-    nft_collection_url?: string;
+    nft_collection_url: string;
 
     /**
      * NFT marketplace ID
      */
-    nft_marketplace_id?: string;
+    nft_marketplace_id: string;
 
     /**
-     * last updated time
+     * Last updated time
      */
-    updated_at?: string;
+    updated_at: string;
   }
 }
 

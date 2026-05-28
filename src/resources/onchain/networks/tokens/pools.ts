@@ -7,16 +7,7 @@ import { path } from '../../../../internal/utils/path';
 
 export class Pools extends APIResource {
   /**
-   * This endpoint allows you to **query top pools based on the provided token
-   * contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const pool = await client.onchain.networks.tokens.pools.get(
-   *   '0xdac17f958d2ee523a2206206994597c13d831ec7',
-   *   { network: 'eth' },
-   * );
-   * ```
+   * To query top pools based on the provided token contract address on a network
    */
   get(tokenAddress: string, params: PoolGetParams, options?: RequestOptions): APIPromise<PoolGetResponse> {
     const { network, ...query } = params;
@@ -28,66 +19,136 @@ export class Pools extends APIResource {
 }
 
 export interface PoolGetResponse {
-  data?: Array<PoolGetResponse.Data>;
+  data: Array<PoolGetResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<PoolGetResponse.Included>;
 }
 
 export namespace PoolGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      base_token_price_native_currency?: string;
+      /**
+       * Base token price in native currency
+       */
+      base_token_price_native_currency: string | null;
 
-      base_token_price_quote_token?: string;
+      /**
+       * Base token price in quote token
+       */
+      base_token_price_quote_token: string | null;
 
-      base_token_price_usd?: string;
+      /**
+       * Base token price in USD
+       */
+      base_token_price_usd: string;
 
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
+
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
+
+      /**
+       * Pool name
+       */
+      name: string;
+
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
+
+      /**
+       * Price change percentage over various timeframes
+       */
+      price_change_percentage: Attributes.PriceChangePercentage;
+
+      /**
+       * Quote token price in base token
+       */
+      quote_token_price_base_token: string | null;
+
+      /**
+       * Quote token price in native currency
+       */
+      quote_token_price_native_currency: string | null;
+
+      /**
+       * Quote token price in USD
+       */
+      quote_token_price_usd: string;
+
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
+
+      /**
+       * Transaction counts over various timeframes
+       */
+      transactions: Attributes.Transactions;
+
+      /**
+       * Volume in USD over various timeframes
+       */
+      volume_usd: Attributes.VolumeUsd;
+
+      /**
+       * GeckoTerminal community suspicious reports count
+       */
       community_sus_report?: number;
 
-      fdv_usd?: string;
-
-      last_trade_timestamp?: number;
-
-      market_cap_usd?: string | null;
-
-      name?: string;
-
-      pool_created_at?: string;
-
-      price_change_percentage?: Attributes.PriceChangePercentage;
-
-      quote_token_price_base_token?: string;
-
-      quote_token_price_native_currency?: string;
-
-      quote_token_price_usd?: string;
-
-      reserve_in_usd?: string;
-
+      /**
+       * GeckoTerminal community negative sentiment vote percentage
+       */
       sentiment_vote_negative_percentage?: number;
 
+      /**
+       * GeckoTerminal community positive sentiment vote percentage
+       */
       sentiment_vote_positive_percentage?: number;
 
+      /**
+       * Price of the queried token in USD, present when querying pools by token address
+       */
       token_price_usd?: string;
-
-      transactions?: Attributes.Transactions;
-
-      volume_usd?: Attributes.VolumeUsd;
     }
 
     export namespace Attributes {
+      /**
+       * Price change percentage over various timeframes
+       */
       export interface PriceChangePercentage {
         h1?: string;
 
@@ -102,6 +163,9 @@ export namespace PoolGetResponse {
         m5?: string;
       }
 
+      /**
+       * Transaction counts over various timeframes
+       */
       export interface Transactions {
         h1?: Transactions.H1;
 
@@ -178,6 +242,9 @@ export namespace PoolGetResponse {
         }
       }
 
+      /**
+       * Volume in USD over various timeframes
+       */
       export interface VolumeUsd {
         h1?: string;
 
@@ -193,10 +260,15 @@ export namespace PoolGetResponse {
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
       dex?: Relationships.Dex;
+
+      network?: Relationships.Network;
 
       quote_token?: Relationships.QuoteToken;
     }
@@ -219,6 +291,18 @@ export namespace PoolGetResponse {
       }
 
       export namespace Dex {
+        export interface Data {
+          id?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface Network {
+        data?: Network.Data;
+      }
+
+      export namespace Network {
         export interface Data {
           id?: string;
 
@@ -252,11 +336,13 @@ export namespace PoolGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_asset_platform_id?: string;
+
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -267,36 +353,36 @@ export namespace PoolGetResponse {
 
 export interface PoolGetParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include, comma-separated if more than one to include
-   * Available values: `base_token`, `quote_token`, `dex`
+   * Query param: Attributes to include, comma-separated if more than one. Available
+   * values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
 
   /**
-   * Query param: include GeckoTerminal community data (Sentiment votes, Suspicious
-   * reports) Default value: false
+   * Query param: Include GeckoTerminal community data (sentiment votes, suspicious
+   * reports). Default: `false`
    */
   include_gt_community_data?: boolean;
 
   /**
-   * Query param: include tokens from inactive pools using the most recent swap,
-   * default: false
+   * Query param: Include tokens from inactive pools using the most recent swap.
+   * Default: `false`
    */
   include_inactive_source?: boolean;
 
   /**
-   * Query param: page through results Default value: 1
+   * Query param: Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * Query param: sort the pools by field Default value:
-   * h24_volume_usd_liquidity_desc
+   * Query param: Sort the pools by field. Default: `h24_volume_usd_liquidity_desc`
    */
   sort?: 'h24_volume_usd_liquidity_desc' | 'h24_tx_count_desc' | 'h24_volume_usd_desc';
 }

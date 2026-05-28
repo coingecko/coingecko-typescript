@@ -7,13 +7,7 @@ import { path } from '../../internal/utils/path';
 
 export class Categories extends APIResource {
   /**
-   * This endpoint allows you to **query all the supported categories on
-   * GeckoTerminal**
-   *
-   * @example
-   * ```ts
-   * const category = await client.onchain.categories.get();
-   * ```
+   * To query all the supported categories on GeckoTerminal
    */
   get(
     query: CategoryGetParams | null | undefined = {},
@@ -23,15 +17,7 @@ export class Categories extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query all the pools based on the provided category
-   * ID**
-   *
-   * @example
-   * ```ts
-   * const response = await client.onchain.categories.getPools(
-   *   'pump-fun',
-   * );
-   * ```
+   * To query all the pools based on the provided category ID
    */
   getPools(
     categoryID: string,
@@ -43,36 +29,66 @@ export class Categories extends APIResource {
 }
 
 export interface CategoryGetResponse {
-  data?: Array<CategoryGetResponse.Data>;
+  data: Array<CategoryGetResponse.Data>;
 }
 
 export namespace CategoryGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Category ID
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      description?: string;
+      /**
+       * Category description
+       */
+      description: string;
 
-      fdv_usd?: string;
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string;
 
-      h24_tx_count?: number;
+      /**
+       * 24hr transaction count
+       */
+      h24_tx_count: number;
 
-      h24_volume_usd?: string;
+      /**
+       * 24hr volume in USD
+       */
+      h24_volume_usd: string;
 
-      name?: string;
+      /**
+       * Category name
+       */
+      name: string;
 
-      reserve_in_usd?: string;
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string;
 
-      volume_change_percentage?: Attributes.VolumeChangePercentage;
+      /**
+       * Volume change percentage over various timeframes
+       */
+      volume_change_percentage: Attributes.VolumeChangePercentage;
     }
 
     export namespace Attributes {
+      /**
+       * Volume change percentage over various timeframes
+       */
       export interface VolumeChangePercentage {
         h1?: string;
 
@@ -87,56 +103,116 @@ export namespace CategoryGetResponse {
 }
 
 export interface CategoryGetPoolsResponse {
-  data?: Array<CategoryGetPoolsResponse.Data>;
+  data: Array<CategoryGetPoolsResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<CategoryGetPoolsResponse.Included>;
 }
 
 export namespace CategoryGetPoolsResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      base_token_price_native_currency?: string;
+      /**
+       * Base token price in native currency
+       */
+      base_token_price_native_currency: string | null;
 
-      base_token_price_quote_token?: string | null;
+      /**
+       * Base token price in quote token
+       */
+      base_token_price_quote_token: string | null;
 
-      base_token_price_usd?: string;
+      /**
+       * Base token price in USD
+       */
+      base_token_price_usd: string;
 
-      fdv_usd?: string | null;
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
 
-      h24_tx_count?: number;
+      /**
+       * 24hr transaction count
+       */
+      h24_tx_count: number;
 
-      h24_volume_usd?: string;
+      /**
+       * 24hr volume in USD
+       */
+      h24_volume_usd: string;
 
-      market_cap_usd?: string | null;
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
 
-      name?: string;
+      /**
+       * Pool name
+       */
+      name: string;
 
-      pool_created_at?: string;
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
 
-      price_change_percentage?: Attributes.PriceChangePercentage;
+      /**
+       * Price change percentage over various timeframes
+       */
+      price_change_percentage: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string | null;
+      /**
+       * Quote token price in base token
+       */
+      quote_token_price_base_token: string | null;
 
-      quote_token_price_native_currency?: string;
+      /**
+       * Quote token price in native currency
+       */
+      quote_token_price_native_currency: string | null;
 
-      quote_token_price_usd?: string;
+      /**
+       * Quote token price in USD
+       */
+      quote_token_price_usd: string;
 
-      reserve_in_usd?: string;
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
     }
 
     export namespace Attributes {
+      /**
+       * Price change percentage over various timeframes
+       */
       export interface PriceChangePercentage {
         h1?: string;
 
@@ -152,6 +228,9 @@ export namespace CategoryGetPoolsResponse {
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
@@ -225,11 +304,13 @@ export namespace CategoryGetPoolsResponse {
     export interface Attributes {
       address?: string;
 
+      coingecko_asset_platform_id?: string;
+
       coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -240,12 +321,12 @@ export namespace CategoryGetPoolsResponse {
 
 export interface CategoryGetParams {
   /**
-   * page through results Default value: `1`
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * sort the categories by field Default value: `h6_volume_percentage_desc`
+   * Sort the categories by field. Default: `h6_volume_percentage_desc`
    */
   sort?:
     | 'h1_volume_percentage_desc'
@@ -259,19 +340,18 @@ export interface CategoryGetParams {
 
 export interface CategoryGetPoolsParams {
   /**
-   * attributes to include, comma-separated if more than one to include Available
-   * values: `base_token`, `quote_token`, `dex`, `network`. Example: `base_token` or
-   * `base_token,dex`
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`, `network`
    */
   include?: string;
 
   /**
-   * page through results Default value: `1`
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * sort the pools by field Default value: `pool_created_at_desc`
+   * Sort the pools by field. Default: `pool_created_at_desc`
    */
   sort?:
     | 'm5_trending'

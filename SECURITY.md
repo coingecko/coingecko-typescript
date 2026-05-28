@@ -20,7 +20,7 @@ or products provided by Coingecko, please follow the respective company's securi
 
 ### Coingecko Terms and Policies
 
-Please contact eason.lim@coingecko.com for any questions or concerns regarding the security of our services.
+Please contact support@coingecko.com for any questions or concerns regarding the security of our services.
 
 ---
 

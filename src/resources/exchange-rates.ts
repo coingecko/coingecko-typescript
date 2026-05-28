@@ -6,12 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class ExchangeRates extends APIResource {
   /**
-   * This endpoint allows you to **query BTC exchange rates with other currencies**
-   *
-   * @example
-   * ```ts
-   * const exchangeRate = await client.exchangeRates.get();
-   * ```
+   * To query BTC exchange rates with other currencies
    */
   get(options?: RequestOptions): APIPromise<ExchangeRateGetResponse> {
     return this._client.get('/exchange_rates', options);
@@ -19,30 +14,33 @@ export class ExchangeRates extends APIResource {
 }
 
 export interface ExchangeRateGetResponse {
-  rates?: { [key: string]: ExchangeRateGetResponse.Rates };
+  /**
+   * Exchange rates keyed by currency code
+   */
+  rates: { [key: string]: ExchangeRateGetResponse.Rates };
 }
 
 export namespace ExchangeRateGetResponse {
   export interface Rates {
     /**
-     * name of the currency
+     * Currency name
      */
-    name?: string;
+    name: string;
 
     /**
-     * type of the currency
+     * Currency type: crypto, fiat, or commodity
      */
-    type?: string;
+    type: string;
 
     /**
-     * unit of the currency
+     * Currency unit symbol
      */
-    unit?: string;
+    unit: string;
 
     /**
-     * value of the currency
+     * Exchange rate value relative to BTC
      */
-    value?: number;
+    value: number;
   }
 }
 

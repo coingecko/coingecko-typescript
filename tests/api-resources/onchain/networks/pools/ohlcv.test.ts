@@ -11,8 +11,8 @@ describe('resource ohlcv', () => {
   // Mock server tests are disabled
   test.skip('getTimeframe: only required params', async () => {
     const responsePromise = client.onchain.networks.pools.ohlcv.getTimeframe('day', {
-      network: 'eth',
-      pool_address: '0x06da0fd433c1a5d7a4faa01111c044910a184553',
+      network: 'network',
+      pool_address: 'pool_address',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,8 +26,8 @@ describe('resource ohlcv', () => {
   // Mock server tests are disabled
   test.skip('getTimeframe: required and optional params', async () => {
     const response = await client.onchain.networks.pools.ohlcv.getTimeframe('day', {
-      network: 'eth',
-      pool_address: '0x06da0fd433c1a5d7a4faa01111c044910a184553',
+      network: 'network',
+      pool_address: 'pool_address',
       token: 'token',
       aggregate: 'aggregate',
       before_timestamp: 0,

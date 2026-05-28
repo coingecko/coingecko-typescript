@@ -7,15 +7,8 @@ import { path } from '../../internal/utils/path';
 
 export class History extends APIResource {
   /**
-   * This endpoint allows you to **query the historical data (price, market cap,
-   * 24hrs volume, ...) at a given date for a coin based on a particular coin ID**
-   *
-   * @example
-   * ```ts
-   * const history = await client.coins.history.get('bitcoin', {
-   *   date: 'date',
-   * });
-   * ```
+   * To query the historical data (price, market cap, 24hrs volume, etc.) at a given
+   * date for a coin based on a particular coin ID
    */
   get(id: string, query: HistoryGetParams, options?: RequestOptions): APIPromise<HistoryGetResponse> {
     return this._client.get(path`/coins/${id}/history`, { query, ...options });
@@ -24,218 +17,195 @@ export class History extends APIResource {
 
 export interface HistoryGetResponse {
   /**
-   * coin ID
+   * Coin ID
    */
-  id?: string;
+  id: string;
 
   /**
-   * coin community data
+   * Community engagement data
    */
-  community_data?: HistoryGetResponse.CommunityData;
+  community_data: HistoryGetResponse.CommunityData;
 
   /**
-   * coin developer data
+   * Developer activity data
    */
-  developer_data?: HistoryGetResponse.DeveloperData;
+  developer_data: HistoryGetResponse.DeveloperData;
 
   /**
-   * coin image url
+   * Coin image URLs
    */
-  image?: HistoryGetResponse.Image;
+  image: HistoryGetResponse.Image;
 
   /**
-   * coin localization
+   * Market data at the given date
+   */
+  market_data: HistoryGetResponse.MarketData;
+
+  /**
+   * Coin name
+   */
+  name: string;
+
+  /**
+   * Public interest statistics
+   */
+  public_interest_stats: HistoryGetResponse.PublicInterestStats;
+
+  /**
+   * Coin symbol
+   */
+  symbol: string;
+
+  /**
+   * Localized coin names keyed by locale code
    */
   localization?: { [key: string]: string };
-
-  /**
-   * coin market data
-   */
-  market_data?: HistoryGetResponse.MarketData;
-
-  /**
-   * coin name
-   */
-  name?: string;
-
-  /**
-   * coin public interest stats
-   */
-  public_interest_stats?: HistoryGetResponse.PublicInterestStats;
-
-  /**
-   * coin symbol
-   */
-  symbol?: string;
 }
 
 export namespace HistoryGetResponse {
   /**
-   * coin community data
+   * Community engagement data
    */
   export interface CommunityData {
     /**
-     * coin facebook likes
+     * Number of Facebook likes
      */
     facebook_likes?: number | null;
 
     /**
-     * coin reddit accounts active 48h
+     * Active Reddit accounts in 48 hours
      */
-    reddit_accounts_active_48h?: number | null;
+    reddit_accounts_active_48h?: number;
 
     /**
-     * coin reddit average comments 48h
+     * Average Reddit comments in 48 hours
      */
     reddit_average_comments_48h?: number;
 
     /**
-     * coin reddit average posts 48h
+     * Average Reddit posts in 48 hours
      */
     reddit_average_posts_48h?: number;
 
     /**
-     * coin reddit subscribers
+     * Number of Reddit subscribers
      */
     reddit_subscribers?: number | null;
   }
 
   /**
-   * coin developer data
+   * Developer activity data
    */
   export interface DeveloperData {
     /**
-     * coin repository closed issues
+     * Closed issues
      */
-    closed_issues?: number;
+    closed_issues?: number | null;
 
     /**
-     * coin code additions deletions 4 weeks
+     * Code additions and deletions in the last 4 weeks
      */
     code_additions_deletions_4_weeks?: DeveloperData.CodeAdditionsDeletions4Weeks;
 
     /**
-     * coin commit count 4 weeks
+     * Commit count in the last 4 weeks
      */
-    commit_count_4_weeks?: number;
+    commit_count_4_weeks?: number | null;
 
     /**
-     * coin repository forks
+     * Repository forks
      */
-    forks?: number;
+    forks?: number | null;
 
     /**
-     * coin repository pull request contributors
+     * Pull request contributors
      */
-    pull_request_contributors?: number;
+    pull_request_contributors?: number | null;
 
     /**
-     * coin repository pull requests merged
+     * Pull requests merged
      */
-    pull_requests_merged?: number;
+    pull_requests_merged?: number | null;
 
     /**
-     * coin repository stars
+     * Repository stars
      */
-    stars?: number;
+    stars?: number | null;
 
     /**
-     * coin repository subscribers
+     * Repository subscribers
      */
-    subscribers?: number;
+    subscribers?: number | null;
 
     /**
-     * coin repository total issues
+     * Total issues
      */
-    total_issues?: number;
+    total_issues?: number | null;
   }
 
   export namespace DeveloperData {
     /**
-     * coin code additions deletions 4 weeks
+     * Code additions and deletions in the last 4 weeks
      */
     export interface CodeAdditionsDeletions4Weeks {
-      additions?: number;
+      /**
+       * Lines added
+       */
+      additions?: number | null;
 
-      deletions?: number;
+      /**
+       * Lines deleted
+       */
+      deletions?: number | null;
     }
   }
 
   /**
-   * coin image url
+   * Coin image URLs
    */
   export interface Image {
+    /**
+     * Small image URL
+     */
     small?: string;
 
+    /**
+     * Thumbnail image URL
+     */
     thumb?: string;
   }
 
   /**
-   * coin market data
+   * Market data at the given date
    */
   export interface MarketData {
     /**
-     * coin current price
+     * Current price keyed by currency
      */
-    current_price?: MarketData.CurrentPrice;
+    current_price?: { [key: string]: number };
 
     /**
-     * coin market cap
+     * Market capitalization keyed by currency
      */
-    market_cap?: MarketData.MarketCap;
+    market_cap?: { [key: string]: number };
 
     /**
-     * coin total volume
+     * Total trading volume keyed by currency
      */
-    total_volume?: MarketData.TotalVolume;
-  }
-
-  export namespace MarketData {
-    /**
-     * coin current price
-     */
-    export interface CurrentPrice {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin market cap
-     */
-    export interface MarketCap {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin total volume
-     */
-    export interface TotalVolume {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
+    total_volume?: { [key: string]: number };
   }
 
   /**
-   * coin public interest stats
+   * Public interest statistics
    */
   export interface PublicInterestStats {
     /**
-     * coin alexa rank
+     * Alexa rank
      */
     alexa_rank?: number | null;
 
     /**
-     * coin bing matches
+     * Bing search matches
      */
     bing_matches?: number | null;
   }
@@ -243,12 +213,12 @@ export namespace HistoryGetResponse {
 
 export interface HistoryGetParams {
   /**
-   * date of data snapshot (`YYYY-MM-DD`)
+   * The date of data snapshot. Format: `YYYY-MM-DD`
    */
   date: string;
 
   /**
-   * include all the localized languages in response, default: true
+   * Include all the localized languages in response. Default: true
    */
   localization?: boolean;
 }

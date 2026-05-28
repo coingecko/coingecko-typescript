@@ -7,16 +7,8 @@ import { path } from '../internal/utils/path';
 
 export class TokenLists extends APIResource {
   /**
-   * This endpoint allows you to **get full list of tokens of a blockchain network
-   * (asset platform) that is supported by
-   * [Ethereum token list standard](https://tokenlists.org/)**
-   *
-   * @example
-   * ```ts
-   * const response = await client.tokenLists.getAllJson(
-   *   'ethereum',
-   * );
-   * ```
+   * To get full list of tokens of a blockchain network (asset platform) that is
+   * supported by [Ethereum token list standard](https://tokenlists.org/)
    */
   getAllJson(assetPlatformID: string, options?: RequestOptions): APIPromise<TokenListGetAllJsonResponse> {
     return this._client.get(path`/token_lists/${assetPlatformID}/all.json`, options);
@@ -24,63 +16,87 @@ export class TokenLists extends APIResource {
 }
 
 export interface TokenListGetAllJsonResponse {
-  keywords?: Array<string>;
-
-  logoURI?: string;
-
-  name?: string;
-
-  timestamp?: string;
-
-  tokens?: Array<TokenListGetAllJsonResponse.Token>;
+  /**
+   * Token list keywords
+   */
+  keywords: Array<string>;
 
   /**
-   * token list version
+   * Token list logo URL
    */
-  version?: TokenListGetAllJsonResponse.Version;
+  logoURI: string;
+
+  /**
+   * Token list name
+   */
+  name: string;
+
+  /**
+   * Token list generation timestamp
+   */
+  timestamp: string;
+
+  /**
+   * List of tokens
+   */
+  tokens: Array<TokenListGetAllJsonResponse.Token>;
+
+  /**
+   * Token list version
+   */
+  version: TokenListGetAllJsonResponse.Version;
 }
 
 export namespace TokenListGetAllJsonResponse {
   export interface Token {
     /**
-     * token contract address
+     * Token contract address
      */
-    address?: string;
+    address: string;
 
     /**
-     * chainlist's chain ID
+     * Chainlist's chain ID
      */
-    chainId?: number;
+    chainId: number;
 
     /**
-     * token decimals
+     * Token decimals
      */
-    decimals?: number;
+    decimals: number;
 
     /**
-     * token image url
+     * Token image URL
      */
-    logoURI?: string;
+    logoURI: string;
 
     /**
-     * token name
+     * Token name
      */
-    name?: string;
+    name: string;
 
     /**
-     * token symbol
+     * Token symbol
      */
-    symbol?: string;
+    symbol: string;
   }
 
   /**
-   * token list version
+   * Token list version
    */
   export interface Version {
+    /**
+     * Major version
+     */
     major?: number;
 
+    /**
+     * Minor version
+     */
     minor?: number;
 
+    /**
+     * Patch version
+     */
     patch?: number;
   }
 }

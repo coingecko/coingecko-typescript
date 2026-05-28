@@ -6,13 +6,8 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Categories extends APIResource {
   /**
-   * This endpoint allows you to **query all the coins categories with market data
-   * (market cap, volume, ...) on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const categories = await client.coins.categories.get();
-   * ```
+   * To query all the coins categories with market data (market cap, volume, etc.) on
+   * CoinGecko
    */
   get(
     query: CategoryGetParams | null | undefined = {},
@@ -22,12 +17,7 @@ export class Categories extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query all the coins categories on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const response = await client.coins.categories.getList();
-   * ```
+   * To query all the coins categories on CoinGecko
    */
   getList(options?: RequestOptions): APIPromise<CategoryGetListResponse> {
     return this._client.get('/coins/categories/list', options);
@@ -39,49 +29,49 @@ export type CategoryGetResponse = Array<CategoryGetResponse.CategoryGetResponseI
 export namespace CategoryGetResponse {
   export interface CategoryGetResponseItem {
     /**
-     * category ID
+     * Category ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * category description
+     * Category description
      */
-    content?: string;
+    content: string;
 
     /**
-     * category market cap
+     * Category market cap
      */
-    market_cap?: number;
+    market_cap: number;
 
     /**
-     * category market cap change in 24 hours
+     * Category market cap change in 24 hours
      */
-    market_cap_change_24h?: number;
+    market_cap_change_24h: number;
 
     /**
-     * category name
+     * Category name
      */
-    name?: string;
+    name: string;
 
     /**
-     * images of top 3 coins in the category
+     * Image URLs of top 3 coins in the category
      */
-    top_3_coins?: Array<string>;
+    top_3_coins: Array<string>;
 
     /**
      * IDs of top 3 coins in the category
      */
-    top_3_coins_id?: Array<string>;
+    top_3_coins_id: Array<string>;
 
     /**
-     * category last updated time
+     * Category last updated timestamp
      */
-    updated_at?: string;
+    updated_at: string;
 
     /**
-     * category volume in 24 hours
+     * Category trading volume in 24 hours
      */
-    volume_24h?: number;
+    volume_24h: number;
   }
 }
 
@@ -90,20 +80,20 @@ export type CategoryGetListResponse = Array<CategoryGetListResponse.CategoryGetL
 export namespace CategoryGetListResponse {
   export interface CategoryGetListResponseItem {
     /**
-     * category ID
+     * Category ID
      */
-    category_id?: string;
+    category_id: string;
 
     /**
-     * category name
+     * Category name
      */
-    name?: string;
+    name: string;
   }
 }
 
 export interface CategoryGetParams {
   /**
-   * sort results by field, default: market_cap_desc
+   * Sort results by field. Default: `market_cap_desc`
    */
   order?:
     | 'market_cap_desc'

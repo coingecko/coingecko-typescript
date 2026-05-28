@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource pools', () => {
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.onchain.networks.pools.get('eth');
+    const responsePromise = client.onchain.networks.pools.get('network');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource pools', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.networks.pools.get(
-        'eth',
+        'network',
         {
           include: 'include',
           include_gt_community_data: true,
@@ -39,10 +39,7 @@ describe('resource pools', () => {
 
   // Mock server tests are disabled
   test.skip('getAddress: only required params', async () => {
-    const responsePromise = client.onchain.networks.pools.getAddress(
-      '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',
-      { network: 'eth' },
-    );
+    const responsePromise = client.onchain.networks.pools.getAddress('address', { network: 'network' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -54,14 +51,11 @@ describe('resource pools', () => {
 
   // Mock server tests are disabled
   test.skip('getAddress: required and optional params', async () => {
-    const response = await client.onchain.networks.pools.getAddress(
-      '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',
-      {
-        network: 'eth',
-        include: 'include',
-        include_composition: true,
-        include_volume_breakdown: true,
-      },
-    );
+    const response = await client.onchain.networks.pools.getAddress('address', {
+      network: 'network',
+      include: 'include',
+      include_composition: true,
+      include_volume_breakdown: true,
+    });
   });
 });

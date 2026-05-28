@@ -10,13 +10,7 @@ export class Search extends APIResource {
   trending: TrendingAPI.Trending = new TrendingAPI.Trending(this._client);
 
   /**
-   * This endpoint allows you to **search for coins, categories and markets listed on
-   * CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const search = await client.search.get({ query: 'query' });
-   * ```
+   * To search for coins, categories and markets listed on CoinGecko
    */
   get(query: SearchGetParams, options?: RequestOptions): APIPromise<SearchGetResponse> {
     return this._client.get('/search', { query, ...options });
@@ -24,120 +18,122 @@ export class Search extends APIResource {
 }
 
 export interface SearchGetResponse {
-  categories?: Array<SearchGetResponse.Category>;
+  categories: Array<SearchGetResponse.Category>;
 
-  coins?: Array<SearchGetResponse.Coin>;
+  coins: Array<SearchGetResponse.Coin>;
 
-  exchanges?: Array<SearchGetResponse.Exchange>;
+  exchanges: Array<SearchGetResponse.Exchange>;
 
-  icos?: Array<string>;
+  icos: Array<SearchGetResponse.Ico>;
 
-  nfts?: Array<SearchGetResponse.NFT>;
+  nfts: Array<SearchGetResponse.NFT>;
 }
 
 export namespace SearchGetResponse {
   export interface Category {
     /**
-     * category ID
+     * Category ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * category name
+     * Category name
      */
-    name?: string;
+    name: string;
   }
 
   export interface Coin {
     /**
-     * coin ID
+     * Coin ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * coin api symbol
+     * Coin API symbol
      */
-    api_symbol?: string;
+    api_symbol: string;
 
     /**
-     * coin large image url
+     * Coin large image URL
      */
-    large?: string;
+    large: string;
 
     /**
-     * coin market cap rank
+     * Coin market cap rank
      */
-    market_cap_rank?: number;
+    market_cap_rank: number | null;
 
     /**
-     * coin name
+     * Coin name
      */
-    name?: string;
+    name: string;
 
     /**
-     * coin symbol
+     * Coin symbol
      */
-    symbol?: string;
+    symbol: string;
 
     /**
-     * coin thumb image url
+     * Coin thumb image URL
      */
-    thumb?: string;
+    thumb: string;
   }
 
   export interface Exchange {
     /**
-     * exchange ID
+     * Exchange ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * exchange large image url
+     * Exchange large image URL
      */
-    large?: string;
+    large: string;
 
     /**
-     * exchange market type
+     * Exchange market type
      */
-    market_type?: string;
+    market_type: string;
 
     /**
-     * exchange name
+     * Exchange name
      */
-    name?: string;
+    name: string;
 
     /**
-     * exchange thumb image url
+     * Exchange thumb image URL
      */
-    thumb?: string;
+    thumb: string;
   }
+
+  export interface Ico {}
 
   export interface NFT {
     /**
      * NFT collection ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * NFT name
+     * NFT collection name
      */
-    name?: string;
+    name: string;
 
     /**
      * NFT collection symbol
      */
-    symbol?: string;
+    symbol: string;
 
     /**
-     * NFT collection thumb image url
+     * NFT collection thumb image URL
      */
-    thumb?: string;
+    thumb: string;
   }
 }
 
 export interface SearchGetParams {
   /**
-   * search query
+   * Search query
    */
   query: string;
 }

@@ -7,17 +7,7 @@ import { path } from '../../../../internal/utils/path';
 
 export class TokenPrice extends APIResource {
   /**
-   * This endpoint allows you to **get token price based on the provided token
-   * contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.simple.networks.tokenPrice.getAddresses(
-   *     'addresses',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To get token price based on the provided token contract address on a network
    */
   getAddresses(
     addresses: string,
@@ -33,30 +23,54 @@ export class TokenPrice extends APIResource {
 }
 
 export interface TokenPriceGetAddressesResponse {
-  data?: TokenPriceGetAddressesResponse.Data;
+  data: TokenPriceGetAddressesResponse.Data;
 }
 
 export namespace TokenPriceGetAddressesResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Request ID
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Response type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
+      /**
+       * Token prices keyed by contract address
+       */
+      token_prices: { [key: string]: string };
+
+      /**
+       * 24hr price change percentage keyed by contract address
+       */
       h24_price_change_percentage?: { [key: string]: string };
 
+      /**
+       * 24hr volume in USD keyed by contract address
+       */
       h24_volume_usd?: { [key: string]: string };
 
-      last_trade_timestamp?: { [key: string]: number };
+      /**
+       * Last trade timestamp keyed by contract address
+       */
+      last_trade_timestamp?: { [key: string]: string };
 
+      /**
+       * Market cap in USD keyed by contract address
+       */
       market_cap_usd?: { [key: string]: string };
 
-      token_prices?: { [key: string]: string };
-
+      /**
+       * Total reserve in USD keyed by contract address
+       */
       total_reserve_in_usd?: { [key: string]: string };
     }
   }
@@ -64,38 +78,39 @@ export namespace TokenPriceGetAddressesResponse {
 
 export interface TokenPriceGetAddressesParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: include 24hr price change, default: false
+   * Query param: Include 24hr price change. Default: `false`
    */
   include_24hr_price_change?: boolean;
 
   /**
-   * Query param: include 24hr volume, default: false
+   * Query param: Include 24hr volume. Default: `false`
    */
   include_24hr_vol?: boolean;
 
   /**
-   * Query param: include token price data from inactive pools using the most recent
-   * swap, default: false
+   * Query param: Include token price data from inactive pools using the most recent
+   * swap. Default: `false`
    */
   include_inactive_source?: boolean;
 
   /**
-   * Query param: include market capitalization, default: false
+   * Query param: Include market capitalization. Default: `false`
    */
   include_market_cap?: boolean;
 
   /**
-   * Query param: include total reserve in USD, default: false
+   * Query param: Include total reserve in USD. Default: `false`
    */
   include_total_reserve_in_usd?: boolean;
 
   /**
-   * Query param: return FDV if market cap is not available, default: false
+   * Query param: Return FDV if market cap is not available. Default: `false`
    */
   mcap_fdv_fallback?: boolean;
 }

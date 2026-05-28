@@ -7,19 +7,7 @@ import { path } from '../../internal/utils/path';
 
 export class TokenPrice extends APIResource {
   /**
-   * This endpoint allows you to **query one or more token prices using their token
-   * contract addresses**
-   *
-   * @example
-   * ```ts
-   * const response = await client.simple.tokenPrice.getID(
-   *   'ethereum',
-   *   {
-   *     contract_addresses: 'contract_addresses',
-   *     vs_currencies: 'vs_currencies',
-   *   },
-   * );
-   * ```
+   * To query one or more token prices by using their token contract addresses
    */
   getID(
     id: string,
@@ -30,69 +18,72 @@ export class TokenPrice extends APIResource {
   }
 }
 
-export interface TokenPriceGetIDResponse {
-  /**
-   * last updated timestamp
-   */
-  last_updated_at?: number;
+export type TokenPriceGetIDResponse = { [key: string]: TokenPriceGetIDResponse.item };
 
-  /**
-   * price in USD
-   */
-  usd?: number;
+export namespace TokenPriceGetIDResponse {
+  export interface item {
+    /**
+     * Last updated timestamp in UNIX seconds
+     */
+    last_updated_at?: number;
 
-  /**
-   * 24hr change in USD
-   */
-  usd_24h_change?: number;
+    /**
+     * Price in the target currency
+     */
+    usd?: number;
 
-  /**
-   * 24hr volume in USD
-   */
-  usd_24h_vol?: number;
+    /**
+     * 24-hour price change percentage in the target currency
+     */
+    usd_24h_change?: number;
 
-  /**
-   * market cap in USD
-   */
-  usd_market_cap?: number;
+    /**
+     * 24-hour trading volume in the target currency
+     */
+    usd_24h_vol?: number;
+
+    /**
+     * Market capitalization in the target currency
+     */
+    usd_market_cap?: number;
+  }
 }
 
 export interface TokenPriceGetIDParams {
   /**
-   * the contract addresses of tokens, comma-separated if querying more than 1
-   * token's contract address
+   * Token contract addresses, comma-separated if querying more than 1 token
    */
   contract_addresses: string;
 
   /**
-   * target currency of coins, comma-separated if querying more than 1 currency.
+   * Target currency of coins, comma-separated if querying more than 1 currency.
    * \*refers to
-   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
+   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)
    */
   vs_currencies: string;
 
   /**
-   * include 24hr change default: false
+   * Include 24-hour change percentage. Default: false
    */
   include_24hr_change?: boolean;
 
   /**
-   * include 24hr volume, default: false
+   * Include 24-hour trading volume. Default: false
    */
   include_24hr_vol?: boolean;
 
   /**
-   * include last updated price time in UNIX , default: false
+   * Include last updated price time as a UNIX timestamp. Default: false
    */
   include_last_updated_at?: boolean;
 
   /**
-   * include market capitalization, default: false
+   * Include market capitalization. Default: false
    */
   include_market_cap?: boolean;
 
   /**
-   * decimal place for currency price value
+   * Decimal places for currency price value
    */
   precision?:
     | 'full'

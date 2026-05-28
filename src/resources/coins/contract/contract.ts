@@ -1,7 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
-import * as CoinsAPI from '../coins';
 import * as MarketChartAPI from './market-chart';
 import {
   MarketChart,
@@ -18,18 +17,9 @@ export class Contract extends APIResource {
   marketChart: MarketChartAPI.MarketChart = new MarketChartAPI.MarketChart(this._client);
 
   /**
-   * This endpoint allows you to **query all the metadata (image, websites, socials,
-   * description, contract address, etc.) and market data (price, ATH, exchange
-   * tickers, etc.) of a coin from the CoinGecko coin page based on an asset platform
-   * and a particular token contract address**
-   *
-   * @example
-   * ```ts
-   * const contract = await client.coins.contract.get(
-   *   '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-   *   { id: 'ethereum' },
-   * );
-   * ```
+   * To query all the metadata (image, websites, socials, description, contract
+   * address, etc.) and market data (price, ATH, exchange tickers, etc.) of a coin
+   * based on an asset platform and a particular token contract address
    */
   get(
     contractAddress: string,
@@ -43,265 +33,181 @@ export class Contract extends APIResource {
 
 export interface ContractGetResponse {
   /**
-   * coin ID
+   * Coin ID
    */
-  id?: string;
+  id: string;
 
   /**
-   * additional notices
+   * Additional notices
    */
-  additional_notices?: Array<string>;
+  additional_notices: Array<string>;
 
   /**
-   * coin asset platform ID
+   * Coin asset platform ID
    */
-  asset_platform_id?: string;
+  asset_platform_id: string | null;
 
   /**
-   * blockchain block time in minutes
+   * Blockchain block time in minutes
    */
-  block_time_in_minutes?: number;
+  block_time_in_minutes: number;
 
   /**
-   * coin categories
+   * Coin categories
    */
-  categories?: Array<string>;
+  categories: Array<string>;
 
   /**
-   * coin community data
+   * Coin contract address
+   */
+  contract_address: string;
+
+  /**
+   * Country of origin
+   */
+  country_origin: string;
+
+  /**
+   * Coin description
+   */
+  description: { [key: string]: string };
+
+  /**
+   * Detailed coin asset platform and contract address
+   */
+  detail_platforms: { [key: string]: ContractGetResponse.DetailPlatforms };
+
+  /**
+   * Genesis date
+   */
+  genesis_date: string | null;
+
+  /**
+   * Blockchain hashing algorithm
+   */
+  hashing_algorithm: string | null;
+
+  /**
+   * Coin image URL
+   */
+  image: ContractGetResponse.Image;
+
+  /**
+   * Last updated timestamp
+   */
+  last_updated: string;
+
+  /**
+   * Links
+   */
+  links: ContractGetResponse.Links;
+
+  /**
+   * Market cap rank
+   */
+  market_cap_rank: number | null;
+
+  /**
+   * Market cap rank including rehypothecated tokens
+   */
+  market_cap_rank_with_rehypothecated: number | null;
+
+  /**
+   * Coin name
+   */
+  name: string;
+
+  /**
+   * Coin asset platform and contract address
+   */
+  platforms: { [key: string]: string };
+
+  /**
+   * Preview listing coin
+   */
+  preview_listing: boolean;
+
+  /**
+   * Public notice
+   */
+  public_notice: string | null;
+
+  /**
+   * Sentiment votes down percentage
+   */
+  sentiment_votes_down_percentage: number | null;
+
+  /**
+   * Sentiment votes up percentage
+   */
+  sentiment_votes_up_percentage: number | null;
+
+  /**
+   * Status updates
+   */
+  status_updates: Array<ContractGetResponse.StatusUpdate>;
+
+  /**
+   * Coin symbol
+   */
+  symbol: string;
+
+  /**
+   * Number of users watching this coin in portfolio
+   */
+  watchlist_portfolio_users: number;
+
+  /**
+   * Coin web slug
+   */
+  web_slug: string;
+
+  /**
+   * Community data
    */
   community_data?: ContractGetResponse.CommunityData;
 
   /**
-   * coin contract address
-   */
-  contract_address?: string;
-
-  /**
-   * coin country of origin
-   */
-  country_origin?: string;
-
-  /**
-   * coin description
-   */
-  description?: { [key: string]: string };
-
-  /**
-   * detailed coin asset platform and contract address
-   */
-  detail_platforms?: { [key: string]: CoinsAPI.DetailPlatformData };
-
-  /**
-   * coin developer data
+   * Developer data
    */
   developer_data?: ContractGetResponse.DeveloperData;
 
   /**
-   * coin genesis date
-   */
-  genesis_date?: string | null;
-
-  /**
-   * blockchain hashing algorithm
-   */
-  hashing_algorithm?: string | null;
-
-  /**
-   * coin image url
-   */
-  image?: ContractGetResponse.Image;
-
-  /**
-   * coin last updated timestamp
-   */
-  last_updated?: string;
-
-  /**
-   * links
-   */
-  links?: ContractGetResponse.Links;
-
-  /**
-   * coin name localization
+   * Coin name localization
    */
   localization?: { [key: string]: string };
 
   /**
-   * coin rank by market cap
-   */
-  market_cap_rank?: number | null;
-
-  /**
-   * coin rank by market cap including rehypothecated tokens
-   */
-  market_cap_rank_with_rehypothecated?: number;
-
-  /**
-   * coin market data
+   * Market data
    */
   market_data?: ContractGetResponse.MarketData;
 
   /**
-   * coin name
-   */
-  name?: string;
-
-  /**
-   * coin asset platform and contract address
-   */
-  platforms?: { [key: string]: string | null };
-
-  /**
-   * preview listing coin
-   */
-  preview_listing?: boolean;
-
-  /**
-   * public notice
-   */
-  public_notice?: string | null;
-
-  /**
-   * coin sentiment votes down percentage
-   */
-  sentiment_votes_down_percentage?: number | null;
-
-  /**
-   * coin sentiment votes up percentage
-   */
-  sentiment_votes_up_percentage?: number | null;
-
-  /**
-   * coin status updates
-   */
-  status_updates?: Array<string>;
-
-  /**
-   * coin symbol
-   */
-  symbol?: string;
-
-  /**
-   * coin tickers
+   * Tickers
    */
   tickers?: Array<ContractGetResponse.Ticker>;
-
-  /**
-   * number of users watching this coin in portfolio
-   */
-  watchlist_portfolio_users?: number;
-
-  /**
-   * coin web slug
-   */
-  web_slug?: string;
 }
 
 export namespace ContractGetResponse {
-  /**
-   * coin community data
-   */
-  export interface CommunityData {
+  export interface DetailPlatforms {
     /**
-     * coin facebook likes
+     * Token contract address
      */
-    facebook_likes?: number;
+    contract_address?: string;
 
     /**
-     * coin reddit active accounts in 48 hours
+     * Token decimal place
      */
-    reddit_accounts_active_48h?: number;
+    decimal_place?: number | null;
 
     /**
-     * coin reddit average comments in 48 hours
+     * GeckoTerminal URL
      */
-    reddit_average_comments_48h?: number;
-
-    /**
-     * coin reddit average posts in 48 hours
-     */
-    reddit_average_posts_48h?: number;
-
-    /**
-     * coin reddit subscribers
-     */
-    reddit_subscribers?: number;
-
-    /**
-     * coin telegram channel user count
-     */
-    telegram_channel_user_count?: number;
+    geckoterminal_url?: string;
   }
 
   /**
-   * coin developer data
-   */
-  export interface DeveloperData {
-    /**
-     * coin repository closed issues
-     */
-    closed_issues?: number;
-
-    /**
-     * coin code additions and deletions in 4 weeks
-     */
-    code_additions_deletions_4_weeks?: DeveloperData.CodeAdditionsDeletions4Weeks;
-
-    /**
-     * coin repository commit count in 4 weeks
-     */
-    commit_count_4_weeks?: number;
-
-    /**
-     * coin repository forks
-     */
-    forks?: number;
-
-    /**
-     * coin repository last 4 weeks commit activity series
-     */
-    last_4_weeks_commit_activity_series?: Array<number>;
-
-    /**
-     * coin repository pull request contributors
-     */
-    pull_request_contributors?: number;
-
-    /**
-     * coin repository pull requests merged
-     */
-    pull_requests_merged?: number;
-
-    /**
-     * coin repository stars
-     */
-    stars?: number;
-
-    /**
-     * coin repository subscribers
-     */
-    subscribers?: number;
-
-    /**
-     * coin repository total issues
-     */
-    total_issues?: number;
-  }
-
-  export namespace DeveloperData {
-    /**
-     * coin code additions and deletions in 4 weeks
-     */
-    export interface CodeAdditionsDeletions4Weeks {
-      additions?: number;
-
-      deletions?: number;
-    }
-  }
-
-  /**
-   * coin image url
+   * Coin image URL
    */
   export interface Image {
     large?: string;
@@ -312,666 +218,587 @@ export namespace ContractGetResponse {
   }
 
   /**
-   * links
+   * Links
    */
   export interface Links {
     /**
-     * coin announcement url
+     * Announcement URL
      */
     announcement_url?: Array<string>;
 
     /**
-     * coin bitcointalk thread identifier
+     * Bitcointalk thread identifier
      */
-    bitcointalk_thread_identifier?: string;
+    bitcointalk_thread_identifier?: number | null;
 
     /**
-     * coin block explorer url
+     * Block explorer URL
      */
     blockchain_site?: Array<string>;
 
     /**
-     * coin chat url
+     * Chat URL
      */
     chat_url?: Array<string>;
 
     /**
-     * coin facebook username
+     * Facebook username
      */
     facebook_username?: string;
 
     /**
-     * coin website url
+     * Website URL
      */
     homepage?: Array<string>;
 
     /**
-     * coin official forum url
+     * Official forum URL
      */
     official_forum_url?: Array<string>;
 
     /**
-     * coin repository url
+     * Repository URL
      */
     repos_url?: Links.ReposURL;
 
     /**
-     * coin snapshot url
+     * Snapshot URL
      */
-    snapshot_url?: string;
+    snapshot_url?: string | null;
 
     /**
-     * coin subreddit url
+     * Subreddit URL
      */
     subreddit_url?: string;
 
     /**
-     * coin telegram channel identifier
+     * Telegram channel identifier
      */
     telegram_channel_identifier?: string;
 
     /**
-     * coin twitter handle
+     * Twitter handle
      */
     twitter_screen_name?: string;
 
     /**
-     * coin whitepaper url
+     * Whitepaper URL
      */
-    whitepaper?: Array<string>;
+    whitepaper?: string;
   }
 
   export namespace Links {
     /**
-     * coin repository url
+     * Repository URL
      */
     export interface ReposURL {
       /**
-       * coin bitbucket repository url
+       * Bitbucket repository URL
        */
       bitbucket?: Array<string>;
 
       /**
-       * coin github repository url
+       * GitHub repository URL
        */
       github?: Array<string>;
     }
   }
 
+  export interface StatusUpdate {
+    /**
+     * Status update category
+     */
+    category?: string;
+
+    /**
+     * Status update creation time
+     */
+    created_at?: string;
+
+    /**
+     * Status update description
+     */
+    description?: string;
+
+    /**
+     * Status update user
+     */
+    user?: string;
+
+    /**
+     * Status update user title
+     */
+    user_title?: string;
+  }
+
   /**
-   * coin market data
+   * Community data
+   */
+  export interface CommunityData {
+    /**
+     * Facebook likes
+     */
+    facebook_likes?: number | null;
+
+    /**
+     * Reddit active accounts in 48 hours
+     */
+    reddit_accounts_active_48h?: number;
+
+    /**
+     * Reddit average comments in 48 hours
+     */
+    reddit_average_comments_48h?: number;
+
+    /**
+     * Reddit average posts in 48 hours
+     */
+    reddit_average_posts_48h?: number;
+
+    /**
+     * Reddit subscribers
+     */
+    reddit_subscribers?: number;
+
+    /**
+     * Telegram channel user count
+     */
+    telegram_channel_user_count?: number | null;
+  }
+
+  /**
+   * Developer data
+   */
+  export interface DeveloperData {
+    /**
+     * Repository closed issues
+     */
+    closed_issues?: number;
+
+    /**
+     * Code additions and deletions in 4 weeks
+     */
+    code_additions_deletions_4_weeks?: DeveloperData.CodeAdditionsDeletions4Weeks;
+
+    /**
+     * Repository commit count in 4 weeks
+     */
+    commit_count_4_weeks?: number;
+
+    /**
+     * Repository forks
+     */
+    forks?: number;
+
+    /**
+     * Repository last 4 weeks commit activity series
+     */
+    last_4_weeks_commit_activity_series?: Array<number>;
+
+    /**
+     * Repository pull request contributors
+     */
+    pull_request_contributors?: number;
+
+    /**
+     * Repository pull requests merged
+     */
+    pull_requests_merged?: number;
+
+    /**
+     * Repository stars
+     */
+    stars?: number;
+
+    /**
+     * Repository subscribers
+     */
+    subscribers?: number;
+
+    /**
+     * Repository total issues
+     */
+    total_issues?: number;
+  }
+
+  export namespace DeveloperData {
+    /**
+     * Code additions and deletions in 4 weeks
+     */
+    export interface CodeAdditionsDeletions4Weeks {
+      additions?: number;
+
+      deletions?: number;
+    }
+  }
+
+  /**
+   * Market data
    */
   export interface MarketData {
     /**
-     * coin all time high (ATH) in currency
+     * All-time high in target currency
      */
-    ath?: MarketData.Ath;
+    ath?: { [key: string]: number };
 
     /**
-     * coin all time high (ATH) change in percentage
+     * All-time high change percentage
      */
-    ath_change_percentage?: MarketData.AthChangePercentage;
+    ath_change_percentage?: { [key: string]: number };
 
     /**
-     * coin all time high (ATH) date
+     * All-time high date
      */
-    ath_date?: MarketData.AthDate;
+    ath_date?: { [key: string]: string };
 
     /**
-     * coin all time low (atl) in currency
+     * All-time low in target currency
      */
-    atl?: MarketData.Atl;
+    atl?: { [key: string]: number };
 
     /**
-     * coin all time low (atl) change in percentage
+     * All-time low change percentage
      */
-    atl_change_percentage?: MarketData.AtlChangePercentage;
+    atl_change_percentage?: { [key: string]: number };
 
     /**
-     * coin all time low (atl) date
+     * All-time low date
      */
-    atl_date?: MarketData.AtlDate;
+    atl_date?: { [key: string]: string };
 
     /**
-     * coin circulating supply
+     * Circulating supply
      */
     circulating_supply?: number;
 
     /**
-     * coin current price in currency
+     * Current price in target currency
      */
-    current_price?: MarketData.CurrentPrice;
+    current_price?: { [key: string]: number };
 
     /**
-     * fully diluted valuation to total value locked ratio
+     * FDV to TVL ratio
      */
-    fdv_to_tvl_ratio?: number;
+    fdv_to_tvl_ratio?: number | null;
 
     /**
-     * coin fully diluted valuation (fdv) in currency
+     * Fully diluted valuation in target currency
      */
-    fully_diluted_valuation?: MarketData.FullyDilutedValuation;
+    fully_diluted_valuation?: { [key: string]: number };
 
     /**
-     * coin 24hr price high in currency
+     * 24h price high in target currency
      */
-    high_24h?: MarketData.High24h;
+    high_24h?: { [key: string]: number };
 
     /**
-     * coin market data last updated timestamp
+     * Market data last updated timestamp
      */
     last_updated?: string;
 
     /**
-     * coin 24hr price low in currency
+     * 24h price low in target currency
      */
-    low_24h?: MarketData.Low24h;
+    low_24h?: { [key: string]: number };
 
     /**
-     * coin market cap in currency
+     * Market cap in target currency
      */
-    market_cap?: MarketData.MarketCap;
+    market_cap?: { [key: string]: number };
 
     /**
-     * coin 24hr market cap change in currency
+     * 24h market cap change in target currency
      */
     market_cap_change_24h?: number;
 
     /**
-     * coin 24hr market cap change in currency
+     * 24h market cap change in target currency
      */
-    market_cap_change_24h_in_currency?: MarketData.MarketCapChange24hInCurrency;
+    market_cap_change_24h_in_currency?: { [key: string]: number };
 
     /**
-     * coin 24hr market cap change in percentage
+     * 24h market cap change percentage
      */
     market_cap_change_percentage_24h?: number;
 
     /**
-     * coin 24hr market cap change in percentage
+     * 24h market cap change percentage per currency
      */
-    market_cap_change_percentage_24h_in_currency?: MarketData.MarketCapChangePercentage24hInCurrency;
+    market_cap_change_percentage_24h_in_currency?: { [key: string]: number };
 
     /**
-     * market cap to fully diluted valuation ratio
+     * Market cap to FDV ratio
      */
     market_cap_fdv_ratio?: number;
 
     /**
-     * coin rank by market cap
+     * Market cap rank
      */
-    market_cap_rank?: number;
+    market_cap_rank?: number | null;
 
     /**
-     * coin rank by market cap including rehypothecated tokens
+     * Market cap rank including rehypothecated tokens
      */
-    market_cap_rank_with_rehypothecated?: number;
+    market_cap_rank_with_rehypothecated?: number | null;
 
     /**
-     * coin max supply
+     * Max supply
      */
-    max_supply?: number;
+    max_supply?: number | null;
 
     /**
-     * market cap to total value locked ratio
+     * Max supply infinite
      */
-    mcap_to_tvl_ratio?: number;
+    max_supply_infinite?: boolean;
 
     /**
-     * tokens outstanding in the market, circulated/tradable or planned for circulation
+     * Market cap to TVL ratio
+     */
+    mcap_to_tvl_ratio?: number | null;
+
+    /**
+     * Tokens outstanding in the market
      */
     outstanding_supply?: number | null;
 
     /**
-     * outstanding token value in USD
+     * Outstanding token value in USD
      */
     outstanding_token_value_usd?: number | null;
 
     /**
-     * coin 24hr price change in currency
+     * 24h price change in target currency
      */
     price_change_24h?: number;
 
     /**
-     * coin 14d price change in percentage
+     * 24h price change in target currency
+     */
+    price_change_24h_in_currency?: { [key: string]: number };
+
+    /**
+     * 14d price change percentage
      */
     price_change_percentage_14d?: number;
 
     /**
-     * coin 14d price change in currency
+     * 14d price change percentage per currency
      */
-    price_change_percentage_14d_in_currency?: MarketData.PriceChangePercentage14dInCurrency;
+    price_change_percentage_14d_in_currency?: { [key: string]: number };
 
     /**
-     * coin 1h price change in currency
+     * 1h price change percentage per currency
      */
-    price_change_percentage_1h_in_currency?: MarketData.PriceChangePercentage1hInCurrency;
+    price_change_percentage_1h_in_currency?: { [key: string]: number };
 
     /**
-     * coin 1y price change in percentage
+     * 1y price change percentage
      */
     price_change_percentage_1y?: number;
 
     /**
-     * coin 1y price change in currency
+     * 1y price change percentage per currency
      */
-    price_change_percentage_1y_in_currency?: MarketData.PriceChangePercentage1yInCurrency;
+    price_change_percentage_1y_in_currency?: { [key: string]: number };
 
     /**
-     * coin 200d price change in percentage
+     * 200d price change percentage
      */
     price_change_percentage_200d?: number;
 
     /**
-     * coin 200d price change in currency
+     * 200d price change percentage per currency
      */
-    price_change_percentage_200d_in_currency?: MarketData.PriceChangePercentage200dInCurrency;
+    price_change_percentage_200d_in_currency?: { [key: string]: number };
 
     /**
-     * coin 24hr price change in percentage
+     * 24h price change percentage
      */
     price_change_percentage_24h?: number;
 
     /**
-     * coin 24hr price change in currency
+     * 24h price change percentage per currency
      */
-    price_change_percentage_24h_in_currency?: MarketData.PriceChangePercentage24hInCurrency;
+    price_change_percentage_24h_in_currency?: { [key: string]: number };
 
     /**
-     * coin 30d price change in percentage
+     * 30d price change percentage
      */
     price_change_percentage_30d?: number;
 
     /**
-     * coin 30d price change in currency
+     * 30d price change percentage per currency
      */
-    price_change_percentage_30d_in_currency?: MarketData.PriceChangePercentage30dInCurrency;
+    price_change_percentage_30d_in_currency?: { [key: string]: number };
 
     /**
-     * coin 60d price change in percentage
+     * 60d price change percentage
      */
     price_change_percentage_60d?: number;
 
     /**
-     * coin 60d price change in currency
+     * 60d price change percentage per currency
      */
-    price_change_percentage_60d_in_currency?: MarketData.PriceChangePercentage60dInCurrency;
+    price_change_percentage_60d_in_currency?: { [key: string]: number };
 
     /**
-     * coin 7d price change in percentage
+     * 7d price change percentage
      */
     price_change_percentage_7d?: number;
 
     /**
-     * coin 7d price change in currency
+     * 7d price change percentage per currency
      */
-    price_change_percentage_7d_in_currency?: MarketData.PriceChangePercentage7dInCurrency;
+    price_change_percentage_7d_in_currency?: { [key: string]: number };
 
     /**
-     * coin return on investment
+     * Return on investment
      */
-    roi?: number;
+    roi?: MarketData.Roi | null;
 
     /**
-     * coin total supply
+     * Sparkline 7-day price data
+     */
+    sparkline_7d?: Array<number>;
+
+    /**
+     * Total supply
      */
     total_supply?: number;
 
     /**
-     * total value locked
+     * Total value locked
      */
-    total_value_locked?: number;
+    total_value_locked?: number | null;
 
     /**
-     * coin total trading volume in currency
+     * Total trading volume in target currency
      */
-    total_volume?: MarketData.TotalVolume;
+    total_volume?: { [key: string]: number };
   }
 
   export namespace MarketData {
     /**
-     * coin all time high (ATH) in currency
+     * Return on investment
      */
-    export interface Ath {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin all time high (ATH) change in percentage
-     */
-    export interface AthChangePercentage {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin all time high (ATH) date
-     */
-    export interface AthDate {
-      btc?: string;
-
-      eur?: string;
-
-      usd?: string;
-    }
-
-    /**
-     * coin all time low (atl) in currency
-     */
-    export interface Atl {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin all time low (atl) change in percentage
-     */
-    export interface AtlChangePercentage {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin all time low (atl) date
-     */
-    export interface AtlDate {
-      btc?: string;
-
-      eur?: string;
-
-      usd?: string;
-    }
-
-    /**
-     * coin current price in currency
-     */
-    export interface CurrentPrice {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin fully diluted valuation (fdv) in currency
-     */
-    export interface FullyDilutedValuation {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 24hr price high in currency
-     */
-    export interface High24h {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 24hr price low in currency
-     */
-    export interface Low24h {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin market cap in currency
-     */
-    export interface MarketCap {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 24hr market cap change in currency
-     */
-    export interface MarketCapChange24hInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 24hr market cap change in percentage
-     */
-    export interface MarketCapChangePercentage24hInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 14d price change in currency
-     */
-    export interface PriceChangePercentage14dInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 1h price change in currency
-     */
-    export interface PriceChangePercentage1hInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 1y price change in currency
-     */
-    export interface PriceChangePercentage1yInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 200d price change in currency
-     */
-    export interface PriceChangePercentage200dInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 24hr price change in currency
-     */
-    export interface PriceChangePercentage24hInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 30d price change in currency
-     */
-    export interface PriceChangePercentage30dInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 60d price change in currency
-     */
-    export interface PriceChangePercentage60dInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin 7d price change in currency
-     */
-    export interface PriceChangePercentage7dInCurrency {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
-    }
-
-    /**
-     * coin total trading volume in currency
-     */
-    export interface TotalVolume {
-      btc?: number;
-
-      eur?: number;
-
-      usd?: number;
+    export interface Roi {
+      /**
+       * ROI currency
+       */
+      currency?: string;
+
+      /**
+       * ROI percentage
+       */
+      percentage?: number;
+
+      /**
+       * ROI multiplier
+       */
+      times?: number;
     }
   }
 
   export interface Ticker {
     /**
-     * coin ticker base currency
+     * Ticker base currency
      */
     base?: string;
 
     /**
-     * coin ticker bid ask spread percentage
+     * Ticker bid-ask spread percentage
      */
     bid_ask_spread_percentage?: number;
 
     /**
-     * coin ticker base currency coin ID
+     * Ticker base currency coin ID
      */
     coin_id?: string;
 
     /**
-     * coin market cap in usd
+     * Market cap in USD
      */
     coin_mcap_usd?: number;
 
     /**
-     * coin ticker converted last price
+     * Ticker converted last price
      */
     converted_last?: Ticker.ConvertedLast;
 
     /**
-     * coin ticker converted volume
+     * Ticker converted volume
      */
     converted_volume?: Ticker.ConvertedVolume;
 
     /**
-     * coin ticker anomaly
+     * Ticker anomaly
      */
     is_anomaly?: boolean;
 
     /**
-     * coin ticker stale
+     * Ticker stale
      */
     is_stale?: boolean;
 
     /**
-     * coin ticker last price
+     * Ticker last price
      */
     last?: number;
 
     /**
-     * coin ticker last fetch timestamp
+     * Ticker last fetch timestamp
      */
     last_fetch_at?: string;
 
     /**
-     * coin ticker last traded timestamp
+     * Ticker last traded timestamp
      */
     last_traded_at?: string;
 
     /**
-     * coin ticker exchange
+     * Ticker exchange
      */
     market?: Ticker.Market;
 
     /**
-     * coin ticker target currency
+     * Ticker target currency
      */
     target?: string;
 
     /**
-     * coin ticker target currency coin ID
+     * Ticker target currency coin ID
      */
     target_coin_id?: string;
 
     /**
-     * coin ticker timestamp
+     * Ticker timestamp
      */
     timestamp?: string;
 
     /**
-     * coin ticker token info url
+     * Ticker token info URL
      */
-    token_info_url?: string;
+    token_info_url?: string | null;
 
     /**
-     * coin ticker trade url
+     * Ticker trade URL
      */
     trade_url?: string;
 
     /**
-     * coin ticker trust score
+     * Ticker trust score
      */
     trust_score?: string | null;
 
     /**
-     * coin ticker volume
+     * Ticker volume
      */
     volume?: number;
   }
 
   export namespace Ticker {
     /**
-     * coin ticker converted last price
+     * Ticker converted last price
      */
     export interface ConvertedLast {
       btc?: number;
@@ -982,7 +809,7 @@ export namespace ContractGetResponse {
     }
 
     /**
-     * coin ticker converted volume
+     * Ticker converted volume
      */
     export interface ConvertedVolume {
       btc?: number;
@@ -993,21 +820,21 @@ export namespace ContractGetResponse {
     }
 
     /**
-     * coin ticker exchange
+     * Ticker exchange
      */
     export interface Market {
       /**
-       * coin ticker exchange trading incentive
+       * Exchange trading incentive
        */
       has_trading_incentive?: boolean;
 
       /**
-       * coin ticker exchange identifier
+       * Exchange identifier
        */
       identifier?: string;
 
       /**
-       * coin ticker exchange name
+       * Exchange name
        */
       name?: string;
     }
@@ -1016,7 +843,7 @@ export namespace ContractGetResponse {
 
 export interface ContractGetParams {
   /**
-   * asset platform ID \*refers to
+   * Asset platform ID. \*refers to
    * [`/asset_platforms`](/reference/asset-platforms-list).
    */
   id: string;
