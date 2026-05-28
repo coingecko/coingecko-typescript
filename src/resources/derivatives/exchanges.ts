@@ -7,13 +7,8 @@ import { path } from '../../internal/utils/path';
 
 export class Exchanges extends APIResource {
   /**
-   * This endpoint allows you to **query all the derivatives exchanges with related
-   * data (ID, name, open interest, ...) on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const exchanges = await client.derivatives.exchanges.get();
-   * ```
+   * To query all the derivatives exchanges with related data (ID, name, open
+   * interest, ...) on CoinGecko
    */
   get(
     query: ExchangeGetParams | null | undefined = {},
@@ -23,15 +18,8 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query the derivatives exchange's related data (ID,
-   * name, open interest, ...) based on the exchanges' ID**
-   *
-   * @example
-   * ```ts
-   * const response = await client.derivatives.exchanges.getID(
-   *   'binance_futures',
-   * );
-   * ```
+   * To query the derivatives exchange's related data (name, open interest, trade
+   * volume, ...) based on the exchange's ID
    */
   getID(
     id: string,
@@ -42,14 +30,7 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query all the derivatives exchanges with ID and
-   * name on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.derivatives.exchanges.getList();
-   * ```
+   * To query all the derivatives exchanges with ID and name on CoinGecko
    */
   getList(options?: RequestOptions): APIPromise<ExchangeGetListResponse> {
     return this._client.get('/derivatives/exchanges/list', options);
@@ -61,206 +42,221 @@ export type ExchangeGetResponse = Array<ExchangeGetResponse.ExchangeGetResponseI
 export namespace ExchangeGetResponse {
   export interface ExchangeGetResponseItem {
     /**
-     * derivatives exchange ID
+     * Derivatives exchange ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * derivatives exchange incorporated country
+     * Derivatives exchange incorporated country
      */
-    country?: string | null;
+    country: string | null;
 
     /**
-     * derivatives exchange description
+     * Derivatives exchange description
      */
-    description?: string;
+    description: string;
 
     /**
-     * derivatives exchange image url
+     * Derivatives exchange image URL
      */
-    image?: string;
+    image: string;
 
     /**
-     * derivatives exchange name
+     * Derivatives exchange name
      */
-    name?: string;
+    name: string;
 
     /**
-     * number of futures pairs in the derivatives exchange
+     * Number of futures pairs in the derivatives exchange
      */
-    number_of_futures_pairs?: number;
+    number_of_futures_pairs: number;
 
     /**
-     * number of perpetual pairs in the derivatives exchange
+     * Number of perpetual pairs in the derivatives exchange
      */
-    number_of_perpetual_pairs?: number;
+    number_of_perpetual_pairs: number;
 
     /**
-     * derivatives exchange open interest in BTC
+     * Derivatives exchange open interest in BTC
      */
-    open_interest_btc?: number;
+    open_interest_btc: number;
 
     /**
-     * derivatives exchange trade volume in BTC in 24 hours
+     * Derivatives exchange trade volume in BTC in 24 hours
      */
-    trade_volume_24h_btc?: string;
+    trade_volume_24h_btc: string;
 
     /**
-     * derivatives exchange website url
+     * Derivatives exchange website URL
      */
-    url?: string;
+    url: string;
 
     /**
-     * derivatives exchange established year
+     * Derivatives exchange established year
      */
-    year_established?: number | null;
+    year_established: number | null;
   }
 }
 
 export interface ExchangeGetIDResponse {
   /**
-   * derivatives exchange incorporated country
+   * Derivatives exchange incorporated country
    */
-  country?: string | null;
+  country: string | null;
 
   /**
-   * derivatives exchange description
+   * Derivatives exchange description
    */
-  description?: string;
+  description: string;
 
   /**
-   * derivatives exchange image url
+   * Derivatives exchange image URL
    */
-  image?: string;
+  image: string;
 
   /**
-   * derivatives exchange name
+   * Derivatives exchange name
    */
-  name?: string;
+  name: string;
 
   /**
-   * number of futures pairs in the derivatives exchange
+   * Number of futures pairs in the derivatives exchange
    */
-  number_of_futures_pairs?: number;
+  number_of_futures_pairs: number;
 
   /**
-   * number of perpetual pairs in the derivatives exchange
+   * Number of perpetual pairs in the derivatives exchange
    */
-  number_of_perpetual_pairs?: number;
+  number_of_perpetual_pairs: number;
 
   /**
-   * derivatives exchange open interest in BTC
+   * Derivatives exchange open interest in BTC
    */
-  open_interest_btc?: number | null;
+  open_interest_btc: number | null;
 
+  /**
+   * Derivatives exchange trade volume in BTC in 24 hours
+   */
+  trade_volume_24h_btc: string;
+
+  /**
+   * Derivatives exchange website URL
+   */
+  url: string;
+
+  /**
+   * Derivatives exchange established year
+   */
+  year_established: number | null;
+
+  /**
+   * Derivative tickers data, available when include_tickers is specified
+   */
   tickers?: Array<ExchangeGetIDResponse.Ticker>;
-
-  /**
-   * derivatives exchange trade volume in BTC in 24 hours
-   */
-  trade_volume_24h_btc?: string;
-
-  /**
-   * derivatives exchange website url
-   */
-  url?: string;
-
-  /**
-   * derivatives exchange established year
-   */
-  year_established?: number | null;
 }
 
 export namespace ExchangeGetIDResponse {
   export interface Ticker {
     /**
-     * derivative base asset
+     * Derivative base asset
      */
-    base?: string;
+    base: string;
 
     /**
-     * derivative bid ask spread
+     * Derivative bid-ask spread
      */
-    bid_ask_spread?: number;
+    bid_ask_spread: number;
 
     /**
-     * derivative base asset coin ID
+     * Derivative base asset coin ID
      */
-    coin_id?: string;
+    coin_id: string;
 
     /**
-     * derivative contract type
+     * Derivative contract type
      */
-    contract_type?: string;
-
-    converted_last?: Ticker.ConvertedLast;
-
-    converted_volume?: Ticker.ConvertedVolume;
-
-    expired_at?: string | null;
+    contract_type: string;
 
     /**
-     * derivative funding rate
+     * Derivative converted last price
      */
-    funding_rate?: number;
+    converted_last: Ticker.ConvertedLast;
 
     /**
-     * derivative price percentage change in 24 hours
+     * Derivative converted volume
      */
-    h24_percentage_change?: number;
+    converted_volume: Ticker.ConvertedVolume;
 
     /**
-     * derivative volume in 24 hours
+     * Derivative expiry time in UNIX timestamp
      */
-    h24_volume?: number;
+    expired_at: number | null;
 
     /**
-     * derivative underlying asset price
+     * Derivative funding rate
      */
-    index?: number;
+    funding_rate: number;
 
     /**
-     * difference of derivative price and index price in percentage
+     * Derivative price percentage change in 24 hours
      */
-    index_basis_percentage?: number;
+    h24_percentage_change: number;
 
     /**
-     * derivative last price
+     * Derivative volume in 24 hours
      */
-    last?: number;
+    h24_volume: number;
 
     /**
-     * derivative last updated time
+     * Derivative underlying asset price
      */
-    last_traded?: number;
+    index: number;
 
     /**
-     * derivative open interest in USD
+     * Difference of derivative price and index price in percentage
      */
-    open_interest_usd?: number;
+    index_basis_percentage: number;
 
     /**
-     * derivative ticker symbol
+     * Derivative last price
      */
-    symbol?: string;
+    last: number;
 
     /**
-     * derivative target asset
+     * Derivative last traded time in UNIX timestamp
      */
-    target?: string;
+    last_traded: number;
 
     /**
-     * derivative target asset coin ID
+     * Derivative open interest in USD
      */
-    target_coin_id?: string;
+    open_interest_usd: number;
 
     /**
-     * derivative trade url
+     * Derivative ticker symbol
      */
-    trade_url?: string;
+    symbol: string;
+
+    /**
+     * Derivative target asset
+     */
+    target: string;
+
+    /**
+     * Derivative target asset coin ID
+     */
+    target_coin_id: string;
+
+    /**
+     * Derivative trade URL
+     */
+    trade_url: string;
   }
 
   export namespace Ticker {
+    /**
+     * Derivative converted last price
+     */
     export interface ConvertedLast {
       btc?: string;
 
@@ -269,6 +265,9 @@ export namespace ExchangeGetIDResponse {
       usd?: string;
     }
 
+    /**
+     * Derivative converted volume
+     */
     export interface ConvertedVolume {
       btc?: string;
 
@@ -284,20 +283,20 @@ export type ExchangeGetListResponse = Array<ExchangeGetListResponse.ExchangeGetL
 export namespace ExchangeGetListResponse {
   export interface ExchangeGetListResponseItem {
     /**
-     * derivatives exchange ID
+     * Derivatives exchange ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * derivatives exchange name
+     * Derivatives exchange name
      */
-    name?: string;
+    name: string;
   }
 }
 
 export interface ExchangeGetParams {
   /**
-   * use this to sort the order of responses, default: open_interest_btc_desc
+   * Sort order of responses. Default: `open_interest_btc_desc`
    */
   order?:
     | 'name_asc'
@@ -308,19 +307,19 @@ export interface ExchangeGetParams {
     | 'trade_volume_24h_btc_desc';
 
   /**
-   * page through results, default: 1
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * total results per page
+   * Total results per page.
    */
   per_page?: number;
 }
 
 export interface ExchangeGetIDParams {
   /**
-   * include tickers data
+   * Include tickers data. Default: tickers data is not included.
    */
   include_tickers?: 'all' | 'unexpired';
 }

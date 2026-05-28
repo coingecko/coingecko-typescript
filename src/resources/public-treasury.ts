@@ -1,23 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../core/resource';
-import * as PublicTreasuryAPI from './public-treasury';
 import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
 import { path } from '../internal/utils/path';
 
 export class PublicTreasury extends APIResource {
   /**
-   * This endpoint allows you **query public companies & governments' cryptocurrency
-   * holdings** by Coin ID
-   *
-   * @example
-   * ```ts
-   * const response = await client.publicTreasury.getCoinID(
-   *   'bitcoin',
-   *   { entity: 'companies' },
-   * );
-   * ```
+   * To query public companies' and governments' cryptocurrency holdings by coin ID
    */
   getCoinID(
     coinID: string,
@@ -29,15 +19,7 @@ export class PublicTreasury extends APIResource {
   }
 
   /**
-   * This endpoint allows you **query public companies & governments' cryptocurrency
-   * holdings** by Entity ID
-   *
-   * @example
-   * ```ts
-   * const response = await client.publicTreasury.getEntityID(
-   *   'strategy',
-   * );
-   * ```
+   * To query public companies' and governments' cryptocurrency holdings by entity ID
    */
   getEntityID(
     entityID: string,
@@ -48,17 +30,8 @@ export class PublicTreasury extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query historical cryptocurrency holdings chart of
-   * public companies & governments** by Entity ID and Coin ID
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.publicTreasury.getHoldingChart('bitcoin', {
-   *     entity_id: 'strategy',
-   *     days: 'days',
-   *   });
-   * ```
+   * To query historical cryptocurrency holdings chart of public companies and
+   * governments by entity ID and coin ID
    */
   getHoldingChart(
     coinID: string,
@@ -73,16 +46,8 @@ export class PublicTreasury extends APIResource {
   }
 
   /**
-   * This endpoint allows you **query public companies & governments' cryptocurrency
-   * transaction history** by Entity ID
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.publicTreasury.getTransactionHistory(
-   *     'strategy',
-   *   );
-   * ```
+   * To query public companies' and governments' cryptocurrency transaction history
+   * by entity ID
    */
   getTransactionHistory(
     entityID: string,
@@ -93,213 +58,257 @@ export class PublicTreasury extends APIResource {
   }
 }
 
-export interface TreasuryEntity {
-  /**
-   * company incorporated or government country
-   */
-  country?: string;
-
-  /**
-   * company or government name
-   */
-  name?: string;
-
-  /**
-   * percentage of total crypto supply
-   */
-  percentage_of_total_supply?: number;
-
-  /**
-   * company symbol
-   */
-  symbol?: string;
-
-  /**
-   * total current value of crypto holdings in usd
-   */
-  total_current_value_usd?: number;
-
-  /**
-   * total entry value in usd
-   */
-  total_entry_value_usd?: number;
-
-  /**
-   * total crypto holdings
-   */
-  total_holdings?: number;
-}
-
 export type PublicTreasuryGetCoinIDResponse =
-  | PublicTreasuryGetCoinIDResponse.CompaniesTreasury
-  | PublicTreasuryGetCoinIDResponse.GovernmentsTreasury;
+  | PublicTreasuryGetCoinIDResponse.UnionMember0
+  | PublicTreasuryGetCoinIDResponse.UnionMember1;
 
 export namespace PublicTreasuryGetCoinIDResponse {
-  export interface CompaniesTreasury {
-    companies?: Array<PublicTreasuryAPI.TreasuryEntity>;
+  export interface UnionMember0 {
+    /**
+     * List of companies holding crypto
+     */
+    companies: Array<UnionMember0.Company>;
 
     /**
-     * market cap dominance
+     * Market cap dominance percentage
      */
-    market_cap_dominance?: number;
+    market_cap_dominance: number;
 
     /**
-     * total crypto holdings of companies
+     * Total crypto holdings
      */
-    total_holdings?: number;
+    total_holdings: number;
 
     /**
-     * total crypto holdings value in usd
+     * Total crypto holdings value in USD
      */
-    total_value_usd?: number;
+    total_value_usd: number;
   }
 
-  export interface GovernmentsTreasury {
-    governments?: Array<PublicTreasuryAPI.TreasuryEntity>;
+  export namespace UnionMember0 {
+    export interface Company {
+      /**
+       * Country code
+       */
+      country: string;
+
+      /**
+       * Company name
+       */
+      name: string;
+
+      /**
+       * Percentage of total crypto supply
+       */
+      percentage_of_total_supply: number;
+
+      /**
+       * Company ticker symbol
+       */
+      symbol: string | null;
+
+      /**
+       * Total current value of crypto holdings in USD
+       */
+      total_current_value_usd: number;
+
+      /**
+       * Total entry value in USD
+       */
+      total_entry_value_usd: number;
+
+      /**
+       * Total crypto holdings
+       */
+      total_holdings: number;
+    }
+  }
+
+  export interface UnionMember1 {
+    /**
+     * List of governments holding crypto
+     */
+    governments: Array<UnionMember1.Government>;
 
     /**
-     * market cap dominance
+     * Market cap dominance percentage
      */
-    market_cap_dominance?: number;
+    market_cap_dominance: number;
 
     /**
-     * total crypto holdings of governments
+     * Total crypto holdings
      */
-    total_holdings?: number;
+    total_holdings: number;
 
     /**
-     * total crypto holdings value in usd
+     * Total crypto holdings value in USD
      */
-    total_value_usd?: number;
+    total_value_usd: number;
+  }
+
+  export namespace UnionMember1 {
+    export interface Government {
+      /**
+       * Country code
+       */
+      country: string;
+
+      /**
+       * Government name
+       */
+      name: string;
+
+      /**
+       * Percentage of total crypto supply
+       */
+      percentage_of_total_supply: number;
+
+      /**
+       * Government ticker symbol
+       */
+      symbol: string | null;
+
+      /**
+       * Total current value of crypto holdings in USD
+       */
+      total_current_value_usd: number;
+
+      /**
+       * Total entry value in USD
+       */
+      total_entry_value_usd: number;
+
+      /**
+       * Total crypto holdings
+       */
+      total_holdings: number;
+    }
   }
 }
 
 export interface PublicTreasuryGetEntityIDResponse {
   /**
-   * entity ID
+   * Entity ID
    */
-  id?: string;
+  id: string;
 
   /**
-   * country code of company or government location
+   * Country code
    */
-  country?: string;
+  country: string;
 
   /**
-   * list of cryptocurrency assets held by the entity
+   * List of cryptocurrency assets held by the entity
    */
-  holdings?: Array<PublicTreasuryGetEntityIDResponse.Holding>;
+  holdings: Array<PublicTreasuryGetEntityIDResponse.Holding>;
 
   /**
-   * market to net asset value ratio
+   * Market to net asset value ratio
    */
-  m_nav?: number;
+  m_nav: number;
 
   /**
-   * entity name
+   * Entity name
    */
-  name?: string;
+  name: string;
 
   /**
-   * stock market symbol for public company
+   * Stock market ticker symbol
    */
-  symbol?: string;
+  symbol: string | null;
 
   /**
-   * total asset value per share in USD
+   * Total asset value per share in USD
    */
-  total_asset_value_per_share_usd?: number;
+  total_asset_value_per_share_usd: number;
 
   /**
-   * total current value of all holdings in USD
+   * Total current value of all holdings in USD
    */
-  total_treasury_value_usd?: number;
+  total_treasury_value_usd: number;
 
   /**
-   * official Twitter handle of the entity
+   * Official Twitter handle
    */
-  twitter_screen_name?: string;
+  twitter_screen_name: string;
 
   /**
-   * entity type: company or government
+   * Entity type: company or government
    */
-  type?: string;
+  type: string;
 
   /**
-   * unrealized profit and loss (current value - total entry value)
+   * Unrealized profit and loss (current value minus total entry value)
    */
-  unrealized_pnl?: number;
+  unrealized_pnl: number;
 
   /**
-   * official website URL of the entity
+   * Official website URL
    */
-  website_url?: string;
+  website_url: string;
 }
 
 export namespace PublicTreasuryGetEntityIDResponse {
   export interface Holding {
     /**
-     * amount of the cryptocurrency held
+     * Amount of cryptocurrency held
      */
-    amount?: number;
+    amount: number;
 
     /**
-     * amount of cryptocurrency per share
+     * Amount of cryptocurrency per share
      */
-    amount_per_share?: number;
+    amount_per_share: number;
 
     /**
-     * average entry cost per unit in USD
+     * Average entry cost per unit in USD
      */
-    average_entry_value_usd?: number;
+    average_entry_value_usd: number;
 
     /**
-     * coin ID
+     * Coin ID
      */
-    coin_id?: string;
+    coin_id: string;
 
     /**
-     * current value of holdings in USD
+     * Current value of holdings in USD
      */
-    current_value_usd?: number;
+    current_value_usd: number;
 
     /**
-     * percentage of entity's total treasury value
+     * Percentage of entity's total treasury value
      */
-    entity_value_usd_percentage?: number;
+    entity_value_usd_percentage: number;
 
     /**
-     * holding amount changes over different timeframes (only present if
-     * holding_amount_change param is used)
+     * Percentage of total crypto supply
+     */
+    percentage_of_total_supply: number;
+
+    /**
+     * Total entry cost in USD
+     */
+    total_entry_value_usd: number;
+
+    /**
+     * Unrealized profit and loss for this holding
+     */
+    unrealized_pnl: number;
+
+    /**
+     * Holding amount changes over different timeframes
      */
     holding_amount_change?: Holding.HoldingAmountChange;
 
     /**
-     * holding change percentages over different timeframes (only present if
-     * holding_change_percentage param is used)
+     * Holding change percentages over different timeframes
      */
     holding_change_percentage?: Holding.HoldingChangePercentage;
-
-    /**
-     * percentage of total crypto supply
-     */
-    percentage_of_total_supply?: number;
-
-    /**
-     * total entry cost/purchase value in USD
-     */
-    total_entry_value_usd?: number;
-
-    /**
-     * unrealized profit and loss for this holding
-     */
-    unrealized_pnl?: number;
   }
 
   export namespace Holding {
     /**
-     * holding amount changes over different timeframes (only present if
-     * holding_amount_change param is used)
+     * Holding amount changes over different timeframes
      */
     export interface HoldingAmountChange {
       '14d'?: number;
@@ -316,8 +325,7 @@ export namespace PublicTreasuryGetEntityIDResponse {
     }
 
     /**
-     * holding change percentages over different timeframes (only present if
-     * holding_change_percentage param is used)
+     * Holding change percentages over different timeframes
      */
     export interface HoldingChangePercentage {
       '14d'?: number;
@@ -336,123 +344,131 @@ export namespace PublicTreasuryGetEntityIDResponse {
 }
 
 export interface PublicTreasuryGetHoldingChartResponse {
-  holding_value_in_usd?: Array<Array<number>>;
+  /**
+   * Historical holdings value in USD as [timestamp, value_usd] pairs
+   */
+  holding_value_in_usd: Array<Array<number>>;
 
-  holdings?: Array<Array<number>>;
+  /**
+   * Historical holdings data as [timestamp, amount] pairs
+   */
+  holdings: Array<Array<number>>;
 }
 
 export interface PublicTreasuryGetTransactionHistoryResponse {
-  transactions?: Array<PublicTreasuryGetTransactionHistoryResponse.Transaction>;
+  transactions: Array<PublicTreasuryGetTransactionHistoryResponse.Transaction>;
 }
 
 export namespace PublicTreasuryGetTransactionHistoryResponse {
   export interface Transaction {
     /**
-     * average entry value in usd after the transaction
+     * Average entry value in USD after the transaction
      */
-    average_entry_value_usd?: number;
+    average_entry_value_usd: number;
 
     /**
-     * coin ID
+     * Coin ID
      */
-    coin_id?: string;
+    coin_id: string;
 
     /**
-     * transaction date in UNIX timestamp
+     * Transaction date in UNIX timestamp
      */
-    date?: number;
+    date: number;
 
     /**
-     * total holding balance after the transaction
+     * Total holding balance after the transaction
      */
-    holding_balance?: number;
+    holding_balance: number;
 
     /**
-     * net change in holdings after the transaction
+     * Net change in holdings after the transaction
      */
-    holding_net_change?: number;
+    holding_net_change: number;
 
     /**
-     * source document URL
+     * Source document URL
      */
-    source_url?: string;
+    source_url: string;
 
     /**
-     * transaction value in usd
+     * Transaction value in USD
      */
-    transaction_value_usd?: number;
+    transaction_value_usd: number;
 
     /**
-     * transaction type: buy or sell
+     * Transaction type
      */
-    type?: 'buy' | 'sell';
+    type: 'buy' | 'sell';
   }
 }
 
 export interface PublicTreasuryGetCoinIDParams {
   /**
-   * Path param: public company or government entity
+   * Path param: Public company or government entity.
    */
   entity: 'companies' | 'governments';
 
   /**
-   * Query param: Sort order for results
+   * Query param: Sort order for results. Default: `total_holdings_usd_desc`
    */
   order?: 'total_holdings_usd_desc' | 'total_holdings_usd_asc';
 
   /**
-   * Query param: Page number to return
+   * Query param: Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * Query param: Number of results to return per page
+   * Query param: Total results per page. Default value: 250 Valid values: 1...250
    */
   per_page?: number;
 }
 
 export interface PublicTreasuryGetEntityIDParams {
   /**
-   * include holding amount change for specified timeframes, comma-separated if
-   * querying more than 1 timeframe Valid values: 7d, 14d, 30d, 90d, 1y, ytd
+   * Include holding amount change for specified timeframes, comma-separated if
+   * querying more than 1 timeframe. Valid values: `7d`, `14d`, `30d`, `90d`, `1y`,
+   * `ytd`
    */
   holding_amount_change?: string;
 
   /**
-   * include holding change percentage for specified timeframes, comma-separated if
-   * querying more than 1 timeframe Valid values: 7d, 14d, 30d, 90d, 1y, ytd
+   * Include holding change percentage for specified timeframes, comma-separated if
+   * querying more than 1 timeframe. Valid values: `7d`, `14d`, `30d`, `90d`, `1y`,
+   * `ytd`
    */
   holding_change_percentage?: string;
 }
 
 export interface PublicTreasuryGetHoldingChartParams {
   /**
-   * Path param: public company or government entity ID \*refers to
+   * Path param: Public company or government entity ID. \*refers to
    * [`/entities/list`](/reference/entities-list).
    */
   entity_id: string;
 
   /**
-   * Query param: data up to number of days ago Valid values:
-   * `7, 14, 30, 90, 180, 365, 730, max`
+   * Query param: Data up to number of days ago. Valid values: `7`, `14`, `30`, `90`,
+   * `180`, `365`, `730`, `max`
    */
   days: string;
 
   /**
-   * Query param: include empty intervals with no transaction data, default: false
+   * Query param: Include empty intervals with no transaction data. Default: `false`
    */
   include_empty_intervals?: boolean;
 }
 
 export interface PublicTreasuryGetTransactionHistoryParams {
   /**
-   * filter transactions by coin IDs, comma-separated if querying more than 1 coin
+   * Filter transactions by coin IDs, comma-separated if querying more than 1 coin.
    * \*refers to [`/coins/list`](/reference/coins-list).
    */
   coin_ids?: string;
 
   /**
-   * use this to sort the order of transactions, default: `date_desc`
+   * Sort order of transactions. Default: `date_desc`
    */
   order?:
     | 'date_desc'
@@ -465,19 +481,18 @@ export interface PublicTreasuryGetTransactionHistoryParams {
     | 'average_cost_asc';
 
   /**
-   * page through results, default: `1`
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * total results per page, default: `100` Valid values: 1...250
+   * Total results per page. Default value: 100 Valid values: 1...250
    */
   per_page?: number;
 }
 
 export declare namespace PublicTreasury {
   export {
-    type TreasuryEntity as TreasuryEntity,
     type PublicTreasuryGetCoinIDResponse as PublicTreasuryGetCoinIDResponse,
     type PublicTreasuryGetEntityIDResponse as PublicTreasuryGetEntityIDResponse,
     type PublicTreasuryGetHoldingChartResponse as PublicTreasuryGetHoldingChartResponse,

@@ -38,7 +38,7 @@ describe('resource trendingPools', () => {
 
   // Mock server tests are disabled
   test.skip('getNetwork', async () => {
-    const responsePromise = client.onchain.networks.trendingPools.getNetwork('eth');
+    const responsePromise = client.onchain.networks.trendingPools.getNetwork('network');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -53,7 +53,7 @@ describe('resource trendingPools', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.networks.trendingPools.getNetwork(
-        'eth',
+        'network',
         {
           duration: '5m',
           include: 'include',

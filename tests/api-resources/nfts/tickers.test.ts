@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource tickers', () => {
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.nfts.tickers.get('pudgy-penguins');
+    const responsePromise = client.nfts.tickers.get('id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

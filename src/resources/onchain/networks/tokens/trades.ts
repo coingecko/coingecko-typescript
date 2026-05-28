@@ -7,17 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class Trades extends APIResource {
   /**
-   * This endpoint allows you to **query the last 300 trades in the past 24 hours,
-   * across all pools, based on the provided token contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const trade =
-   *   await client.onchain.networks.tokens.trades.get(
-   *     '0xdac17f958d2ee523a2206206994597c13d831ec7',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To query the last 300 trades in the past 24 hours, across all pools, based on
+   * the provided token contract address on a network
    */
   get(tokenAddress: string, params: TradeGetParams, options?: RequestOptions): APIPromise<TradeGetResponse> {
     const { network, ...query } = params;
@@ -29,63 +20,118 @@ export class Trades extends APIResource {
 }
 
 export interface TradeGetResponse {
-  data?: Array<TradeGetResponse.Data>;
+  data: Array<TradeGetResponse.Data>;
 }
 
 export namespace TradeGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Trade identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      block_number?: number;
+      /**
+       * Block number of the trade
+       */
+      block_number: number;
 
-      block_timestamp?: string;
+      /**
+       * Block timestamp
+       */
+      block_timestamp: string;
 
-      from_token_address?: string;
+      /**
+       * From-token contract address
+       */
+      from_token_address: string;
 
-      from_token_amount?: string;
+      /**
+       * Amount of token sent
+       */
+      from_token_amount: string;
 
-      kind?: string;
+      /**
+       * Trade kind (buy or sell)
+       */
+      kind: string;
 
-      pool_address?: string;
+      /**
+       * Pool contract address where the trade occurred
+       */
+      pool_address: string;
 
-      pool_dex?: string;
+      /**
+       * DEX identifier of the pool
+       */
+      pool_dex: string;
 
-      price_from_in_currency_token?: string;
+      /**
+       * Price of from-token in currency token
+       */
+      price_from_in_currency_token: string;
 
-      price_from_in_usd?: string;
+      /**
+       * Price of from-token in USD
+       */
+      price_from_in_usd: string;
 
-      price_to_in_currency_token?: string;
+      /**
+       * Price of to-token in currency token
+       */
+      price_to_in_currency_token: string;
 
-      price_to_in_usd?: string;
+      /**
+       * Price of to-token in USD
+       */
+      price_to_in_usd: string;
 
-      to_token_address?: string;
+      /**
+       * To-token contract address
+       */
+      to_token_address: string;
 
-      to_token_amount?: string;
+      /**
+       * Amount of token received
+       */
+      to_token_amount: string;
 
-      tx_from_address?: string;
+      /**
+       * Transaction sender address
+       */
+      tx_from_address: string;
 
-      tx_hash?: string;
+      /**
+       * Transaction hash
+       */
+      tx_hash: string;
 
-      volume_in_usd?: string;
+      /**
+       * Trade volume in USD
+       */
+      volume_in_usd: string;
     }
   }
 }
 
 export interface TradeGetParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: filter trades by trade volume in USD greater than this value
+   * Query param: Filter trades by trade volume in USD greater than this value.
    * Default value: 0
    */
   trade_volume_in_usd_greater_than?: number;

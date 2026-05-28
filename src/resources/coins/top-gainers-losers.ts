@@ -6,201 +6,125 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class TopGainersLosers extends APIResource {
   /**
-   * This endpoint allows you to **query the top 30 coins with largest price gain and
-   * loss by a specific time duration**
-   *
-   * @example
-   * ```ts
-   * const topGainersLoser =
-   *   await client.coins.topGainersLosers.get({
-   *     vs_currency: 'usd',
-   *   });
-   * ```
+   * To query the top 30 coins with largest price gain and loss by a specific time
+   * duration
    */
   get(query: TopGainersLoserGetParams, options?: RequestOptions): APIPromise<TopGainersLoserGetResponse> {
     return this._client.get('/coins/top_gainers_losers', { query, ...options });
   }
 }
 
-export interface TopGainersLoserGetResponse {
-  top_gainers?: Array<TopGainersLoserGetResponse.TopGainer>;
+export interface TopGainersLosersItem {
+  /**
+   * Coin ID
+   */
+  id: string;
 
-  top_losers?: Array<TopGainersLoserGetResponse.TopLoser>;
+  /**
+   * Coin image URL
+   */
+  image: string;
+
+  /**
+   * Coin market cap rank
+   */
+  market_cap_rank: number | null;
+
+  /**
+   * Coin name
+   */
+  name: string;
+
+  /**
+   * Coin symbol
+   */
+  symbol: string;
+
+  /**
+   * Coin price in the target currency
+   */
+  usd: number;
+
+  /**
+   * 24-hour price change percentage
+   */
+  usd_24h_change: number | null;
+
+  /**
+   * 24-hour trading volume in the target currency
+   */
+  usd_24h_vol: number;
+
+  /**
+   * 14-day price change percentage
+   */
+  usd_14d_change?: number | null;
+
+  /**
+   * 1-hour price change percentage
+   */
+  usd_1h_change?: number | null;
+
+  /**
+   * 1-year price change percentage
+   */
+  usd_1y_change?: number | null;
+
+  /**
+   * 200-day price change percentage
+   */
+  usd_200d_change?: number | null;
+
+  /**
+   * 30-day price change percentage
+   */
+  usd_30d_change?: number | null;
+
+  /**
+   * 60-day price change percentage
+   */
+  usd_60d_change?: number | null;
+
+  /**
+   * 7-day price change percentage
+   */
+  usd_7d_change?: number | null;
 }
 
-export namespace TopGainersLoserGetResponse {
-  export interface TopGainer {
-    /**
-     * coin ID
-     */
-    id?: string;
+export interface TopGainersLoserGetResponse {
+  top_gainers: Array<TopGainersLosersItem>;
 
-    /**
-     * coin image url
-     */
-    image?: string;
-
-    /**
-     * coin rank by market cap
-     */
-    market_cap_rank?: number;
-
-    /**
-     * coin name
-     */
-    name?: string;
-
-    /**
-     * coin symbol
-     */
-    symbol?: string;
-
-    /**
-     * coin price in USD
-     */
-    usd?: number;
-
-    /**
-     * coin 14 day change percentage in USD
-     */
-    usd_14d_change?: number | null;
-
-    /**
-     * coin 1hr change percentage in USD
-     */
-    usd_1h_change?: number | null;
-
-    /**
-     * coin 1 year change percentage in USD
-     */
-    usd_1y_change?: number | null;
-
-    /**
-     * coin 200 day change percentage in USD
-     */
-    usd_200d_change?: number | null;
-
-    /**
-     * coin 24hr change percentage in USD
-     */
-    usd_24h_change?: number | null;
-
-    /**
-     * coin 24hr volume in USD
-     */
-    usd_24h_vol?: number;
-
-    /**
-     * coin 30 day change percentage in USD
-     */
-    usd_30d_change?: number | null;
-
-    /**
-     * coin 7 day change percentage in USD
-     */
-    usd_7d_change?: number | null;
-  }
-
-  export interface TopLoser {
-    /**
-     * coin ID
-     */
-    id?: string;
-
-    /**
-     * coin image url
-     */
-    image?: string;
-
-    /**
-     * coin rank by market cap
-     */
-    market_cap_rank?: number;
-
-    /**
-     * coin name
-     */
-    name?: string;
-
-    /**
-     * coin symbol
-     */
-    symbol?: string;
-
-    /**
-     * coin price in USD
-     */
-    usd?: number;
-
-    /**
-     * coin 14 day change percentage in USD
-     */
-    usd_14d_change?: number | null;
-
-    /**
-     * coin 1hr change percentage in USD
-     */
-    usd_1h_change?: number | null;
-
-    /**
-     * coin 1 year change percentage in USD
-     */
-    usd_1y_change?: number | null;
-
-    /**
-     * coin 200 day change percentage in USD
-     */
-    usd_200d_change?: number | null;
-
-    /**
-     * coin 24hr change percentage in USD
-     */
-    usd_24h_change?: number | null;
-
-    /**
-     * coin 24hr volume in USD
-     */
-    usd_24h_vol?: number;
-
-    /**
-     * coin 30 day change percentage in USD
-     */
-    usd_30d_change?: number | null;
-
-    /**
-     * coin 7 day change percentage in USD
-     */
-    usd_7d_change?: number | null;
-  }
+  top_losers: Array<TopGainersLosersItem>;
 }
 
 export interface TopGainersLoserGetParams {
   /**
-   * target currency of coins \*refers to
-   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
+   * Target currency of coins. \*refers to
+   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)
    */
   vs_currency: string;
 
   /**
-   * filter result by time range Default value: `24h`
+   * Filter result by time range. Default: `24h`
    */
   duration?: '1h' | '24h' | '7d' | '14d' | '30d' | '60d' | '1y';
 
   /**
-   * include price change percentage timeframe, comma-separated if query more than 1
-   * price change percentage timeframe Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y
+   * Include price change percentage timeframe, comma-separated if querying more than
+   * 1 timeframe. Valid values: `1h`, `24h`, `7d`, `14d`, `30d`, `60d`, `200d`, `1y`
    */
   price_change_percentage?: string;
 
   /**
-   * filter result by market cap ranking (top 300 to 1000) or all coins (including
-   * coins that do not have market cap) Default value: `1000`
+   * Filter result by market cap ranking (top 300 to 1000) or all coins (including
+   * coins that do not have market cap). Default: `1000`
    */
   top_coins?: '300' | '500' | '1000' | 'all';
 }
 
 export declare namespace TopGainersLosers {
   export {
+    type TopGainersLosersItem as TopGainersLosersItem,
     type TopGainersLoserGetResponse as TopGainersLoserGetResponse,
     type TopGainersLoserGetParams as TopGainersLoserGetParams,
   };

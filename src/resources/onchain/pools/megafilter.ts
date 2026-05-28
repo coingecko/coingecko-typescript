@@ -6,14 +6,7 @@ import { RequestOptions } from '../../../internal/request-options';
 
 export class Megafilter extends APIResource {
   /**
-   * This endpoint allows you to **query pools based on various filters across all
-   * networks on GeckoTerminal**
-   *
-   * @example
-   * ```ts
-   * const megafilter =
-   *   await client.onchain.pools.megafilter.get();
-   * ```
+   * To query pools based on various filters across all networks on GeckoTerminal
    */
   get(
     query: MegafilterGetParams | null | undefined = {},
@@ -24,56 +17,136 @@ export class Megafilter extends APIResource {
 }
 
 export interface MegafilterGetResponse {
-  data?: Array<MegafilterGetResponse.Data>;
+  data: Array<MegafilterGetResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<MegafilterGetResponse.Included>;
 }
 
 export namespace MegafilterGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      base_token_price_native_currency?: string;
+      /**
+       * Base token price in native currency
+       */
+      base_token_price_native_currency: string | null;
 
-      base_token_price_quote_token?: string;
+      /**
+       * Base token price in quote token
+       */
+      base_token_price_quote_token: string | null;
 
-      base_token_price_usd?: string;
+      /**
+       * Base token price in USD
+       */
+      base_token_price_usd: string;
 
-      fdv_usd?: string | null;
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
 
-      market_cap_usd?: string | null;
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
 
-      name?: string;
+      /**
+       * Pool name
+       */
+      name: string;
 
-      pool_created_at?: string;
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
 
-      price_change_percentage?: Attributes.PriceChangePercentage;
+      /**
+       * Price change percentage over various timeframes
+       */
+      price_change_percentage: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      /**
+       * Quote token price in base token
+       */
+      quote_token_price_base_token: string | null;
 
-      quote_token_price_native_currency?: string;
+      /**
+       * Quote token price in native currency
+       */
+      quote_token_price_native_currency: string | null;
 
-      quote_token_price_usd?: string;
+      /**
+       * Quote token price in USD
+       */
+      quote_token_price_usd: string;
 
-      reserve_in_usd?: string;
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
 
-      transactions?: Attributes.Transactions;
+      /**
+       * Transaction counts over various timeframes
+       */
+      transactions: Attributes.Transactions;
 
-      volume_usd?: Attributes.VolumeUsd;
+      /**
+       * Volume in USD over various timeframes
+       */
+      volume_usd: Attributes.VolumeUsd;
+
+      /**
+       * GeckoTerminal community suspicious reports count
+       */
+      community_sus_report?: number;
+
+      /**
+       * GeckoTerminal community negative sentiment vote percentage
+       */
+      sentiment_vote_negative_percentage?: number;
+
+      /**
+       * GeckoTerminal community positive sentiment vote percentage
+       */
+      sentiment_vote_positive_percentage?: number;
+
+      /**
+       * Price of the queried token in USD, present when querying pools by token address
+       */
+      token_price_usd?: string;
     }
 
     export namespace Attributes {
+      /**
+       * Price change percentage over various timeframes
+       */
       export interface PriceChangePercentage {
         h1?: string;
 
@@ -88,6 +161,9 @@ export namespace MegafilterGetResponse {
         m5?: string;
       }
 
+      /**
+       * Transaction counts over various timeframes
+       */
       export interface Transactions {
         h1?: Transactions.H1;
 
@@ -164,6 +240,9 @@ export namespace MegafilterGetResponse {
         }
       }
 
+      /**
+       * Volume in USD over various timeframes
+       */
       export interface VolumeUsd {
         h1?: string;
 
@@ -179,6 +258,9 @@ export namespace MegafilterGetResponse {
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
@@ -252,11 +334,13 @@ export namespace MegafilterGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_asset_platform_id?: string;
+
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -267,147 +351,147 @@ export namespace MegafilterGetResponse {
 
 export interface MegafilterGetParams {
   /**
-   * maximum buy tax percentage
+   * Maximum buy tax percentage.
    */
   buy_tax_percentage_max?: number;
 
   /**
-   * minimum buy tax percentage
+   * Minimum buy tax percentage.
    */
   buy_tax_percentage_min?: number;
 
   /**
-   * duration for buy transactions metric Default value: 24h
+   * Duration for buy transactions metric. Default: `24h`
    */
   buys_duration?: '5m' | '1h' | '6h' | '24h';
 
   /**
-   * maximum number of buy transactions
+   * Maximum number of buy transactions.
    */
   buys_max?: number;
 
   /**
-   * minimum number of buy transactions
+   * Minimum number of buy transactions.
    */
   buys_min?: number;
 
   /**
-   * filter options for various checks, comma-separated if more than one Available
+   * Filter options for various checks, comma-separated if more than one. Available
    * values: `no_honeypot`, `good_gt_score`, `on_coingecko`, `has_social`
    */
   checks?: string;
 
   /**
-   * filter pools by DEXes, comma-separated if more than one DEX ID refers to
-   * [/networks/{network}/dexes](/reference/dexes-list)
+   * Filter pools by DEXes, comma-separated if more than one. \*refers to
+   * [`/onchain/networks/{network}/dexes`](/reference/dexes-list).
    */
   dexes?: string;
 
   /**
-   * maximum fully diluted value in USD
+   * Maximum fully diluted value in USD.
    */
   fdv_usd_max?: number;
 
   /**
-   * minimum fully diluted value in USD
+   * Minimum fully diluted value in USD.
    */
   fdv_usd_min?: number;
 
   /**
-   * maximum 24hr volume in USD
+   * Maximum 24hr volume in USD.
    */
   h24_volume_usd_max?: number;
 
   /**
-   * minimum 24hr volume in USD
+   * Minimum 24hr volume in USD.
    */
   h24_volume_usd_min?: number;
 
   /**
-   * attributes to include, comma-separated if more than one to include Available
-   * values: `base_token`, `quote_token`, `dex`, `network`
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`, `network`
    */
   include?: string;
 
   /**
-   * when `checks` includes `no_honeypot`, set to **`true`** to also include 'unknown
-   * honeypot' tokens. Default value: `false`
+   * When `checks` includes `no_honeypot`, set to `true` to also include unknown
+   * honeypot tokens. Default: `false`
    */
   include_unknown_honeypot_tokens?: boolean;
 
   /**
-   * filter pools by networks, comma-separated if more than one Network ID refers to
-   * [/networks](/reference/networks-list)
+   * Filter pools by networks, comma-separated if more than one. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   networks?: string;
 
   /**
-   * page through results Default value: 1
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * maximum pool age in hours
+   * Maximum pool age in hours.
    */
   pool_created_hour_max?: number;
 
   /**
-   * minimum pool age in hours
+   * Minimum pool age in hours.
    */
   pool_created_hour_min?: number;
 
   /**
-   * duration for price change percentage metric
+   * Duration for price change percentage metric. Default: `24h`
    */
   price_change_percentage_duration?: '5m' | '1h' | '6h' | '24h';
 
   /**
-   * maximum price change percentage
+   * Maximum price change percentage.
    */
   price_change_percentage_max?: number;
 
   /**
-   * minimum price change percentage
+   * Minimum price change percentage.
    */
   price_change_percentage_min?: number;
 
   /**
-   * maximum reserve in USD
+   * Maximum reserve in USD.
    */
   reserve_in_usd_max?: number;
 
   /**
-   * minimum reserve in USD
+   * Minimum reserve in USD.
    */
   reserve_in_usd_min?: number;
 
   /**
-   * maximum sell tax percentage
+   * Maximum sell tax percentage.
    */
   sell_tax_percentage_max?: number;
 
   /**
-   * minimum sell tax percentage
+   * Minimum sell tax percentage.
    */
   sell_tax_percentage_min?: number;
 
   /**
-   * duration for sell transactions metric Default value: 24h
+   * Duration for sell transactions metric. Default: `24h`
    */
   sells_duration?: '5m' | '1h' | '6h' | '24h';
 
   /**
-   * maximum number of sell transactions
+   * Maximum number of sell transactions.
    */
   sells_max?: number;
 
   /**
-   * minimum number of sell transactions
+   * Minimum number of sell transactions.
    */
   sells_min?: number;
 
   /**
-   * sort the pools by field Default value: h6_trending
+   * Sort the pools by field. Default: `h6_trending`
    */
   sort?:
     | 'm5_trending'
@@ -435,17 +519,17 @@ export interface MegafilterGetParams {
     | 'pool_created_at_desc';
 
   /**
-   * duration for transaction count metric Default value: 24h
+   * Duration for transaction count metric. Default: `24h`
    */
   tx_count_duration?: '5m' | '1h' | '6h' | '24h';
 
   /**
-   * maximum transaction count
+   * Maximum transaction count.
    */
   tx_count_max?: number;
 
   /**
-   * minimum transaction count
+   * Minimum transaction count.
    */
   tx_count_min?: number;
 }

@@ -7,17 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class Info extends APIResource {
   /**
-   * This endpoint allows you to **query token metadata (name, symbol, CoinGecko ID,
-   * image, socials, websites, description, etc.) based on a provided token contract
-   * address on a network**
-   *
-   * @example
-   * ```ts
-   * const info = await client.onchain.networks.tokens.info.get(
-   *   '0xdac17f958d2ee523a2206206994597c13d831ec7',
-   *   { network: 'eth' },
-   * );
-   * ```
+   * To query token metadata (name, symbol, CoinGecko ID, image, socials, websites,
+   * description, etc.) based on a provided token contract address on a network
    */
   get(address: string, params: InfoGetParams, options?: RequestOptions): APIPromise<InfoGetResponse> {
     const { network } = params;
@@ -26,68 +17,146 @@ export class Info extends APIResource {
 }
 
 export interface InfoGetResponse {
-  data?: InfoGetResponse.Data;
+  data: InfoGetResponse.Data;
 }
 
 export namespace InfoGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Token identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Token contract address
+       */
+      address: string;
 
-      categories?: Array<string>;
+      /**
+       * Token categories
+       */
+      categories: Array<string>;
 
-      coingecko_coin_id?: string;
+      /**
+       * CoinGecko coin ID
+       */
+      coingecko_coin_id: string | null;
 
-      decimals?: number;
+      /**
+       * Token decimals
+       */
+      decimals: number;
 
-      description?: string;
+      /**
+       * Token description
+       */
+      description: string | null;
 
-      discord_url?: string | null;
+      /**
+       * Discord URL
+       */
+      discord_url: string | null;
 
-      farcaster_url?: string | null;
+      /**
+       * Farcaster URL
+       */
+      farcaster_url: string | null;
 
-      freeze_authority?: string | null;
+      /**
+       * Freeze authority status
+       */
+      freeze_authority: string | null;
 
-      gt_category_ids?: Array<string>;
+      /**
+       * GeckoTerminal category IDs
+       */
+      gt_category_ids: Array<string>;
 
-      gt_score?: number;
+      /**
+       * GeckoTerminal trust score
+       */
+      gt_score: number;
 
-      gt_score_details?: Attributes.GtScoreDetails;
+      /**
+       * GeckoTerminal trust score breakdown
+       */
+      gt_score_details: Attributes.GtScoreDetails;
 
-      gt_verified?: boolean;
+      /**
+       * Whether the token is verified on GeckoTerminal
+       */
+      gt_verified: boolean;
 
-      holders?: Attributes.Holders;
+      /**
+       * Token holder information
+       */
+      holders: Attributes.Holders;
 
-      image?: Attributes.Image;
+      /**
+       * Token image URLs in different sizes
+       */
+      image: Attributes.Image;
 
-      image_url?: string;
+      /**
+       * Token image URL
+       */
+      image_url: string | null;
 
-      is_honeypot?: boolean | string;
+      /**
+       * Whether the token is a honeypot (boolean or 'unknown')
+       */
+      is_honeypot: boolean | string;
 
-      mint_authority?: string | null;
+      /**
+       * Mint authority status
+       */
+      mint_authority: string | null;
 
-      name?: string;
+      /**
+       * Token name
+       */
+      name: string;
 
-      symbol?: string;
+      /**
+       * Token symbol
+       */
+      symbol: string;
 
-      telegram_handle?: string | null;
+      /**
+       * Telegram handle
+       */
+      telegram_handle: string | null;
 
-      twitter_handle?: string;
+      /**
+       * Twitter handle
+       */
+      twitter_handle: string | null;
 
-      websites?: Array<string>;
+      /**
+       * Token websites
+       */
+      websites: Array<string>;
 
-      zora_url?: string | null;
+      /**
+       * Zora URL
+       */
+      zora_url: string | null;
     }
 
     export namespace Attributes {
+      /**
+       * GeckoTerminal trust score breakdown
+       */
       export interface GtScoreDetails {
         creation?: number;
 
@@ -100,26 +169,30 @@ export namespace InfoGetResponse {
         transaction?: number;
       }
 
+      /**
+       * Token holder information
+       */
       export interface Holders {
+        /**
+         * Number of holders
+         */
         count?: number;
 
-        distribution_percentage?: Holders.DistributionPercentage;
+        /**
+         * Holder distribution percentage (keys vary by chain, e.g. top_10, 11_30, 31_50,
+         * rest)
+         */
+        distribution_percentage?: { [key: string]: string };
 
+        /**
+         * Last updated timestamp
+         */
         last_updated?: string;
       }
 
-      export namespace Holders {
-        export interface DistributionPercentage {
-          '11_30'?: string;
-
-          '31_50'?: string;
-
-          rest?: string;
-
-          top_10?: string;
-        }
-      }
-
+      /**
+       * Token image URLs in different sizes
+       */
       export interface Image {
         large?: string;
 
@@ -133,7 +206,7 @@ export namespace InfoGetResponse {
 
 export interface InfoGetParams {
   /**
-   * network ID \*refers to [/networks](/reference/networks-list)
+   * Network ID. \*refers to [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 }

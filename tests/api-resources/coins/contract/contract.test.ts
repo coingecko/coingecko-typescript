@@ -10,9 +10,7 @@ const client = new Coingecko({
 describe('resource contract', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.contract.get('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', {
-      id: 'ethereum',
-    });
+    const responsePromise = client.coins.contract.get('contract_address', { id: 'id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -24,8 +22,6 @@ describe('resource contract', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.coins.contract.get('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', {
-      id: 'ethereum',
-    });
+    const response = await client.coins.contract.get('contract_address', { id: 'id' });
   });
 });

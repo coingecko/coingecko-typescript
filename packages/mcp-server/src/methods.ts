@@ -35,30 +35,6 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/coins/categories/list',
   },
   {
-    clientCallName: 'client.coins.list.get',
-    fullyQualifiedName: 'coins.list.get',
-    httpMethod: 'get',
-    httpPath: '/coins/list',
-  },
-  {
-    clientCallName: 'client.coins.list.getNew',
-    fullyQualifiedName: 'coins.list.getNew',
-    httpMethod: 'get',
-    httpPath: '/coins/list/new',
-  },
-  {
-    clientCallName: 'client.coins.markets.get',
-    fullyQualifiedName: 'coins.markets.get',
-    httpMethod: 'get',
-    httpPath: '/coins/markets',
-  },
-  {
-    clientCallName: 'client.coins.topGainersLosers.get',
-    fullyQualifiedName: 'coins.topGainersLosers.get',
-    httpMethod: 'get',
-    httpPath: '/coins/top_gainers_losers',
-  },
-  {
     clientCallName: 'client.coins.circulatingSupplyChart.get',
     fullyQualifiedName: 'coins.circulatingSupplyChart.get',
     httpMethod: 'get',
@@ -95,6 +71,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/coins/{id}/history',
   },
   {
+    clientCallName: 'client.coins.list.get',
+    fullyQualifiedName: 'coins.list.get',
+    httpMethod: 'get',
+    httpPath: '/coins/list',
+  },
+  {
+    clientCallName: 'client.coins.list.getNew',
+    fullyQualifiedName: 'coins.list.getNew',
+    httpMethod: 'get',
+    httpPath: '/coins/list/new',
+  },
+  {
     clientCallName: 'client.coins.marketChart.get',
     fullyQualifiedName: 'coins.marketChart.get',
     httpMethod: 'get',
@@ -105,6 +93,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'coins.marketChart.getRange',
     httpMethod: 'get',
     httpPath: '/coins/{id}/market_chart/range',
+  },
+  {
+    clientCallName: 'client.coins.markets.get',
+    fullyQualifiedName: 'coins.markets.get',
+    httpMethod: 'get',
+    httpPath: '/coins/markets',
   },
   {
     clientCallName: 'client.coins.ohlc.get',
@@ -123,6 +117,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'coins.tickers.get',
     httpMethod: 'get',
     httpPath: '/coins/{id}/tickers',
+  },
+  {
+    clientCallName: 'client.coins.topGainersLosers.get',
+    fullyQualifiedName: 'coins.topGainersLosers.get',
+    httpMethod: 'get',
+    httpPath: '/coins/top_gainers_losers',
   },
   {
     clientCallName: 'client.coins.totalSupplyChart.get',
@@ -299,30 +299,6 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks',
   },
   {
-    clientCallName: 'client.onchain.networks.newPools.get',
-    fullyQualifiedName: 'onchain.networks.newPools.get',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/new_pools',
-  },
-  {
-    clientCallName: 'client.onchain.networks.newPools.getNetwork',
-    fullyQualifiedName: 'onchain.networks.newPools.getNetwork',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/new_pools',
-  },
-  {
-    clientCallName: 'client.onchain.networks.trendingPools.get',
-    fullyQualifiedName: 'onchain.networks.trendingPools.get',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/trending_pools',
-  },
-  {
-    clientCallName: 'client.onchain.networks.trendingPools.getNetwork',
-    fullyQualifiedName: 'onchain.networks.trendingPools.getNetwork',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/trending_pools',
-  },
-  {
     clientCallName: 'client.onchain.networks.dexes.get',
     fullyQualifiedName: 'onchain.networks.dexes.get',
     httpMethod: 'get',
@@ -333,6 +309,18 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'onchain.networks.dexes.getPools',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network}/dexes/{dex}/pools',
+  },
+  {
+    clientCallName: 'client.onchain.networks.newPools.get',
+    fullyQualifiedName: 'onchain.networks.newPools.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/new_pools',
+  },
+  {
+    clientCallName: 'client.onchain.networks.newPools.getNetwork',
+    fullyQualifiedName: 'onchain.networks.newPools.getNetwork',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/new_pools',
   },
   {
     clientCallName: 'client.onchain.networks.pools.get',
@@ -347,16 +335,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/pools/{address}',
   },
   {
-    clientCallName: 'client.onchain.networks.pools.multi.getAddresses',
-    fullyQualifiedName: 'onchain.networks.pools.multi.getAddresses',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/pools/multi/{addresses}',
-  },
-  {
     clientCallName: 'client.onchain.networks.pools.info.get',
     fullyQualifiedName: 'onchain.networks.pools.info.get',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network}/pools/{pool_address}/info',
+  },
+  {
+    clientCallName: 'client.onchain.networks.pools.multi.getAddresses',
+    fullyQualifiedName: 'onchain.networks.pools.multi.getAddresses',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/pools/multi/{addresses}',
   },
   {
     clientCallName: 'client.onchain.networks.pools.ohlcv.getTimeframe',
@@ -377,10 +365,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/tokens/{address}',
   },
   {
-    clientCallName: 'client.onchain.networks.tokens.multi.getAddresses',
-    fullyQualifiedName: 'onchain.networks.tokens.multi.getAddresses',
+    clientCallName: 'client.onchain.networks.tokens.holdersChart.get',
+    fullyQualifiedName: 'onchain.networks.tokens.holdersChart.get',
     httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/tokens/multi/{addresses}',
+    httpPath: '/onchain/networks/{network}/tokens/{token_address}/holders_chart',
   },
   {
     clientCallName: 'client.onchain.networks.tokens.info.get',
@@ -389,16 +377,10 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/tokens/{address}/info',
   },
   {
-    clientCallName: 'client.onchain.networks.tokens.topHolders.get',
-    fullyQualifiedName: 'onchain.networks.tokens.topHolders.get',
+    clientCallName: 'client.onchain.networks.tokens.multi.getAddresses',
+    fullyQualifiedName: 'onchain.networks.tokens.multi.getAddresses',
     httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/tokens/{address}/top_holders',
-  },
-  {
-    clientCallName: 'client.onchain.networks.tokens.holdersChart.get',
-    fullyQualifiedName: 'onchain.networks.tokens.holdersChart.get',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/tokens/{token_address}/holders_chart',
+    httpPath: '/onchain/networks/{network}/tokens/multi/{addresses}',
   },
   {
     clientCallName: 'client.onchain.networks.tokens.ohlcv.getTimeframe',
@@ -413,16 +395,34 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/tokens/{token_address}/pools',
   },
   {
-    clientCallName: 'client.onchain.networks.tokens.trades.get',
-    fullyQualifiedName: 'onchain.networks.tokens.trades.get',
+    clientCallName: 'client.onchain.networks.tokens.topHolders.get',
+    fullyQualifiedName: 'onchain.networks.tokens.topHolders.get',
     httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/tokens/{token_address}/trades',
+    httpPath: '/onchain/networks/{network}/tokens/{address}/top_holders',
   },
   {
     clientCallName: 'client.onchain.networks.tokens.topTraders.get',
     fullyQualifiedName: 'onchain.networks.tokens.topTraders.get',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network_id}/tokens/{token_address}/top_traders',
+  },
+  {
+    clientCallName: 'client.onchain.networks.tokens.trades.get',
+    fullyQualifiedName: 'onchain.networks.tokens.trades.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/tokens/{token_address}/trades',
+  },
+  {
+    clientCallName: 'client.onchain.networks.trendingPools.get',
+    fullyQualifiedName: 'onchain.networks.trendingPools.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/trending_pools',
+  },
+  {
+    clientCallName: 'client.onchain.networks.trendingPools.getNetwork',
+    fullyQualifiedName: 'onchain.networks.trendingPools.getNetwork',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/trending_pools',
   },
   {
     clientCallName: 'client.onchain.pools.megafilter.get',

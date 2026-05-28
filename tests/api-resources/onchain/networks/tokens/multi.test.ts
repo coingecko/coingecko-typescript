@@ -11,7 +11,7 @@ describe('resource multi', () => {
   // Mock server tests are disabled
   test.skip('getAddresses: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.multi.getAddresses('addresses', {
-      network: 'solana',
+      network: 'network',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,7 +25,7 @@ describe('resource multi', () => {
   // Mock server tests are disabled
   test.skip('getAddresses: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.multi.getAddresses('addresses', {
-      network: 'solana',
+      network: 'network',
       include: 'top_pools',
       include_composition: true,
       include_inactive_source: true,

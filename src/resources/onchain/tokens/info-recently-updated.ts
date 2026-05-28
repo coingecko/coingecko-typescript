@@ -6,14 +6,8 @@ import { RequestOptions } from '../../../internal/request-options';
 
 export class InfoRecentlyUpdated extends APIResource {
   /**
-   * This endpoint allows you to **query 100 most recently updated tokens info of a
-   * specific network or across all networks on GeckoTerminal**
-   *
-   * @example
-   * ```ts
-   * const infoRecentlyUpdated =
-   *   await client.onchain.tokens.infoRecentlyUpdated.get();
-   * ```
+   * To query 100 most recently updated tokens info of a specific network or across
+   * all networks on GeckoTerminal
    */
   get(
     query: InfoRecentlyUpdatedGetParams | null | undefined = {},
@@ -24,51 +18,107 @@ export class InfoRecentlyUpdated extends APIResource {
 }
 
 export interface InfoRecentlyUpdatedGetResponse {
-  data?: Array<InfoRecentlyUpdatedGetResponse.Data>;
+  data: Array<InfoRecentlyUpdatedGetResponse.Data>;
+
+  /**
+   * Included network data, present when include=network is specified
+   */
+  included?: Array<InfoRecentlyUpdatedGetResponse.Included>;
 }
 
 export namespace InfoRecentlyUpdatedGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Token identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Token contract address
+       */
+      address: string;
 
-      coingecko_coin_id?: string | null;
+      /**
+       * CoinGecko coin ID
+       */
+      coingecko_coin_id: string | null;
 
-      decimals?: number;
+      /**
+       * Token decimals
+       */
+      decimals: number;
 
-      description?: string;
+      /**
+       * Token description
+       */
+      description: string | null;
 
-      discord_url?: string | null;
+      /**
+       * Discord URL
+       */
+      discord_url: string | null;
 
-      farcaster_url?: string | null;
+      /**
+       * Farcaster URL
+       */
+      farcaster_url: string | null;
 
-      gt_score?: number;
+      /**
+       * GeckoTerminal trust score
+       */
+      gt_score: number | null;
 
-      image_url?: string;
+      /**
+       * Token image URL
+       */
+      image_url: string | null;
 
-      metadata_updated_at?: string;
+      /**
+       * Metadata last updated timestamp
+       */
+      metadata_updated_at: string;
 
-      name?: string;
+      /**
+       * Token name
+       */
+      name: string;
 
-      symbol?: string;
+      /**
+       * Token symbol
+       */
+      symbol: string;
 
-      telegram_handle?: string | null;
+      /**
+       * Telegram handle
+       */
+      telegram_handle: string | null;
 
-      twitter_handle?: string | null;
+      /**
+       * Twitter handle
+       */
+      twitter_handle: string | null;
 
-      websites?: Array<string>;
+      /**
+       * Token websites
+       */
+      websites: Array<string>;
 
-      zora_url?: string | null;
+      /**
+       * Zora URL
+       */
+      zora_url: string | null;
     }
 
     export interface Relationships {
@@ -89,18 +139,33 @@ export namespace InfoRecentlyUpdatedGetResponse {
       }
     }
   }
+
+  export interface Included {
+    id?: string;
+
+    attributes?: Included.Attributes;
+
+    type?: string;
+  }
+
+  export namespace Included {
+    export interface Attributes {
+      coingecko_asset_platform_id?: string;
+
+      name?: string;
+    }
+  }
 }
 
 export interface InfoRecentlyUpdatedGetParams {
   /**
-   * Attributes for related resources to include, which will be returned under the
-   * top-level 'included' key
+   * Attributes for related resources to include.
    */
   include?: 'network';
 
   /**
-   * filter tokens by provided network \*refers to
-   * [/networks](/reference/networks-list)
+   * Filter tokens by provided network. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network?: string;
 }

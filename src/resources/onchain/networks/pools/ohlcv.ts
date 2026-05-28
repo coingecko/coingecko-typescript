@@ -7,21 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class Ohlcv extends APIResource {
   /**
-   * This endpoint allows you to **get the OHLCV chart (Open, High, Low, Close,
-   * Volume) of a pool based on the provided pool address on a network**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.networks.pools.ohlcv.getTimeframe(
-   *     'day',
-   *     {
-   *       network: 'eth',
-   *       pool_address:
-   *         '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-   *     },
-   *   );
-   * ```
+   * To get the OHLCV chart (Open, High, Low, Close, Volume) of a pool based on the
+   * provided pool address on a network
    */
   getTimeframe(
     timeframe: 'day' | 'hour' | 'minute' | 'second',
@@ -37,47 +24,68 @@ export class Ohlcv extends APIResource {
 }
 
 export interface OhlcvGetTimeframeResponse {
-  data?: OhlcvGetTimeframeResponse.Data;
+  data: OhlcvGetTimeframeResponse.Data;
 
-  meta?: OhlcvGetTimeframeResponse.Meta;
+  meta: OhlcvGetTimeframeResponse.Meta;
 }
 
 export namespace OhlcvGetTimeframeResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Request ID
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      ohlcv_list?: Array<Array<number>>;
+      /**
+       * OHLCV data as [timestamp, open, high, low, close, volume] arrays
+       */
+      ohlcv_list: Array<Array<number>>;
     }
   }
 
   export interface Meta {
+    /**
+     * Base token metadata
+     */
     base?: Meta.Base;
 
+    /**
+     * Quote token metadata
+     */
     quote?: Meta.Quote;
   }
 
   export namespace Meta {
+    /**
+     * Base token metadata
+     */
     export interface Base {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_coin_id?: string | null;
 
       name?: string;
 
       symbol?: string;
     }
 
+    /**
+     * Quote token metadata
+     */
     export interface Quote {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_coin_id?: string | null;
 
       name?: string;
 
@@ -88,46 +96,47 @@ export namespace OhlcvGetTimeframeResponse {
 
 export interface OhlcvGetTimeframeParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Path param: pool contract address
+   * Path param: Pool contract address.
    */
   pool_address: string;
 
   /**
-   * Query param: return OHLCV for token use this to invert the chart Available
-   * values: 'base', 'quote' or token address Default value: 'base'
+   * Query param: Return OHLCV for token, use this to invert the chart. Available
+   * values: `base`, `quote`, or token address. Default: `base`
    */
   token?: string;
 
   /**
-   * Query param: time period to aggregate each OHLCV Available values (day): `1`
-   * Available values (hour): `1` , `4` , `12` Available values (minute): `1` , `5` ,
+   * Query param: Time period to aggregate each OHLCV. Available values (day): `1`
+   * Available values (hour): `1`, `4`, `12` Available values (minute): `1`, `5`,
    * `15` Available values (second): `1`, `15`, `30` Default value: 1
    */
   aggregate?: string;
 
   /**
-   * Query param: return OHLCV data before this timestamp (integer seconds since
-   * epoch)
+   * Query param: Return OHLCV data before this timestamp (integer seconds since
+   * epoch).
    */
   before_timestamp?: number;
 
   /**
-   * Query param: return OHLCV in USD or quote token Default value: usd
+   * Query param: Return OHLCV in USD or quote token. Default: `usd`
    */
   currency?: 'usd' | 'token';
 
   /**
-   * Query param: include empty intervals with no trade data, default: false
+   * Query param: Include empty intervals with no trade data. Default: `false`
    */
   include_empty_intervals?: boolean;
 
   /**
-   * Query param: number of OHLCV results to return, maximum 1000 Default value: 100
+   * Query param: Number of OHLCV results to return, maximum 1000. Default value: 100
    */
   limit?: number;
 }

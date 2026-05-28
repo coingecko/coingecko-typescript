@@ -6,14 +6,8 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class DecentralizedFinanceDefi extends APIResource {
   /**
-   * This endpoint allows you **query top 100 cryptocurrency global decentralized
-   * finance (DeFi) data including DeFi market cap, trading volume**
-   *
-   * @example
-   * ```ts
-   * const decentralizedFinanceDefi =
-   *   await client.global.decentralizedFinanceDefi.get();
-   * ```
+   * To query top 100 cryptocurrency global decentralized finance (DeFi) data
+   * including DeFi market cap, trading volume
    */
   get(options?: RequestOptions): APIPromise<DecentralizedFinanceDefiGetResponse> {
     return this._client.get('/global/decentralized_finance_defi', options);
@@ -21,45 +15,45 @@ export class DecentralizedFinanceDefi extends APIResource {
 }
 
 export interface DecentralizedFinanceDefiGetResponse {
-  data?: DecentralizedFinanceDefiGetResponse.Data;
+  data: DecentralizedFinanceDefiGetResponse.Data;
 }
 
 export namespace DecentralizedFinanceDefiGetResponse {
   export interface Data {
     /**
-     * defi dominance
+     * DeFi dominance percentage
      */
-    defi_dominance?: string;
+    defi_dominance: string;
 
     /**
-     * defi market cap
+     * DeFi market cap
      */
-    defi_market_cap?: string;
+    defi_market_cap: string;
 
     /**
-     * defi to eth ratio
+     * DeFi to ETH ratio
      */
-    defi_to_eth_ratio?: string;
+    defi_to_eth_ratio: string;
 
     /**
-     * eth market cap
+     * ETH market cap
      */
-    eth_market_cap?: string;
+    eth_market_cap: string;
 
     /**
-     * defi top coin dominance
+     * DeFi top coin dominance percentage
      */
-    top_coin_defi_dominance?: number;
+    top_coin_defi_dominance: number;
 
     /**
-     * defi top coin name
+     * DeFi top coin name
      */
-    top_coin_name?: string;
+    top_coin_name: string;
 
     /**
-     * defi trading volume in 24 hours
+     * DeFi trading volume in 24 hours
      */
-    trading_volume_24h?: string;
+    trading_volume_24h: string;
   }
 }
 

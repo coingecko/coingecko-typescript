@@ -10,14 +10,11 @@ const client = new Coingecko({
 describe('resource marketChart', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.contract.marketChart.get(
-      '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      {
-        id: 'ethereum',
-        days: 'days',
-        vs_currency: 'usd',
-      },
-    );
+    const responsePromise = client.coins.contract.marketChart.get('contract_address', {
+      id: 'id',
+      days: 'days',
+      vs_currency: 'vs_currency',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -29,29 +26,23 @@ describe('resource marketChart', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.coins.contract.marketChart.get(
-      '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      {
-        id: 'ethereum',
-        days: 'days',
-        vs_currency: 'usd',
-        interval: '5m',
-        precision: 'full',
-      },
-    );
+    const response = await client.coins.contract.marketChart.get('contract_address', {
+      id: 'id',
+      days: 'days',
+      vs_currency: 'vs_currency',
+      interval: '5m',
+      precision: 'full',
+    });
   });
 
   // Mock server tests are disabled
   test.skip('getRange: only required params', async () => {
-    const responsePromise = client.coins.contract.marketChart.getRange(
-      '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      {
-        id: 'ethereum',
-        from: 'from',
-        to: 'to',
-        vs_currency: 'usd',
-      },
-    );
+    const responsePromise = client.coins.contract.marketChart.getRange('contract_address', {
+      id: 'id',
+      from: 'from',
+      to: 'to',
+      vs_currency: 'vs_currency',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -63,16 +54,13 @@ describe('resource marketChart', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: required and optional params', async () => {
-    const response = await client.coins.contract.marketChart.getRange(
-      '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
-      {
-        id: 'ethereum',
-        from: 'from',
-        to: 'to',
-        vs_currency: 'usd',
-        interval: '5m',
-        precision: 'full',
-      },
-    );
+    const response = await client.coins.contract.marketChart.getRange('contract_address', {
+      id: 'id',
+      from: 'from',
+      to: 'to',
+      vs_currency: 'vs_currency',
+      interval: '5m',
+      precision: 'full',
+    });
   });
 });

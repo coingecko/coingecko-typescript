@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource publicTreasury', () => {
   // Mock server tests are disabled
   test.skip('getCoinID: only required params', async () => {
-    const responsePromise = client.publicTreasury.getCoinID('bitcoin', { entity: 'companies' });
+    const responsePromise = client.publicTreasury.getCoinID('coin_id', { entity: 'companies' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,17 +22,17 @@ describe('resource publicTreasury', () => {
 
   // Mock server tests are disabled
   test.skip('getCoinID: required and optional params', async () => {
-    const response = await client.publicTreasury.getCoinID('bitcoin', {
+    const response = await client.publicTreasury.getCoinID('coin_id', {
       entity: 'companies',
       order: 'total_holdings_usd_desc',
-      page: 1,
-      per_page: 250,
+      page: 0,
+      per_page: 0,
     });
   });
 
   // Mock server tests are disabled
   test.skip('getEntityID', async () => {
-    const responsePromise = client.publicTreasury.getEntityID('strategy');
+    const responsePromise = client.publicTreasury.getEntityID('entity_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -47,7 +47,7 @@ describe('resource publicTreasury', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.publicTreasury.getEntityID(
-        'strategy',
+        'entity_id',
         {
           holding_amount_change: 'holding_amount_change',
           holding_change_percentage: 'holding_change_percentage',
@@ -59,8 +59,8 @@ describe('resource publicTreasury', () => {
 
   // Mock server tests are disabled
   test.skip('getHoldingChart: only required params', async () => {
-    const responsePromise = client.publicTreasury.getHoldingChart('bitcoin', {
-      entity_id: 'strategy',
+    const responsePromise = client.publicTreasury.getHoldingChart('coin_id', {
+      entity_id: 'entity_id',
       days: 'days',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -74,8 +74,8 @@ describe('resource publicTreasury', () => {
 
   // Mock server tests are disabled
   test.skip('getHoldingChart: required and optional params', async () => {
-    const response = await client.publicTreasury.getHoldingChart('bitcoin', {
-      entity_id: 'strategy',
+    const response = await client.publicTreasury.getHoldingChart('coin_id', {
+      entity_id: 'entity_id',
       days: 'days',
       include_empty_intervals: true,
     });
@@ -83,7 +83,7 @@ describe('resource publicTreasury', () => {
 
   // Mock server tests are disabled
   test.skip('getTransactionHistory', async () => {
-    const responsePromise = client.publicTreasury.getTransactionHistory('strategy');
+    const responsePromise = client.publicTreasury.getTransactionHistory('entity_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -98,7 +98,7 @@ describe('resource publicTreasury', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.publicTreasury.getTransactionHistory(
-        'strategy',
+        'entity_id',
         {
           coin_ids: 'coin_ids',
           order: 'date_desc',

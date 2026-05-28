@@ -10,10 +10,7 @@ const client = new Coingecko({
 describe('resource tokens', () => {
   // Mock server tests are disabled
   test.skip('getAddress: only required params', async () => {
-    const responsePromise = client.onchain.networks.tokens.getAddress(
-      '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      { network: 'eth' },
-    );
+    const responsePromise = client.onchain.networks.tokens.getAddress('address', { network: 'network' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,14 +22,11 @@ describe('resource tokens', () => {
 
   // Mock server tests are disabled
   test.skip('getAddress: required and optional params', async () => {
-    const response = await client.onchain.networks.tokens.getAddress(
-      '0xdac17f958d2ee523a2206206994597c13d831ec7',
-      {
-        network: 'eth',
-        include: 'top_pools',
-        include_composition: true,
-        include_inactive_source: true,
-      },
-    );
+    const response = await client.onchain.networks.tokens.getAddress('address', {
+      network: 'network',
+      include: 'top_pools',
+      include_composition: true,
+      include_inactive_source: true,
+    });
   });
 });

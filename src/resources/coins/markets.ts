@@ -6,15 +6,8 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Markets extends APIResource {
   /**
-   * This endpoint allows you to **query all the supported coins with price, market
-   * cap, volume and market related data**
-   *
-   * @example
-   * ```ts
-   * const markets = await client.coins.markets.get({
-   *   vs_currency: 'usd',
-   * });
-   * ```
+   * To query all the supported coins with price, market cap, volume and market
+   * related data
    */
   get(query: MarketGetParams, options?: RequestOptions): APIPromise<MarketGetResponse> {
     return this._client.get('/coins/markets', { query, ...options });
@@ -26,144 +19,184 @@ export type MarketGetResponse = Array<MarketGetResponse.MarketGetResponseItem>;
 export namespace MarketGetResponse {
   export interface MarketGetResponseItem {
     /**
-     * coin ID
+     * Coin ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * coin all time high (ATH) in currency
+     * All-time high price in target currency
      */
-    ath?: number | null;
+    ath: number | null;
 
     /**
-     * coin all time high (ATH) change in percentage
+     * All-time high change percentage
      */
-    ath_change_percentage?: number | null;
+    ath_change_percentage: number | null;
 
     /**
-     * coin all time high (ATH) date
+     * All-time high date
      */
-    ath_date?: string | null;
+    ath_date: string | null;
 
     /**
-     * coin all time low (atl) in currency
+     * All-time low price in target currency
      */
-    atl?: number | null;
+    atl: number | null;
 
     /**
-     * coin all time low (atl) change in percentage
+     * All-time low change percentage
      */
-    atl_change_percentage?: number | null;
+    atl_change_percentage: number | null;
 
     /**
-     * coin all time low (atl) date
+     * All-time low date
      */
-    atl_date?: string | null;
+    atl_date: string | null;
 
     /**
-     * coin circulating supply
+     * Circulating supply
      */
-    circulating_supply?: number | null;
+    circulating_supply: number | null;
 
     /**
-     * coin current price in currency
+     * Current price in target currency
      */
-    current_price?: number | null;
+    current_price: number | null;
 
     /**
-     * coin fully diluted valuation (fdv) in currency
+     * Fully diluted valuation in target currency
      */
-    fully_diluted_valuation?: number | null;
+    fully_diluted_valuation: number | null;
 
     /**
-     * coin 24hr price high in currency
+     * 24-hour price high in target currency
      */
-    high_24h?: number | null;
+    high_24h: number | null;
 
     /**
-     * coin image url
+     * Coin image URL
      */
-    image?: string;
+    image: string;
 
     /**
-     * coin last updated timestamp
+     * Last updated timestamp
      */
-    last_updated?: string;
+    last_updated: string;
 
     /**
-     * coin 24hr price low in currency
+     * 24-hour price low in target currency
      */
-    low_24h?: number | null;
+    low_24h: number | null;
 
     /**
-     * coin market cap in currency
+     * Market cap in target currency
      */
-    market_cap?: number | null;
+    market_cap: number | null;
 
     /**
-     * coin 24hr market cap change in currency
+     * 24-hour market cap change in target currency
      */
-    market_cap_change_24h?: number | null;
+    market_cap_change_24h: number | null;
 
     /**
-     * coin 24hr market cap change in percentage
+     * 24-hour market cap change percentage
      */
-    market_cap_change_percentage_24h?: number | null;
+    market_cap_change_percentage_24h: number | null;
 
     /**
-     * coin rank by market cap
+     * Market cap rank
      */
-    market_cap_rank?: number | null;
+    market_cap_rank: number | null;
 
     /**
-     * coin rank by market cap including rehypothecated tokens
+     * Max supply
+     */
+    max_supply: number | null;
+
+    /**
+     * Coin name
+     */
+    name: string;
+
+    /**
+     * 24-hour price change in target currency
+     */
+    price_change_24h: number | null;
+
+    /**
+     * 24-hour price change percentage
+     */
+    price_change_percentage_24h: number | null;
+
+    /**
+     * Return on investment data
+     */
+    roi: MarketGetResponseItem.Roi | null;
+
+    /**
+     * Coin symbol
+     */
+    symbol: string;
+
+    /**
+     * Total supply
+     */
+    total_supply: number | null;
+
+    /**
+     * Total trading volume in target currency
+     */
+    total_volume: number | null;
+
+    /**
+     * Market cap rank including rehypothecated tokens
      */
     market_cap_rank_with_rehypothecated?: number | null;
 
     /**
-     * coin max supply
+     * 14-day price change percentage in target currency
      */
-    max_supply?: number | null;
+    price_change_percentage_14d_in_currency?: number | null;
 
     /**
-     * coin name
+     * 1-hour price change percentage in target currency
      */
-    name?: string;
+    price_change_percentage_1h_in_currency?: number | null;
 
     /**
-     * coin 24hr price change in currency
+     * 1-year price change percentage in target currency
      */
-    price_change_24h?: number | null;
+    price_change_percentage_1y_in_currency?: number | null;
 
     /**
-     * coin 24hr price change in percentage
+     * 200-day price change percentage in target currency
      */
-    price_change_percentage_24h?: number | null;
+    price_change_percentage_200d_in_currency?: number | null;
 
     /**
-     * return on investment data
+     * 24-hour price change percentage in target currency
      */
-    roi?: MarketGetResponseItem.Roi | null;
+    price_change_percentage_24h_in_currency?: number | null;
 
     /**
-     * coin symbol
+     * 30-day price change percentage in target currency
      */
-    symbol?: string;
+    price_change_percentage_30d_in_currency?: number | null;
 
     /**
-     * coin total supply
+     * 7-day price change percentage in target currency
      */
-    total_supply?: number | null;
+    price_change_percentage_7d_in_currency?: number | null;
 
     /**
-     * coin total trading volume in currency
+     * Sparkline price data for the last 7 days
      */
-    total_volume?: number | null;
+    sparkline_in_7d?: MarketGetResponseItem.SparklineIn7d;
   }
 
   export namespace MarketGetResponseItem {
     /**
-     * return on investment data
+     * Return on investment data
      */
     export interface Roi {
       /**
@@ -181,42 +214,52 @@ export namespace MarketGetResponse {
        */
       times?: number;
     }
+
+    /**
+     * Sparkline price data for the last 7 days
+     */
+    export interface SparklineIn7d {
+      /**
+       * Array of price values
+       */
+      price?: Array<number>;
+    }
   }
 }
 
 export interface MarketGetParams {
   /**
-   * target currency of coins and market data \*refers to
-   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
+   * Target currency of coins and market data. \*refers to
+   * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies)
    */
   vs_currency: string;
 
   /**
-   * filter based on coins' category \*refers to
-   * [`/coins/categories/list`](/reference/coins-categories-list).
+   * Filter based on coins' category. \*refers to
+   * [`/coins/categories/list`](/reference/coins-categories-list)
    */
   category?: string;
 
   /**
-   * coins' IDs, comma-separated if querying more than 1 coin. \*refers to
-   * [`/coins/list`](/reference/coins-list).
+   * Coins' IDs, comma-separated if querying more than 1 coin. \*refers to
+   * [`/coins/list`](/reference/coins-list)
    */
   ids?: string;
 
   /**
-   * include rehypothecated tokens in results, default: false When true, returns
-   * `market_cap_rank_with_rehypothecated` field
+   * Include rehypothecated tokens in results. When true, returns
+   * `market_cap_rank_with_rehypothecated` field. Default: false
    */
   include_rehypothecated?: boolean;
 
   /**
-   * for `symbols` lookups, specify `all` to include all matching tokens Default
-   * `top` returns top-ranked tokens (by market cap or volume)
+   * For `symbols` lookups, specify `all` to include all matching tokens. Default
+   * `top` returns top-ranked tokens by market cap or volume.
    */
   include_tokens?: 'top' | 'all';
 
   /**
-   * language background, default: en
+   * Language background. Default: en
    */
   locale?:
     | 'ar'
@@ -255,27 +298,27 @@ export interface MarketGetParams {
     | 'zh-tw';
 
   /**
-   * coins' names, comma-separated if querying more than 1 coin.
+   * Coins' names, comma-separated if querying more than 1 coin.
    */
   names?: string;
 
   /**
-   * sort result by field, default: market_cap_desc
+   * Sort result by field. Default: market_cap_desc
    */
   order?: 'market_cap_asc' | 'market_cap_desc' | 'volume_asc' | 'volume_desc' | 'id_asc' | 'id_desc';
 
   /**
-   * page through results, default: 1
+   * Page through results. Default: 1
    */
   page?: number;
 
   /**
-   * total results per page, default: 100 Valid values: 1...250
+   * Total results per page. Default: 100 Valid values: 1...250
    */
   per_page?: number;
 
   /**
-   * decimal place for currency price value
+   * Decimal places for currency price value
    */
   precision?:
     | 'full'
@@ -300,18 +343,18 @@ export interface MarketGetParams {
     | '18';
 
   /**
-   * include price change percentage timeframe, comma-separated if query more than 1
-   * timeframe Valid values: 1h, 24h, 7d, 14d, 30d, 200d, 1y
+   * Include price change percentage timeframe, comma-separated if querying more than
+   * 1 timeframe. Valid values: `1h`, `24h`, `7d`, `14d`, `30d`, `200d`, `1y`
    */
   price_change_percentage?: string;
 
   /**
-   * include sparkline 7 days data, default: false
+   * Include sparkline 7-day data. Default: false
    */
   sparkline?: boolean;
 
   /**
-   * coins' symbols, comma-separated if querying more than 1 coin.
+   * Coins' symbols, comma-separated if querying more than 1 coin.
    */
   symbols?: string;
 }

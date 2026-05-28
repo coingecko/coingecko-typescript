@@ -25,7 +25,7 @@ describe('resource infoRecentlyUpdated', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.onchain.tokens.infoRecentlyUpdated.get(
-        { include: 'network', network: 'eth' },
+        { include: 'network', network: 'network' },
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);

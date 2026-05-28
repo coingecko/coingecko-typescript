@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource circulatingSupplyChart', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.circulatingSupplyChart.get('bitcoin', { days: 'days' });
+    const responsePromise = client.coins.circulatingSupplyChart.get('id', { days: 'days' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,18 +22,12 @@ describe('resource circulatingSupplyChart', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.coins.circulatingSupplyChart.get('bitcoin', {
-      days: 'days',
-      interval: '5m',
-    });
+    const response = await client.coins.circulatingSupplyChart.get('id', { days: 'days', interval: '5m' });
   });
 
   // Mock server tests are disabled
   test.skip('getRange: only required params', async () => {
-    const responsePromise = client.coins.circulatingSupplyChart.getRange('bitcoin', {
-      from: 'from',
-      to: 'to',
-    });
+    const responsePromise = client.coins.circulatingSupplyChart.getRange('id', { from: 'from', to: 'to' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -45,9 +39,6 @@ describe('resource circulatingSupplyChart', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: required and optional params', async () => {
-    const response = await client.coins.circulatingSupplyChart.getRange('bitcoin', {
-      from: 'from',
-      to: 'to',
-    });
+    const response = await client.coins.circulatingSupplyChart.getRange('id', { from: 'from', to: 'to' });
   });
 });

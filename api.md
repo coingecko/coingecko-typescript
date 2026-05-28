@@ -12,7 +12,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/coins/coins.ts">DetailPlatformData</a></code>
 - <code><a href="./src/resources/coins/coins.ts">CoinGetIDResponse</a></code>
 
 Methods:
@@ -30,38 +29,6 @@ Methods:
 
 - <code title="get /coins/categories">client.coins.categories.<a href="./src/resources/coins/categories.ts">get</a>({ ...params }) -> CategoryGetResponse</code>
 - <code title="get /coins/categories/list">client.coins.categories.<a href="./src/resources/coins/categories.ts">getList</a>() -> CategoryGetListResponse</code>
-
-## List
-
-Types:
-
-- <code><a href="./src/resources/coins/list.ts">ListGetResponse</a></code>
-- <code><a href="./src/resources/coins/list.ts">ListGetNewResponse</a></code>
-
-Methods:
-
-- <code title="get /coins/list">client.coins.list.<a href="./src/resources/coins/list.ts">get</a>({ ...params }) -> ListGetResponse</code>
-- <code title="get /coins/list/new">client.coins.list.<a href="./src/resources/coins/list.ts">getNew</a>() -> ListGetNewResponse</code>
-
-## Markets
-
-Types:
-
-- <code><a href="./src/resources/coins/markets.ts">MarketGetResponse</a></code>
-
-Methods:
-
-- <code title="get /coins/markets">client.coins.markets.<a href="./src/resources/coins/markets.ts">get</a>({ ...params }) -> MarketGetResponse</code>
-
-## TopGainersLosers
-
-Types:
-
-- <code><a href="./src/resources/coins/top-gainers-losers.ts">TopGainersLoserGetResponse</a></code>
-
-Methods:
-
-- <code title="get /coins/top_gainers_losers">client.coins.topGainersLosers.<a href="./src/resources/coins/top-gainers-losers.ts">get</a>({ ...params }) -> TopGainersLoserGetResponse</code>
 
 ## CirculatingSupplyChart
 
@@ -107,6 +74,18 @@ Methods:
 
 - <code title="get /coins/{id}/history">client.coins.history.<a href="./src/resources/coins/history.ts">get</a>(id, { ...params }) -> HistoryGetResponse</code>
 
+## List
+
+Types:
+
+- <code><a href="./src/resources/coins/list.ts">ListGetResponse</a></code>
+- <code><a href="./src/resources/coins/list.ts">ListGetNewResponse</a></code>
+
+Methods:
+
+- <code title="get /coins/list">client.coins.list.<a href="./src/resources/coins/list.ts">get</a>({ ...params }) -> ListGetResponse</code>
+- <code title="get /coins/list/new">client.coins.list.<a href="./src/resources/coins/list.ts">getNew</a>() -> ListGetNewResponse</code>
+
 ## MarketChart
 
 Types:
@@ -118,6 +97,16 @@ Methods:
 
 - <code title="get /coins/{id}/market_chart">client.coins.marketChart.<a href="./src/resources/coins/market-chart.ts">get</a>(id, { ...params }) -> MarketChartGetResponse</code>
 - <code title="get /coins/{id}/market_chart/range">client.coins.marketChart.<a href="./src/resources/coins/market-chart.ts">getRange</a>(id, { ...params }) -> MarketChartGetRangeResponse</code>
+
+## Markets
+
+Types:
+
+- <code><a href="./src/resources/coins/markets.ts">MarketGetResponse</a></code>
+
+Methods:
+
+- <code title="get /coins/markets">client.coins.markets.<a href="./src/resources/coins/markets.ts">get</a>({ ...params }) -> MarketGetResponse</code>
 
 ## Ohlc
 
@@ -140,6 +129,17 @@ Types:
 Methods:
 
 - <code title="get /coins/{id}/tickers">client.coins.tickers.<a href="./src/resources/coins/tickers.ts">get</a>(id, { ...params }) -> TickerGetResponse</code>
+
+## TopGainersLosers
+
+Types:
+
+- <code><a href="./src/resources/coins/top-gainers-losers.ts">TopGainersLosersItem</a></code>
+- <code><a href="./src/resources/coins/top-gainers-losers.ts">TopGainersLoserGetResponse</a></code>
+
+Methods:
+
+- <code title="get /coins/top_gainers_losers">client.coins.topGainersLosers.<a href="./src/resources/coins/top-gainers-losers.ts">get</a>({ ...params }) -> TopGainersLoserGetResponse</code>
 
 ## TotalSupplyChart
 
@@ -361,30 +361,6 @@ Methods:
 
 - <code title="get /onchain/networks">client.onchain.networks.<a href="./src/resources/onchain/networks/networks.ts">get</a>({ ...params }) -> NetworkGetResponse</code>
 
-### NewPools
-
-Types:
-
-- <code><a href="./src/resources/onchain/networks/new-pools.ts">NewPoolGetResponse</a></code>
-- <code><a href="./src/resources/onchain/networks/new-pools.ts">NewPoolGetNetworkResponse</a></code>
-
-Methods:
-
-- <code title="get /onchain/networks/new_pools">client.onchain.networks.newPools.<a href="./src/resources/onchain/networks/new-pools.ts">get</a>({ ...params }) -> NewPoolGetResponse</code>
-- <code title="get /onchain/networks/{network}/new_pools">client.onchain.networks.newPools.<a href="./src/resources/onchain/networks/new-pools.ts">getNetwork</a>(network, { ...params }) -> NewPoolGetNetworkResponse</code>
-
-### TrendingPools
-
-Types:
-
-- <code><a href="./src/resources/onchain/networks/trending-pools.ts">TrendingPoolGetResponse</a></code>
-- <code><a href="./src/resources/onchain/networks/trending-pools.ts">TrendingPoolGetNetworkResponse</a></code>
-
-Methods:
-
-- <code title="get /onchain/networks/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">get</a>({ ...params }) -> TrendingPoolGetResponse</code>
-- <code title="get /onchain/networks/{network}/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">getNetwork</a>(network, { ...params }) -> TrendingPoolGetNetworkResponse</code>
-
 ### Dexes
 
 Types:
@@ -397,11 +373,23 @@ Methods:
 - <code title="get /onchain/networks/{network}/dexes">client.onchain.networks.dexes.<a href="./src/resources/onchain/networks/dexes.ts">get</a>(network, { ...params }) -> DexGetResponse</code>
 - <code title="get /onchain/networks/{network}/dexes/{dex}/pools">client.onchain.networks.dexes.<a href="./src/resources/onchain/networks/dexes.ts">getPools</a>(dex, { ...params }) -> DexGetPoolsResponse</code>
 
+### NewPools
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/new-pools.ts">NewPoolGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/new-pools.ts">NewPoolGetNetworkResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/new_pools">client.onchain.networks.newPools.<a href="./src/resources/onchain/networks/new-pools.ts">get</a>({ ...params }) -> NewPoolGetResponse</code>
+- <code title="get /onchain/networks/{network}/new_pools">client.onchain.networks.newPools.<a href="./src/resources/onchain/networks/new-pools.ts">getNetwork</a>(network, { ...params }) -> NewPoolGetNetworkResponse</code>
+
 ### Pools
 
 Types:
 
-- <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolData</a></code>
+- <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolAddressItem</a></code>
 - <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolGetResponse</a></code>
 - <code><a href="./src/resources/onchain/networks/pools/pools.ts">PoolGetAddressResponse</a></code>
 
@@ -409,16 +397,6 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/pools">client.onchain.networks.pools.<a href="./src/resources/onchain/networks/pools/pools.ts">get</a>(network, { ...params }) -> PoolGetResponse</code>
 - <code title="get /onchain/networks/{network}/pools/{address}">client.onchain.networks.pools.<a href="./src/resources/onchain/networks/pools/pools.ts">getAddress</a>(address, { ...params }) -> PoolGetAddressResponse</code>
-
-#### Multi
-
-Types:
-
-- <code><a href="./src/resources/onchain/networks/pools/multi.ts">MultiGetAddressesResponse</a></code>
-
-Methods:
-
-- <code title="get /onchain/networks/{network}/pools/multi/{addresses}">client.onchain.networks.pools.multi.<a href="./src/resources/onchain/networks/pools/multi.ts">getAddresses</a>(addresses, { ...params }) -> MultiGetAddressesResponse</code>
 
 #### Info
 
@@ -429,6 +407,16 @@ Types:
 Methods:
 
 - <code title="get /onchain/networks/{network}/pools/{pool_address}/info">client.onchain.networks.pools.info.<a href="./src/resources/onchain/networks/pools/info.ts">get</a>(poolAddress, { ...params }) -> InfoGetResponse</code>
+
+#### Multi
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/pools/multi.ts">MultiGetAddressesResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/pools/multi/{addresses}">client.onchain.networks.pools.multi.<a href="./src/resources/onchain/networks/pools/multi.ts">getAddresses</a>(addresses, { ...params }) -> MultiGetAddressesResponse</code>
 
 #### Ohlcv
 
@@ -454,21 +442,22 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/onchain/networks/tokens/tokens.ts">TokenItem</a></code>
 - <code><a href="./src/resources/onchain/networks/tokens/tokens.ts">TokenGetAddressResponse</a></code>
 
 Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{address}">client.onchain.networks.tokens.<a href="./src/resources/onchain/networks/tokens/tokens.ts">getAddress</a>(address, { ...params }) -> TokenGetAddressResponse</code>
 
-#### Multi
+#### HoldersChart
 
 Types:
 
-- <code><a href="./src/resources/onchain/networks/tokens/multi.ts">MultiGetAddressesResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/tokens/holders-chart.ts">HoldersChartGetResponse</a></code>
 
 Methods:
 
-- <code title="get /onchain/networks/{network}/tokens/multi/{addresses}">client.onchain.networks.tokens.multi.<a href="./src/resources/onchain/networks/tokens/multi.ts">getAddresses</a>(addresses, { ...params }) -> MultiGetAddressesResponse</code>
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/holders_chart">client.onchain.networks.tokens.holdersChart.<a href="./src/resources/onchain/networks/tokens/holders-chart.ts">get</a>(tokenAddress, { ...params }) -> HoldersChartGetResponse</code>
 
 #### Info
 
@@ -480,25 +469,15 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{address}/info">client.onchain.networks.tokens.info.<a href="./src/resources/onchain/networks/tokens/info.ts">get</a>(address, { ...params }) -> InfoGetResponse</code>
 
-#### TopHolders
+#### Multi
 
 Types:
 
-- <code><a href="./src/resources/onchain/networks/tokens/top-holders.ts">TopHolderGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/tokens/multi.ts">MultiGetAddressesResponse</a></code>
 
 Methods:
 
-- <code title="get /onchain/networks/{network}/tokens/{address}/top_holders">client.onchain.networks.tokens.topHolders.<a href="./src/resources/onchain/networks/tokens/top-holders.ts">get</a>(address, { ...params }) -> TopHolderGetResponse</code>
-
-#### HoldersChart
-
-Types:
-
-- <code><a href="./src/resources/onchain/networks/tokens/holders-chart.ts">HoldersChartGetResponse</a></code>
-
-Methods:
-
-- <code title="get /onchain/networks/{network}/tokens/{token_address}/holders_chart">client.onchain.networks.tokens.holdersChart.<a href="./src/resources/onchain/networks/tokens/holders-chart.ts">get</a>(tokenAddress, { ...params }) -> HoldersChartGetResponse</code>
+- <code title="get /onchain/networks/{network}/tokens/multi/{addresses}">client.onchain.networks.tokens.multi.<a href="./src/resources/onchain/networks/tokens/multi.ts">getAddresses</a>(addresses, { ...params }) -> MultiGetAddressesResponse</code>
 
 #### Ohlcv
 
@@ -520,15 +499,15 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{token_address}/pools">client.onchain.networks.tokens.pools.<a href="./src/resources/onchain/networks/tokens/pools.ts">get</a>(tokenAddress, { ...params }) -> PoolGetResponse</code>
 
-#### Trades
+#### TopHolders
 
 Types:
 
-- <code><a href="./src/resources/onchain/networks/tokens/trades.ts">TradeGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/tokens/top-holders.ts">TopHolderGetResponse</a></code>
 
 Methods:
 
-- <code title="get /onchain/networks/{network}/tokens/{token_address}/trades">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">get</a>(tokenAddress, { ...params }) -> TradeGetResponse</code>
+- <code title="get /onchain/networks/{network}/tokens/{address}/top_holders">client.onchain.networks.tokens.topHolders.<a href="./src/resources/onchain/networks/tokens/top-holders.ts">get</a>(address, { ...params }) -> TopHolderGetResponse</code>
 
 #### TopTraders
 
@@ -539,6 +518,28 @@ Types:
 Methods:
 
 - <code title="get /onchain/networks/{network_id}/tokens/{token_address}/top_traders">client.onchain.networks.tokens.topTraders.<a href="./src/resources/onchain/networks/tokens/top-traders.ts">get</a>(tokenAddress, { ...params }) -> TopTraderGetResponse</code>
+
+#### Trades
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/tokens/trades.ts">TradeGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/trades">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">get</a>(tokenAddress, { ...params }) -> TradeGetResponse</code>
+
+### TrendingPools
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/trending-pools.ts">TrendingPoolGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/trending-pools.ts">TrendingPoolGetNetworkResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">get</a>({ ...params }) -> TrendingPoolGetResponse</code>
+- <code title="get /onchain/networks/{network}/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">getNetwork</a>(network, { ...params }) -> TrendingPoolGetNetworkResponse</code>
 
 ## Pools
 
@@ -614,7 +615,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/public-treasury.ts">TreasuryEntity</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetCoinIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetEntityIDResponse</a></code>
 - <code><a href="./src/resources/public-treasury.ts">PublicTreasuryGetHoldingChartResponse</a></code>

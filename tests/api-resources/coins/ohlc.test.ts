@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource ohlc', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.ohlc.get('bitcoin', { days: '1', vs_currency: 'usd' });
+    const responsePromise = client.coins.ohlc.get('id', { days: '1', vs_currency: 'vs_currency' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,9 +22,9 @@ describe('resource ohlc', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.coins.ohlc.get('bitcoin', {
+    const response = await client.coins.ohlc.get('id', {
       days: '1',
-      vs_currency: 'usd',
+      vs_currency: 'vs_currency',
       interval: 'daily',
       precision: 'full',
     });
@@ -32,11 +32,11 @@ describe('resource ohlc', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: only required params', async () => {
-    const responsePromise = client.coins.ohlc.getRange('bitcoin', {
+    const responsePromise = client.coins.ohlc.getRange('id', {
       from: 'from',
       interval: 'daily',
       to: 'to',
-      vs_currency: 'usd',
+      vs_currency: 'vs_currency',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -49,11 +49,11 @@ describe('resource ohlc', () => {
 
   // Mock server tests are disabled
   test.skip('getRange: required and optional params', async () => {
-    const response = await client.coins.ohlc.getRange('bitcoin', {
+    const response = await client.coins.ohlc.getRange('id', {
       from: 'from',
       interval: 'daily',
       to: 'to',
-      vs_currency: 'usd',
+      vs_currency: 'vs_currency',
     });
   });
 });

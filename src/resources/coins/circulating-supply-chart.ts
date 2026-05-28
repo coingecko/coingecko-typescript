@@ -7,16 +7,8 @@ import { path } from '../../internal/utils/path';
 
 export class CirculatingSupplyChart extends APIResource {
   /**
-   * This endpoint allows you to **query historical circulating supply of a coin by
-   * number of days away from now based on provided coin ID**
-   *
-   * @example
-   * ```ts
-   * const circulatingSupplyChart =
-   *   await client.coins.circulatingSupplyChart.get('bitcoin', {
-   *     days: 'days',
-   *   });
-   * ```
+   * To query historical circulating supply of a coin by number of days away from now
+   * based on provided coin ID
    */
   get(
     id: string,
@@ -27,17 +19,8 @@ export class CirculatingSupplyChart extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query historical circulating supply of a coin,
-   * within a range of timestamp based on the provided coin ID**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.coins.circulatingSupplyChart.getRange(
-   *     'bitcoin',
-   *     { from: 'from', to: 'to' },
-   *   );
-   * ```
+   * To query historical circulating supply of a coin, within a range of timestamp
+   * based on the provided coin ID
    */
   getRange(
     id: string,
@@ -49,35 +32,41 @@ export class CirculatingSupplyChart extends APIResource {
 }
 
 export interface CirculatingSupplyChartGetResponse {
-  circulating_supply?: Array<Array<number | string>>;
+  /**
+   * Circulating supply data points as [timestamp, supply] pairs
+   */
+  circulating_supply: Array<Array<number | string>>;
 }
 
 export interface CirculatingSupplyChartGetRangeResponse {
-  circulating_supply?: Array<Array<number | string>>;
+  /**
+   * Circulating supply data points as [timestamp, supply] pairs
+   */
+  circulating_supply: Array<Array<number | string>>;
 }
 
 export interface CirculatingSupplyChartGetParams {
   /**
-   * data up to number of days ago Valid values: any integer or `max`
+   * Data up to number of days ago. Valid values: any integer or `max`.
    */
   days: string;
 
   /**
-   * data interval
+   * Data interval.
    */
   interval?: '5m' | 'hourly' | 'daily';
 }
 
 export interface CirculatingSupplyChartGetRangeParams {
   /**
-   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   from: string;
 
   /**
-   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   to: string;
 }
