@@ -1,5 +1,31 @@
 # Changelog
 
+## 6.0.0 (2026-05-28)
+
+Full Changelog: [v5.1.1...v6.0.0](https://github.com/coingecko/coingecko-typescript/compare/v5.1.1...v6.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* Methods refresh
+
+### Bug Fixes
+
+* **api:** InferUnionVariantName for PublicTreasury ([0f20d60](https://github.com/coingecko/coingecko-typescript/commit/0f20d606b28a052bfd2ef1036368752961efc9d4))
+* Lint issue with glama.json ([4c6c835](https://github.com/coingecko/coingecko-typescript/commit/4c6c835c1218fd325fa1fcad89e5377d3b92b6bd))
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([8d8a367](https://github.com/coingecko/coingecko-typescript/commit/8d8a36784c45d9811d668c8f193896140c647ded))
+
+
+### Chores
+
+* **internal:** codegen related update ([cef7ccd](https://github.com/coingecko/coingecko-typescript/commit/cef7ccd840c60ce3797836d96bfbc143ead8423a))
+* redact api-key headers in debug logs ([bc9e4b5](https://github.com/coingecko/coingecko-typescript/commit/bc9e4b567689c642ebdfae14eb2c074a0d68cf94))
+* **tests:** remove redundant File import ([679ff2f](https://github.com/coingecko/coingecko-typescript/commit/679ff2f978baf633bf563082eb2ff592f17a2ecf))
+
+
+### Refactors
+
+* Methods refresh ([c254bc8](https://github.com/coingecko/coingecko-typescript/commit/c254bc85e88f200e2b6192f492c6a02daa7bb6ba))
+
 ## 5.1.1 (2026-04-30)
 
 Full Changelog: [v5.1.0...v5.1.1](https://github.com/coingecko/coingecko-typescript/compare/v5.1.0...v5.1.1)
