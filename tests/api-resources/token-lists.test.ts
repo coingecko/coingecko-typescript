@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource tokenLists', () => {
   // Mock server tests are disabled
   test.skip('getAllJson', async () => {
-    const responsePromise = client.tokenLists.getAllJson('ethereum');
+    const responsePromise = client.tokenLists.getAllJson('asset_platform_id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

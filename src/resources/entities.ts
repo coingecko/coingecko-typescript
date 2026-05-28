@@ -6,13 +6,8 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Entities extends APIResource {
   /**
-   * This endpoint allows you to **query all the supported entities on CoinGecko with
-   * entities ID, name, symbol, and country**
-   *
-   * @example
-   * ```ts
-   * const response = await client.entities.getList();
-   * ```
+   * To query all the supported entities on CoinGecko with entity ID, name, symbol,
+   * and country
    */
   getList(
     query: EntityGetListParams | null | undefined = {},
@@ -27,40 +22,40 @@ export type EntityGetListResponse = Array<EntityGetListResponse.EntityGetListRes
 export namespace EntityGetListResponse {
   export interface EntityGetListResponseItem {
     /**
-     * entity ID
+     * Entity ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * country code
+     * Country code
      */
-    country?: string;
+    country: string;
 
     /**
-     * entity name
+     * Entity name
      */
-    name?: string;
+    name: string;
 
     /**
-     * ticker symbol of public company
+     * Ticker symbol of public company
      */
-    symbol?: string;
+    symbol: string;
   }
 }
 
 export interface EntityGetListParams {
   /**
-   * filter by entity type, default: false
+   * Filter by entity type.
    */
   entity_type?: 'company' | 'government';
 
   /**
-   * page through results, default: 1
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * total results per page, default: 100 Valid values: 1...250
+   * Total results per page. Default value: 100 Valid values: 1...250
    */
   per_page?: number;
 }

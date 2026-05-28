@@ -7,37 +7,16 @@ import { path } from '../../internal/utils/path';
 
 export class MarketChart extends APIResource {
   /**
-   * This endpoint allows you to **get the historical chart data of a coin including
-   * time in UNIX, price, market cap and 24hr volume based on particular coin ID**
-   *
-   * @example
-   * ```ts
-   * const marketChart = await client.coins.marketChart.get(
-   *   'bitcoin',
-   *   { days: 'days', vs_currency: 'usd' },
-   * );
-   * ```
+   * To get the historical chart data of a coin including time in UNIX, price, market
+   * cap and 24hrs volume based on particular coin ID
    */
   get(id: string, query: MarketChartGetParams, options?: RequestOptions): APIPromise<MarketChartGetResponse> {
     return this._client.get(path`/coins/${id}/market_chart`, { query, ...options });
   }
 
   /**
-   * This endpoint allows you to **get the historical chart data of a coin within
-   * certain time range in UNIX along with price, market cap and 24hr volume based on
-   * particular coin ID**
-   *
-   * @example
-   * ```ts
-   * const response = await client.coins.marketChart.getRange(
-   *   'bitcoin',
-   *   {
-   *     from: 'from',
-   *     to: 'to',
-   *     vs_currency: 'usd',
-   *   },
-   * );
-   * ```
+   * To get the historical chart data of a coin within certain time range in UNIX
+   * along with price, market cap and 24hrs volume based on particular coin ID
    */
   getRange(
     id: string,
@@ -49,41 +28,59 @@ export class MarketChart extends APIResource {
 }
 
 export interface MarketChartGetResponse {
-  market_caps?: Array<Array<number>>;
+  /**
+   * Market cap data points as [timestamp, market_cap] pairs
+   */
+  market_caps: Array<Array<number>>;
 
-  prices?: Array<Array<number>>;
+  /**
+   * Price data points as [timestamp, price] pairs
+   */
+  prices: Array<Array<number>>;
 
-  total_volumes?: Array<Array<number>>;
+  /**
+   * Total volume data points as [timestamp, volume] pairs
+   */
+  total_volumes: Array<Array<number>>;
 }
 
 export interface MarketChartGetRangeResponse {
-  market_caps?: Array<Array<number>>;
+  /**
+   * Market cap data points as [timestamp, market_cap] pairs
+   */
+  market_caps: Array<Array<number>>;
 
-  prices?: Array<Array<number>>;
+  /**
+   * Price data points as [timestamp, price] pairs
+   */
+  prices: Array<Array<number>>;
 
-  total_volumes?: Array<Array<number>>;
+  /**
+   * Total volume data points as [timestamp, volume] pairs
+   */
+  total_volumes: Array<Array<number>>;
 }
 
 export interface MarketChartGetParams {
   /**
-   * data up to number of days ago You may use any integer or `max` for number of
-   * days
+   * Data up to number of days ago. You may use any integer or `max` for number of
+   * days.
    */
   days: string;
 
   /**
-   * target currency of market data \*refers to
+   * Target currency of market data. \*refers to
    * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
    */
   vs_currency: string;
 
   /**
-   * data interval, leave empty for auto granularity
+   * Data interval, leave empty for auto granularity.
    */
   interval?: '5m' | 'hourly' | 'daily';
 
   /**
-   * decimal place for currency price value
+   * Decimal place for currency price value.
    */
   precision?:
     | 'full'
@@ -110,30 +107,30 @@ export interface MarketChartGetParams {
 
 export interface MarketChartGetRangeParams {
   /**
-   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   from: string;
 
   /**
-   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   to: string;
 
   /**
-   * target currency of market data \*refers to
+   * Target currency of market data. \*refers to
    * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
    */
   vs_currency: string;
 
   /**
-   * data interval, leave empty for auto granularity
+   * Data interval, leave empty for auto granularity.
    */
   interval?: '5m' | 'hourly' | 'daily';
 
   /**
-   * decimal place for currency price value
+   * Decimal place for currency price value.
    */
   precision?:
     | 'full'

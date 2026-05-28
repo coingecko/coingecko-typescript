@@ -6,12 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class AssetPlatforms extends APIResource {
   /**
-   * This endpoint allows you to **query all the asset platforms on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const assetPlatforms = await client.assetPlatforms.get();
-   * ```
+   * To query all the asset platforms (blockchain networks) on CoinGecko
    */
   get(
     query: AssetPlatformGetParams | null | undefined = {},
@@ -26,45 +21,54 @@ export type AssetPlatformGetResponse = Array<AssetPlatformGetResponse.AssetPlatf
 export namespace AssetPlatformGetResponse {
   export interface AssetPlatformGetResponseItem {
     /**
-     * asset platform ID
+     * Asset platform ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * chainlist's chain ID
+     * Chainlist's chain ID
      */
-    chain_identifier?: number | null;
+    chain_identifier: number | null;
 
     /**
-     * image of the asset platform
+     * Asset platform image URLs
      */
-    image?: AssetPlatformGetResponseItem.Image;
+    image: AssetPlatformGetResponseItem.Image;
 
     /**
-     * chain name
+     * Chain name
      */
-    name?: string;
+    name: string;
 
     /**
-     * chain native coin ID
+     * Chain native coin ID
      */
-    native_coin_id?: string | null;
+    native_coin_id: string | null;
 
     /**
-     * chain shortname
+     * Chain shortname
      */
-    shortname?: string;
+    shortname: string;
   }
 
   export namespace AssetPlatformGetResponseItem {
     /**
-     * image of the asset platform
+     * Asset platform image URLs
      */
     export interface Image {
+      /**
+       * Large image URL
+       */
       large?: string;
 
+      /**
+       * Small image URL
+       */
       small?: string;
 
+      /**
+       * Thumbnail image URL
+       */
       thumb?: string;
     }
   }
@@ -72,7 +76,7 @@ export namespace AssetPlatformGetResponse {
 
 export interface AssetPlatformGetParams {
   /**
-   * apply relevant filters to results
+   * Apply relevant filters to results.
    */
   filter?: 'nft';
 }

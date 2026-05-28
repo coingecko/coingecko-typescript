@@ -6,13 +6,8 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Trending extends APIResource {
   /**
-   * This endpoint allows you **query trending search coins, NFTs and categories on
-   * CoinGecko in the last 24 hours**
-   *
-   * @example
-   * ```ts
-   * const trending = await client.search.trending.get();
-   * ```
+   * To query trending search coins, NFTs and categories on CoinGecko in the last 24
+   * hours
    */
   get(
     query: TrendingGetParams | null | undefined = {},
@@ -23,200 +18,197 @@ export class Trending extends APIResource {
 }
 
 export interface TrendingGetResponse {
-  categories?: Array<TrendingGetResponse.Category>;
+  categories: Array<TrendingGetResponse.Category>;
 
-  coins?: Array<TrendingGetResponse.Coin>;
+  coins: Array<TrendingGetResponse.Coin>;
 
-  nfts?: Array<TrendingGetResponse.NFT>;
+  nfts: Array<TrendingGetResponse.NFT>;
 }
 
 export namespace TrendingGetResponse {
   export interface Category {
-    id?: number;
+    /**
+     * Category ID
+     */
+    id: number;
 
     /**
-     * category number of coins
+     * Number of coins in the category
      */
-    coins_count?: number;
+    coins_count: string;
 
-    data?: Category.Data;
-
-    /**
-     * category market cap 1 hour change
-     */
-    market_cap_1h_change?: number;
+    data: Category.Data;
 
     /**
-     * category name
+     * Category market cap 1 hour change
      */
-    name?: string;
+    market_cap_1h_change: number;
 
     /**
-     * category web slug
+     * Category name
      */
-    slug?: string;
+    name: string;
+
+    /**
+     * Category web slug
+     */
+    slug: string;
+
+    /**
+     * Top 3 coins image URLs in the category
+     */
+    top_3_coins_images: Array<string>;
   }
 
   export namespace Category {
     export interface Data {
       /**
-       * category market cap
+       * Category market cap
        */
-      market_cap?: number;
+      market_cap: number;
 
       /**
-       * category market cap in btc
+       * Category market cap in BTC
        */
-      market_cap_btc?: number;
+      market_cap_btc: number;
 
       /**
-       * category market cap change percentage in 24 hours
+       * Category market cap change percentage in 24 hours by currency
        */
-      market_cap_change_percentage_24h?: Data.MarketCapChangePercentage24h;
+      market_cap_change_percentage_24h: { [key: string]: number };
 
       /**
-       * category sparkline image url
+       * Category sparkline image URL
        */
-      sparkline?: string;
+      sparkline: string;
 
       /**
-       * category total volume
+       * Category total volume
        */
-      total_volume?: number;
+      total_volume: number;
 
       /**
-       * category total volume in btc
+       * Category total volume in BTC
        */
-      total_volume_btc?: number;
-    }
-
-    export namespace Data {
-      /**
-       * category market cap change percentage in 24 hours
-       */
-      export interface MarketCapChangePercentage24h {
-        btc?: number;
-
-        usd?: number;
-      }
+      total_volume_btc: number;
     }
   }
 
   export interface Coin {
-    /**
-     * coin ID
-     */
-    id?: string;
-
-    coin_id?: number;
-
-    data?: Coin.Data;
-
-    /**
-     * coin large image url
-     */
-    large?: string;
-
-    /**
-     * coin market cap rank
-     */
-    market_cap_rank?: number;
-
-    /**
-     * coin name
-     */
-    name?: string;
-
-    /**
-     * coin price in btc
-     */
-    price_btc?: number;
-
-    /**
-     * coin sequence in the list
-     */
-    score?: number;
-
-    /**
-     * coin web slug
-     */
-    slug?: string;
-
-    /**
-     * coin small image url
-     */
-    small?: string;
-
-    /**
-     * coin symbol
-     */
-    symbol?: string;
-
-    /**
-     * coin thumb image url
-     */
-    thumb?: string;
+    item: Coin.Item;
   }
 
   export namespace Coin {
-    export interface Data {
-      content?: Data.Content | null;
+    export interface Item {
+      /**
+       * Coin ID
+       */
+      id: string;
 
       /**
-       * coin market cap in usd
+       * Coin internal ID
        */
-      market_cap?: string;
+      coin_id: number;
+
+      data: Item.Data;
 
       /**
-       * coin market cap in btc
+       * Coin large image URL
        */
-      market_cap_btc?: string;
+      large: string;
 
       /**
-       * coin price in usd
+       * Coin market cap rank
        */
-      price?: number;
+      market_cap_rank: number;
 
       /**
-       * coin price in btc
+       * Coin name
        */
-      price_btc?: string;
+      name: string;
 
       /**
-       * coin price change percentage in 24 hours
+       * Coin price in BTC
        */
-      price_change_percentage_24h?: Data.PriceChangePercentage24h;
+      price_btc: number;
 
       /**
-       * coin sparkline image url
+       * Coin trending rank (0-based)
        */
-      sparkline?: string;
+      score: number;
 
       /**
-       * coin total volume in usd
+       * Coin web slug
        */
-      total_volume?: string;
+      slug: string;
 
       /**
-       * coin total volume in btc
+       * Coin small image URL
        */
-      total_volume_btc?: string;
+      small: string;
+
+      /**
+       * Coin symbol
+       */
+      symbol: string;
+
+      /**
+       * Coin thumb image URL
+       */
+      thumb: string;
     }
 
-    export namespace Data {
-      export interface Content {
-        description?: string;
+    export namespace Item {
+      export interface Data {
+        content: Data.Content | null;
 
-        title?: string;
+        /**
+         * Coin market cap in USD
+         */
+        market_cap: string;
+
+        /**
+         * Coin market cap in BTC
+         */
+        market_cap_btc: string;
+
+        /**
+         * Coin price in USD
+         */
+        price: number;
+
+        /**
+         * Coin price in BTC
+         */
+        price_btc: string;
+
+        /**
+         * Coin price change percentage in 24 hours by currency
+         */
+        price_change_percentage_24h: { [key: string]: number };
+
+        /**
+         * Coin sparkline image URL
+         */
+        sparkline: string;
+
+        /**
+         * Coin total volume in USD
+         */
+        total_volume: string;
+
+        /**
+         * Coin total volume in BTC
+         */
+        total_volume_btc: string;
       }
 
-      /**
-       * coin price change percentage in 24 hours
-       */
-      export interface PriceChangePercentage24h {
-        btc?: number;
+      export namespace Data {
+        export interface Content {
+          description?: string;
 
-        usd?: number;
+          title?: string;
+        }
       }
     }
   }
@@ -225,71 +217,74 @@ export namespace TrendingGetResponse {
     /**
      * NFT collection ID
      */
-    id?: string;
+    id: string;
 
-    data?: NFT.Data;
+    data: NFT.Data;
 
     /**
      * NFT collection floor price 24 hours percentage change
      */
-    floor_price_24h_percentage_change?: number;
+    floor_price_24h_percentage_change: number;
 
     /**
      * NFT collection floor price in native currency
      */
-    floor_price_in_native_currency?: number;
+    floor_price_in_native_currency: number;
 
     /**
      * NFT collection name
      */
-    name?: string;
+    name: string;
 
     /**
      * NFT collection native currency symbol
      */
-    native_currency_symbol?: string;
+    native_currency_symbol: string;
 
-    nft_contract_id?: number;
+    /**
+     * NFT contract internal ID
+     */
+    nft_contract_id: number;
 
     /**
      * NFT collection symbol
      */
-    symbol?: string;
+    symbol: string;
 
     /**
-     * NFT collection thumb image url
+     * NFT collection thumb image URL
      */
-    thumb?: string;
+    thumb: string;
   }
 
   export namespace NFT {
     export interface Data {
-      content?: Data.Content | null;
+      content: Data.Content | null;
 
       /**
        * NFT collection floor price
        */
-      floor_price?: string;
+      floor_price: string;
 
       /**
-       * NFT collection floor price in usd 24 hours percentage change
+       * NFT collection floor price in USD 24 hours percentage change
        */
-      floor_price_in_usd_24h_percentage_change?: string;
+      floor_price_in_usd_24h_percentage_change: string;
 
       /**
        * NFT collection 24 hours average sale price
        */
-      h24_average_sale_price?: string;
+      h24_average_sale_price: string;
 
       /**
        * NFT collection volume in 24 hours
        */
-      h24_volume?: string;
+      h24_volume: string;
 
       /**
-       * NFT collection sparkline image url
+       * NFT collection sparkline image URL
        */
-      sparkline?: string;
+      sparkline: string;
     }
 
     export namespace Data {
@@ -304,8 +299,8 @@ export namespace TrendingGetResponse {
 
 export interface TrendingGetParams {
   /**
-   * show max number of results available for the given type Available values:
-   * `coins`, `nfts`, `categories` Example: `coins` or `coins,nfts,categories`
+   * Show max number of results available for the given type. Available values:
+   * `coins`, `nfts`, `categories` e.g. `coins` or `coins,nfts,categories`
    */
   show_max?: string;
 }

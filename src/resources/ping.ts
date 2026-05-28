@@ -6,12 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Ping extends APIResource {
   /**
-   * This endpoint allows you to **check the API server status**
-   *
-   * @example
-   * ```ts
-   * const ping = await client.ping.get();
-   * ```
+   * To check the API server status
    */
   get(options?: RequestOptions): APIPromise<PingGetResponse> {
     return this._client.get('/ping', options);
@@ -19,7 +14,10 @@ export class Ping extends APIResource {
 }
 
 export interface PingGetResponse {
-  gecko_says?: string;
+  /**
+   * API server status message
+   */
+  gecko_says: string;
 }
 
 export declare namespace Ping {

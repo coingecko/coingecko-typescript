@@ -17,13 +17,18 @@ export {
 } from './new-pools';
 export {
   Pools,
-  type PoolData,
+  type PoolAddressItem,
   type PoolGetResponse,
   type PoolGetAddressResponse,
   type PoolGetParams,
   type PoolGetAddressParams,
 } from './pools/index';
-export { Tokens, type TokenGetAddressResponse, type TokenGetAddressParams } from './tokens/index';
+export {
+  Tokens,
+  type TokenItem,
+  type TokenGetAddressResponse,
+  type TokenGetAddressParams,
+} from './tokens/index';
 export {
   TrendingPools,
   type TrendingPoolGetResponse,

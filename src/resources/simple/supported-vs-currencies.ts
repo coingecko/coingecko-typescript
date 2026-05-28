@@ -6,13 +6,7 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class SupportedVsCurrencies extends APIResource {
   /**
-   * This endpoint allows you to **query all the supported currencies on CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const supportedVsCurrencies =
-   *   await client.simple.supportedVsCurrencies.get();
-   * ```
+   * To query all the supported currencies on CoinGecko
    */
   get(options?: RequestOptions): APIPromise<SupportedVsCurrencyGetResponse> {
     return this._client.get('/simple/supported_vs_currencies', options);

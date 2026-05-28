@@ -6,13 +6,8 @@ import { RequestOptions } from '../../../internal/request-options';
 
 export class Pools extends APIResource {
   /**
-   * This endpoint allows you to **search for pools on a network by pool address,
-   * token name, token symbol, or token contract address**
-   *
-   * @example
-   * ```ts
-   * const pool = await client.onchain.search.pools.get();
-   * ```
+   * To search for pools across all networks by pool address, token name, token
+   * symbol, or token contract address
    */
   get(query: PoolGetParams | null | undefined = {}, options?: RequestOptions): APIPromise<PoolGetResponse> {
     return this._client.get('/onchain/search/pools', { query, ...options });
@@ -20,56 +15,116 @@ export class Pools extends APIResource {
 }
 
 export interface PoolGetResponse {
-  data?: Array<PoolGetResponse.Data>;
+  data: Array<PoolGetResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<PoolGetResponse.Included>;
 }
 
 export namespace PoolGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      base_token_price_native_currency?: string;
+      /**
+       * Base token price in native currency
+       */
+      base_token_price_native_currency: string | null;
 
-      base_token_price_quote_token?: string;
+      /**
+       * Base token price in quote token
+       */
+      base_token_price_quote_token: string | null;
 
-      base_token_price_usd?: string;
+      /**
+       * Base token price in USD
+       */
+      base_token_price_usd: string;
 
-      fdv_usd?: string | null;
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
 
-      market_cap_usd?: string | null;
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
 
-      name?: string;
+      /**
+       * Pool name
+       */
+      name: string;
 
-      pool_created_at?: string;
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
 
-      price_change_percentage?: Attributes.PriceChangePercentage;
+      /**
+       * Price change percentage over various timeframes
+       */
+      price_change_percentage: Attributes.PriceChangePercentage;
 
-      quote_token_price_base_token?: string;
+      /**
+       * Quote token price in base token
+       */
+      quote_token_price_base_token: string | null;
 
-      quote_token_price_native_currency?: string;
+      /**
+       * Quote token price in native currency
+       */
+      quote_token_price_native_currency: string | null;
 
-      quote_token_price_usd?: string;
+      /**
+       * Quote token price in USD
+       */
+      quote_token_price_usd: string;
 
-      reserve_in_usd?: string;
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
 
-      transactions?: Attributes.Transactions;
+      /**
+       * Transaction counts over various timeframes
+       */
+      transactions: Attributes.Transactions;
 
-      volume_usd?: Attributes.VolumeUsd;
+      /**
+       * Volume in USD over various timeframes
+       */
+      volume_usd: Attributes.VolumeUsd;
     }
 
     export namespace Attributes {
+      /**
+       * Price change percentage over various timeframes
+       */
       export interface PriceChangePercentage {
         h1?: string;
 
@@ -84,6 +139,9 @@ export namespace PoolGetResponse {
         m5?: string;
       }
 
+      /**
+       * Transaction counts over various timeframes
+       */
       export interface Transactions {
         h1?: Transactions.H1;
 
@@ -160,6 +218,9 @@ export namespace PoolGetResponse {
         }
       }
 
+      /**
+       * Volume in USD over various timeframes
+       */
       export interface VolumeUsd {
         h1?: string;
 
@@ -175,6 +236,9 @@ export namespace PoolGetResponse {
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
@@ -248,11 +312,13 @@ export namespace PoolGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_asset_platform_id?: string;
+
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -263,24 +329,24 @@ export namespace PoolGetResponse {
 
 export interface PoolGetParams {
   /**
-   * attributes to include, comma-separated if more than one to include Available
-   * values: `base_token`, `quote_token`, `dex`
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`
    */
   include?: string;
 
   /**
-   * network ID \*refers to [/networks](/reference/networks-list)
+   * Network ID. \*refers to [`/onchain/networks`](/reference/networks-list).
    */
   network?: string;
 
   /**
-   * page through results Default value: 1
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * search query, can be pool contract address, token name, token symbol, or token
-   * contract address
+   * Search query: pool contract address, token name, token symbol, or token contract
+   * address.
    */
   query?: string;
 }

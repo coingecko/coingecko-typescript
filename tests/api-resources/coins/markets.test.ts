@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource markets', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.markets.get({ vs_currency: 'usd' });
+    const responsePromise = client.coins.markets.get({ vs_currency: 'vs_currency' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,8 +23,8 @@ describe('resource markets', () => {
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.markets.get({
-      vs_currency: 'usd',
-      category: 'layer-1',
+      vs_currency: 'vs_currency',
+      category: 'category',
       ids: 'ids',
       include_rehypothecated: true,
       include_tokens: 'top',

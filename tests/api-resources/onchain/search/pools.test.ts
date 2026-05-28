@@ -27,9 +27,9 @@ describe('resource pools', () => {
       client.onchain.search.pools.get(
         {
           include: 'include',
-          network: 'eth',
+          network: 'network',
           page: 0,
-          query: 'weth',
+          query: 'query',
         },
         { path: '/_stainless_unknown_path' },
       ),

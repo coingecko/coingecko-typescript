@@ -7,33 +7,16 @@ import { path } from '../../internal/utils/path';
 
 export class VolumeChart extends APIResource {
   /**
-   * This endpoint allows you to **query the historical volume chart data with time
-   * in UNIX and trading volume data in BTC based on exchange's ID**
-   *
-   * @example
-   * ```ts
-   * const volumeCharts = await client.exchanges.volumeChart.get(
-   *   'id',
-   *   { days: '1' },
-   * );
-   * ```
+   * To query the historical volume chart data with time in UNIX and trading volume
+   * data in BTC based on exchange's ID
    */
   get(id: string, query: VolumeChartGetParams, options?: RequestOptions): APIPromise<VolumeChartGetResponse> {
     return this._client.get(path`/exchanges/${id}/volume_chart`, { query, ...options });
   }
 
   /**
-   * This endpoint allows you to **query the historical volume chart data in BTC by
-   * specifying date range in UNIX based on exchange's ID**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.exchanges.volumeChart.getRange('id', {
-   *     from: 1672531200,
-   *     to: 1675123200,
-   *   });
-   * ```
+   * To query the historical volume chart data in BTC by specifying date range in
+   * UNIX based on exchange's ID
    */
   getRange(
     id: string,
@@ -44,25 +27,31 @@ export class VolumeChart extends APIResource {
   }
 }
 
+/**
+ * Volume chart data points as [timestamp, volume_in_btc] pairs
+ */
 export type VolumeChartGetResponse = Array<Array<number | string>>;
 
+/**
+ * Volume chart data points as [timestamp, volume_in_btc] pairs
+ */
 export type VolumeChartGetRangeResponse = Array<Array<number | string>>;
 
 export interface VolumeChartGetParams {
   /**
-   * data up to number of days ago
+   * Data up to number of days ago.
    */
   days: '1' | '7' | '14' | '30' | '90' | '180' | '365';
 }
 
 export interface VolumeChartGetRangeParams {
   /**
-   * starting date in UNIX timestamp
+   * Starting date in UNIX timestamp.
    */
   from: number;
 
   /**
-   * ending date in UNIX timestamp
+   * Ending date in UNIX timestamp.
    */
   to: number;
 }

@@ -10,10 +10,9 @@ const client = new Coingecko({
 describe('resource topTraders', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.onchain.networks.tokens.topTraders.get(
-      '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
-      { network_id: 'base' },
-    );
+    const responsePromise = client.onchain.networks.tokens.topTraders.get('token_address', {
+      network_id: 'network_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,14 +24,11 @@ describe('resource topTraders', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.onchain.networks.tokens.topTraders.get(
-      '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
-      {
-        network_id: 'base',
-        include_address_label: true,
-        sort: 'realized_pnl_usd_desc',
-        traders: 'traders',
-      },
-    );
+    const response = await client.onchain.networks.tokens.topTraders.get('token_address', {
+      network_id: 'network_id',
+      include_address_label: true,
+      sort: 'realized_pnl_usd_desc',
+      traders: 'traders',
+    });
   });
 });

@@ -10,10 +10,7 @@ const client = new Coingecko({
 describe('resource trades', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.onchain.networks.pools.trades.get(
-      '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-      { network: 'eth' },
-    );
+    const responsePromise = client.onchain.networks.pools.trades.get('pool_address', { network: 'network' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,13 +22,10 @@ describe('resource trades', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.onchain.networks.pools.trades.get(
-      '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-      {
-        network: 'eth',
-        token: 'token',
-        trade_volume_in_usd_greater_than: 0,
-      },
-    );
+    const response = await client.onchain.networks.pools.trades.get('pool_address', {
+      network: 'network',
+      token: 'token',
+      trade_volume_in_usd_greater_than: 0,
+    });
   });
 });

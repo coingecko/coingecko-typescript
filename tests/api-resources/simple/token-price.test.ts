@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource tokenPrice', () => {
   // Mock server tests are disabled
   test.skip('getID: only required params', async () => {
-    const responsePromise = client.simple.tokenPrice.getID('ethereum', {
+    const responsePromise = client.simple.tokenPrice.getID('id', {
       contract_addresses: 'contract_addresses',
       vs_currencies: 'vs_currencies',
     });
@@ -25,7 +25,7 @@ describe('resource tokenPrice', () => {
 
   // Mock server tests are disabled
   test.skip('getID: required and optional params', async () => {
-    const response = await client.simple.tokenPrice.getID('ethereum', {
+    const response = await client.simple.tokenPrice.getID('id', {
       contract_addresses: 'contract_addresses',
       vs_currencies: 'vs_currencies',
       include_24hr_change: true,

@@ -7,37 +7,16 @@ import { path } from '../../internal/utils/path';
 
 export class Ohlc extends APIResource {
   /**
-   * This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a
-   * coin based on particular coin ID**
-   *
-   * @example
-   * ```ts
-   * const ohlcs = await client.coins.ohlc.get('bitcoin', {
-   *   days: '1',
-   *   vs_currency: 'usd',
-   * });
-   * ```
+   * To get the OHLC chart (Open, High, Low, Close) of a coin based on particular
+   * coin ID
    */
   get(id: string, query: OhlcGetParams, options?: RequestOptions): APIPromise<OhlcGetResponse> {
     return this._client.get(path`/coins/${id}/ohlc`, { query, ...options });
   }
 
   /**
-   * This endpoint allows you to **get the OHLC chart (Open, High, Low, Close) of a
-   * coin within a range of timestamp based on particular coin ID**
-   *
-   * @example
-   * ```ts
-   * const response = await client.coins.ohlc.getRange(
-   *   'bitcoin',
-   *   {
-   *     from: 'from',
-   *     interval: 'daily',
-   *     to: 'to',
-   *     vs_currency: 'usd',
-   *   },
-   * );
-   * ```
+   * To get the OHLC chart (Open, High, Low, Close) of a coin within a range of
+   * timestamp based on particular coin ID
    */
   getRange(
     id: string,
@@ -48,29 +27,35 @@ export class Ohlc extends APIResource {
   }
 }
 
+/**
+ * OHLC data points as [timestamp, open, high, low, close] arrays
+ */
 export type OhlcGetResponse = Array<Array<number>>;
 
+/**
+ * OHLC data points as [timestamp, open, high, low, close] arrays
+ */
 export type OhlcGetRangeResponse = Array<Array<number>>;
 
 export interface OhlcGetParams {
   /**
-   * data up to number of days ago
+   * Data up to number of days ago.
    */
   days: '1' | '7' | '14' | '30' | '90' | '180' | '365' | 'max';
 
   /**
-   * target currency of price data \*refers to
+   * Target currency of price data. \*refers to
    * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
    */
   vs_currency: string;
 
   /**
-   * data interval, leave empty for auto granularity
+   * Data interval, leave empty for auto granularity.
    */
   interval?: 'daily' | 'hourly';
 
   /**
-   * decimal place for currency price value
+   * Decimal place for currency price value.
    */
   precision?:
     | 'full'
@@ -97,24 +82,24 @@ export interface OhlcGetParams {
 
 export interface OhlcGetRangeParams {
   /**
-   * starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   from: string;
 
   /**
-   * data interval
+   * Data interval.
    */
   interval: 'daily' | 'hourly';
 
   /**
-   * ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
-   * timestamp. **use ISO date string for best compatibility**
+   * Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX
+   * timestamp. **Use ISO date string for best compatibility.**
    */
   to: string;
 
   /**
-   * target currency of price data \*refers to
+   * Target currency of price data. \*refers to
    * [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).
    */
   vs_currency: string;

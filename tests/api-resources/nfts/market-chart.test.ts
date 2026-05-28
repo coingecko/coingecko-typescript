@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource marketChart', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.nfts.marketChart.get('pudgy-penguins', { days: 'days' });
+    const responsePromise = client.nfts.marketChart.get('id', { days: 'days' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,6 +22,6 @@ describe('resource marketChart', () => {
 
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
-    const response = await client.nfts.marketChart.get('pudgy-penguins', { days: 'days' });
+    const response = await client.nfts.marketChart.get('id', { days: 'days' });
   });
 });

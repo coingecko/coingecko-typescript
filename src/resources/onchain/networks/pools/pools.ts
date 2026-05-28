@@ -14,19 +14,13 @@ import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
 export class Pools extends APIResource {
-  multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
   info: InfoAPI.Info = new InfoAPI.Info(this._client);
+  multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
   ohlcv: OhlcvAPI.Ohlcv = new OhlcvAPI.Ohlcv(this._client);
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
   /**
-   * This endpoint allows you to **query all the top pools based on the provided
-   * network**
-   *
-   * @example
-   * ```ts
-   * const pool = await client.onchain.networks.pools.get('eth');
-   * ```
+   * To query all the top pools based on the provided network
    */
   get(
     network: string,
@@ -37,17 +31,7 @@ export class Pools extends APIResource {
   }
 
   /**
-   * This endpoint allows you to **query the specific pool based on the provided
-   * network and pool address**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.networks.pools.getAddress(
-   *     '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To query the specific pool based on the provided network and pool address
    */
   getAddress(
     address: string,
@@ -59,98 +43,157 @@ export class Pools extends APIResource {
   }
 }
 
-export interface PoolData {
-  id?: string;
+export interface PoolAddressItem {
+  /**
+   * Pool identifier
+   */
+  id: string;
 
-  attributes?: PoolData.Attributes;
+  attributes: PoolAddressItem.Attributes;
 
-  relationships?: PoolData.Relationships;
+  /**
+   * Related resources
+   */
+  relationships: PoolAddressItem.Relationships;
 
-  type?: string;
+  /**
+   * Resource type
+   */
+  type: string;
 }
 
-export namespace PoolData {
+export namespace PoolAddressItem {
   export interface Attributes {
-    address?: string;
+    /**
+     * Pool contract address
+     */
+    address: string;
 
+    /**
+     * Base token price in native currency
+     */
+    base_token_price_native_currency: string;
+
+    /**
+     * Base token price in quote token
+     */
+    base_token_price_quote_token: string;
+
+    /**
+     * Base token price in USD
+     */
+    base_token_price_usd: string;
+
+    /**
+     * Fully diluted valuation in USD
+     */
+    fdv_usd: string | null;
+
+    /**
+     * Locked liquidity percentage
+     */
+    locked_liquidity_percentage: string;
+
+    /**
+     * Market cap in USD
+     */
+    market_cap_usd: string | null;
+
+    /**
+     * Pool name with fee tier
+     */
+    name: string;
+
+    /**
+     * Pool creation timestamp
+     */
+    pool_created_at: string;
+
+    /**
+     * Pool fee percentage
+     */
+    pool_fee_percentage: string;
+
+    /**
+     * Pool name without fee tier
+     */
+    pool_name: string;
+
+    /**
+     * Price change percentage over various timeframes
+     */
+    price_change_percentage: Attributes.PriceChangePercentage;
+
+    /**
+     * Quote token price in base token
+     */
+    quote_token_price_base_token: string;
+
+    /**
+     * Quote token price in native currency
+     */
+    quote_token_price_native_currency: string;
+
+    /**
+     * Quote token price in USD
+     */
+    quote_token_price_usd: string;
+
+    /**
+     * Total reserve in USD
+     */
+    reserve_in_usd: string;
+
+    /**
+     * Transaction counts over various timeframes
+     */
+    transactions: Attributes.Transactions;
+
+    /**
+     * Volume in USD over various timeframes
+     */
+    volume_usd: Attributes.VolumeUsd;
+
+    /**
+     * Base token balance in pool
+     */
     base_token_balance?: string;
 
+    /**
+     * Base token liquidity in USD
+     */
     base_token_liquidity_usd?: string;
 
-    base_token_price_native_currency?: string;
-
-    base_token_price_quote_token?: string;
-
-    base_token_price_usd?: string;
-
+    /**
+     * Buy volume in USD over various timeframes
+     */
     buy_volume_usd?: Attributes.BuyVolumeUsd;
 
-    fdv_usd?: string | null;
-
-    locked_liquidity_percentage?: string | null;
-
-    market_cap_usd?: string | null;
-
-    name?: string;
-
+    /**
+     * Net buy volume in USD over various timeframes
+     */
     net_buy_volume_usd?: Attributes.NetBuyVolumeUsd;
 
-    pool_created_at?: string;
-
-    pool_fee_percentage?: string | null;
-
-    pool_name?: string;
-
-    price_change_percentage?: Attributes.PriceChangePercentage;
-
+    /**
+     * Quote token balance in pool
+     */
     quote_token_balance?: string;
 
+    /**
+     * Quote token liquidity in USD
+     */
     quote_token_liquidity_usd?: string;
 
-    quote_token_price_base_token?: string;
-
-    quote_token_price_native_currency?: string;
-
-    quote_token_price_usd?: string;
-
-    reserve_in_usd?: string;
-
+    /**
+     * Sell volume in USD over various timeframes
+     */
     sell_volume_usd?: Attributes.SellVolumeUsd;
-
-    transactions?: Attributes.Transactions;
-
-    volume_usd?: Attributes.VolumeUsd;
   }
 
   export namespace Attributes {
-    export interface BuyVolumeUsd {
-      h1?: string;
-
-      h24?: string;
-
-      h6?: string;
-
-      m15?: string;
-
-      m30?: string;
-
-      m5?: string;
-    }
-
-    export interface NetBuyVolumeUsd {
-      h1?: string;
-
-      h24?: string;
-
-      h6?: string;
-
-      m15?: string;
-
-      m30?: string;
-
-      m5?: string;
-    }
-
+    /**
+     * Price change percentage over various timeframes
+     */
     export interface PriceChangePercentage {
       h1?: string;
 
@@ -165,20 +208,9 @@ export namespace PoolData {
       m5?: string;
     }
 
-    export interface SellVolumeUsd {
-      h1?: string;
-
-      h24?: string;
-
-      h6?: string;
-
-      m15?: string;
-
-      m30?: string;
-
-      m5?: string;
-    }
-
+    /**
+     * Transaction counts over various timeframes
+     */
     export interface Transactions {
       h1?: Transactions.H1;
 
@@ -255,7 +287,61 @@ export namespace PoolData {
       }
     }
 
+    /**
+     * Volume in USD over various timeframes
+     */
     export interface VolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    /**
+     * Buy volume in USD over various timeframes
+     */
+    export interface BuyVolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    /**
+     * Net buy volume in USD over various timeframes
+     */
+    export interface NetBuyVolumeUsd {
+      h1?: string;
+
+      h24?: string;
+
+      h6?: string;
+
+      m15?: string;
+
+      m30?: string;
+
+      m5?: string;
+    }
+
+    /**
+     * Sell volume in USD over various timeframes
+     */
+    export interface SellVolumeUsd {
       h1?: string;
 
       h24?: string;
@@ -270,6 +356,9 @@ export namespace PoolData {
     }
   }
 
+  /**
+   * Related resources
+   */
   export interface Relationships {
     base_token?: Relationships.BaseToken;
 
@@ -318,62 +407,136 @@ export namespace PoolData {
 }
 
 export interface PoolGetResponse {
-  data?: Array<PoolGetResponse.Data>;
+  data: Array<PoolGetResponse.Data>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<PoolGetResponse.Included>;
 }
 
 export namespace PoolGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Pool identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    relationships?: Data.Relationships;
+    /**
+     * Related resources
+     */
+    relationships: Data.Relationships;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      address?: string;
+      /**
+       * Pool contract address
+       */
+      address: string;
 
-      base_token_price_native_currency?: string | null;
+      /**
+       * Base token price in native currency
+       */
+      base_token_price_native_currency: string | null;
 
-      base_token_price_quote_token?: string | null;
+      /**
+       * Base token price in quote token
+       */
+      base_token_price_quote_token: string | null;
 
-      base_token_price_usd?: string;
+      /**
+       * Base token price in USD
+       */
+      base_token_price_usd: string;
 
+      /**
+       * Fully diluted valuation in USD
+       */
+      fdv_usd: string | null;
+
+      /**
+       * Market cap in USD
+       */
+      market_cap_usd: string | null;
+
+      /**
+       * Pool name
+       */
+      name: string;
+
+      /**
+       * Pool creation timestamp
+       */
+      pool_created_at: string;
+
+      /**
+       * Price change percentage over various timeframes
+       */
+      price_change_percentage: Attributes.PriceChangePercentage;
+
+      /**
+       * Quote token price in base token
+       */
+      quote_token_price_base_token: string | null;
+
+      /**
+       * Quote token price in native currency
+       */
+      quote_token_price_native_currency: string | null;
+
+      /**
+       * Quote token price in USD
+       */
+      quote_token_price_usd: string;
+
+      /**
+       * Total reserve in USD
+       */
+      reserve_in_usd: string | null;
+
+      /**
+       * Transaction counts over various timeframes
+       */
+      transactions: Attributes.Transactions;
+
+      /**
+       * Volume in USD over various timeframes
+       */
+      volume_usd: Attributes.VolumeUsd;
+
+      /**
+       * GeckoTerminal community suspicious reports count
+       */
       community_sus_report?: number;
 
-      fdv_usd?: string | null;
-
-      market_cap_usd?: string | null;
-
-      name?: string;
-
-      pool_created_at?: string;
-
-      price_change_percentage?: Attributes.PriceChangePercentage;
-
-      quote_token_price_base_token?: string | null;
-
-      quote_token_price_native_currency?: string | null;
-
-      quote_token_price_usd?: string;
-
-      reserve_in_usd?: string;
-
+      /**
+       * GeckoTerminal community negative sentiment vote percentage
+       */
       sentiment_vote_negative_percentage?: number;
 
+      /**
+       * GeckoTerminal community positive sentiment vote percentage
+       */
       sentiment_vote_positive_percentage?: number;
 
-      transactions?: Attributes.Transactions;
-
-      volume_usd?: Attributes.VolumeUsd;
+      /**
+       * Price of the queried token in USD, present when querying pools by token address
+       */
+      token_price_usd?: string;
     }
 
     export namespace Attributes {
+      /**
+       * Price change percentage over various timeframes
+       */
       export interface PriceChangePercentage {
         h1?: string;
 
@@ -388,6 +551,9 @@ export namespace PoolGetResponse {
         m5?: string;
       }
 
+      /**
+       * Transaction counts over various timeframes
+       */
       export interface Transactions {
         h1?: Transactions.H1;
 
@@ -464,6 +630,9 @@ export namespace PoolGetResponse {
         }
       }
 
+      /**
+       * Volume in USD over various timeframes
+       */
       export interface VolumeUsd {
         h1?: string;
 
@@ -479,6 +648,9 @@ export namespace PoolGetResponse {
       }
     }
 
+    /**
+     * Related resources
+     */
     export interface Relationships {
       base_token?: Relationships.BaseToken;
 
@@ -552,11 +724,13 @@ export namespace PoolGetResponse {
     export interface Attributes {
       address?: string;
 
-      coingecko_coin_id?: string;
+      coingecko_asset_platform_id?: string;
+
+      coingecko_coin_id?: string | null;
 
       decimals?: number;
 
-      image_url?: string;
+      image_url?: string | null;
 
       name?: string;
 
@@ -566,8 +740,11 @@ export namespace PoolGetResponse {
 }
 
 export interface PoolGetAddressResponse {
-  data?: PoolData;
+  data: PoolAddressItem;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<PoolGetAddressResponse.Included>;
 }
 
@@ -599,72 +776,73 @@ export namespace PoolGetAddressResponse {
 
 export interface PoolGetParams {
   /**
-   * attributes to include, comma-separated if more than one to include Available
-   * values: `base_token`, `quote_token`, `dex`
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`
    */
   include?: string;
 
   /**
-   * include GeckoTerminal community data (Sentiment votes, Suspicious reports)
-   * Default value: false
+   * Include GeckoTerminal community data (sentiment votes, suspicious reports).
+   * Default: `false`
    */
   include_gt_community_data?: boolean;
 
   /**
-   * page through results Default value: 1
+   * Page through results. Default value: 1
    */
   page?: number;
 
   /**
-   * sort the pools by field Default value: h24_tx_count_desc
+   * Sort the pools by field. Default: `h24_tx_count_desc`
    */
   sort?: 'h24_tx_count_desc' | 'h24_volume_usd_desc';
 }
 
 export interface PoolGetAddressParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include, comma-separated if more than one to include
-   * Available values: `base_token`, `quote_token`, `dex`
+   * Query param: Attributes to include, comma-separated if more than one. Available
+   * values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
 
   /**
-   * Query param: include pool composition, default: false
+   * Query param: Include pool composition. Default: `false`
    */
   include_composition?: boolean;
 
   /**
-   * Query param: include volume breakdown, default: false
+   * Query param: Include volume breakdown. Default: `false`
    */
   include_volume_breakdown?: boolean;
 }
 
-Pools.Multi = Multi;
 Pools.Info = Info;
+Pools.Multi = Multi;
 Pools.Ohlcv = Ohlcv;
 Pools.Trades = Trades;
 
 export declare namespace Pools {
   export {
-    type PoolData as PoolData,
+    type PoolAddressItem as PoolAddressItem,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
     type PoolGetParams as PoolGetParams,
     type PoolGetAddressParams as PoolGetAddressParams,
   };
 
+  export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
+
   export {
     Multi as Multi,
     type MultiGetAddressesResponse as MultiGetAddressesResponse,
     type MultiGetAddressesParams as MultiGetAddressesParams,
   };
-
-  export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
 
   export {
     Ohlcv as Ohlcv,

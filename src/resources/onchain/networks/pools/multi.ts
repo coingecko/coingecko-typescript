@@ -8,17 +8,7 @@ import { path } from '../../../../internal/utils/path';
 
 export class Multi extends APIResource {
   /**
-   * This endpoint allows you to **query multiple pools based on the provided network
-   * and pool address**
-   *
-   * @example
-   * ```ts
-   * const response =
-   *   await client.onchain.networks.pools.multi.getAddresses(
-   *     'addresses',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To query multiple pools based on the provided network and pool addresses
    */
   getAddresses(
     addresses: string,
@@ -34,8 +24,11 @@ export class Multi extends APIResource {
 }
 
 export interface MultiGetAddressesResponse {
-  data?: Array<PoolsAPI.PoolData>;
+  data: Array<PoolsAPI.PoolAddressItem>;
 
+  /**
+   * Included related resources, present when include parameter is specified
+   */
   included?: Array<MultiGetAddressesResponse.Included>;
 }
 
@@ -67,23 +60,24 @@ export namespace MultiGetAddressesResponse {
 
 export interface MultiGetAddressesParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include, comma-separated if more than one to include
-   * Available values: `base_token`, `quote_token`, `dex`
+   * Query param: Attributes to include, comma-separated if more than one. Available
+   * values: `base_token`, `quote_token`, `dex`
    */
   include?: string;
 
   /**
-   * Query param: include pool composition, default: false
+   * Query param: Include pool composition. Default: `false`
    */
   include_composition?: boolean;
 
   /**
-   * Query param: include volume breakdown, default: false
+   * Query param: Include volume breakdown. Default: `false`
    */
   include_volume_breakdown?: boolean;
 }

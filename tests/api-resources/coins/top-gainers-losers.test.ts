@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource topGainersLosers', () => {
   // Mock server tests are disabled
   test.skip('get: only required params', async () => {
-    const responsePromise = client.coins.topGainersLosers.get({ vs_currency: 'usd' });
+    const responsePromise = client.coins.topGainersLosers.get({ vs_currency: 'vs_currency' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,7 +23,7 @@ describe('resource topGainersLosers', () => {
   // Mock server tests are disabled
   test.skip('get: required and optional params', async () => {
     const response = await client.coins.topGainersLosers.get({
-      vs_currency: 'usd',
+      vs_currency: 'vs_currency',
       duration: '1h',
       price_change_percentage: 'price_change_percentage',
       top_coins: '300',

@@ -11,8 +11,8 @@ describe('resource ohlcv', () => {
   // Mock server tests are disabled
   test.skip('getTimeframe: only required params', async () => {
     const responsePromise = client.onchain.networks.tokens.ohlcv.getTimeframe('day', {
-      network: 'solana',
-      token_address: 'So11111111111111111111111111111111111111112',
+      network: 'network',
+      token_address: 'token_address',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -26,8 +26,8 @@ describe('resource ohlcv', () => {
   // Mock server tests are disabled
   test.skip('getTimeframe: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.ohlcv.getTimeframe('day', {
-      network: 'solana',
-      token_address: 'So11111111111111111111111111111111111111112',
+      network: 'network',
+      token_address: 'token_address',
       aggregate: 'aggregate',
       before_timestamp: 0,
       currency: 'usd',

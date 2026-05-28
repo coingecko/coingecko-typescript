@@ -10,10 +10,9 @@ const client = new Coingecko({
 describe('resource contract', () => {
   // Mock server tests are disabled
   test.skip('getContractAddress: only required params', async () => {
-    const responsePromise = client.nfts.contract.getContractAddress(
-      '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
-      { asset_platform_id: 'ethereum' },
-    );
+    const responsePromise = client.nfts.contract.getContractAddress('contract_address', {
+      asset_platform_id: 'asset_platform_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,9 +24,8 @@ describe('resource contract', () => {
 
   // Mock server tests are disabled
   test.skip('getContractAddress: required and optional params', async () => {
-    const response = await client.nfts.contract.getContractAddress(
-      '0xBd3531dA5CF5857e7CfAA92426877b022e612cf8',
-      { asset_platform_id: 'ethereum' },
-    );
+    const response = await client.nfts.contract.getContractAddress('contract_address', {
+      asset_platform_id: 'asset_platform_id',
+    });
   });
 });

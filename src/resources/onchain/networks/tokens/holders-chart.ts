@@ -7,17 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class HoldersChart extends APIResource {
   /**
-   * This endpoint allows you to **get the historical token holders chart based on
-   * the provided token contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const holdersChart =
-   *   await client.onchain.networks.tokens.holdersChart.get(
-   *     '0xdac17f958d2ee523a2206206994597c13d831ec7',
-   *     { network: 'eth' },
-   *   );
-   * ```
+   * To get the historical token holders chart based on the provided token contract
+   * address on a network
    */
   get(
     tokenAddress: string,
@@ -33,23 +24,32 @@ export class HoldersChart extends APIResource {
 }
 
 export interface HoldersChartGetResponse {
-  data?: HoldersChartGetResponse.Data;
+  data: HoldersChartGetResponse.Data;
 
-  meta?: HoldersChartGetResponse.Meta;
+  meta: HoldersChartGetResponse.Meta;
 }
 
 export namespace HoldersChartGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Request ID
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      token_holders_list?: Array<Array<string>>;
+      /**
+       * Historical token holders as [timestamp, holder_count] pairs
+       */
+      token_holders_list: Array<Array<string | number>>;
     }
   }
 
@@ -59,12 +59,24 @@ export namespace HoldersChartGetResponse {
 
   export namespace Meta {
     export interface Token {
+      /**
+       * Token contract address
+       */
       address?: string;
 
-      coingecko_coin_id?: string;
+      /**
+       * CoinGecko coin ID
+       */
+      coingecko_coin_id?: string | null;
 
+      /**
+       * Token name
+       */
       name?: string;
 
+      /**
+       * Token symbol
+       */
       symbol?: string;
     }
   }
@@ -72,13 +84,14 @@ export namespace HoldersChartGetResponse {
 
 export interface HoldersChartGetParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: number of days to return the historical token holders chart Default
-   * value: 7
+   * Query param: Number of days to return the historical token holders chart.
+   * Default value: 7
    */
   days?: '7' | '30' | 'max';
 }

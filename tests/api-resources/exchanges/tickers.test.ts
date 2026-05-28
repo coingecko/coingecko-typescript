@@ -10,7 +10,7 @@ const client = new Coingecko({
 describe('resource tickers', () => {
   // Mock server tests are disabled
   test.skip('get', async () => {
-    const responsePromise = client.exchanges.tickers.get('binance');
+    const responsePromise = client.exchanges.tickers.get('id');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,7 +25,7 @@ describe('resource tickers', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.exchanges.tickers.get(
-        'binance',
+        'id',
         {
           coin_ids: 'coin_ids',
           depth: true,

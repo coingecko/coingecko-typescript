@@ -7,17 +7,9 @@ import { path } from '../../../../internal/utils/path';
 
 export class Info extends APIResource {
   /**
-   * This endpoint allows you to **query pool metadata (base and quote token details,
-   * image, socials, websites, description, contract address, etc.) based on a
-   * provided pool contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const info = await client.onchain.networks.pools.info.get(
-   *   '0x06da0fd433c1a5d7a4faa01111c044910a184553',
-   *   { network: 'eth' },
-   * );
-   * ```
+   * To query pool metadata (base and quote token details, image, socials, websites,
+   * description, contract address, etc.) based on a provided pool contract address
+   * on a network
    */
   get(poolAddress: string, params: InfoGetParams, options?: RequestOptions): APIPromise<InfoGetResponse> {
     const { network, ...query } = params;
@@ -29,113 +21,212 @@ export class Info extends APIResource {
 }
 
 export interface InfoGetResponse {
-  data?: Array<InfoGetResponse.Data>;
+  data: Array<InfoGetResponse.Data>;
 
+  /**
+   * Included pool data, present when include=pool is specified
+   */
   included?: Array<InfoGetResponse.Included>;
 }
 
 export namespace InfoGetResponse {
   export interface Data {
-    data?: Data.Data;
+    /**
+     * Token identifier
+     */
+    id: string;
+
+    attributes: Data.Attributes;
+
+    relationships: Data.Relationships;
+
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
-    export interface Data {
-      id?: string;
+    export interface Attributes {
+      /**
+       * Token contract address
+       */
+      address: string;
 
-      attributes?: Data.Attributes;
+      /**
+       * Token categories
+       */
+      categories: Array<string>;
 
-      type?: string;
+      /**
+       * CoinGecko coin ID
+       */
+      coingecko_coin_id: string | null;
+
+      /**
+       * Token decimals
+       */
+      decimals: number;
+
+      /**
+       * Token description
+       */
+      description: string | null;
+
+      /**
+       * Discord URL
+       */
+      discord_url: string | null;
+
+      /**
+       * Farcaster URL
+       */
+      farcaster_url: string | null;
+
+      /**
+       * Freeze authority status
+       */
+      freeze_authority: string | null;
+
+      /**
+       * GeckoTerminal category IDs
+       */
+      gt_category_ids: Array<string>;
+
+      /**
+       * GeckoTerminal trust score
+       */
+      gt_score: number;
+
+      /**
+       * GeckoTerminal trust score breakdown
+       */
+      gt_score_details: Attributes.GtScoreDetails;
+
+      /**
+       * Whether the token is verified on GeckoTerminal
+       */
+      gt_verified: boolean;
+
+      /**
+       * Token holder information
+       */
+      holders: Attributes.Holders;
+
+      /**
+       * Token image URLs in different sizes
+       */
+      image: Attributes.Image;
+
+      /**
+       * Token image URL
+       */
+      image_url: string | null;
+
+      /**
+       * Whether the token is a honeypot (boolean or 'unknown')
+       */
+      is_honeypot: boolean | string;
+
+      /**
+       * Mint authority status
+       */
+      mint_authority: string | null;
+
+      /**
+       * Token name
+       */
+      name: string;
+
+      /**
+       * Token symbol
+       */
+      symbol: string;
+
+      /**
+       * Telegram handle
+       */
+      telegram_handle: string | null;
+
+      /**
+       * Twitter handle
+       */
+      twitter_handle: string | null;
+
+      /**
+       * Token websites
+       */
+      websites: Array<string>;
+
+      /**
+       * Zora URL
+       */
+      zora_url: string | null;
     }
 
-    export namespace Data {
-      export interface Attributes {
-        address?: string;
+    export namespace Attributes {
+      /**
+       * GeckoTerminal trust score breakdown
+       */
+      export interface GtScoreDetails {
+        creation?: number;
 
-        categories?: Array<string>;
+        holders?: number;
 
-        coingecko_coin_id?: string;
+        info?: number;
 
-        decimals?: number;
+        pool?: number;
 
-        description?: string;
-
-        discord_url?: string | null;
-
-        farcaster_url?: string | null;
-
-        freeze_authority?: string | null;
-
-        gt_category_ids?: Array<string>;
-
-        gt_score?: number;
-
-        gt_score_details?: Attributes.GtScoreDetails;
-
-        gt_verified?: boolean;
-
-        holders?: Attributes.Holders;
-
-        image?: Attributes.Image;
-
-        image_url?: string;
-
-        is_honeypot?: boolean | string;
-
-        mint_authority?: string | null;
-
-        name?: string;
-
-        symbol?: string;
-
-        telegram_handle?: string | null;
-
-        twitter_handle?: string;
-
-        websites?: Array<string>;
-
-        zora_url?: string | null;
+        transaction?: number;
       }
 
-      export namespace Attributes {
-        export interface GtScoreDetails {
-          creation?: number;
+      /**
+       * Token holder information
+       */
+      export interface Holders {
+        /**
+         * Number of holders
+         */
+        count?: number;
 
-          holders?: number;
+        /**
+         * Holder distribution percentage (keys vary by chain, e.g. top_10, 11_30, 31_50,
+         * rest)
+         */
+        distribution_percentage?: { [key: string]: string };
 
-          info?: number;
+        /**
+         * Last updated timestamp
+         */
+        last_updated?: string;
+      }
 
-          pool?: number;
+      /**
+       * Token image URLs in different sizes
+       */
+      export interface Image {
+        large?: string;
 
-          transaction?: number;
-        }
+        small?: string;
 
-        export interface Holders {
-          count?: number;
+        thumb?: string;
+      }
+    }
 
-          distribution_percentage?: Holders.DistributionPercentage;
+    export interface Relationships {
+      pool?: Relationships.Pool;
+    }
 
-          last_updated?: string;
-        }
+    export namespace Relationships {
+      export interface Pool {
+        data?: Pool.Data;
+      }
 
-        export namespace Holders {
-          export interface DistributionPercentage {
-            '11_30'?: string;
+      export namespace Pool {
+        export interface Data {
+          id?: string;
 
-            '31_50'?: string;
-
-            rest?: string;
-
-            top_10?: string;
-          }
-        }
-
-        export interface Image {
-          large?: string;
-
-          small?: string;
-
-          thumb?: string;
+          type?: string;
         }
       }
     }
@@ -151,14 +242,34 @@ export namespace InfoGetResponse {
 
   export namespace Included {
     export interface Attributes {
+      /**
+       * Base token contract address
+       */
       base_token_address?: string;
 
+      /**
+       * GeckoTerminal community suspicious reports count
+       */
       community_sus_report?: number;
 
+      /**
+       * Quote token contract address
+       */
       quote_token_address?: string;
 
+      /**
+       * Quote token contract addresses, present for pools with more than 2 tokens
+       */
+      quote_token_addresses?: Array<string>;
+
+      /**
+       * GeckoTerminal community negative sentiment vote percentage
+       */
       sentiment_vote_negative_percentage?: number;
 
+      /**
+       * GeckoTerminal community positive sentiment vote percentage
+       */
       sentiment_vote_positive_percentage?: number;
     }
   }
@@ -166,12 +277,13 @@ export namespace InfoGetResponse {
 
 export interface InfoGetParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network: string;
 
   /**
-   * Query param: attributes to include
+   * Query param: Attributes to include.
    */
   include?: 'pool';
 }

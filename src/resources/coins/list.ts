@@ -6,26 +6,14 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class List extends APIResource {
   /**
-   * This endpoint allows you to **query all the supported coins on CoinGecko with
-   * coins ID, name and symbol**
-   *
-   * @example
-   * ```ts
-   * const lists = await client.coins.list.get();
-   * ```
+   * To query all the supported coins on CoinGecko with coin ID, name and symbol
    */
   get(query: ListGetParams | null | undefined = {}, options?: RequestOptions): APIPromise<ListGetResponse> {
     return this._client.get('/coins/list', { query, ...options });
   }
 
   /**
-   * This endpoint allows you to **query the latest 200 coins that recently listed on
-   * CoinGecko**
-   *
-   * @example
-   * ```ts
-   * const response = await client.coins.list.getNew();
-   * ```
+   * To query the latest 200 coins that recently listed on CoinGecko
    */
   getNew(options?: RequestOptions): APIPromise<ListGetNewResponse> {
     return this._client.get('/coins/list/new', options);
@@ -37,24 +25,24 @@ export type ListGetResponse = Array<ListGetResponse.ListGetResponseItem>;
 export namespace ListGetResponse {
   export interface ListGetResponseItem {
     /**
-     * coin ID
+     * Coin ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * coin name
+     * Coin name
      */
-    name?: string;
+    name: string;
 
     /**
-     * coin asset platform and contract address
+     * Coin symbol
      */
-    platforms?: { [key: string]: string };
+    symbol: string;
 
     /**
-     * coin symbol
+     * Asset platform and contract address
      */
-    symbol?: string;
+    platforms?: { [key: string]: string | null };
   }
 }
 
@@ -63,35 +51,35 @@ export type ListGetNewResponse = Array<ListGetNewResponse.ListGetNewResponseItem
 export namespace ListGetNewResponse {
   export interface ListGetNewResponseItem {
     /**
-     * coin ID
+     * Coin ID
      */
-    id?: string;
+    id: string;
 
     /**
-     * timestamp when coin was activated on CoinGecko
+     * Timestamp when coin was activated on CoinGecko
      */
-    activated_at?: number;
+    activated_at: number;
 
     /**
-     * coin name
+     * Coin name
      */
-    name?: string;
+    name: string;
 
     /**
-     * coin symbol
+     * Coin symbol
      */
-    symbol?: string;
+    symbol: string;
   }
 }
 
 export interface ListGetParams {
   /**
-   * include platform and token's contract addresses, default: false
+   * Include platform and token's contract addresses. Default: false
    */
   include_platform?: boolean;
 
   /**
-   * filter by status of coins, default: active
+   * Filter by status of coins. Default: active
    */
   status?: 'active' | 'inactive';
 }

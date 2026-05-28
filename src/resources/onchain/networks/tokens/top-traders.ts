@@ -7,17 +7,8 @@ import { path } from '../../../../internal/utils/path';
 
 export class TopTraders extends APIResource {
   /**
-   * This endpoint allows you to **query top token traders based on the provided
-   * token contract address on a network**
-   *
-   * @example
-   * ```ts
-   * const topTrader =
-   *   await client.onchain.networks.tokens.topTraders.get(
-   *     '0x6921b130d297cc43754afba22e5eac0fbf8db75b',
-   *     { network_id: 'base' },
-   *   );
-   * ```
+   * To query top token traders based on the provided token contract address on a
+   * network
    */
   get(
     tokenAddress: string,
@@ -33,56 +24,110 @@ export class TopTraders extends APIResource {
 }
 
 export interface TopTraderGetResponse {
-  data?: TopTraderGetResponse.Data;
+  data: TopTraderGetResponse.Data;
 }
 
 export namespace TopTraderGetResponse {
   export interface Data {
-    id?: string;
+    /**
+     * Token identifier
+     */
+    id: string;
 
-    attributes?: Data.Attributes;
+    attributes: Data.Attributes;
 
-    type?: string;
+    /**
+     * Resource type
+     */
+    type: string;
   }
 
   export namespace Data {
     export interface Attributes {
-      traders?: Array<Attributes.Trader>;
+      traders: Array<Attributes.Trader>;
     }
 
     export namespace Attributes {
       export interface Trader {
-        address?: string;
+        /**
+         * Trader wallet address
+         */
+        address: string;
 
-        average_buy_price_usd?: string;
+        /**
+         * Average buy price in USD
+         */
+        average_buy_price_usd: string;
 
-        average_sell_price_usd?: string;
+        /**
+         * Average sell price in USD
+         */
+        average_sell_price_usd: string;
 
-        explorer_url?: string;
+        /**
+         * Block explorer URL for the trader address
+         */
+        explorer_url: string;
 
-        label?: string;
+        /**
+         * Realized PnL in USD
+         */
+        realized_pnl_usd: string;
 
-        name?: string;
+        /**
+         * Current token balance
+         */
+        token_balance: string | null;
 
-        realized_pnl_usd?: string;
+        /**
+         * Total number of buy transactions
+         */
+        total_buy_count: number;
 
-        token_balance?: string | null;
+        /**
+         * Total buy token amount
+         */
+        total_buy_token_amount: string;
 
-        total_buy_count?: number;
+        /**
+         * Total buy amount in USD
+         */
+        total_buy_usd: string;
 
-        total_buy_token_amount?: string;
+        /**
+         * Total number of sell transactions
+         */
+        total_sell_count: number;
 
-        total_buy_usd?: string;
+        /**
+         * Total sell token amount
+         */
+        total_sell_token_amount: string;
 
-        total_sell_count?: number;
+        /**
+         * Total sell amount in USD
+         */
+        total_sell_usd: string;
 
-        total_sell_token_amount?: string;
+        /**
+         * Unrealized PnL in USD
+         */
+        unrealized_pnl_usd: string | null;
 
-        total_sell_usd?: string;
+        /**
+         * Address label
+         */
+        label?: string | null;
 
-        type?: string;
+        /**
+         * Address label name
+         */
+        name?: string | null;
 
-        unrealized_pnl_usd?: string | null;
+        /**
+         * Address type
+         */
+        type?: string | null;
       }
     }
   }
@@ -90,23 +135,24 @@ export namespace TopTraderGetResponse {
 
 export interface TopTraderGetParams {
   /**
-   * Path param: network ID \*refers to [/networks](/reference/networks-list)
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
    */
   network_id: string;
 
   /**
-   * Query param: include address label data, default: false
+   * Query param: Include address label data. Default: `false`
    */
   include_address_label?: boolean;
 
   /**
-   * Query param: sort the traders by field Default value: realized_pnl_usd_desc
+   * Query param: Sort the traders by field. Default: `realized_pnl_usd_desc`
    */
   sort?: 'realized_pnl_usd_desc' | 'unrealized_pnl_usd_desc' | 'total_buy_usd_desc' | 'total_sell_usd_desc';
 
   /**
-   * Query param: number of top token traders to return, you may use any integer or
-   * `max` Default value: 10
+   * Query param: Number of top token traders to return, any integer or `max`.
+   * Default value: 10
    */
   traders?: string;
 }
