@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.0.1 (2026-06-17)
+
+Full Changelog: [v6.0.0...v6.0.1](https://github.com/coingecko/coingecko-typescript/compare/v6.0.0...v6.0.1)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([9d0f27b](https://github.com/coingecko/coingecko-typescript/commit/9d0f27b2909ffffbdf37fc0dd6443c5c052c27c4))
+* **mcp:** use `pure-lockfile` when building mcp server ([4018588](https://github.com/coingecko/coingecko-typescript/commit/40185888cb1605c1680eaab180f5148cc2635d11))
+
 ## 6.0.0 (2026-05-28)
 
 Full Changelog: [v5.1.1...v6.0.0](https://github.com/coingecko/coingecko-typescript/compare/v5.1.1...v6.0.0)
