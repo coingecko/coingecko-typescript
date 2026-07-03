@@ -69,14 +69,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst assetPlatforms = await client.assetPlatforms.get();\n\nconsole.log(assetPlatforms);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/asset_platforms \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'asset_platforms.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nasset_platforms = client.asset_platforms.get()\nprint(asset_platforms)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/asset_platforms \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -110,14 +110,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.getID('bitcoin');\n\nconsole.log(response.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.get_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.get_id(\n    id="bitcoin",\n)\nprint(response.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -138,14 +138,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.categories.getList();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/categories/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.categories.get_list',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.categories.get_list()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/categories/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -168,14 +168,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst categories = await client.coins.categories.get();\n\nconsole.log(categories);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/categories \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.categories.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncategories = client.coins.categories.get()\nprint(categories)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/categories \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -198,14 +198,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst circulatingSupplyChart = await client.coins.circulatingSupplyChart.get('id', {\n  days: 'days',\n});\n\nconsole.log(circulatingSupplyChart.circulating_supply);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/circulating_supply_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.circulating_supply_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncirculating_supply_chart = client.coins.circulating_supply_chart.get(\n    id="id",\n    days="days",\n)\nprint(circulating_supply_chart.circulating_supply)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/circulating_supply_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -228,14 +228,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.circulatingSupplyChart.getRange('id', {\n  from: 'from',\n  to: 'to',\n});\n\nconsole.log(response.circulating_supply);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/circulating_supply_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.circulating_supply_chart.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.circulating_supply_chart.get_range(\n    id="id",\n    from_="from",\n    to="to",\n)\nprint(response.circulating_supply)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/circulating_supply_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -259,14 +259,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst contract = await client.coins.contract.get('contract_address', { id: 'id' });\n\nconsole.log(contract.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.contract.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncontract = client.coins.contract.get(\n    contract_address="contract_address",\n    id="id",\n)\nprint(contract.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -296,14 +296,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst marketChart = await client.coins.contract.marketChart.get('contract_address', {\n  id: 'id',\n  days: 'days',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(marketChart.market_caps);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.contract.market_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarket_chart = client.coins.contract.market_chart.get(\n    contract_address="contract_address",\n    id="id",\n    days="days",\n    vs_currency="vs_currency",\n)\nprint(market_chart.market_caps)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -334,14 +334,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.contract.marketChart.getRange('contract_address', {\n  id: 'id',\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response.market_caps);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS/market_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.contract.market_chart.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.contract.market_chart.get_range(\n    contract_address="contract_address",\n    id="id",\n    from_="from",\n    to="to",\n    vs_currency="vs_currency",\n)\nprint(response.market_caps)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/contract/$CONTRACT_ADDRESS/market_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -365,14 +365,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst history = await client.coins.history.get('id', { date: 'date' });\n\nconsole.log(history.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/history \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.history.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nhistory = client.coins.history.get(\n    id="id",\n    date="date",\n)\nprint(history.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/history \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -393,14 +393,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.list.getNew();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/list/new \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.list.get_new',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.list.get_new()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/list/new \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -422,14 +422,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst lists = await client.coins.list.get();\n\nconsole.log(lists);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.list.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nlists = client.coins.list.get()\nprint(lists)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -458,14 +458,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst marketChart = await client.coins.marketChart.get('id', {\n  days: 'days',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(marketChart.market_caps);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.market_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarket_chart = client.coins.market_chart.get(\n    id="id",\n    days="days",\n    vs_currency="vs_currency",\n)\nprint(market_chart.market_caps)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -495,14 +495,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.marketChart.getRange('id', {\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response.market_caps);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/market_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.market_chart.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.market_chart.get_range(\n    id="id",\n    from_="from",\n    to="to",\n    vs_currency="vs_currency",\n)\nprint(response.market_caps)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/market_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -540,14 +540,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst markets = await client.coins.markets.get({ vs_currency: 'vs_currency' });\n\nconsole.log(markets);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/markets \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.markets.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarkets = client.coins.markets.get(\n    vs_currency="vs_currency",\n)\nprint(markets)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/markets \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -575,14 +575,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst ohlcs = await client.coins.ohlc.get('id', { days: '1', vs_currency: 'vs_currency' });\n\nconsole.log(ohlcs);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/ohlc \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.ohlc.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nohlcs = client.coins.ohlc.get(\n    id="id",\n    days="1",\n    vs_currency="vs_currency",\n)\nprint(ohlcs)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/ohlc \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -611,14 +611,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.ohlc.getRange('id', {\n  from: 'from',\n  interval: 'daily',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/ohlc/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.ohlc.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.ohlc.get_range(\n    id="id",\n    from_="from",\n    interval="daily",\n    to="to",\n    vs_currency="vs_currency",\n)\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/ohlc/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -650,14 +650,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst ticker = await client.coins.tickers.get('id');\n\nconsole.log(ticker.name);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.tickers.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nticker = client.coins.tickers.get(\n    id="id",\n)\nprint(ticker.name)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -685,14 +685,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst topGainersLoser = await client.coins.topGainersLosers.get({ vs_currency: 'vs_currency' });\n\nconsole.log(topGainersLoser.top_gainers);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/top_gainers_losers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.top_gainers_losers.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntop_gainers_loser = client.coins.top_gainers_losers.get(\n    vs_currency="vs_currency",\n)\nprint(top_gainers_loser.top_gainers)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/top_gainers_losers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -715,14 +715,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst totalSupplyChart = await client.coins.totalSupplyChart.get('id', { days: 'days' });\n\nconsole.log(totalSupplyChart.total_supply);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/total_supply_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.total_supply_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntotal_supply_chart = client.coins.total_supply_chart.get(\n    id="id",\n    days="days",\n)\nprint(total_supply_chart.total_supply)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/total_supply_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -745,14 +745,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.coins.totalSupplyChart.getRange('id', { from: 'from', to: 'to' });\n\nconsole.log(response.total_supply);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/total_supply_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'coins.total_supply_chart.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.coins.total_supply_chart.get_range(\n    id="id",\n    from_="from",\n    to="to",\n)\nprint(response.total_supply)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/coins/$ID/total_supply_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -774,14 +774,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst derivatives = await client.derivatives.get();\n\nconsole.log(derivatives);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/derivatives \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'derivatives.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nderivatives = client.derivatives.get()\nprint(derivatives)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/derivatives \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -805,14 +805,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchanges = await client.derivatives.exchanges.get();\n\nconsole.log(exchanges);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'derivatives.exchanges.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchanges = client.derivatives.exchanges.get()\nprint(exchanges)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -836,14 +836,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.derivatives.exchanges.getID('id');\n\nconsole.log(response.country);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'derivatives.exchanges.get_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.derivatives.exchanges.get_id(\n    id="id",\n)\nprint(response.country)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -864,14 +864,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.derivatives.exchanges.getList();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'derivatives.exchanges.get_list',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.derivatives.exchanges.get_list()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/derivatives/exchanges/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -893,14 +893,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.entities.getList();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/entities/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'entities.get_list',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.entities.get_list()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/entities/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -921,14 +921,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchangeRate = await client.exchangeRates.get();\n\nconsole.log(exchangeRate.rates);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchange_rates \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchange_rates.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchange_rate = client.exchange_rates.get()\nprint(exchange_rate.rates)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchange_rates \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -952,14 +952,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst exchanges = await client.exchanges.get();\n\nconsole.log(exchanges);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nexchanges = client.exchanges.get()\nprint(exchanges)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -981,14 +981,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.exchanges.getList();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.get_list',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.exchanges.get_list()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1012,14 +1012,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.exchanges.getID('id');\n\nconsole.log(response.alert_notice);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.get_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.exchanges.get_id(\n    id="id",\n)\nprint(response.alert_notice)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1050,14 +1050,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst ticker = await client.exchanges.tickers.get('id');\n\nconsole.log(ticker.name);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.tickers.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nticker = client.exchanges.tickers.get(\n    id="id",\n)\nprint(ticker.name)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1080,14 +1080,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst volumeCharts = await client.exchanges.volumeChart.get('id', { days: '1' });\n\nconsole.log(volumeCharts);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/volume_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.volume_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nvolume_charts = client.exchanges.volume_chart.get(\n    id="id",\n    days="1",\n)\nprint(volume_charts)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/volume_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1110,14 +1110,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.exchanges.volumeChart.getRange('id', { from: 0, to: 0 });\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/volume_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'exchanges.volume_chart.get_range',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.exchanges.volume_chart.get_range(\n    id="id",\n    from_=0,\n    to=0,\n)\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/exchanges/$ID/volume_chart/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1140,14 +1140,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst global = await client.global.get();\n\nconsole.log(global.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/global \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'global_.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nglobal_ = client.global_.get()\nprint(global_.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/global \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1170,14 +1170,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst decentralizedFinanceDefi = await client.global.decentralizedFinanceDefi.get();\n\nconsole.log(decentralizedFinanceDefi.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/global/decentralized_finance_defi \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'global_.decentralized_finance_defi.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ndecentralized_finance_defi = client.global_.decentralized_finance_defi.get()\nprint(decentralized_finance_defi.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/global/decentralized_finance_defi \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1199,14 +1199,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst marketCapChart = await client.global.marketCapChart.get({ days: '1' });\n\nconsole.log(marketCapChart.market_cap_chart);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/global/market_cap_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'global_.market_cap_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarket_cap_chart = client.global_.market_cap_chart.get(\n    days="1",\n)\nprint(market_cap_chart.market_cap_chart)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/global/market_cap_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1229,14 +1229,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst key = await client.key.get();\n\nconsole.log(key.api_key_current_total_monthly_calls);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/key \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'key.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nkey = client.key.get()\nprint(key.api_key_current_total_monthly_calls)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/key \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1265,14 +1265,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst news = await client.news.get();\n\nconsole.log(news);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/news \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'news.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nnews = client.news.get()\nprint(news)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/news \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1296,14 +1296,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.getList();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.get_list',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.get_list()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/list \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1327,14 +1327,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.getID('id');\n\nconsole.log(response.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.get_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.get_id(\n    "id",\n)\nprint(response.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1358,14 +1358,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.getMarkets();\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/markets \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.get_markets',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.get_markets()\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/markets \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1389,14 +1389,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.nfts.contract.getContractAddress('contract_address', {\n  asset_platform_id: 'asset_platform_id',\n});\n\nconsole.log(response.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/$ASSET_PLATFORM_ID/contract/$CONTRACT_ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.contract.get_contract_address',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.nfts.contract.get_contract_address(\n    contract_address="contract_address",\n    asset_platform_id="asset_platform_id",\n)\nprint(response.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/$ASSET_PLATFORM_ID/contract/$CONTRACT_ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1420,14 +1420,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst marketChart = await client.nfts.contract.marketChart.get('contract_address', {\n  asset_platform_id: 'asset_platform_id',\n  days: 'days',\n});\n\nconsole.log(marketChart.floor_price_native);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/$ASSET_PLATFORM_ID/contract/$CONTRACT_ADDRESS/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.contract.market_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarket_chart = client.nfts.contract.market_chart.get(\n    contract_address="contract_address",\n    asset_platform_id="asset_platform_id",\n    days="days",\n)\nprint(market_chart.floor_price_native)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/$ASSET_PLATFORM_ID/contract/$CONTRACT_ADDRESS/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1451,14 +1451,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst marketChart = await client.nfts.marketChart.get('id', { days: 'days' });\n\nconsole.log(marketChart.floor_price_native);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.market_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmarket_chart = client.nfts.market_chart.get(\n    id="id",\n    days="days",\n)\nprint(market_chart.floor_price_native)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID/market_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1482,14 +1482,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst ticker = await client.nfts.tickers.get('id');\n\nconsole.log(ticker.tickers);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'nfts.tickers.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nticker = client.nfts.tickers.get(\n    "id",\n)\nprint(ticker.tickers)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/nfts/$ID/tickers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1512,14 +1512,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst category = await client.onchain.categories.get();\n\nconsole.log(category.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/categories \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.categories.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ncategory = client.onchain.categories.get()\nprint(category.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/categories \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1542,14 +1542,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.categories.getPools('category_id');\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/categories/$CATEGORY_ID/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.categories.get_pools',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.categories.get_pools(\n    category_id="category_id",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/categories/$CATEGORY_ID/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1572,14 +1572,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst network = await client.onchain.networks.get();\n\nconsole.log(network.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nnetwork = client.onchain.networks.get()\nprint(network.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1609,14 +1609,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.dexes.getPools('dex', { network: 'network' });\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/dexes/$DEX/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.dexes.get_pools',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.dexes.get_pools(\n    dex="dex",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/dexes/$DEX/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1639,14 +1639,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst dex = await client.onchain.networks.dexes.get('network');\n\nconsole.log(dex.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/dexes \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.dexes.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ndex = client.onchain.networks.dexes.get(\n    network="network",\n)\nprint(dex.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/dexes \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1669,14 +1669,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst newPool = await client.onchain.networks.newPools.get();\n\nconsole.log(newPool.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/new_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.new_pools.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nnew_pool = client.onchain.networks.new_pools.get()\nprint(new_pool.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/new_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1704,14 +1704,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.newPools.getNetwork('network');\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/new_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.new_pools.get_network',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.new_pools.get_network(\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/new_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1740,14 +1740,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.pools.getAddress('address', { network: 'network' });\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.get_address',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.pools.get_address(\n    address="address",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1776,14 +1776,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst pool = await client.onchain.networks.pools.get('network');\n\nconsole.log(pool.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\npool = client.onchain.networks.pools.get(\n    network="network",\n)\nprint(pool.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1807,14 +1807,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst info = await client.onchain.networks.pools.info.get('pool_address', { network: 'network' });\n\nconsole.log(info.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/info \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.info.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ninfo = client.onchain.networks.pools.info.get(\n    pool_address="pool_address",\n    network="network",\n)\nprint(info.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/info \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1843,14 +1843,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.pools.multi.getAddresses('addresses', {\n  network: 'network',\n});\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/multi/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.multi.get_addresses',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.pools.multi.get_addresses(\n    addresses="addresses",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/multi/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1884,14 +1884,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.pools.ohlcv.getTimeframe('day', {\n  network: 'network',\n  pool_address: 'pool_address',\n});\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/ohlcv/$TIMEFRAME \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.ohlcv.get_timeframe',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.pools.ohlcv.get_timeframe(\n    timeframe="day",\n    network="network",\n    pool_address="pool_address",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/ohlcv/$TIMEFRAME \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1919,14 +1919,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trade = await client.onchain.networks.pools.trades.get('pool_address', {\n  network: 'network',\n});\n\nconsole.log(trade.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.pools.trades.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrade = client.onchain.networks.pools.trades.get(\n    pool_address="pool_address",\n    network="network",\n)\nprint(trade.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1955,14 +1955,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.tokens.getAddress('address', { network: 'network' });\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.get_address',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.tokens.get_address(\n    address="address",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -1986,14 +1986,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst holdersChart = await client.onchain.networks.tokens.holdersChart.get('token_address', {\n  network: 'network',\n});\n\nconsole.log(holdersChart.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/holders_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.holders_chart.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nholders_chart = client.onchain.networks.tokens.holders_chart.get(\n    token_address="token_address",\n    network="network",\n)\nprint(holders_chart.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/holders_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2017,14 +2017,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst info = await client.onchain.networks.tokens.info.get('address', { network: 'network' });\n\nconsole.log(info.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS/info \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.info.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ninfo = client.onchain.networks.tokens.info.get(\n    address="address",\n    network="network",\n)\nprint(info.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS/info \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2053,14 +2053,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.tokens.multi.getAddresses('addresses', {\n  network: 'network',\n});\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/multi/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.multi.get_addresses',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.tokens.multi.get_addresses(\n    addresses="addresses",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/multi/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2094,14 +2094,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.tokens.ohlcv.getTimeframe('day', {\n  network: 'network',\n  token_address: 'token_address',\n});\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/ohlcv/$TIMEFRAME \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.ohlcv.get_timeframe',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.tokens.ohlcv.get_timeframe(\n    timeframe="day",\n    network="network",\n    token_address="token_address",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/ohlcv/$TIMEFRAME \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2132,14 +2132,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst pool = await client.onchain.networks.tokens.pools.get('token_address', {\n  network: 'network',\n});\n\nconsole.log(pool.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.pools.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\npool = client.onchain.networks.tokens.pools.get(\n    token_address="token_address",\n    network="network",\n)\nprint(pool.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2162,14 +2162,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst topHolder = await client.onchain.networks.tokens.topHolders.get('address', {\n  network: 'network',\n});\n\nconsole.log(topHolder.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS/top_holders \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.top_holders.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntop_holder = client.onchain.networks.tokens.top_holders.get(\n    address="address",\n    network="network",\n)\nprint(top_holder.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$ADDRESS/top_holders \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2197,14 +2197,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst topTrader = await client.onchain.networks.tokens.topTraders.get('token_address', {\n  network_id: 'network_id',\n});\n\nconsole.log(topTrader.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK_ID/tokens/$TOKEN_ADDRESS/top_traders \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.top_traders.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntop_trader = client.onchain.networks.tokens.top_traders.get(\n    token_address="token_address",\n    network_id="network_id",\n)\nprint(top_trader.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK_ID/tokens/$TOKEN_ADDRESS/top_traders \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2228,14 +2228,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trade = await client.onchain.networks.tokens.trades.get('token_address', {\n  network: 'network',\n});\n\nconsole.log(trade.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.tokens.trades.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrade = client.onchain.networks.tokens.trades.get(\n    token_address="token_address",\n    network="network",\n)\nprint(trade.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2263,14 +2263,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trendingPool = await client.onchain.networks.trendingPools.get();\n\nconsole.log(trendingPool.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/trending_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.trending_pools.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrending_pool = client.onchain.networks.trending_pools.get()\nprint(trending_pool.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/trending_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2299,14 +2299,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.trendingPools.getNetwork('network');\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/trending_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.networks.trending_pools.get_network',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.trending_pools.get_network(\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/trending_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2361,14 +2361,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst megafilter = await client.onchain.pools.megafilter.get();\n\nconsole.log(megafilter.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/pools/megafilter \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.pools.megafilter.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nmegafilter = client.onchain.pools.megafilter.get()\nprint(megafilter.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/pools/megafilter \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2391,14 +2391,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trendingSearch = await client.onchain.pools.trendingSearch.get();\n\nconsole.log(trendingSearch.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/pools/trending_search \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.pools.trending_search.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrending_search = client.onchain.pools.trending_search.get()\nprint(trending_search.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/pools/trending_search \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2422,14 +2422,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst pool = await client.onchain.search.pools.get();\n\nconsole.log(pool.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/search/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.search.pools.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\npool = client.onchain.search.pools.get()\nprint(pool.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/search/pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2461,14 +2461,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.simple.networks.tokenPrice.getAddresses('addresses', {\n  network: 'network',\n});\n\nconsole.log(response.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/simple/networks/$NETWORK/token_price/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.simple.networks.token_price.get_addresses',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.simple.networks.token_price.get_addresses(\n    addresses="addresses",\n    network="network",\n)\nprint(response.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/simple/networks/$NETWORK/token_price/$ADDRESSES \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2492,14 +2492,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst infoRecentlyUpdated = await client.onchain.tokens.infoRecentlyUpdated.get();\n\nconsole.log(infoRecentlyUpdated.data);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/tokens/info_recently_updated \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'onchain.tokens.info_recently_updated.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ninfo_recently_updated = client.onchain.tokens.info_recently_updated.get()\nprint(info_recently_updated.data)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/onchain/tokens/info_recently_updated \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2520,14 +2520,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst ping = await client.ping.get();\n\nconsole.log(ping.gecko_says);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/ping \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'ping.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nping = client.ping.get()\nprint(ping.gecko_says)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/ping \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2556,14 +2556,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.publicTreasury.getCoinID('coin_id', { entity: 'companies' });\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/$ENTITY/public_treasury/$COIN_ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'public_treasury.get_coin_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.public_treasury.get_coin_id(\n    coin_id="coin_id",\n    entity="companies",\n)\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/$ENTITY/public_treasury/$COIN_ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2586,14 +2586,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.publicTreasury.getEntityID('entity_id');\n\nconsole.log(response.id);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'public_treasury.get_entity_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.public_treasury.get_entity_id(\n    entity_id="entity_id",\n)\nprint(response.id)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2616,14 +2616,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.publicTreasury.getHoldingChart('coin_id', {\n  entity_id: 'entity_id',\n  days: 'days',\n});\n\nconsole.log(response.holding_value_in_usd);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID/$COIN_ID/holding_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'public_treasury.get_holding_chart',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.public_treasury.get_holding_chart(\n    coin_id="coin_id",\n    entity_id="entity_id",\n    days="days",\n)\nprint(response.holding_value_in_usd)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID/$COIN_ID/holding_chart \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2653,14 +2653,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.publicTreasury.getTransactionHistory('entity_id');\n\nconsole.log(response.transactions);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID/transaction_history \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'public_treasury.get_transaction_history',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.public_treasury.get_transaction_history(\n    entity_id="entity_id",\n)\nprint(response.transactions)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/public_treasury/$ENTITY_ID/transaction_history \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2683,14 +2683,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst search = await client.search.get({ query: 'query' });\n\nconsole.log(search.categories);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/search \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'search.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nsearch = client.search.get(\n    query="query",\n)\nprint(search.categories)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/search \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2713,14 +2713,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trending = await client.search.trending.get();\n\nconsole.log(trending.categories);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/search/trending \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'search.trending.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrending = client.search.trending.get()\nprint(trending.categories)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/search/trending \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2754,14 +2754,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst price = await client.simple.price.get({ vs_currencies: 'vs_currencies' });\n\nconsole.log(price);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/simple/price \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'simple.price.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nprice = client.simple.price.get(\n    vs_currencies="vs_currencies",\n)\nprint(price)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/simple/price \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2782,14 +2782,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst supportedVsCurrencies = await client.simple.supportedVsCurrencies.get();\n\nconsole.log(supportedVsCurrencies);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/simple/supported_vs_currencies \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'simple.supported_vs_currencies.get',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nsupported_vs_currencies = client.simple.supported_vs_currencies.get()\nprint(supported_vs_currencies)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/simple/supported_vs_currencies \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2820,14 +2820,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.simple.tokenPrice.getID('id', {\n  contract_addresses: 'contract_addresses',\n  vs_currencies: 'vs_currencies',\n});\n\nconsole.log(response);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/simple/token_price/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'simple.token_price.get_id',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.simple.token_price.get_id(\n    id="id",\n    contract_addresses="contract_addresses",\n    vs_currencies="vs_currencies",\n)\nprint(response)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/simple/token_price/$ID \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2851,14 +2851,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
         example:
           "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.tokenLists.getAllJson('asset_platform_id');\n\nconsole.log(response.keywords);",
       },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/token_lists/$ASSET_PLATFORM_ID/all.json \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
       python: {
         method: 'token_lists.get_all_json',
         example:
           'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.token_lists.get_all_json(\n    "asset_platform_id",\n)\nprint(response.keywords)',
-      },
-      http: {
-        example:
-          'curl https://pro-api.coingecko.com/api/v3/token_lists/$ASSET_PLATFORM_ID/all.json \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
