@@ -9,18 +9,6 @@ const client = new Coingecko({
 
 describe('resource nfts', () => {
   // Mock server tests are disabled
-  test.skip('getID', async () => {
-    const responsePromise = client.nfts.getID('id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
   test.skip('getList', async () => {
     const responsePromise = client.nfts.getList();
     const rawResponse = await responsePromise.asResponse();
@@ -45,6 +33,18 @@ describe('resource nfts', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
+  });
+
+  // Mock server tests are disabled
+  test.skip('getID', async () => {
+    const responsePromise = client.nfts.getID('id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 
   // Mock server tests are disabled

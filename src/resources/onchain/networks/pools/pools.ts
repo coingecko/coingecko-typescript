@@ -20,17 +20,6 @@ export class Pools extends APIResource {
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
   /**
-   * To query all the top pools based on the provided network
-   */
-  get(
-    network: string,
-    query: PoolGetParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PoolGetResponse> {
-    return this._client.get(path`/onchain/networks/${network}/pools`, { query, ...options });
-  }
-
-  /**
    * To query the specific pool based on the provided network and pool address
    */
   getAddress(
@@ -40,6 +29,17 @@ export class Pools extends APIResource {
   ): APIPromise<PoolGetAddressResponse> {
     const { network, ...query } = params;
     return this._client.get(path`/onchain/networks/${network}/pools/${address}`, { query, ...options });
+  }
+
+  /**
+   * To query all the top pools based on the provided network
+   */
+  get(
+    network: string,
+    query: PoolGetParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PoolGetResponse> {
+    return this._client.get(path`/onchain/networks/${network}/pools`, { query, ...options });
   }
 }
 
@@ -774,30 +774,6 @@ export namespace PoolGetAddressResponse {
   }
 }
 
-export interface PoolGetParams {
-  /**
-   * Attributes to include, comma-separated if more than one. Available values:
-   * `base_token`, `quote_token`, `dex`
-   */
-  include?: string;
-
-  /**
-   * Include GeckoTerminal community data (sentiment votes, suspicious reports).
-   * Default: `false`
-   */
-  include_gt_community_data?: boolean;
-
-  /**
-   * Page through results. Default value: 1
-   */
-  page?: number;
-
-  /**
-   * Sort the pools by field. Default: `h24_tx_count_desc`
-   */
-  sort?: 'h24_tx_count_desc' | 'h24_volume_usd_desc';
-}
-
 export interface PoolGetAddressParams {
   /**
    * Path param: Network ID. \*refers to
@@ -822,6 +798,30 @@ export interface PoolGetAddressParams {
   include_volume_breakdown?: boolean;
 }
 
+export interface PoolGetParams {
+  /**
+   * Attributes to include, comma-separated if more than one. Available values:
+   * `base_token`, `quote_token`, `dex`
+   */
+  include?: string;
+
+  /**
+   * Include GeckoTerminal community data (sentiment votes, suspicious reports).
+   * Default: `false`
+   */
+  include_gt_community_data?: boolean;
+
+  /**
+   * Page through results. Default value: 1
+   */
+  page?: number;
+
+  /**
+   * Sort the pools by field. Default: `h24_tx_count_desc`
+   */
+  sort?: 'h24_tx_count_desc' | 'h24_volume_usd_desc';
+}
+
 Pools.Info = Info;
 Pools.Multi = Multi;
 Pools.Ohlcv = Ohlcv;
@@ -832,8 +832,8 @@ export declare namespace Pools {
     type PoolAddressItem as PoolAddressItem,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
-    type PoolGetParams as PoolGetParams,
     type PoolGetAddressParams as PoolGetAddressParams,
+    type PoolGetParams as PoolGetParams,
   };
 
   export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };

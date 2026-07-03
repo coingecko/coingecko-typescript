@@ -9,6 +9,28 @@ const client = new Coingecko({
 
 describe('resource pools', () => {
   // Mock server tests are disabled
+  test.skip('getAddress: only required params', async () => {
+    const responsePromise = client.onchain.networks.pools.getAddress('address', { network: 'network' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('getAddress: required and optional params', async () => {
+    const response = await client.onchain.networks.pools.getAddress('address', {
+      network: 'network',
+      include: 'include',
+      include_composition: true,
+      include_volume_breakdown: true,
+    });
+  });
+
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.onchain.networks.pools.get('network');
     const rawResponse = await responsePromise.asResponse();
@@ -35,27 +57,5 @@ describe('resource pools', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('getAddress: only required params', async () => {
-    const responsePromise = client.onchain.networks.pools.getAddress('address', { network: 'network' });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('getAddress: required and optional params', async () => {
-    const response = await client.onchain.networks.pools.getAddress('address', {
-      network: 'network',
-      include: 'include',
-      include_composition: true,
-      include_volume_breakdown: true,
-    });
   });
 });

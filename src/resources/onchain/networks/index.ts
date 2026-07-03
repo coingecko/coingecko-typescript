@@ -4,8 +4,8 @@ export {
   Dexes,
   type DexGetResponse,
   type DexGetPoolsResponse,
-  type DexGetParams,
   type DexGetPoolsParams,
+  type DexGetParams,
 } from './dexes';
 export { Networks, type NetworkGetResponse, type NetworkGetParams } from './networks';
 export {
@@ -20,8 +20,8 @@ export {
   type PoolAddressItem,
   type PoolGetResponse,
   type PoolGetAddressResponse,
-  type PoolGetParams,
   type PoolGetAddressParams,
+  type PoolGetParams,
 } from './pools/index';
 export {
   Tokens,

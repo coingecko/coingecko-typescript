@@ -21,14 +21,6 @@ export class NFTs extends APIResource {
   tickers: TickersAPI.Tickers = new TickersAPI.Tickers(this._client);
 
   /**
-   * To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT
-   * collection ID
-   */
-  getID(id: string, options?: RequestOptions): APIPromise<NFTGetIDResponse> {
-    return this._client.get(path`/nfts/${id}`, options);
-  }
-
-  /**
    * To query all supported NFTs with ID, contract address, name, asset platform ID
    * and symbol on CoinGecko
    */
@@ -37,6 +29,14 @@ export class NFTs extends APIResource {
     options?: RequestOptions,
   ): APIPromise<NFTGetListResponse> {
     return this._client.get('/nfts/list', { query, ...options });
+  }
+
+  /**
+   * To query all the NFT data (name, floor price, 24hr volume, ...) based on the NFT
+   * collection ID
+   */
+  getID(id: string, options?: RequestOptions): APIPromise<NFTGetIDResponse> {
+    return this._client.get(path`/nfts/${id}`, options);
   }
 
   /**

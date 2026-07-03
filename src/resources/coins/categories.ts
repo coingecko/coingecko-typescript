@@ -6,6 +6,13 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Categories extends APIResource {
   /**
+   * To query all the coins categories on CoinGecko
+   */
+  getList(options?: RequestOptions): APIPromise<CategoryGetListResponse> {
+    return this._client.get('/coins/categories/list', options);
+  }
+
+  /**
    * To query all the coins categories with market data (market cap, volume, etc.) on
    * CoinGecko
    */
@@ -14,13 +21,6 @@ export class Categories extends APIResource {
     options?: RequestOptions,
   ): APIPromise<CategoryGetResponse> {
     return this._client.get('/coins/categories', { query, ...options });
-  }
-
-  /**
-   * To query all the coins categories on CoinGecko
-   */
-  getList(options?: RequestOptions): APIPromise<CategoryGetListResponse> {
-    return this._client.get('/coins/categories/list', options);
   }
 }
 

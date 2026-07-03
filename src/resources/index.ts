@@ -15,8 +15,8 @@ export {
   type ExchangeGetIDResponse,
   type ExchangeGetListResponse,
   type ExchangeGetParams,
-  type ExchangeGetIDParams,
   type ExchangeGetListParams,
+  type ExchangeGetIDParams,
 } from './exchanges/exchanges';
 export { Global, type GlobalGetResponse } from './global/global';
 export { Key, type KeyGetResponse } from './key';

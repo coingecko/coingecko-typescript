@@ -27,8 +27,8 @@ Types:
 
 Methods:
 
-- <code title="get /coins/categories">client.coins.categories.<a href="./src/resources/coins/categories.ts">get</a>({ ...params }) -> CategoryGetResponse</code>
 - <code title="get /coins/categories/list">client.coins.categories.<a href="./src/resources/coins/categories.ts">getList</a>() -> CategoryGetListResponse</code>
+- <code title="get /coins/categories">client.coins.categories.<a href="./src/resources/coins/categories.ts">get</a>({ ...params }) -> CategoryGetResponse</code>
 
 ## CirculatingSupplyChart
 
@@ -83,8 +83,8 @@ Types:
 
 Methods:
 
-- <code title="get /coins/list">client.coins.list.<a href="./src/resources/coins/list.ts">get</a>({ ...params }) -> ListGetResponse</code>
 - <code title="get /coins/list/new">client.coins.list.<a href="./src/resources/coins/list.ts">getNew</a>() -> ListGetNewResponse</code>
+- <code title="get /coins/list">client.coins.list.<a href="./src/resources/coins/list.ts">get</a>({ ...params }) -> ListGetResponse</code>
 
 ## MarketChart
 
@@ -208,8 +208,8 @@ Types:
 Methods:
 
 - <code title="get /exchanges">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">get</a>({ ...params }) -> ExchangeGetResponse</code>
-- <code title="get /exchanges/{id}">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getID</a>(id, { ...params }) -> ExchangeGetIDResponse</code>
 - <code title="get /exchanges/list">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getList</a>({ ...params }) -> ExchangeGetListResponse</code>
+- <code title="get /exchanges/{id}">client.exchanges.<a href="./src/resources/exchanges/exchanges.ts">getID</a>(id, { ...params }) -> ExchangeGetIDResponse</code>
 
 ## Tickers
 
@@ -293,8 +293,8 @@ Types:
 
 Methods:
 
-- <code title="get /nfts/{id}">client.nfts.<a href="./src/resources/nfts/nfts.ts">getID</a>(id) -> NFTGetIDResponse</code>
 - <code title="get /nfts/list">client.nfts.<a href="./src/resources/nfts/nfts.ts">getList</a>({ ...params }) -> NFTGetListResponse</code>
+- <code title="get /nfts/{id}">client.nfts.<a href="./src/resources/nfts/nfts.ts">getID</a>(id) -> NFTGetIDResponse</code>
 - <code title="get /nfts/markets">client.nfts.<a href="./src/resources/nfts/nfts.ts">getMarkets</a>({ ...params }) -> NFTGetMarketsResponse</code>
 
 ## Contract
@@ -370,8 +370,8 @@ Types:
 
 Methods:
 
-- <code title="get /onchain/networks/{network}/dexes">client.onchain.networks.dexes.<a href="./src/resources/onchain/networks/dexes.ts">get</a>(network, { ...params }) -> DexGetResponse</code>
 - <code title="get /onchain/networks/{network}/dexes/{dex}/pools">client.onchain.networks.dexes.<a href="./src/resources/onchain/networks/dexes.ts">getPools</a>(dex, { ...params }) -> DexGetPoolsResponse</code>
+- <code title="get /onchain/networks/{network}/dexes">client.onchain.networks.dexes.<a href="./src/resources/onchain/networks/dexes.ts">get</a>(network, { ...params }) -> DexGetResponse</code>
 
 ### NewPools
 
@@ -395,8 +395,8 @@ Types:
 
 Methods:
 
-- <code title="get /onchain/networks/{network}/pools">client.onchain.networks.pools.<a href="./src/resources/onchain/networks/pools/pools.ts">get</a>(network, { ...params }) -> PoolGetResponse</code>
 - <code title="get /onchain/networks/{network}/pools/{address}">client.onchain.networks.pools.<a href="./src/resources/onchain/networks/pools/pools.ts">getAddress</a>(address, { ...params }) -> PoolGetAddressResponse</code>
+- <code title="get /onchain/networks/{network}/pools">client.onchain.networks.pools.<a href="./src/resources/onchain/networks/pools/pools.ts">get</a>(network, { ...params }) -> PoolGetResponse</code>
 
 #### Info
 

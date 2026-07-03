@@ -23,16 +23,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/coins/{id}',
   },
   {
-    clientCallName: 'client.coins.categories.get',
-    fullyQualifiedName: 'coins.categories.get',
-    httpMethod: 'get',
-    httpPath: '/coins/categories',
-  },
-  {
     clientCallName: 'client.coins.categories.getList',
     fullyQualifiedName: 'coins.categories.getList',
     httpMethod: 'get',
     httpPath: '/coins/categories/list',
+  },
+  {
+    clientCallName: 'client.coins.categories.get',
+    fullyQualifiedName: 'coins.categories.get',
+    httpMethod: 'get',
+    httpPath: '/coins/categories',
   },
   {
     clientCallName: 'client.coins.circulatingSupplyChart.get',
@@ -71,16 +71,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/coins/{id}/history',
   },
   {
-    clientCallName: 'client.coins.list.get',
-    fullyQualifiedName: 'coins.list.get',
-    httpMethod: 'get',
-    httpPath: '/coins/list',
-  },
-  {
     clientCallName: 'client.coins.list.getNew',
     fullyQualifiedName: 'coins.list.getNew',
     httpMethod: 'get',
     httpPath: '/coins/list/new',
+  },
+  {
+    clientCallName: 'client.coins.list.get',
+    fullyQualifiedName: 'coins.list.get',
+    httpMethod: 'get',
+    httpPath: '/coins/list',
   },
   {
     clientCallName: 'client.coins.marketChart.get',
@@ -179,16 +179,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/exchanges',
   },
   {
-    clientCallName: 'client.exchanges.getID',
-    fullyQualifiedName: 'exchanges.getID',
-    httpMethod: 'get',
-    httpPath: '/exchanges/{id}',
-  },
-  {
     clientCallName: 'client.exchanges.getList',
     fullyQualifiedName: 'exchanges.getList',
     httpMethod: 'get',
     httpPath: '/exchanges/list',
+  },
+  {
+    clientCallName: 'client.exchanges.getID',
+    fullyQualifiedName: 'exchanges.getID',
+    httpMethod: 'get',
+    httpPath: '/exchanges/{id}',
   },
   {
     clientCallName: 'client.exchanges.tickers.get',
@@ -239,16 +239,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/news',
   },
   {
-    clientCallName: 'client.nfts.getID',
-    fullyQualifiedName: 'nfts.getID',
-    httpMethod: 'get',
-    httpPath: '/nfts/{id}',
-  },
-  {
     clientCallName: 'client.nfts.getList',
     fullyQualifiedName: 'nfts.getList',
     httpMethod: 'get',
     httpPath: '/nfts/list',
+  },
+  {
+    clientCallName: 'client.nfts.getID',
+    fullyQualifiedName: 'nfts.getID',
+    httpMethod: 'get',
+    httpPath: '/nfts/{id}',
   },
   {
     clientCallName: 'client.nfts.getMarkets',
@@ -299,16 +299,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks',
   },
   {
-    clientCallName: 'client.onchain.networks.dexes.get',
-    fullyQualifiedName: 'onchain.networks.dexes.get',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/dexes',
-  },
-  {
     clientCallName: 'client.onchain.networks.dexes.getPools',
     fullyQualifiedName: 'onchain.networks.dexes.getPools',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network}/dexes/{dex}/pools',
+  },
+  {
+    clientCallName: 'client.onchain.networks.dexes.get',
+    fullyQualifiedName: 'onchain.networks.dexes.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/dexes',
   },
   {
     clientCallName: 'client.onchain.networks.newPools.get',
@@ -323,16 +323,16 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/new_pools',
   },
   {
-    clientCallName: 'client.onchain.networks.pools.get',
-    fullyQualifiedName: 'onchain.networks.pools.get',
-    httpMethod: 'get',
-    httpPath: '/onchain/networks/{network}/pools',
-  },
-  {
     clientCallName: 'client.onchain.networks.pools.getAddress',
     fullyQualifiedName: 'onchain.networks.pools.getAddress',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network}/pools/{address}',
+  },
+  {
+    clientCallName: 'client.onchain.networks.pools.get',
+    fullyQualifiedName: 'onchain.networks.pools.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/pools',
   },
   {
     clientCallName: 'client.onchain.networks.pools.info.get',

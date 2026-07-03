@@ -6,17 +6,17 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class List extends APIResource {
   /**
-   * To query all the supported coins on CoinGecko with coin ID, name and symbol
-   */
-  get(query: ListGetParams | null | undefined = {}, options?: RequestOptions): APIPromise<ListGetResponse> {
-    return this._client.get('/coins/list', { query, ...options });
-  }
-
-  /**
    * To query the latest 200 coins that recently listed on CoinGecko
    */
   getNew(options?: RequestOptions): APIPromise<ListGetNewResponse> {
     return this._client.get('/coins/list/new', options);
+  }
+
+  /**
+   * To query all the supported coins on CoinGecko with coin ID, name and symbol
+   */
+  get(query: ListGetParams | null | undefined = {}, options?: RequestOptions): APIPromise<ListGetResponse> {
+    return this._client.get('/coins/list', { query, ...options });
   }
 }
 

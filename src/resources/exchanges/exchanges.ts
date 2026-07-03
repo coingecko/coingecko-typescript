@@ -31,6 +31,16 @@ export class Exchanges extends APIResource {
   }
 
   /**
+   * To query all the exchanges with ID and name
+   */
+  getList(
+    query: ExchangeGetListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ExchangeGetListResponse> {
+    return this._client.get('/exchanges/list', { query, ...options });
+  }
+
+  /**
    * To query exchange's data (name, year established, country, etc.), exchange
    * volume in BTC and top 100 tickers based on exchange's ID
    */
@@ -40,16 +50,6 @@ export class Exchanges extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ExchangeGetIDResponse> {
     return this._client.get(path`/exchanges/${id}`, { query, ...options });
-  }
-
-  /**
-   * To query all the exchanges with ID and name
-   */
-  getList(
-    query: ExchangeGetListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<ExchangeGetListResponse> {
-    return this._client.get('/exchanges/list', { query, ...options });
   }
 }
 
@@ -484,19 +484,19 @@ export interface ExchangeGetParams {
   per_page?: number;
 }
 
+export interface ExchangeGetListParams {
+  /**
+   * Filter by status of exchanges. Default: `active`
+   */
+  status?: 'active' | 'inactive';
+}
+
 export interface ExchangeGetIDParams {
   /**
    * Set to `symbol` to display DEX pair base and target as symbols. Default:
    * `contract_address`
    */
   dex_pair_format?: 'contract_address' | 'symbol';
-}
-
-export interface ExchangeGetListParams {
-  /**
-   * Filter by status of exchanges. Default: `active`
-   */
-  status?: 'active' | 'inactive';
 }
 
 Exchanges.Tickers = Tickers;
@@ -508,8 +508,8 @@ export declare namespace Exchanges {
     type ExchangeGetIDResponse as ExchangeGetIDResponse,
     type ExchangeGetListResponse as ExchangeGetListResponse,
     type ExchangeGetParams as ExchangeGetParams,
-    type ExchangeGetIDParams as ExchangeGetIDParams,
     type ExchangeGetListParams as ExchangeGetListParams,
+    type ExchangeGetIDParams as ExchangeGetIDParams,
   };
 
   export {

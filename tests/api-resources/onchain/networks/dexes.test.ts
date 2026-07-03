@@ -9,26 +9,6 @@ const client = new Coingecko({
 
 describe('resource dexes', () => {
   // Mock server tests are disabled
-  test.skip('get', async () => {
-    const responsePromise = client.onchain.networks.dexes.get('network');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Mock server tests are disabled
-  test.skip('get: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.onchain.networks.dexes.get('network', { page: 0 }, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Coingecko.NotFoundError);
-  });
-
-  // Mock server tests are disabled
   test.skip('getPools: only required params', async () => {
     const responsePromise = client.onchain.networks.dexes.getPools('dex', { network: 'network' });
     const rawResponse = await responsePromise.asResponse();
@@ -49,5 +29,25 @@ describe('resource dexes', () => {
       page: 0,
       sort: 'h24_tx_count_desc',
     });
+  });
+
+  // Mock server tests are disabled
+  test.skip('get', async () => {
+    const responsePromise = client.onchain.networks.dexes.get('network');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('get: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.onchain.networks.dexes.get('network', { page: 0 }, { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Coingecko.NotFoundError);
   });
 });

@@ -105,8 +105,8 @@ export declare namespace Networks {
     Dexes as Dexes,
     type DexGetResponse as DexGetResponse,
     type DexGetPoolsResponse as DexGetPoolsResponse,
-    type DexGetParams as DexGetParams,
     type DexGetPoolsParams as DexGetPoolsParams,
+    type DexGetParams as DexGetParams,
   };
 
   export {
@@ -122,8 +122,8 @@ export declare namespace Networks {
     type PoolAddressItem as PoolAddressItem,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
-    type PoolGetParams as PoolGetParams,
     type PoolGetAddressParams as PoolGetAddressParams,
+    type PoolGetParams as PoolGetParams,
   };
 
   export {

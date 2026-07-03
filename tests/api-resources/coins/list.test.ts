@@ -9,6 +9,18 @@ const client = new Coingecko({
 
 describe('resource list', () => {
   // Mock server tests are disabled
+  test.skip('getNew', async () => {
+    const responsePromise = client.coins.list.getNew();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
   test.skip('get', async () => {
     const responsePromise = client.coins.list.get();
     const rawResponse = await responsePromise.asResponse();
@@ -29,17 +41,5 @@ describe('resource list', () => {
         { path: '/_stainless_unknown_path' },
       ),
     ).rejects.toThrow(Coingecko.NotFoundError);
-  });
-
-  // Mock server tests are disabled
-  test.skip('getNew', async () => {
-    const responsePromise = client.coins.list.getNew();
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
   });
 });
