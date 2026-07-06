@@ -6,8 +6,3 @@ CHANGELOG.md
 
 # don't format tsc output, will break source maps
 dist
-
-# stlc infra workflows — CI plumbing, not SDK source; exempt from prettier
-.github/workflows/stlc-promote.yml
-.github/workflows/stlc-sync-from-production.yml
-.github/workflows/trunk-sync-lock.yml
