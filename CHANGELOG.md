@@ -1,5 +1,20 @@
 # Changelog
 
+## 6.0.2 (2026-07-11)
+
+Full Changelog: [v6.0.1...v6.0.2](https://github.com/coingecko/coingecko-typescript/compare/v6.0.1...v6.0.2)
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([2442f53](https://github.com/coingecko/coingecko-typescript/commit/2442f530cf1dbc8fbcf5165f096dfda95d79a8b2))
+
+
+### Chores
+
+* drop stlc workflow YAMLs from .prettierignore (prettier-clean, exemption unnecessary) ([9c46c39](https://github.com/coingecko/coingecko-typescript/commit/9c46c39817a869e0bf880dc1f7f261b2cc5eecba))
+* **internal:** codegen related update ([1dfdedd](https://github.com/coingecko/coingecko-typescript/commit/1dfdedd5575db1bbbec8222578e3634709e89d2e))
+* restore release-please.yml dropped by stale gen-head seal; remove stray .attw.json ([1e4e8b7](https://github.com/coingecko/coingecko-typescript/commit/1e4e8b7b26fca1a0c4a018db496a9201573a553e))
+
 ## 6.0.1 (2026-06-17)
 
 Full Changelog: [v6.0.0...v6.0.1](https://github.com/coingecko/coingecko-typescript/compare/v6.0.0...v6.0.1)
