@@ -185,6 +185,8 @@ export function selectTools(options?: McpOptions): McpTool[] {
       codeTool({
         blockedMethods: blockedMethodsForCodeTool(options),
         codeExecutionMode: options?.codeExecutionMode ?? 'local',
+        sandboxEndpoint: options?.sandboxEndpoint,
+        sandboxFetcher: options?.sandboxFetcher,
       }),
     );
   }

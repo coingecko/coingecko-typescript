@@ -6,6 +6,7 @@ import { WorkerOutput } from './code-tool-types';
 import { getLogger } from './logger';
 import { SdkMethod } from './methods';
 import { McpCodeExecutionMode } from './options';
+import { remoteSandboxHandler } from './remote-sandbox-handler';
 import { ClientOptions } from '@coingecko/coingecko-typescript';
 
 const prompt = `Runs JavaScript code to interact with the Coingecko API.
@@ -39,14 +40,21 @@ Always type dynamic key-value stores explicitly as Record<string, YourValueType>
  * matching, so it is not secure against obfuscation. For stronger security, block in the downstream API
  * with limited API keys.
  * @param codeExecutionMode - Whether to execute code in a local Deno environment or in a remote
- * sandbox environment hosted by Stainless.
+ * sandbox (see remote-sandbox-handler.ts).
+ * @param sandboxEndpoint - URL of the remote sandbox's code-tool endpoint ('remote-sandbox' mode only).
+ * @param sandboxFetcher - Optional fetch used to reach the sandbox, e.g. a Cloudflare service-binding
+ * fetch. Defaults to global fetch.
  */
 export function codeTool({
   blockedMethods,
   codeExecutionMode,
+  sandboxEndpoint,
+  sandboxFetcher,
 }: {
   blockedMethods: SdkMethod[] | undefined;
   codeExecutionMode: McpCodeExecutionMode;
+  sandboxEndpoint?: string | undefined;
+  sandboxFetcher?: typeof fetch | undefined;
 }): McpTool {
   const metadata: Metadata = { resource: 'all', operation: 'write', tags: [] };
   const tool: Tool = {
@@ -100,8 +108,18 @@ export function codeTool({
     let result: ToolCallResult;
     const startTime = Date.now();
 
-    logger.debug('Executing code in local Deno environment');
-    result = await localDenoHandler({ reqContext, args });
+    if (codeExecutionMode === 'remote-sandbox') {
+      logger.debug('Executing code in remote sandbox');
+      result = await remoteSandboxHandler({
+        reqContext,
+        args,
+        endpoint: sandboxEndpoint,
+        fetcher: sandboxFetcher,
+      });
+    } else {
+      logger.debug('Executing code in local Deno environment');
+      result = await localDenoHandler({ reqContext, args });
+    }
 
     logger.info(
       {

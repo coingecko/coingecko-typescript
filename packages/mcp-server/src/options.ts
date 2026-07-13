@@ -24,10 +24,12 @@ export type McpOptions = {
   codeAllowedMethods?: string[] | undefined;
   codeBlockedMethods?: string[] | undefined;
   codeExecutionMode: McpCodeExecutionMode;
+  sandboxEndpoint?: string | undefined;
+  sandboxFetcher?: typeof fetch | undefined;
   customInstructionsPath?: string | undefined;
 };
 
-export type McpCodeExecutionMode = 'local';
+export type McpCodeExecutionMode = 'local' | 'remote-sandbox';
 
 export function parseCLIOptions(): CLIOptions {
   const opts = yargs(hideBin(process.argv))
