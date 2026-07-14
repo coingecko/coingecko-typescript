@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/coingecko/coingecko-typescript/compare/v6.0.2...v7.0.0) (2026-07-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* in @coingecko/coingecko-mcp, the codeExecutionMode value 'stainless-sandbox' (previously the default) and docsSearchMode 'stainless-api' are removed, and the CODE_MODE_ENDPOINT_URL environment variable is no longer read. Remote execution now uses codeExecutionMode 'remote-sandbox' with the new sandboxEndpoint and sandboxFetcher options; the default execution mode is now 'local'. These changes first shipped in 6.0.2, which was mislabeled as a patch — this release corrects the version number. @coingecko/coingecko-typescript (the SDK) has no breaking changes and shares this major version only through lockstep versioning.
+
+### Features
+
+* replace Stainless-hosted code execution with self-hosted remote sandbox ([3cb7080](https://github.com/coingecko/coingecko-typescript/commit/3cb7080f5a1c1ecec4289dcb972eba5c5e32f758))
+
 ## [6.0.2](https://github.com/coingecko/coingecko-typescript/compare/v6.0.1...v6.0.2) (2026-07-13)
 
 
