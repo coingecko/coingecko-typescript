@@ -13,9 +13,22 @@ name: Promote SDKs
 # opens its version/changelog PR on production on top.
 on:
   workflow_dispatch: {}
+  # Fired by the config repo's generate workflow after a real config-main
+  # merge produces a fresh codegen build (event_type: config-merged). This is
+  # the ONLY automatic trigger — a plain push / back-sync / human commit on
+  # staging main does NOT promote, which keeps the cycle loop-free. We do not
+  # read client_payload, so the dispatch carries no injectable input.
+  repository_dispatch:
+    types: [config-merged]
 
 permissions:
   contents: read
+
+concurrency:
+  # Serialize fast-forward pushes to production so two close-together config
+  # merges can't race; don't cancel an in-flight promote mid-push.
+  group: stlc-promote
+  cancel-in-progress: false
 
 jobs:
   promote:
