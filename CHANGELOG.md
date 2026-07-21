@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.1.0](https://github.com/coingecko/coingecko-typescript/compare/v7.0.0...v7.1.0) (2026-07-21)
+
+
+### Features
+
+* Latest endpoints release + Enterprise tools deprecation ([1d9f01d](https://github.com/coingecko/coingecko-typescript/commit/1d9f01d572a96806a9b15a7b1586676793f3bd96))
+
+
+### Bug Fixes
+
+* patched yml file to ensure it'll trigger the ff to main repo automatically ([13c7990](https://github.com/coingecko/coingecko-typescript/commit/13c79909bfe4d2ed3fc66156aed96d7c48cd2b66))
+
 ## [7.0.0](https://github.com/coingecko/coingecko-typescript/compare/v6.0.2...v7.0.0) (2026-07-14)
 
 
