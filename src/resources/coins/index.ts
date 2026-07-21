@@ -32,6 +32,7 @@ export {
   type OhlcGetParams,
   type OhlcGetRangeParams,
 } from './ohlc';
+export { SupplyBreakdown, type SupplyBreakdownGetResponse } from './supply-breakdown';
 export { Tickers, type TickerGetResponse, type TickerGetParams } from './tickers';
 export {
   TopGainersLosers,

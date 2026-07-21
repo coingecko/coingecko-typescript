@@ -24,6 +24,7 @@ import {
 } from './resources/asset-platforms';
 import { Entities, EntityGetListParams, EntityGetListResponse } from './resources/entities';
 import { ExchangeRateGetResponse, ExchangeRates } from './resources/exchange-rates';
+import { InsightGetParams, InsightGetResponse, Insights } from './resources/insights';
 import { Key, KeyGetResponse } from './resources/key';
 import { News, NewsGetParams, NewsGetResponse } from './resources/news';
 import { Ping, PingGetResponse } from './resources/ping';
@@ -848,6 +849,7 @@ export class Coingecko {
   exchangeRates: API.ExchangeRates = new API.ExchangeRates(this);
   exchanges: API.Exchanges = new API.Exchanges(this);
   global: API.Global = new API.Global(this);
+  insights: API.Insights = new API.Insights(this);
   key: API.Key = new API.Key(this);
   news: API.News = new API.News(this);
   nfts: API.NFTs = new API.NFTs(this);
@@ -866,6 +868,7 @@ Coingecko.Entities = Entities;
 Coingecko.ExchangeRates = ExchangeRates;
 Coingecko.Exchanges = Exchanges;
 Coingecko.Global = Global;
+Coingecko.Insights = Insights;
 Coingecko.Key = Key;
 Coingecko.News = News;
 Coingecko.NFTs = NFTs;
@@ -912,6 +915,12 @@ export declare namespace Coingecko {
   };
 
   export { Global as Global, type GlobalGetResponse as GlobalGetResponse };
+
+  export {
+    Insights as Insights,
+    type InsightGetResponse as InsightGetResponse,
+    type InsightGetParams as InsightGetParams,
+  };
 
   export { Key as Key, type KeyGetResponse as KeyGetResponse };
 

@@ -19,6 +19,7 @@ export {
   type ExchangeGetIDParams,
 } from './exchanges/exchanges';
 export { Global, type GlobalGetResponse } from './global/global';
+export { Insights, type InsightGetResponse, type InsightGetParams } from './insights';
 export { Key, type KeyGetResponse } from './key';
 export {
   NFTs,

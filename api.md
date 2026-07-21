@@ -120,6 +120,16 @@ Methods:
 - <code title="get /coins/{id}/ohlc">client.coins.ohlc.<a href="./src/resources/coins/ohlc.ts">get</a>(id, { ...params }) -> OhlcGetResponse</code>
 - <code title="get /coins/{id}/ohlc/range">client.coins.ohlc.<a href="./src/resources/coins/ohlc.ts">getRange</a>(id, { ...params }) -> OhlcGetRangeResponse</code>
 
+## SupplyBreakdown
+
+Types:
+
+- <code><a href="./src/resources/coins/supply-breakdown.ts">SupplyBreakdownGetResponse</a></code>
+
+Methods:
+
+- <code title="get /coins/{id}/supply_breakdown">client.coins.supplyBreakdown.<a href="./src/resources/coins/supply-breakdown.ts">get</a>(id) -> SupplyBreakdownGetResponse</code>
+
 ## Tickers
 
 Types:
@@ -262,6 +272,16 @@ Types:
 Methods:
 
 - <code title="get /global/market_cap_chart">client.global.marketCapChart.<a href="./src/resources/global/market-cap-chart.ts">get</a>({ ...params }) -> MarketCapChartGetResponse</code>
+
+# Insights
+
+Types:
+
+- <code><a href="./src/resources/insights.ts">InsightGetResponse</a></code>
+
+Methods:
+
+- <code title="get /insights">client.insights.<a href="./src/resources/insights.ts">get</a>({ ...params }) -> InsightGetResponse</code>
 
 # Key
 

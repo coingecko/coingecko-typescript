@@ -43,6 +43,11 @@ export namespace InfoGetResponse {
       address: string;
 
       /**
+       * Token banner image URL
+       */
+      banner_image_url: string | null;
+
+      /**
        * Token categories
        */
       categories: Array<string>;
@@ -61,6 +66,16 @@ export namespace InfoGetResponse {
        * Token description
        */
       description: string | null;
+
+      /**
+       * Developer wallet address
+       */
+      developer_address: string | null;
+
+      /**
+       * Developer holding as a percentage of total supply
+       */
+      developer_holding_percentage: string | null;
 
       /**
        * Discord URL

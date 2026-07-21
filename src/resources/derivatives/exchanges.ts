@@ -30,7 +30,7 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * To query all the derivatives exchanges with ID and name on CoinGecko
+   * To query all the supported derivatives exchanges with ID and name on CoinGecko
    */
   getList(options?: RequestOptions): APIPromise<ExchangeGetListResponse> {
     return this._client.get('/derivatives/exchanges/list', options);

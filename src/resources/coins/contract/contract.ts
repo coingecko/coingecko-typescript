@@ -83,6 +83,11 @@ export interface ContractGetResponse {
   genesis_date: string | null;
 
   /**
+   * Whether detailed supply breakdown data is available via /coins/supply_breakdown
+   */
+  has_supply_breakdown: boolean;
+
+  /**
    * Blockchain hashing algorithm
    */
   hashing_algorithm: string | null;

@@ -6,7 +6,7 @@ import { RequestOptions } from '../../internal/request-options';
 
 export class Categories extends APIResource {
   /**
-   * To query all the coins categories on CoinGecko
+   * To query all the supported coins categories on CoinGecko
    */
   getList(options?: RequestOptions): APIPromise<CategoryGetListResponse> {
     return this._client.get('/coins/categories/list', options);

@@ -113,6 +113,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/coins/{id}/ohlc/range',
   },
   {
+    clientCallName: 'client.coins.supplyBreakdown.get',
+    fullyQualifiedName: 'coins.supplyBreakdown.get',
+    httpMethod: 'get',
+    httpPath: '/coins/{id}/supply_breakdown',
+  },
+  {
     clientCallName: 'client.coins.tickers.get',
     fullyQualifiedName: 'coins.tickers.get',
     httpMethod: 'get',
@@ -225,6 +231,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'global.marketCapChart.get',
     httpMethod: 'get',
     httpPath: '/global/market_cap_chart',
+  },
+  {
+    clientCallName: 'client.insights.get',
+    fullyQualifiedName: 'insights.get',
+    httpMethod: 'get',
+    httpPath: '/insights',
   },
   {
     clientCallName: 'client.key.get',

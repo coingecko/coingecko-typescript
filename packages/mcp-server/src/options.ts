@@ -47,6 +47,7 @@ export function parseCLIOptions(): CLIOptions {
     .option('code-blocked-methods', {
       type: 'string',
       array: true,
+      default: ['coins\\.circulating_supply_chart\\..*', 'coins\\.total_supply_chart\\..*', 'insights\\.get'],
       description:
         'Methods to explicitly block for code tool. Evaluated as regular expressions against method fully qualified names. If all code-allow-* flags are unset, then everything is allowed.',
     })

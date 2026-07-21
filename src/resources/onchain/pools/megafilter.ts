@@ -408,6 +408,16 @@ export interface MegafilterGetParams {
   h24_volume_usd_min?: number;
 
   /**
+   * Maximum holder count.
+   */
+  holder_count_max?: number;
+
+  /**
+   * Minimum holder count.
+   */
+  holder_count_min?: number;
+
+  /**
    * Attributes to include, comma-separated if more than one. Available values:
    * `base_token`, `quote_token`, `dex`, `network`
    */
@@ -517,6 +527,16 @@ export interface MegafilterGetParams {
     | 'price_asc'
     | 'price_desc'
     | 'pool_created_at_desc';
+
+  /**
+   * Maximum top 10 holders percentage.
+   */
+  top_10_holders_percentage_max?: number;
+
+  /**
+   * Minimum top 10 holders percentage.
+   */
+  top_10_holders_percentage_min?: number;
 
   /**
    * Duration for transaction count metric. Default: `24h`

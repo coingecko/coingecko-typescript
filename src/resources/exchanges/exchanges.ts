@@ -31,7 +31,7 @@ export class Exchanges extends APIResource {
   }
 
   /**
-   * To query all the exchanges with ID and name
+   * To query all the supported exchanges with ID and name
    */
   getList(
     query: ExchangeGetListParams | null | undefined = {},

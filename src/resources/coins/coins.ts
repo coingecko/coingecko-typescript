@@ -27,6 +27,8 @@ import * as MarketsAPI from './markets';
 import { MarketGetParams, MarketGetResponse, Markets } from './markets';
 import * as OhlcAPI from './ohlc';
 import { Ohlc, OhlcGetParams, OhlcGetRangeParams, OhlcGetRangeResponse, OhlcGetResponse } from './ohlc';
+import * as SupplyBreakdownAPI from './supply-breakdown';
+import { SupplyBreakdown, SupplyBreakdownGetResponse } from './supply-breakdown';
 import * as TickersAPI from './tickers';
 import { TickerGetParams, TickerGetResponse, Tickers } from './tickers';
 import * as TopGainersLosersAPI from './top-gainers-losers';
@@ -60,6 +62,7 @@ export class Coins extends APIResource {
   marketChart: MarketChartAPI.MarketChart = new MarketChartAPI.MarketChart(this._client);
   markets: MarketsAPI.Markets = new MarketsAPI.Markets(this._client);
   ohlc: OhlcAPI.Ohlc = new OhlcAPI.Ohlc(this._client);
+  supplyBreakdown: SupplyBreakdownAPI.SupplyBreakdown = new SupplyBreakdownAPI.SupplyBreakdown(this._client);
   tickers: TickersAPI.Tickers = new TickersAPI.Tickers(this._client);
   topGainersLosers: TopGainersLosersAPI.TopGainersLosers = new TopGainersLosersAPI.TopGainersLosers(
     this._client,
@@ -127,6 +130,11 @@ export interface CoinGetIDResponse {
    * Genesis date
    */
   genesis_date: string | null;
+
+  /**
+   * Whether detailed supply breakdown data is available via /coins/supply_breakdown
+   */
+  has_supply_breakdown: boolean;
 
   /**
    * Blockchain hashing algorithm
@@ -1110,6 +1118,7 @@ Coins.List = List;
 Coins.MarketChart = MarketChart;
 Coins.Markets = Markets;
 Coins.Ohlc = Ohlc;
+Coins.SupplyBreakdown = SupplyBreakdown;
 Coins.Tickers = Tickers;
 Coins.TopGainersLosers = TopGainersLosers;
 Coins.TotalSupplyChart = TotalSupplyChart;
@@ -1171,6 +1180,11 @@ export declare namespace Coins {
     type OhlcGetRangeResponse as OhlcGetRangeResponse,
     type OhlcGetParams as OhlcGetParams,
     type OhlcGetRangeParams as OhlcGetRangeParams,
+  };
+
+  export {
+    SupplyBreakdown as SupplyBreakdown,
+    type SupplyBreakdownGetResponse as SupplyBreakdownGetResponse,
   };
 
   export {

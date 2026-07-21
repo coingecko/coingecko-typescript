@@ -6,7 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class AssetPlatforms extends APIResource {
   /**
-   * To query all the asset platforms (blockchain networks) on CoinGecko
+   * To query all the supported asset platforms (blockchain networks) on CoinGecko
    */
   get(
     query: AssetPlatformGetParams | null | undefined = {},

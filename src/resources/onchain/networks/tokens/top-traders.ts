@@ -148,7 +148,12 @@ export interface TopTraderGetParams {
   /**
    * Query param: Sort the traders by field. Default: `realized_pnl_usd_desc`
    */
-  sort?: 'realized_pnl_usd_desc' | 'unrealized_pnl_usd_desc' | 'total_buy_usd_desc' | 'total_sell_usd_desc';
+  sort?:
+    | 'realized_pnl_usd_desc'
+    | 'unrealized_pnl_usd_desc'
+    | 'total_buy_usd_desc'
+    | 'total_sell_usd_desc'
+    | 'token_balance_desc';
 
   /**
    * Query param: Number of top token traders to return, any integer or `max`.
