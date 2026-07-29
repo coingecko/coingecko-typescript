@@ -6,8 +6,8 @@ export {
   type ExchangeGetIDResponse,
   type ExchangeGetListResponse,
   type ExchangeGetParams,
-  type ExchangeGetListParams,
   type ExchangeGetIDParams,
+  type ExchangeGetListParams,
 } from './exchanges';
 export { Tickers, type TickerGetResponse, type TickerGetParams } from './tickers';
 export {

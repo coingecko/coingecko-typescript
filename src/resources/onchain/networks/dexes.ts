@@ -7,6 +7,18 @@ import { path } from '../../../internal/utils/path';
 
 export class Dexes extends APIResource {
   /**
+   * To query all the supported decentralized exchanges (DEXs) based on the provided
+   * network on GeckoTerminal
+   */
+  get(
+    network: string,
+    query: DexGetParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<DexGetResponse> {
+    return this._client.get(path`/onchain/networks/${network}/dexes`, { query, ...options });
+  }
+
+  /**
    * To query all the top pools based on the provided network and decentralized
    * exchange (DEX)
    */
@@ -17,18 +29,6 @@ export class Dexes extends APIResource {
   ): APIPromise<DexGetPoolsResponse> {
     const { network, ...query } = params;
     return this._client.get(path`/onchain/networks/${network}/dexes/${dex}/pools`, { query, ...options });
-  }
-
-  /**
-   * To query all the supported decentralized exchanges (DEXs) based on the provided
-   * network on GeckoTerminal
-   */
-  get(
-    network: string,
-    query: DexGetParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<DexGetResponse> {
-    return this._client.get(path`/onchain/networks/${network}/dexes`, { query, ...options });
   }
 }
 
@@ -394,6 +394,13 @@ export namespace DexGetPoolsResponse {
   }
 }
 
+export interface DexGetParams {
+  /**
+   * Page through results. Default value: 1
+   */
+  page?: number;
+}
+
 export interface DexGetPoolsParams {
   /**
    * Path param: Network ID. \*refers to
@@ -424,18 +431,11 @@ export interface DexGetPoolsParams {
   sort?: 'h24_tx_count_desc' | 'h24_volume_usd_desc';
 }
 
-export interface DexGetParams {
-  /**
-   * Page through results. Default value: 1
-   */
-  page?: number;
-}
-
 export declare namespace Dexes {
   export {
     type DexGetResponse as DexGetResponse,
     type DexGetPoolsResponse as DexGetPoolsResponse,
-    type DexGetPoolsParams as DexGetPoolsParams,
     type DexGetParams as DexGetParams,
+    type DexGetPoolsParams as DexGetPoolsParams,
   };
 }

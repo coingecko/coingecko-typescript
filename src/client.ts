@@ -910,8 +910,8 @@ export declare namespace Coingecko {
     type ExchangeGetIDResponse as ExchangeGetIDResponse,
     type ExchangeGetListResponse as ExchangeGetListResponse,
     type ExchangeGetParams as ExchangeGetParams,
-    type ExchangeGetListParams as ExchangeGetListParams,
     type ExchangeGetIDParams as ExchangeGetIDParams,
+    type ExchangeGetListParams as ExchangeGetListParams,
   };
 
   export { Global as Global, type GlobalGetResponse as GlobalGetResponse };

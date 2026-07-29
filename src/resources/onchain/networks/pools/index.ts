@@ -8,7 +8,7 @@ export {
   type PoolAddressItem,
   type PoolGetResponse,
   type PoolGetAddressResponse,
-  type PoolGetAddressParams,
   type PoolGetParams,
+  type PoolGetAddressParams,
 } from './pools';
 export { Trades, type TradeGetResponse, type TradeGetParams } from './trades';

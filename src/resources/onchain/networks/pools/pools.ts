@@ -20,6 +20,17 @@ export class Pools extends APIResource {
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
 
   /**
+   * To query all the top pools based on the provided network
+   */
+  get(
+    network: string,
+    query: PoolGetParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<PoolGetResponse> {
+    return this._client.get(path`/onchain/networks/${network}/pools`, { query, ...options });
+  }
+
+  /**
    * To query the specific pool based on the provided network and pool address
    */
   getAddress(
@@ -29,17 +40,6 @@ export class Pools extends APIResource {
   ): APIPromise<PoolGetAddressResponse> {
     const { network, ...query } = params;
     return this._client.get(path`/onchain/networks/${network}/pools/${address}`, { query, ...options });
-  }
-
-  /**
-   * To query all the top pools based on the provided network
-   */
-  get(
-    network: string,
-    query: PoolGetParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PoolGetResponse> {
-    return this._client.get(path`/onchain/networks/${network}/pools`, { query, ...options });
   }
 }
 
@@ -774,30 +774,6 @@ export namespace PoolGetAddressResponse {
   }
 }
 
-export interface PoolGetAddressParams {
-  /**
-   * Path param: Network ID. \*refers to
-   * [`/onchain/networks`](/reference/networks-list).
-   */
-  network: string;
-
-  /**
-   * Query param: Attributes to include, comma-separated if more than one. Available
-   * values: `base_token`, `quote_token`, `dex`
-   */
-  include?: string;
-
-  /**
-   * Query param: Include pool composition. Default: `false`
-   */
-  include_composition?: boolean;
-
-  /**
-   * Query param: Include volume breakdown. Default: `false`
-   */
-  include_volume_breakdown?: boolean;
-}
-
 export interface PoolGetParams {
   /**
    * Attributes to include, comma-separated if more than one. Available values:
@@ -822,6 +798,30 @@ export interface PoolGetParams {
   sort?: 'h24_tx_count_desc' | 'h24_volume_usd_desc';
 }
 
+export interface PoolGetAddressParams {
+  /**
+   * Path param: Network ID. \*refers to
+   * [`/onchain/networks`](/reference/networks-list).
+   */
+  network: string;
+
+  /**
+   * Query param: Attributes to include, comma-separated if more than one. Available
+   * values: `base_token`, `quote_token`, `dex`
+   */
+  include?: string;
+
+  /**
+   * Query param: Include pool composition. Default: `false`
+   */
+  include_composition?: boolean;
+
+  /**
+   * Query param: Include volume breakdown. Default: `false`
+   */
+  include_volume_breakdown?: boolean;
+}
+
 Pools.Info = Info;
 Pools.Multi = Multi;
 Pools.Ohlcv = Ohlcv;
@@ -832,8 +832,8 @@ export declare namespace Pools {
     type PoolAddressItem as PoolAddressItem,
     type PoolGetResponse as PoolGetResponse,
     type PoolGetAddressResponse as PoolGetAddressResponse,
-    type PoolGetAddressParams as PoolGetAddressParams,
     type PoolGetParams as PoolGetParams,
+    type PoolGetAddressParams as PoolGetAddressParams,
   };
 
   export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
