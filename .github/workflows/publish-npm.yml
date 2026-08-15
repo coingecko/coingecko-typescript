@@ -40,7 +40,7 @@ jobs:
           else
             PATHS_RELEASED='[\".\", \"packages/mcp-server\"]'
           fi
-          npx tsx scripts/publish-packages.ts "{ \"paths_released\": \"$PATHS_RELEASED\" }"
+          npx tsx scripts/publish-packages.ts "$(jq -cn --arg pr "$PATHS_RELEASED" '{"paths_released": $pr}')"
         env:
           INPUT_PATH: ${{ github.event.inputs.path }}
 
