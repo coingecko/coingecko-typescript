@@ -1,5 +1,23 @@
 # Changelog
 
+## [8.0.0](https://github.com/coingecko/coingecko-typescript/compare/v7.1.0...v8.0.0) (2026-09-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Release of RWA endpoints
+
+### Features
+
+* Release of RWA endpoints ([4c5efaf](https://github.com/coingecko/coingecko-typescript/commit/4c5efaf0eba2080b1833e877cc8af9cdc6ff3a61))
+
+
+### Bug Fixes
+
+* **mcp:** widen @hono/node-server range to allow v2 ([020648f](https://github.com/coingecko/coingecko-typescript/commit/020648fb200efd76238b966be3f9e149e10b59be))
+* **mcp:** widen @hono/node-server range to allow v2 ([f2141a7](https://github.com/coingecko/coingecko-typescript/commit/f2141a7358e62824233707e1ab05dbf08216d40a))
+* **mcp:** widen @hono/node-server range to allow v2 ([7041ec1](https://github.com/coingecko/coingecko-typescript/commit/7041ec185f2eff54f5247205cfb1dfd05440b49f))
+
 ## [7.1.0](https://github.com/coingecko/coingecko-typescript/compare/v7.0.0...v7.1.0) (2026-07-21)
 
 
