@@ -43,6 +43,15 @@ export {
   type PublicTreasuryGetHoldingChartParams,
   type PublicTreasuryGetTransactionHistoryParams,
 } from './public-treasury';
+export {
+  Rwas,
+  type RwaGetIDResponse,
+  type RwaGetListResponse,
+  type RwaGetMarketsResponse,
+  type RwaGetIDParams,
+  type RwaGetListParams,
+  type RwaGetMarketsParams,
+} from './rwas/rwas';
 export { Search, type SearchGetResponse, type SearchGetParams } from './search/search';
 export { Simple } from './simple/simple';
 export { TokenLists, type TokenListGetAllJsonResponse } from './token-lists';

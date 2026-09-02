@@ -647,6 +647,52 @@ Methods:
 - <code title="get /public_treasury/{entity_id}/{coin_id}/holding_chart">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getHoldingChart</a>(coinID, { ...params }) -> PublicTreasuryGetHoldingChartResponse</code>
 - <code title="get /public_treasury/{entity_id}/transaction_history">client.publicTreasury.<a href="./src/resources/public-treasury.ts">getTransactionHistory</a>(entityID, { ...params }) -> PublicTreasuryGetTransactionHistoryResponse</code>
 
+# Rwas
+
+Types:
+
+- <code><a href="./src/resources/rwas/rwas.ts">RwaGetIDResponse</a></code>
+- <code><a href="./src/resources/rwas/rwas.ts">RwaGetListResponse</a></code>
+- <code><a href="./src/resources/rwas/rwas.ts">RwaGetMarketsResponse</a></code>
+
+Methods:
+
+- <code title="get /rwas/{id}">client.rwas.<a href="./src/resources/rwas/rwas.ts">getID</a>(id, { ...params }) -> RwaGetIDResponse</code>
+- <code title="get /rwas/list">client.rwas.<a href="./src/resources/rwas/rwas.ts">getList</a>({ ...params }) -> RwaGetListResponse</code>
+- <code title="get /rwas/markets">client.rwas.<a href="./src/resources/rwas/rwas.ts">getMarkets</a>({ ...params }) -> RwaGetMarketsResponse</code>
+
+## Issuers
+
+Types:
+
+- <code><a href="./src/resources/rwas/issuers.ts">IssuerGetIDResponse</a></code>
+- <code><a href="./src/resources/rwas/issuers.ts">IssuerGetListResponse</a></code>
+
+Methods:
+
+- <code title="get /rwas/issuers/{id}">client.rwas.issuers.<a href="./src/resources/rwas/issuers.ts">getID</a>(id) -> IssuerGetIDResponse</code>
+- <code title="get /rwas/issuers/list">client.rwas.issuers.<a href="./src/resources/rwas/issuers.ts">getList</a>() -> IssuerGetListResponse</code>
+
+## MarketChart
+
+Types:
+
+- <code><a href="./src/resources/rwas/market-chart.ts">MarketChartGetResponse</a></code>
+
+Methods:
+
+- <code title="get /rwas/{id}/market_chart">client.rwas.marketChart.<a href="./src/resources/rwas/market-chart.ts">get</a>(id, { ...params }) -> MarketChartGetResponse</code>
+
+## Tickers
+
+Types:
+
+- <code><a href="./src/resources/rwas/tickers.ts">TickerGetResponse</a></code>
+
+Methods:
+
+- <code title="get /rwas/{id}/tickers">client.rwas.tickers.<a href="./src/resources/rwas/tickers.ts">get</a>(id, { ...params }) -> TickerGetResponse</code>
+
 # Search
 
 Types:

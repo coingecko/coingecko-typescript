@@ -497,6 +497,48 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/public_treasury/{entity_id}/transaction_history',
   },
   {
+    clientCallName: 'client.rwas.getID',
+    fullyQualifiedName: 'rwas.getID',
+    httpMethod: 'get',
+    httpPath: '/rwas/{id}',
+  },
+  {
+    clientCallName: 'client.rwas.getList',
+    fullyQualifiedName: 'rwas.getList',
+    httpMethod: 'get',
+    httpPath: '/rwas/list',
+  },
+  {
+    clientCallName: 'client.rwas.getMarkets',
+    fullyQualifiedName: 'rwas.getMarkets',
+    httpMethod: 'get',
+    httpPath: '/rwas/markets',
+  },
+  {
+    clientCallName: 'client.rwas.issuers.getID',
+    fullyQualifiedName: 'rwas.issuers.getID',
+    httpMethod: 'get',
+    httpPath: '/rwas/issuers/{id}',
+  },
+  {
+    clientCallName: 'client.rwas.issuers.getList',
+    fullyQualifiedName: 'rwas.issuers.getList',
+    httpMethod: 'get',
+    httpPath: '/rwas/issuers/list',
+  },
+  {
+    clientCallName: 'client.rwas.marketChart.get',
+    fullyQualifiedName: 'rwas.marketChart.get',
+    httpMethod: 'get',
+    httpPath: '/rwas/{id}/market_chart',
+  },
+  {
+    clientCallName: 'client.rwas.tickers.get',
+    fullyQualifiedName: 'rwas.tickers.get',
+    httpMethod: 'get',
+    httpPath: '/rwas/{id}/tickers',
+  },
+  {
     clientCallName: 'client.search.get',
     fullyQualifiedName: 'search.get',
     httpMethod: 'get',

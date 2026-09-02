@@ -76,7 +76,7 @@ export interface NewsGetParams {
     | 'es'
     | 'vi'
     | 'fr'
-    | 'pt-br'
+    | 'pt'
     | 'ar'
     | 'bg'
     | 'cs'

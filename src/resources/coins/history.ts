@@ -22,16 +22,6 @@ export interface HistoryGetResponse {
   id: string;
 
   /**
-   * Community engagement data
-   */
-  community_data: HistoryGetResponse.CommunityData;
-
-  /**
-   * Developer activity data
-   */
-  developer_data: HistoryGetResponse.DeveloperData;
-
-  /**
    * Coin image URLs
    */
   image: HistoryGetResponse.Image;
@@ -63,103 +53,6 @@ export interface HistoryGetResponse {
 }
 
 export namespace HistoryGetResponse {
-  /**
-   * Community engagement data
-   */
-  export interface CommunityData {
-    /**
-     * Number of Facebook likes
-     */
-    facebook_likes?: number | null;
-
-    /**
-     * Active Reddit accounts in 48 hours
-     */
-    reddit_accounts_active_48h?: number;
-
-    /**
-     * Average Reddit comments in 48 hours
-     */
-    reddit_average_comments_48h?: number;
-
-    /**
-     * Average Reddit posts in 48 hours
-     */
-    reddit_average_posts_48h?: number;
-
-    /**
-     * Number of Reddit subscribers
-     */
-    reddit_subscribers?: number | null;
-  }
-
-  /**
-   * Developer activity data
-   */
-  export interface DeveloperData {
-    /**
-     * Closed issues
-     */
-    closed_issues?: number | null;
-
-    /**
-     * Code additions and deletions in the last 4 weeks
-     */
-    code_additions_deletions_4_weeks?: DeveloperData.CodeAdditionsDeletions4Weeks;
-
-    /**
-     * Commit count in the last 4 weeks
-     */
-    commit_count_4_weeks?: number | null;
-
-    /**
-     * Repository forks
-     */
-    forks?: number | null;
-
-    /**
-     * Pull request contributors
-     */
-    pull_request_contributors?: number | null;
-
-    /**
-     * Pull requests merged
-     */
-    pull_requests_merged?: number | null;
-
-    /**
-     * Repository stars
-     */
-    stars?: number | null;
-
-    /**
-     * Repository subscribers
-     */
-    subscribers?: number | null;
-
-    /**
-     * Total issues
-     */
-    total_issues?: number | null;
-  }
-
-  export namespace DeveloperData {
-    /**
-     * Code additions and deletions in the last 4 weeks
-     */
-    export interface CodeAdditionsDeletions4Weeks {
-      /**
-       * Lines added
-       */
-      additions?: number | null;
-
-      /**
-       * Lines deleted
-       */
-      deletions?: number | null;
-    }
-  }
-
   /**
    * Coin image URLs
    */

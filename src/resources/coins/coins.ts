@@ -222,16 +222,6 @@ export interface CoinGetIDResponse {
   categories_details?: Array<CoinGetIDResponse.CategoriesDetail>;
 
   /**
-   * Community data
-   */
-  community_data?: CoinGetIDResponse.CommunityData;
-
-  /**
-   * Developer data
-   */
-  developer_data?: CoinGetIDResponse.DeveloperData;
-
-  /**
    * ICO data
    */
   ico_data?: CoinGetIDResponse.IcoData | null;
@@ -400,107 +390,6 @@ export namespace CoinGetIDResponse {
      * Category name
      */
     name?: string;
-  }
-
-  /**
-   * Community data
-   */
-  export interface CommunityData {
-    /**
-     * Facebook likes
-     */
-    facebook_likes?: number | null;
-
-    /**
-     * Reddit active accounts in 48 hours
-     */
-    reddit_accounts_active_48h?: number;
-
-    /**
-     * Reddit average comments in 48 hours
-     */
-    reddit_average_comments_48h?: number;
-
-    /**
-     * Reddit average posts in 48 hours
-     */
-    reddit_average_posts_48h?: number;
-
-    /**
-     * Reddit subscribers
-     */
-    reddit_subscribers?: number;
-
-    /**
-     * Telegram channel user count
-     */
-    telegram_channel_user_count?: number | null;
-  }
-
-  /**
-   * Developer data
-   */
-  export interface DeveloperData {
-    /**
-     * Repository closed issues
-     */
-    closed_issues?: number;
-
-    /**
-     * Code additions and deletions in 4 weeks
-     */
-    code_additions_deletions_4_weeks?: DeveloperData.CodeAdditionsDeletions4Weeks;
-
-    /**
-     * Repository commit count in 4 weeks
-     */
-    commit_count_4_weeks?: number;
-
-    /**
-     * Repository forks
-     */
-    forks?: number;
-
-    /**
-     * Repository last 4 weeks commit activity series
-     */
-    last_4_weeks_commit_activity_series?: Array<number>;
-
-    /**
-     * Repository pull request contributors
-     */
-    pull_request_contributors?: number;
-
-    /**
-     * Repository pull requests merged
-     */
-    pull_requests_merged?: number;
-
-    /**
-     * Repository stars
-     */
-    stars?: number;
-
-    /**
-     * Repository subscribers
-     */
-    subscribers?: number;
-
-    /**
-     * Repository total issues
-     */
-    total_issues?: number;
-  }
-
-  export namespace DeveloperData {
-    /**
-     * Code additions and deletions in 4 weeks
-     */
-    export interface CodeAdditionsDeletions4Weeks {
-      additions?: number;
-
-      deletions?: number;
-    }
   }
 
   /**
@@ -1069,12 +958,14 @@ export namespace CoinGetIDResponse {
 
 export interface CoinGetIDParams {
   /**
-   * Include community data. Default: true
+   * Include community data. Deprecated: has no effect as of 28 August 2026; the
+   * `community_data` object is no longer returned.
    */
   community_data?: boolean;
 
   /**
-   * Include developer data. Default: true
+   * Include developer data. Deprecated: has no effect as of 28 August 2026; the
+   * `developer_data` object is no longer returned.
    */
   developer_data?: boolean;
 

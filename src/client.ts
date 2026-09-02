@@ -61,6 +61,15 @@ import {
   NFTs,
 } from './resources/nfts/nfts';
 import { Onchain } from './resources/onchain/onchain';
+import {
+  RwaGetIDParams,
+  RwaGetIDResponse,
+  RwaGetListParams,
+  RwaGetListResponse,
+  RwaGetMarketsParams,
+  RwaGetMarketsResponse,
+  Rwas,
+} from './resources/rwas/rwas';
 import { Search, SearchGetParams, SearchGetResponse } from './resources/search/search';
 import { Simple } from './resources/simple/simple';
 import { type Fetch } from './internal/builtin-types';
@@ -856,6 +865,7 @@ export class Coingecko {
   onchain: API.Onchain = new API.Onchain(this);
   ping: API.Ping = new API.Ping(this);
   publicTreasury: API.PublicTreasury = new API.PublicTreasury(this);
+  rwas: API.Rwas = new API.Rwas(this);
   search: API.Search = new API.Search(this);
   simple: API.Simple = new API.Simple(this);
   tokenLists: API.TokenLists = new API.TokenLists(this);
@@ -875,6 +885,7 @@ Coingecko.NFTs = NFTs;
 Coingecko.Onchain = Onchain;
 Coingecko.Ping = Ping;
 Coingecko.PublicTreasury = PublicTreasury;
+Coingecko.Rwas = Rwas;
 Coingecko.Search = Search;
 Coingecko.Simple = Simple;
 Coingecko.TokenLists = TokenLists;
@@ -949,6 +960,16 @@ export declare namespace Coingecko {
     type PublicTreasuryGetEntityIDParams as PublicTreasuryGetEntityIDParams,
     type PublicTreasuryGetHoldingChartParams as PublicTreasuryGetHoldingChartParams,
     type PublicTreasuryGetTransactionHistoryParams as PublicTreasuryGetTransactionHistoryParams,
+  };
+
+  export {
+    Rwas as Rwas,
+    type RwaGetIDResponse as RwaGetIDResponse,
+    type RwaGetListResponse as RwaGetListResponse,
+    type RwaGetMarketsResponse as RwaGetMarketsResponse,
+    type RwaGetIDParams as RwaGetIDParams,
+    type RwaGetListParams as RwaGetListParams,
+    type RwaGetMarketsParams as RwaGetMarketsParams,
   };
 
   export {
