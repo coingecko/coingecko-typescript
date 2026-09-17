@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.1.0](https://github.com/coingecko/coingecko-typescript/compare/v8.0.0...v8.1.0) (2026-09-17)
+
+
+### Features
+
+* Release new wallet endpoints + other minor fixes ([d39a764](https://github.com/coingecko/coingecko-typescript/commit/d39a76482975e201e0691d605a2e3c340a3930e0))
+
 ## [8.0.0](https://github.com/coingecko/coingecko-typescript/compare/v7.1.0...v8.0.0) (2026-09-02)
 
 
