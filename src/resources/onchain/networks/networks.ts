@@ -30,6 +30,8 @@ import {
 } from './pools/pools';
 import * as TokensAPI from './tokens/tokens';
 import { TokenGetAddressParams, TokenGetAddressResponse, TokenItem, Tokens } from './tokens/tokens';
+import * as WalletsAPI from './wallets/wallets';
+import { Wallets } from './wallets/wallets';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
@@ -39,6 +41,7 @@ export class Networks extends APIResource {
   pools: PoolsAPI.Pools = new PoolsAPI.Pools(this._client);
   tokens: TokensAPI.Tokens = new TokensAPI.Tokens(this._client);
   trendingPools: TrendingPoolsAPI.TrendingPools = new TrendingPoolsAPI.TrendingPools(this._client);
+  wallets: WalletsAPI.Wallets = new WalletsAPI.Wallets(this._client);
 
   /**
    * To retrieve a list of all supported networks on GeckoTerminal
@@ -97,6 +100,7 @@ Networks.NewPools = NewPools;
 Networks.Pools = Pools;
 Networks.Tokens = Tokens;
 Networks.TrendingPools = TrendingPools;
+Networks.Wallets = Wallets;
 
 export declare namespace Networks {
   export { type NetworkGetResponse as NetworkGetResponse, type NetworkGetParams as NetworkGetParams };
@@ -140,4 +144,6 @@ export declare namespace Networks {
     type TrendingPoolGetParams as TrendingPoolGetParams,
     type TrendingPoolGetNetworkParams as TrendingPoolGetNetworkParams,
   };
+
+  export { Wallets as Wallets };
 }

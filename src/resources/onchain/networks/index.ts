@@ -36,3 +36,4 @@ export {
   type TrendingPoolGetParams,
   type TrendingPoolGetNetworkParams,
 } from './trending-pools';
+export { Wallets } from './wallets/index';

@@ -284,12 +284,12 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'contract_address: string;',
       'days: string;',
       'vs_currency: string;',
-      "interval?: '5m' | 'hourly' | 'daily';",
+      "interval?: '1m' | '5m' | 'hourly' | 'daily';",
       'precision?: string;',
     ],
     response: '{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }',
     markdown:
-      "## get\n\n`client.coins.contract.marketChart.get(id: string, contract_address: string, days: string, vs_currency: string, interval?: '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/contract/{contract_address}/market_chart`\n\nTo get the historical chart data including time in UNIX, price, market cap and 24hrs volume based on asset platform and particular token contract address\n\n### Parameters\n\n- `id: string`\n\n- `contract_address: string`\n\n- `days: string`\n  Data up to number of days ago. \nYou may use any integer or `max` for number of days.\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst marketChart = await client.coins.contract.marketChart.get('contract_address', {\n  id: 'id',\n  days: 'days',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(marketChart);\n```",
+      "## get\n\n`client.coins.contract.marketChart.get(id: string, contract_address: string, days: string, vs_currency: string, interval?: '1m' | '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/contract/{contract_address}/market_chart`\n\nTo get the historical chart data including time in UNIX, price, market cap and 24hrs volume based on asset platform and particular token contract address\n\n### Parameters\n\n- `id: string`\n\n- `contract_address: string`\n\n- `days: string`\n  Data up to number of days ago. \nYou may use any integer or `max` for number of days.\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '1m' | '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst marketChart = await client.coins.contract.marketChart.get('contract_address', {\n  id: 'id',\n  days: 'days',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(marketChart);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.contract.marketChart.get',
@@ -322,12 +322,12 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'from: string;',
       'to: string;',
       'vs_currency: string;',
-      "interval?: '5m' | 'hourly' | 'daily';",
+      "interval?: '1m' | '5m' | 'hourly' | 'daily';",
       'precision?: string;',
     ],
     response: '{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }',
     markdown:
-      "## get_range\n\n`client.coins.contract.marketChart.getRange(id: string, contract_address: string, from: string, to: string, vs_currency: string, interval?: '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/contract/{contract_address}/market_chart/range`\n\nTo get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address\n\n### Parameters\n\n- `id: string`\n\n- `contract_address: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.contract.marketChart.getRange('contract_address', {\n  id: 'id',\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response);\n```",
+      "## get_range\n\n`client.coins.contract.marketChart.getRange(id: string, contract_address: string, from: string, to: string, vs_currency: string, interval?: '1m' | '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/contract/{contract_address}/market_chart/range`\n\nTo get the historical chart data within certain time range in UNIX along with price, market cap and 24hrs volume based on asset platform and particular token contract address\n\n### Parameters\n\n- `id: string`\n\n- `contract_address: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '1m' | '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.contract.marketChart.getRange('contract_address', {\n  id: 'id',\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.contract.marketChart.getRange',
@@ -446,12 +446,12 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'id: string;',
       'days: string;',
       'vs_currency: string;',
-      "interval?: '5m' | 'hourly' | 'daily';",
+      "interval?: '1m' | '5m' | 'hourly' | 'daily';",
       'precision?: string;',
     ],
     response: '{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }',
     markdown:
-      "## get\n\n`client.coins.marketChart.get(id: string, days: string, vs_currency: string, interval?: '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/market_chart`\n\nTo get the historical chart data of a coin including time in UNIX, price, market cap and 24hrs volume based on particular coin ID\n\n### Parameters\n\n- `id: string`\n\n- `days: string`\n  Data up to number of days ago. \nYou may use any integer or `max` for number of days.\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst marketChart = await client.coins.marketChart.get('id', { days: 'days', vs_currency: 'vs_currency' });\n\nconsole.log(marketChart);\n```",
+      "## get\n\n`client.coins.marketChart.get(id: string, days: string, vs_currency: string, interval?: '1m' | '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/market_chart`\n\nTo get the historical chart data of a coin including time in UNIX, price, market cap and 24hrs volume based on particular coin ID\n\n### Parameters\n\n- `id: string`\n\n- `days: string`\n  Data up to number of days ago. \nYou may use any integer or `max` for number of days.\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '1m' | '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst marketChart = await client.coins.marketChart.get('id', { days: 'days', vs_currency: 'vs_currency' });\n\nconsole.log(marketChart);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.marketChart.get',
@@ -483,12 +483,12 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'from: string;',
       'to: string;',
       'vs_currency: string;',
-      "interval?: '5m' | 'hourly' | 'daily';",
+      "interval?: '1m' | '5m' | 'hourly' | 'daily';",
       'precision?: string;',
     ],
     response: '{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }',
     markdown:
-      "## get_range\n\n`client.coins.marketChart.getRange(id: string, from: string, to: string, vs_currency: string, interval?: '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/market_chart/range`\n\nTo get the historical chart data of a coin within certain time range in UNIX along with price, market cap and 24hrs volume based on particular coin ID\n\n### Parameters\n\n- `id: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.marketChart.getRange('id', {\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response);\n```",
+      "## get_range\n\n`client.coins.marketChart.getRange(id: string, from: string, to: string, vs_currency: string, interval?: '1m' | '5m' | 'hourly' | 'daily', precision?: string): { market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n**get** `/coins/{id}/market_chart/range`\n\nTo get the historical chart data of a coin within certain time range in UNIX along with price, market cap and 24hrs volume based on particular coin ID\n\n### Parameters\n\n- `id: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `vs_currency: string`\n  Target currency of market data. \n*refers to [`/simple/supported_vs_currencies`](/reference/simple-supported-currencies).\n\n- `interval?: '1m' | '5m' | 'hourly' | 'daily'`\n  Data interval, leave empty for auto granularity.\n\n- `precision?: string`\n  Decimal place for currency price value.\n\n### Returns\n\n- `{ market_caps: number[][]; prices: number[][]; total_volumes: number[][]; }`\n\n  - `market_caps: number[][]`\n  - `prices: number[][]`\n  - `total_volumes: number[][]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.coins.marketChart.getRange('id', {\n  from: 'from',\n  to: 'to',\n  vs_currency: 'vs_currency',\n});\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.coins.marketChart.getRange',
@@ -1958,20 +1958,23 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     name: 'get',
     endpoint: '/onchain/networks/{network}/pools/{pool_address}/trades',
     httpMethod: 'get',
-    summary: 'Past 24 Hour Trades by Pool Address',
-    description: 'To query the last 300 trades in the past 24 hours based on the provided pool address',
+    summary: 'Trades by Pool Address',
+    description: 'To query the trades based on the provided pool address',
     stainlessPath: '(resource) onchain.networks.pools.trades > (method) get',
     qualified: 'client.onchain.networks.pools.trades.get',
     params: [
       'network: string;',
       'pool_address: string;',
       'token?: string;',
+      'cursor?: string;',
+      'per_page?: number;',
       'trade_volume_in_usd_greater_than?: number;',
+      "trading_period?: '1d' | '7d' | '30d';",
     ],
     response:
-      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; }',
+      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }',
     markdown:
-      "## get\n\n`client.onchain.networks.pools.trades.get(network: string, pool_address: string, token?: string, trade_volume_in_usd_greater_than?: number): { data: object[]; }`\n\n**get** `/onchain/networks/{network}/pools/{pool_address}/trades`\n\nTo query the last 300 trades in the past 24 hours based on the provided pool address\n\n### Parameters\n\n- `network: string`\n\n- `pool_address: string`\n\n- `token?: string`\n  Return trades for token, use this to invert the chart. \nAvailable values: `base`, `quote`, or token address. \nDefault: `base`\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst trade = await client.onchain.networks.pools.trades.get('pool_address', { network: 'network' });\n\nconsole.log(trade);\n```",
+      "## get\n\n`client.onchain.networks.pools.trades.get(network: string, pool_address: string, token?: string, cursor?: string, per_page?: number, trade_volume_in_usd_greater_than?: number, trading_period?: '1d' | '7d' | '30d'): { data: object[]; meta?: object; }`\n\n**get** `/onchain/networks/{network}/pools/{pool_address}/trades`\n\nTo query the trades based on the provided pool address\n\n### Parameters\n\n- `network: string`\n\n- `pool_address: string`\n\n- `token?: string`\n  Return trades for token, use this to invert the chart. \nAvailable values: `base`, `quote`, or token address. \nDefault: `base`\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 300 \nValid values: 1...300\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n- `trading_period?: '1d' | '7d' | '30d'`\n  Lookback period for trades. \nDefault: `1d`\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n  - `meta?: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst trade = await client.onchain.networks.pools.trades.get('pool_address', { network: 'network' });\n\nconsole.log(trade);\n```",
     perLanguage: {
       typescript: {
         method: 'client.onchain.networks.pools.trades.get',
@@ -1986,6 +1989,45 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get_range',
+    endpoint: '/onchain/networks/{network}/pools/{pool_address}/trades/range',
+    httpMethod: 'get',
+    summary: 'Trades within Time Range by Pool Address',
+    description: 'To query the trades within a range of timestamp based on the provided pool address',
+    stainlessPath: '(resource) onchain.networks.pools.trades > (method) get_range',
+    qualified: 'client.onchain.networks.pools.trades.getRange',
+    params: [
+      'network: string;',
+      'pool_address: string;',
+      'from: string;',
+      'to: string;',
+      'token?: string;',
+      'cursor?: string;',
+      'per_page?: number;',
+      'trade_volume_in_usd_greater_than?: number;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }',
+    markdown:
+      "## get_range\n\n`client.onchain.networks.pools.trades.getRange(network: string, pool_address: string, from: string, to: string, token?: string, cursor?: string, per_page?: number, trade_volume_in_usd_greater_than?: number): { data: object[]; meta?: object; }`\n\n**get** `/onchain/networks/{network}/pools/{pool_address}/trades/range`\n\nTo query the trades within a range of timestamp based on the provided pool address\n\n### Parameters\n\n- `network: string`\n\n- `pool_address: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `token?: string`\n  Return trades for token, use this to invert the chart. \nAvailable values: `base`, `quote`, or token address. \nDefault: `base`\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 100 \nValid values: 1...300\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n  - `meta?: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.onchain.networks.pools.trades.getRange('pool_address', {\n  network: 'network',\n  from: 'from',\n  to: 'to',\n});\n\nconsole.log(response);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.networks.pools.trades.getRange',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.pools.trades.getRange('pool_address', {\n  network: 'network',\n  from: 'from',\n  to: 'to',\n});\n\nconsole.log(response.data);",
+      },
+      python: {
+        method: 'onchain.networks.pools.trades.get_range',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.pools.trades.get_range(\n    pool_address="pool_address",\n    network="network",\n    from_="from",\n    to="to",\n)\nprint(response.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/pools/$POOL_ADDRESS/trades/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2271,16 +2313,23 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     name: 'get',
     endpoint: '/onchain/networks/{network}/tokens/{token_address}/trades',
     httpMethod: 'get',
-    summary: 'Past 24 Hour Trades by Token Address',
+    summary: 'Trades by Token Address',
     description:
-      'To query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network',
+      'To query the trades, across all pools, based on the provided token contract address on a network',
     stainlessPath: '(resource) onchain.networks.tokens.trades > (method) get',
     qualified: 'client.onchain.networks.tokens.trades.get',
-    params: ['network: string;', 'token_address: string;', 'trade_volume_in_usd_greater_than?: number;'],
+    params: [
+      'network: string;',
+      'token_address: string;',
+      'cursor?: string;',
+      'per_page?: number;',
+      'trade_volume_in_usd_greater_than?: number;',
+      "trading_period?: '1d' | '7d' | '30d';",
+    ],
     response:
-      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; }',
+      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }',
     markdown:
-      "## get\n\n`client.onchain.networks.tokens.trades.get(network: string, token_address: string, trade_volume_in_usd_greater_than?: number): { data: object[]; }`\n\n**get** `/onchain/networks/{network}/tokens/{token_address}/trades`\n\nTo query the last 300 trades in the past 24 hours, across all pools, based on the provided token contract address on a network\n\n### Parameters\n\n- `network: string`\n\n- `token_address: string`\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst trade = await client.onchain.networks.tokens.trades.get('token_address', { network: 'network' });\n\nconsole.log(trade);\n```",
+      "## get\n\n`client.onchain.networks.tokens.trades.get(network: string, token_address: string, cursor?: string, per_page?: number, trade_volume_in_usd_greater_than?: number, trading_period?: '1d' | '7d' | '30d'): { data: object[]; meta?: object; }`\n\n**get** `/onchain/networks/{network}/tokens/{token_address}/trades`\n\nTo query the trades, across all pools, based on the provided token contract address on a network\n\n### Parameters\n\n- `network: string`\n\n- `token_address: string`\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 300 \nValid values: 1...300\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n- `trading_period?: '1d' | '7d' | '30d'`\n  Lookback period for trades. \nDefault: `1d`\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n  - `meta?: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst trade = await client.onchain.networks.tokens.trades.get('token_address', { network: 'network' });\n\nconsole.log(trade);\n```",
     perLanguage: {
       typescript: {
         method: 'client.onchain.networks.tokens.trades.get',
@@ -2295,6 +2344,45 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get_range',
+    endpoint: '/onchain/networks/{network}/tokens/{token_address}/trades/range',
+    httpMethod: 'get',
+    summary: 'Trades within Time Range by Token Address',
+    description:
+      'To query the trades, across all pools, within a range of timestamp based on the provided token contract address on a network',
+    stainlessPath: '(resource) onchain.networks.tokens.trades > (method) get_range',
+    qualified: 'client.onchain.networks.tokens.trades.getRange',
+    params: [
+      'network: string;',
+      'token_address: string;',
+      'from: string;',
+      'to: string;',
+      'cursor?: string;',
+      'per_page?: number;',
+      'trade_volume_in_usd_greater_than?: number;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }',
+    markdown:
+      "## get_range\n\n`client.onchain.networks.tokens.trades.getRange(network: string, token_address: string, from: string, to: string, cursor?: string, per_page?: number, trade_volume_in_usd_greater_than?: number): { data: object[]; meta?: object; }`\n\n**get** `/onchain/networks/{network}/tokens/{token_address}/trades/range`\n\nTo query the trades, across all pools, within a range of timestamp based on the provided token contract address on a network\n\n### Parameters\n\n- `network: string`\n\n- `token_address: string`\n\n- `from: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `to: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.**\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 100 \nValid values: 1...300\n\n- `trade_volume_in_usd_greater_than?: number`\n  Filter trades by trade volume in USD greater than this value. \nDefault value: 0\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta?: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n  - `meta?: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.onchain.networks.tokens.trades.getRange('token_address', {\n  network: 'network',\n  from: 'from',\n  to: 'to',\n});\n\nconsole.log(response);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.networks.tokens.trades.getRange',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.networks.tokens.trades.getRange('token_address', {\n  network: 'network',\n  from: 'from',\n  to: 'to',\n});\n\nconsole.log(response.data);",
+      },
+      python: {
+        method: 'onchain.networks.tokens.trades.get_range',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.networks.tokens.trades.get_range(\n    token_address="token_address",\n    network="network",\n    from_="from",\n    to="to",\n)\nprint(response.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/tokens/$TOKEN_ADDRESS/trades/range \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2366,6 +2454,45 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/trending_pools \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get',
+    endpoint: '/onchain/networks/{network}/wallets/{address}/transfers',
+    httpMethod: 'get',
+    summary: 'Token Transfers by Wallet Address',
+    description: 'To query the token transfers of a wallet address on a network',
+    stainlessPath: '(resource) onchain.networks.wallets.transfers > (method) get',
+    qualified: 'client.onchain.networks.wallets.transfers.get',
+    params: [
+      'network: string;',
+      'address: string;',
+      'token?: string;',
+      'cursor?: string;',
+      "direction?: 'in' | 'out';",
+      'from?: string;',
+      'per_page?: number;',
+      'to?: string;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { amount: string; amount_raw: string; block_number: number; block_timestamp: string; decimals: number; direction: string; from_address: string; name: string; symbol: string; to_address: string; token_address: string; tx_hash: string; }; type: string; }[]; meta: { next_cursor: string; }; }',
+    markdown:
+      "## get\n\n`client.onchain.networks.wallets.transfers.get(network: string, address: string, token?: string, cursor?: string, direction?: 'in' | 'out', from?: string, per_page?: number, to?: string): { data: object[]; meta: object; }`\n\n**get** `/onchain/networks/{network}/wallets/{address}/transfers`\n\nTo query the token transfers of a wallet address on a network\n\n### Parameters\n\n- `network: string`\n\n- `address: string`\n\n- `token?: string`\n  Filter transfers by token contract address.\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `direction?: 'in' | 'out'`\n  Filter transfers by direction, relative to the queried wallet. \nOmit to return both.\n\n- `from?: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `to`.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 100 \nValid values: 1...300\n\n- `to?: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `from`.\n\n### Returns\n\n- `{ data: { id: string; attributes: { amount: string; amount_raw: string; block_number: number; block_timestamp: string; decimals: number; direction: string; from_address: string; name: string; symbol: string; to_address: string; token_address: string; tx_hash: string; }; type: string; }[]; meta: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { amount: string; amount_raw: string; block_number: number; block_timestamp: string; decimals: number; direction: string; from_address: string; name: string; symbol: string; to_address: string; token_address: string; tx_hash: string; }; type: string; }[]`\n  - `meta: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst transfer = await client.onchain.networks.wallets.transfers.get('address', { network: 'network' });\n\nconsole.log(transfer);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.networks.wallets.transfers.get',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst transfer = await client.onchain.networks.wallets.transfers.get('address', {\n  network: 'network',\n});\n\nconsole.log(transfer.data);",
+      },
+      python: {
+        method: 'onchain.networks.wallets.transfers.get',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntransfer = client.onchain.networks.wallets.transfers.get(\n    address="address",\n    network="network",\n)\nprint(transfer.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/wallets/$ADDRESS/transfers \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2536,6 +2663,81 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     },
   },
   {
+    name: 'get_multi',
+    endpoint: '/onchain/simple/token_price/multi',
+    httpMethod: 'get',
+    summary: 'Token Price by Token Addresses across Networks',
+    description:
+      'To get token prices based on the provided token contract addresses across multiple networks in a single request',
+    stainlessPath: '(resource) onchain.simple.token_price > (method) get_multi',
+    qualified: 'client.onchain.simple.tokenPrice.getMulti',
+    params: [
+      'tokens: string;',
+      'include_24hr_price_change?: boolean;',
+      'include_24hr_vol?: boolean;',
+      'include_inactive_source?: boolean;',
+      'include_market_cap?: boolean;',
+      'include_total_reserve_in_usd?: boolean;',
+      'mcap_fdv_fallback?: boolean;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { token_prices: object; h24_price_change_percentage?: object; h24_volume_usd?: object; last_trade_timestamp?: object; market_cap_usd?: object; total_reserve_in_usd?: object; }; type: string; }; }',
+    markdown:
+      "## get_multi\n\n`client.onchain.simple.tokenPrice.getMulti(tokens: string, include_24hr_price_change?: boolean, include_24hr_vol?: boolean, include_inactive_source?: boolean, include_market_cap?: boolean, include_total_reserve_in_usd?: boolean, mcap_fdv_fallback?: boolean): { data: object; }`\n\n**get** `/onchain/simple/token_price/multi`\n\nTo get token prices based on the provided token contract addresses across multiple networks in a single request\n\n### Parameters\n\n- `tokens: string`\n  Network ID and token contract address pairs in `network_id:token_address` format, comma-separated if more than one. \nMaximum: 50 \n*refers to [`/onchain/networks`](/reference/networks-list).\n\n- `include_24hr_price_change?: boolean`\n  Include 24hr price change. \nDefault: `false`\n\n- `include_24hr_vol?: boolean`\n  Include 24hr volume. \nDefault: `false`\n\n- `include_inactive_source?: boolean`\n  Include token price data from inactive pools using the most recent swap. \nDefault: `false`\n\n- `include_market_cap?: boolean`\n  Include market capitalization. \nDefault: `false`\n\n- `include_total_reserve_in_usd?: boolean`\n  Include total reserve in USD. \nDefault: `false`\n\n- `mcap_fdv_fallback?: boolean`\n  Return FDV if market cap is not available. \nDefault: `false`\n\n### Returns\n\n- `{ data: { id: string; attributes: { token_prices: object; h24_price_change_percentage?: object; h24_volume_usd?: object; last_trade_timestamp?: object; market_cap_usd?: object; total_reserve_in_usd?: object; }; type: string; }; }`\n\n  - `data: { id: string; attributes: { token_prices: object; h24_price_change_percentage?: object; h24_volume_usd?: object; last_trade_timestamp?: object; market_cap_usd?: object; total_reserve_in_usd?: object; }; type: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.onchain.simple.tokenPrice.getMulti({ tokens: 'tokens' });\n\nconsole.log(response);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.simple.tokenPrice.getMulti',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.simple.tokenPrice.getMulti({ tokens: 'tokens' });\n\nconsole.log(response.data);",
+      },
+      python: {
+        method: 'onchain.simple.token_price.get_multi',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.simple.token_price.get_multi(\n    tokens="tokens",\n)\nprint(response.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/simple/token_price/multi \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get_multi',
+    endpoint: '/onchain/tokens/multi',
+    httpMethod: 'get',
+    summary: 'Tokens Data by Token Addresses across Networks',
+    description:
+      'To query multiple tokens data based on the provided token contract addresses across multiple networks in a single request',
+    stainlessPath: '(resource) onchain.tokens > (method) get_multi',
+    qualified: 'client.onchain.tokens.getMulti',
+    params: [
+      'tokens: string;',
+      "include?: 'top_pools';",
+      'include_composition?: boolean;',
+      'include_inactive_source?: boolean;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { address: string; coingecko_coin_id: string; decimals: number; fdv_usd: string; image_url: string; market_cap_usd: string; name: string; network: string; normalized_total_supply: string; price_usd: string; symbol: string; total_reserve_in_usd: string; total_supply: string; volume_usd: object; last_trade_timestamp?: string; launchpad_details?: object; }; relationships: { top_pools?: object; }; type: string; }[]; included?: { id?: string; attributes?: { address?: string; base_token_balance?: string; base_token_liquidity_usd?: string; base_token_price_native_currency?: string; base_token_price_quote_token?: string; base_token_price_usd?: string; fdv_usd?: string; last_trade_timestamp?: string; market_cap_usd?: string; name?: string; pool_created_at?: string; price_change_percentage?: object; quote_token_balance?: string; quote_token_liquidity_usd?: string; quote_token_price_base_token?: string; quote_token_price_native_currency?: string; quote_token_price_usd?: string; reserve_in_usd?: string; transactions?: object; volume_usd?: object; }; relationships?: { base_token?: object; dex?: object; quote_token?: object; }; type?: string; }[]; }',
+    markdown:
+      "## get_multi\n\n`client.onchain.tokens.getMulti(tokens: string, include?: 'top_pools', include_composition?: boolean, include_inactive_source?: boolean): { data: object[]; included?: object[]; }`\n\n**get** `/onchain/tokens/multi`\n\nTo query multiple tokens data based on the provided token contract addresses across multiple networks in a single request\n\n### Parameters\n\n- `tokens: string`\n  Network ID and token contract address pairs in `network_id:token_address` format, comma-separated if more than one. \nMaximum: 50 \n*refers to [`/onchain/networks`](/reference/networks-list).\n\n- `include?: 'top_pools'`\n  Attributes to include.\n\n- `include_composition?: boolean`\n  Include pool composition. \nDefault: `false`\n\n- `include_inactive_source?: boolean`\n  Include tokens from inactive pools using the most recent swap. \nDefault: `false`\n\n### Returns\n\n- `{ data: { id: string; attributes: { address: string; coingecko_coin_id: string; decimals: number; fdv_usd: string; image_url: string; market_cap_usd: string; name: string; network: string; normalized_total_supply: string; price_usd: string; symbol: string; total_reserve_in_usd: string; total_supply: string; volume_usd: object; last_trade_timestamp?: string; launchpad_details?: object; }; relationships: { top_pools?: object; }; type: string; }[]; included?: { id?: string; attributes?: { address?: string; base_token_balance?: string; base_token_liquidity_usd?: string; base_token_price_native_currency?: string; base_token_price_quote_token?: string; base_token_price_usd?: string; fdv_usd?: string; last_trade_timestamp?: string; market_cap_usd?: string; name?: string; pool_created_at?: string; price_change_percentage?: object; quote_token_balance?: string; quote_token_liquidity_usd?: string; quote_token_price_base_token?: string; quote_token_price_native_currency?: string; quote_token_price_usd?: string; reserve_in_usd?: string; transactions?: object; volume_usd?: object; }; relationships?: { base_token?: object; dex?: object; quote_token?: object; }; type?: string; }[]; }`\n\n  - `data: { id: string; attributes: { address: string; coingecko_coin_id: string; decimals: number; fdv_usd: string; image_url: string; market_cap_usd: string; name: string; network: string; normalized_total_supply: string; price_usd: string; symbol: string; total_reserve_in_usd: string; total_supply: string; volume_usd: { h24?: string; }; last_trade_timestamp?: string; launchpad_details?: { completed?: boolean; completed_at?: string; graduation_percentage?: number; migrated_destination_pool_address?: string; }; }; relationships: { top_pools?: { data?: { id?: string; type?: string; }[]; }; }; type: string; }[]`\n  - `included?: { id?: string; attributes?: { address?: string; base_token_balance?: string; base_token_liquidity_usd?: string; base_token_price_native_currency?: string; base_token_price_quote_token?: string; base_token_price_usd?: string; fdv_usd?: string; last_trade_timestamp?: string; market_cap_usd?: string; name?: string; pool_created_at?: string; price_change_percentage?: { h1?: string; h24?: string; h6?: string; m15?: string; m30?: string; m5?: string; }; quote_token_balance?: string; quote_token_liquidity_usd?: string; quote_token_price_base_token?: string; quote_token_price_native_currency?: string; quote_token_price_usd?: string; reserve_in_usd?: string; transactions?: { h1?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; h24?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; h6?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; m15?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; m30?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; m5?: { buyers?: number; buys?: number; sellers?: number; sells?: number; }; }; volume_usd?: { h1?: string; h24?: string; h6?: string; m15?: string; m30?: string; m5?: string; }; }; relationships?: { base_token?: { data?: { id?: string; type?: string; }; }; dex?: { data?: { id?: string; type?: string; }; }; quote_token?: { data?: { id?: string; type?: string; }; }; }; type?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.onchain.tokens.getMulti({ tokens: 'tokens' });\n\nconsole.log(response);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.tokens.getMulti',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.onchain.tokens.getMulti({ tokens: 'tokens' });\n\nconsole.log(response.data);",
+      },
+      python: {
+        method: 'onchain.tokens.get_multi',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.onchain.tokens.get_multi(\n    tokens="tokens",\n)\nprint(response.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/tokens/multi \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
     name: 'get',
     endpoint: '/onchain/tokens/info_recently_updated',
     httpMethod: 'get',
@@ -2563,6 +2765,45 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://pro-api.coingecko.com/api/v3/onchain/tokens/info_recently_updated \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get',
+    endpoint: '/onchain/wallets/{address}/balances',
+    httpMethod: 'get',
+    summary: 'Token Balances by Wallet Address',
+    description: 'To query the token balances of a wallet address across networks',
+    stainlessPath: '(resource) onchain.wallets.balances > (method) get',
+    qualified: 'client.onchain.wallets.balances.get',
+    params: [
+      'address: string;',
+      'networks: string;',
+      'page?: number;',
+      'per_page?: number;',
+      'reserve_in_usd_min?: number;',
+      "sort?: 'value_usd_desc' | 'value_usd_asc';",
+      "token_type?: 'native' | 'non_native';",
+      'value_usd_min?: number;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { balances: object[]; networks: object[]; total_holdings: number; total_value_usd: string; wallet_address: string; }; type: string; }; }',
+    markdown:
+      "## get\n\n`client.onchain.wallets.balances.get(address: string, networks: string, page?: number, per_page?: number, reserve_in_usd_min?: number, sort?: 'value_usd_desc' | 'value_usd_asc', token_type?: 'native' | 'non_native', value_usd_min?: number): { data: object; }`\n\n**get** `/onchain/wallets/{address}/balances`\n\nTo query the token balances of a wallet address across networks\n\n### Parameters\n\n- `address: string`\n\n- `networks: string`\n  Query balances by networks, comma-separated if more than one. \n*refers to [supported networks](/reference/wallet-token-balances#supported-networks).\n\n- `page?: number`\n  Page through results. \nDefault value: 1\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 50 \nValid values: 1...100\n\n- `reserve_in_usd_min?: number`\n  Minimum total reserve in USD of the holding's token.\n\n- `sort?: 'value_usd_desc' | 'value_usd_asc'`\n  Sort the holdings by field. \nDefault: `value_usd_desc`\n\n- `token_type?: 'native' | 'non_native'`\n  Filter holdings by token type. \nOmit to return both.\n\n- `value_usd_min?: number`\n  Minimum holding value in USD.\n\n### Returns\n\n- `{ data: { id: string; attributes: { balances: object[]; networks: object[]; total_holdings: number; total_value_usd: string; wallet_address: string; }; type: string; }; }`\n\n  - `data: { id: string; attributes: { balances: { address: string; balance: string; balance_raw: string; coingecko_coin_id: string; decimals: number; h24_price_change_percentage: string; name: string; network: string; price_usd: string; symbol: string; token_type: string; total_reserve_in_usd: string; value_usd: string; }[]; networks: { holdings: number; last_updated_at: string; network: string; value_usd: string; }[]; total_holdings: number; total_value_usd: string; wallet_address: string; }; type: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst balance = await client.onchain.wallets.balances.get('address', { networks: 'networks' });\n\nconsole.log(balance);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.wallets.balances.get',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst balance = await client.onchain.wallets.balances.get('address', { networks: 'networks' });\n\nconsole.log(balance.data);",
+      },
+      python: {
+        method: 'onchain.wallets.balances.get',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\nbalance = client.onchain.wallets.balances.get(\n    address="address",\n    networks="networks",\n)\nprint(balance.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/wallets/$ADDRESS/balances \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },
@@ -2807,11 +3048,17 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'To query all the metadata, market data and tokens of a RWA based on a particular RWA ID',
     stainlessPath: '(resource) rwas > (method) get_id',
     qualified: 'client.rwas.getID',
-    params: ['id: string;', 'sparkline?: boolean;', 'tokenized_market_data?: boolean;', 'tokens?: boolean;'],
+    params: [
+      'id: string;',
+      'perps_market_data?: boolean;',
+      'sparkline?: boolean;',
+      'tokenized_market_data?: boolean;',
+      'tokens?: boolean;',
+    ],
     response:
-      "{ id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: { large?: string; small?: string; thumb?: string; }; last_updated: string; name: string; symbol: string; web_slug: string; tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }; tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; platforms?: object; symbol?: string; }[]; }",
+      "{ id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: { large?: string; small?: string; thumb?: string; }; last_updated: string; name: string; symbol: string; web_slug: string; perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }; tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }; tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }; platforms?: object; symbol?: string; }[]; }",
     markdown:
-      "## get_id\n\n`client.rwas.getID(id: string, sparkline?: boolean, tokenized_market_data?: boolean, tokens?: boolean): { id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: object; last_updated: string; name: string; symbol: string; web_slug: string; tokenized_market_data?: object; tokens?: object[]; }`\n\n**get** `/rwas/{id}`\n\nTo query all the metadata, market data and tokens of a RWA based on a particular RWA ID\n\n### Parameters\n\n- `id: string`\n\n- `sparkline?: boolean`\n  Include sparkline 7-day data. \nDefault: false\n\n- `tokenized_market_data?: boolean`\n  Include tokenized market data. \nDefault: false\n\n- `tokens?: boolean`\n  Include tokens data. \nDefault: false\n\n### Returns\n\n- `{ id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: { large?: string; small?: string; thumb?: string; }; last_updated: string; name: string; symbol: string; web_slug: string; tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }; tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; platforms?: object; symbol?: string; }[]; }`\n\n  - `id: string`\n  - `asset_type: 'stock' | 'commodity' | 'etf'`\n  - `image: { large?: string; small?: string; thumb?: string; }`\n  - `last_updated: string`\n  - `name: string`\n  - `symbol: string`\n  - `web_slug: string`\n  - `tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }`\n  - `tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; platforms?: object; symbol?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.rwas.getID('id');\n\nconsole.log(response);\n```",
+      "## get_id\n\n`client.rwas.getID(id: string, perps_market_data?: boolean, sparkline?: boolean, tokenized_market_data?: boolean, tokens?: boolean): { id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: object; last_updated: string; name: string; symbol: string; web_slug: string; perps_market_data?: object; tokenized_market_data?: object; tokens?: object[]; }`\n\n**get** `/rwas/{id}`\n\nTo query all the metadata, market data and tokens of a RWA based on a particular RWA ID\n\n### Parameters\n\n- `id: string`\n\n- `perps_market_data?: boolean`\n  Include perpetuals market data. \nDefault: false\n\n- `sparkline?: boolean`\n  Include sparkline 7-day data. \nDefault: false\n\n- `tokenized_market_data?: boolean`\n  Include tokenized market data. \nDefault: false\n\n- `tokens?: boolean`\n  Include tokens data. \nDefault: false\n\n### Returns\n\n- `{ id: string; asset_type: 'stock' | 'commodity' | 'etf'; image: { large?: string; small?: string; thumb?: string; }; last_updated: string; name: string; symbol: string; web_slug: string; perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }; tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }; tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }; platforms?: object; symbol?: string; }[]; }`\n\n  - `id: string`\n  - `asset_type: 'stock' | 'commodity' | 'etf'`\n  - `image: { large?: string; small?: string; thumb?: string; }`\n  - `last_updated: string`\n  - `name: string`\n  - `symbol: string`\n  - `web_slug: string`\n  - `perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }`\n  - `tokenized_market_data?: { current_price?: number; high_24h?: number; last_updated?: string; low_24h?: number; market_cap?: number; market_cap_change_24h?: number; market_cap_change_percentage_24h?: number; price_change_24h?: number; price_change_percentage_14d_in_currency?: number; price_change_percentage_1h_in_currency?: number; price_change_percentage_1y_in_currency?: number; price_change_percentage_200d_in_currency?: number; price_change_percentage_24h?: number; price_change_percentage_24h_in_currency?: number; price_change_percentage_30d_in_currency?: number; price_change_percentage_7d_in_currency?: number; sparkline_in_7d?: { price?: number[]; }; total_volume?: number; }`\n  - `tokens?: { id?: string; issuer_details?: { id?: string; name?: string; }; name?: string; perps_market_data?: { open_interest_24h?: number; volume_24h?: number; }; platforms?: object; symbol?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.rwas.getID('id');\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.rwas.getID',
@@ -2868,9 +3115,9 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     qualified: 'client.rwas.issuers.getID',
     params: ['id: string;'],
     response:
-      '{ id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]; }',
+      '{ id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; image?: { large?: string; small?: string; thumb?: string; }; tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]; }',
     markdown:
-      "## get_id\n\n`client.rwas.issuers.getID(id: string): { id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; tokens?: object[]; }`\n\n**get** `/rwas/issuers/{id}`\n\nTo query the market data (market cap, volume, etc.) and tokens of an issuer based on a particular issuer ID\n\n### Parameters\n\n- `id: string`\n\n### Returns\n\n- `{ id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]; }`\n\n  - `id: string`\n  - `market_cap: number`\n  - `market_cap_change_24h: number`\n  - `name: string`\n  - `updated_at: string`\n  - `volume_24h: number`\n  - `tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.rwas.issuers.getID('id');\n\nconsole.log(response);\n```",
+      "## get_id\n\n`client.rwas.issuers.getID(id: string): { id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; image?: object; tokens?: object[]; }`\n\n**get** `/rwas/issuers/{id}`\n\nTo query the market data (market cap, volume, etc.) and tokens of an issuer based on a particular issuer ID\n\n### Parameters\n\n- `id: string`\n\n### Returns\n\n- `{ id: string; market_cap: number; market_cap_change_24h: number; name: string; updated_at: string; volume_24h: number; image?: { large?: string; small?: string; thumb?: string; }; tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]; }`\n\n  - `id: string`\n  - `market_cap: number`\n  - `market_cap_change_24h: number`\n  - `name: string`\n  - `updated_at: string`\n  - `volume_24h: number`\n  - `image?: { large?: string; small?: string; thumb?: string; }`\n  - `tokens?: { id?: string; name?: string; platforms?: object; symbol?: string; }[]`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst response = await client.rwas.issuers.getID('id');\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.rwas.issuers.getID',

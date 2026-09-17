@@ -18,7 +18,9 @@ import { Search } from './search/search';
 import * as SimpleAPI from './simple/simple';
 import { Simple } from './simple/simple';
 import * as TokensAPI from './tokens/tokens';
-import { Tokens } from './tokens/tokens';
+import { TokenGetMultiParams, TokenGetMultiResponse, Tokens } from './tokens/tokens';
+import * as WalletsAPI from './wallets/wallets';
+import { Wallets } from './wallets/wallets';
 
 export class Onchain extends APIResource {
   categories: CategoriesAPI.Categories = new CategoriesAPI.Categories(this._client);
@@ -27,6 +29,7 @@ export class Onchain extends APIResource {
   search: SearchAPI.Search = new SearchAPI.Search(this._client);
   simple: SimpleAPI.Simple = new SimpleAPI.Simple(this._client);
   tokens: TokensAPI.Tokens = new TokensAPI.Tokens(this._client);
+  wallets: WalletsAPI.Wallets = new WalletsAPI.Wallets(this._client);
 }
 
 Onchain.Categories = Categories;
@@ -35,6 +38,7 @@ Onchain.Pools = Pools;
 Onchain.Search = Search;
 Onchain.Simple = Simple;
 Onchain.Tokens = Tokens;
+Onchain.Wallets = Wallets;
 
 export declare namespace Onchain {
   export {
@@ -57,5 +61,11 @@ export declare namespace Onchain {
 
   export { Simple as Simple };
 
-  export { Tokens as Tokens };
+  export {
+    Tokens as Tokens,
+    type TokenGetMultiResponse as TokenGetMultiResponse,
+    type TokenGetMultiParams as TokenGetMultiParams,
+  };
+
+  export { Wallets as Wallets };
 }

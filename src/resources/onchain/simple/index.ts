@@ -2,3 +2,4 @@
 
 export { Networks } from './networks/index';
 export { Simple } from './simple';
+export { TokenPrice, type TokenPriceGetMultiResponse, type TokenPriceGetMultiParams } from './token-price';

@@ -54,12 +54,37 @@ export interface IssuerGetIDResponse {
   volume_24h: number | null;
 
   /**
+   * Issuer image URLs
+   */
+  image?: IssuerGetIDResponse.Image;
+
+  /**
    * Tokens issued by this issuer
    */
   tokens?: Array<IssuerGetIDResponse.Token>;
 }
 
 export namespace IssuerGetIDResponse {
+  /**
+   * Issuer image URLs
+   */
+  export interface Image {
+    /**
+     * Large image URL
+     */
+    large?: string;
+
+    /**
+     * Small image URL
+     */
+    small?: string;
+
+    /**
+     * Thumbnail image URL
+     */
+    thumb?: string;
+  }
+
   export interface Token {
     /**
      * Token ID

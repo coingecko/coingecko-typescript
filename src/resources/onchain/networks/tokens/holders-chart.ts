@@ -85,7 +85,7 @@ export namespace HoldersChartGetResponse {
 export interface HoldersChartGetParams {
   /**
    * Path param: Network ID. \*refers to
-   * [`/onchain/networks`](/reference/networks-list).
+   * [supported networks](/reference/token-holders-chart-token-address#supported-networks).
    */
   network: string;
 

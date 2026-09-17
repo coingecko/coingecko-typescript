@@ -8,4 +8,10 @@ export { Pools, type PoolGetResponse, type PoolGetParams } from './pools';
 export { Tokens, type TokenItem, type TokenGetAddressResponse, type TokenGetAddressParams } from './tokens';
 export { TopHolders, type TopHolderGetResponse, type TopHolderGetParams } from './top-holders';
 export { TopTraders, type TopTraderGetResponse, type TopTraderGetParams } from './top-traders';
-export { Trades, type TradeGetResponse, type TradeGetParams } from './trades';
+export {
+  Trades,
+  type TradeGetResponse,
+  type TradeGetRangeResponse,
+  type TradeGetParams,
+  type TradeGetRangeParams,
+} from './trades';

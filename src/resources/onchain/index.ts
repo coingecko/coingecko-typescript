@@ -12,4 +12,5 @@ export { Onchain } from './onchain';
 export { Pools } from './pools/index';
 export { Search } from './search/index';
 export { Simple } from './simple/index';
-export { Tokens } from './tokens/index';
+export { Tokens, type TokenGetMultiResponse, type TokenGetMultiParams } from './tokens/index';
+export { Wallets } from './wallets/index';

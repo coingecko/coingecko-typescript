@@ -25,7 +25,7 @@ describe('resource marketChart', () => {
     const response = await client.coins.marketChart.get('id', {
       days: 'days',
       vs_currency: 'vs_currency',
-      interval: '5m',
+      interval: '1m',
       precision: 'full',
     });
   });
@@ -52,7 +52,7 @@ describe('resource marketChart', () => {
       from: 'from',
       to: 'to',
       vs_currency: 'vs_currency',
-      interval: '5m',
+      interval: '1m',
       precision: 'full',
     });
   });

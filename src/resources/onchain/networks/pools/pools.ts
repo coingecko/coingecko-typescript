@@ -8,7 +8,13 @@ import { Multi, MultiGetAddressesParams, MultiGetAddressesResponse } from './mul
 import * as OhlcvAPI from './ohlcv';
 import { Ohlcv, OhlcvGetTimeframeParams, OhlcvGetTimeframeResponse } from './ohlcv';
 import * as TradesAPI from './trades';
-import { TradeGetParams, TradeGetResponse, Trades } from './trades';
+import {
+  TradeGetParams,
+  TradeGetRangeParams,
+  TradeGetRangeResponse,
+  TradeGetResponse,
+  Trades,
+} from './trades';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -853,6 +859,8 @@ export declare namespace Pools {
   export {
     Trades as Trades,
     type TradeGetResponse as TradeGetResponse,
+    type TradeGetRangeResponse as TradeGetRangeResponse,
     type TradeGetParams as TradeGetParams,
+    type TradeGetRangeParams as TradeGetRangeParams,
   };
 }

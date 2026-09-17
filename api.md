@@ -453,10 +453,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/onchain/networks/pools/trades.ts">TradeGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/pools/trades.ts">TradeGetRangeResponse</a></code>
 
 Methods:
 
 - <code title="get /onchain/networks/{network}/pools/{pool_address}/trades">client.onchain.networks.pools.trades.<a href="./src/resources/onchain/networks/pools/trades.ts">get</a>(poolAddress, { ...params }) -> TradeGetResponse</code>
+- <code title="get /onchain/networks/{network}/pools/{pool_address}/trades/range">client.onchain.networks.pools.trades.<a href="./src/resources/onchain/networks/pools/trades.ts">getRange</a>(poolAddress, { ...params }) -> TradeGetRangeResponse</code>
 
 ### Tokens
 
@@ -544,10 +546,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/onchain/networks/tokens/trades.ts">TradeGetResponse</a></code>
+- <code><a href="./src/resources/onchain/networks/tokens/trades.ts">TradeGetRangeResponse</a></code>
 
 Methods:
 
 - <code title="get /onchain/networks/{network}/tokens/{token_address}/trades">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">get</a>(tokenAddress, { ...params }) -> TradeGetResponse</code>
+- <code title="get /onchain/networks/{network}/tokens/{token_address}/trades/range">client.onchain.networks.tokens.trades.<a href="./src/resources/onchain/networks/tokens/trades.ts">getRange</a>(tokenAddress, { ...params }) -> TradeGetRangeResponse</code>
 
 ### TrendingPools
 
@@ -560,6 +564,18 @@ Methods:
 
 - <code title="get /onchain/networks/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">get</a>({ ...params }) -> TrendingPoolGetResponse</code>
 - <code title="get /onchain/networks/{network}/trending_pools">client.onchain.networks.trendingPools.<a href="./src/resources/onchain/networks/trending-pools.ts">getNetwork</a>(network, { ...params }) -> TrendingPoolGetNetworkResponse</code>
+
+### Wallets
+
+#### Transfers
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/wallets/transfers.ts">TransferGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/wallets/{address}/transfers">client.onchain.networks.wallets.transfers.<a href="./src/resources/onchain/networks/wallets/transfers.ts">get</a>(address, { ...params }) -> TransferGetResponse</code>
 
 ## Pools
 
@@ -609,7 +625,25 @@ Methods:
 
 - <code title="get /onchain/simple/networks/{network}/token_price/{addresses}">client.onchain.simple.networks.tokenPrice.<a href="./src/resources/onchain/simple/networks/token-price.ts">getAddresses</a>(addresses, { ...params }) -> TokenPriceGetAddressesResponse</code>
 
+### TokenPrice
+
+Types:
+
+- <code><a href="./src/resources/onchain/simple/token-price.ts">TokenPriceGetMultiResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/simple/token_price/multi">client.onchain.simple.tokenPrice.<a href="./src/resources/onchain/simple/token-price.ts">getMulti</a>({ ...params }) -> TokenPriceGetMultiResponse</code>
+
 ## Tokens
+
+Types:
+
+- <code><a href="./src/resources/onchain/tokens/tokens.ts">TokenGetMultiResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/tokens/multi">client.onchain.tokens.<a href="./src/resources/onchain/tokens/tokens.ts">getMulti</a>({ ...params }) -> TokenGetMultiResponse</code>
 
 ### InfoRecentlyUpdated
 
@@ -620,6 +654,18 @@ Types:
 Methods:
 
 - <code title="get /onchain/tokens/info_recently_updated">client.onchain.tokens.infoRecentlyUpdated.<a href="./src/resources/onchain/tokens/info-recently-updated.ts">get</a>({ ...params }) -> InfoRecentlyUpdatedGetResponse</code>
+
+## Wallets
+
+### Balances
+
+Types:
+
+- <code><a href="./src/resources/onchain/wallets/balances.ts">BalanceGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/wallets/{address}/balances">client.onchain.wallets.balances.<a href="./src/resources/onchain/wallets/balances.ts">get</a>(address, { ...params }) -> BalanceGetResponse</code>
 
 # Ping
 

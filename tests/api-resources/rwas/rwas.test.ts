@@ -27,6 +27,7 @@ describe('resource rwas', () => {
       client.rwas.getID(
         'id',
         {
+          perps_market_data: true,
           sparkline: true,
           tokenized_market_data: true,
           tokens: true,

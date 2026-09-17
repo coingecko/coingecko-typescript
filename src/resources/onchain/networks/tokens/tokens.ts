@@ -16,7 +16,13 @@ import { TopHolderGetParams, TopHolderGetResponse, TopHolders } from './top-hold
 import * as TopTradersAPI from './top-traders';
 import { TopTraderGetParams, TopTraderGetResponse, TopTraders } from './top-traders';
 import * as TradesAPI from './trades';
-import { TradeGetParams, TradeGetResponse, Trades } from './trades';
+import {
+  TradeGetParams,
+  TradeGetRangeParams,
+  TradeGetRangeResponse,
+  TradeGetResponse,
+  Trades,
+} from './trades';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -468,6 +474,8 @@ export declare namespace Tokens {
   export {
     Trades as Trades,
     type TradeGetResponse as TradeGetResponse,
+    type TradeGetRangeResponse as TradeGetRangeResponse,
     type TradeGetParams as TradeGetParams,
+    type TradeGetRangeParams as TradeGetRangeParams,
   };
 }

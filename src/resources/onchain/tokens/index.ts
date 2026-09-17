@@ -5,4 +5,4 @@ export {
   type InfoRecentlyUpdatedGetResponse,
   type InfoRecentlyUpdatedGetParams,
 } from './info-recently-updated';
-export { Tokens } from './tokens';
+export { Tokens, type TokenGetMultiResponse, type TokenGetMultiParams } from './tokens';

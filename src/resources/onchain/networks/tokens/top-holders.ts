@@ -131,7 +131,7 @@ export namespace TopHolderGetResponse {
 export interface TopHolderGetParams {
   /**
    * Path param: Network ID. \*refers to
-   * [`/onchain/networks`](/reference/networks-list).
+   * [supported networks](/reference/top-token-holders-token-address#supported-networks).
    */
   network: string;
 

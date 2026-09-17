@@ -371,6 +371,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/pools/{pool_address}/trades',
   },
   {
+    clientCallName: 'client.onchain.networks.pools.trades.getRange',
+    fullyQualifiedName: 'onchain.networks.pools.trades.getRange',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/pools/{pool_address}/trades/range',
+  },
+  {
     clientCallName: 'client.onchain.networks.tokens.getAddress',
     fullyQualifiedName: 'onchain.networks.tokens.getAddress',
     httpMethod: 'get',
@@ -425,6 +431,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/tokens/{token_address}/trades',
   },
   {
+    clientCallName: 'client.onchain.networks.tokens.trades.getRange',
+    fullyQualifiedName: 'onchain.networks.tokens.trades.getRange',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/tokens/{token_address}/trades/range',
+  },
+  {
     clientCallName: 'client.onchain.networks.trendingPools.get',
     fullyQualifiedName: 'onchain.networks.trendingPools.get',
     httpMethod: 'get',
@@ -435,6 +447,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'onchain.networks.trendingPools.getNetwork',
     httpMethod: 'get',
     httpPath: '/onchain/networks/{network}/trending_pools',
+  },
+  {
+    clientCallName: 'client.onchain.networks.wallets.transfers.get',
+    fullyQualifiedName: 'onchain.networks.wallets.transfers.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/wallets/{address}/transfers',
   },
   {
     clientCallName: 'client.onchain.pools.megafilter.get',
@@ -461,10 +479,28 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/simple/networks/{network}/token_price/{addresses}',
   },
   {
+    clientCallName: 'client.onchain.simple.tokenPrice.getMulti',
+    fullyQualifiedName: 'onchain.simple.tokenPrice.getMulti',
+    httpMethod: 'get',
+    httpPath: '/onchain/simple/token_price/multi',
+  },
+  {
+    clientCallName: 'client.onchain.tokens.getMulti',
+    fullyQualifiedName: 'onchain.tokens.getMulti',
+    httpMethod: 'get',
+    httpPath: '/onchain/tokens/multi',
+  },
+  {
     clientCallName: 'client.onchain.tokens.infoRecentlyUpdated.get',
     fullyQualifiedName: 'onchain.tokens.infoRecentlyUpdated.get',
     httpMethod: 'get',
     httpPath: '/onchain/tokens/info_recently_updated',
+  },
+  {
+    clientCallName: 'client.onchain.wallets.balances.get',
+    fullyQualifiedName: 'onchain.wallets.balances.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/wallets/{address}/balances',
   },
   {
     clientCallName: 'client.ping.get',

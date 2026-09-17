@@ -26,6 +26,37 @@ describe('resource trades', () => {
   test.skip('get: required and optional params', async () => {
     const response = await client.onchain.networks.tokens.trades.get('token_address', {
       network: 'network',
+      cursor: 'cursor',
+      per_page: 0,
+      trade_volume_in_usd_greater_than: 0,
+      trading_period: '1d',
+    });
+  });
+
+  // Mock server tests are disabled
+  test.skip('getRange: only required params', async () => {
+    const responsePromise = client.onchain.networks.tokens.trades.getRange('token_address', {
+      network: 'network',
+      from: 'from',
+      to: 'to',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Mock server tests are disabled
+  test.skip('getRange: required and optional params', async () => {
+    const response = await client.onchain.networks.tokens.trades.getRange('token_address', {
+      network: 'network',
+      from: 'from',
+      to: 'to',
+      cursor: 'cursor',
+      per_page: 0,
       trade_volume_in_usd_greater_than: 0,
     });
   });

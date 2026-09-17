@@ -264,7 +264,7 @@ export namespace ContractGetResponse {
     /**
      * Subreddit URL
      */
-    subreddit_url?: string;
+    subreddit_url?: string | null;
 
     /**
      * Telegram channel identifier

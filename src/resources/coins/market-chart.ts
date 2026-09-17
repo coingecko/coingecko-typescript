@@ -77,7 +77,7 @@ export interface MarketChartGetParams {
   /**
    * Data interval, leave empty for auto granularity.
    */
-  interval?: '5m' | 'hourly' | 'daily';
+  interval?: '1m' | '5m' | 'hourly' | 'daily';
 
   /**
    * Decimal place for currency price value.
@@ -127,7 +127,7 @@ export interface MarketChartGetRangeParams {
   /**
    * Data interval, leave empty for auto granularity.
    */
-  interval?: '5m' | 'hourly' | 'daily';
+  interval?: '1m' | '5m' | 'hourly' | 'daily';
 
   /**
    * Decimal place for currency price value.

@@ -11,4 +11,10 @@ export {
   type PoolGetParams,
   type PoolGetAddressParams,
 } from './pools';
-export { Trades, type TradeGetResponse, type TradeGetParams } from './trades';
+export {
+  Trades,
+  type TradeGetResponse,
+  type TradeGetRangeResponse,
+  type TradeGetParams,
+  type TradeGetRangeParams,
+} from './trades';

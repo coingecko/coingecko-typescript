@@ -96,7 +96,7 @@ export interface MarketChartGetParams {
   /**
    * Query param: Data interval, leave empty for auto granularity.
    */
-  interval?: '5m' | 'hourly' | 'daily';
+  interval?: '1m' | '5m' | 'hourly' | 'daily';
 
   /**
    * Query param: Decimal place for currency price value.
@@ -153,7 +153,7 @@ export interface MarketChartGetRangeParams {
   /**
    * Query param: Data interval, leave empty for auto granularity.
    */
-  interval?: '5m' | 'hourly' | 'daily';
+  interval?: '1m' | '5m' | 'hourly' | 'daily';
 
   /**
    * Query param: Decimal place for currency price value.

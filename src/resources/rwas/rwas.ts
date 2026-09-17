@@ -88,6 +88,11 @@ export interface RwaGetIDResponse {
   web_slug: string;
 
   /**
+   * Aggregated perpetuals market data
+   */
+  perps_market_data?: RwaGetIDResponse.PerpsMarketData;
+
+  /**
    * Aggregated tokenized market data
    */
   tokenized_market_data?: RwaGetIDResponse.TokenizedMarketData;
@@ -117,6 +122,21 @@ export namespace RwaGetIDResponse {
      * Thumbnail image URL
      */
     thumb?: string;
+  }
+
+  /**
+   * Aggregated perpetuals market data
+   */
+  export interface PerpsMarketData {
+    /**
+     * 24-hour perpetuals open interest in target currency
+     */
+    open_interest_24h?: number | null;
+
+    /**
+     * 24-hour perpetuals trading volume in target currency
+     */
+    volume_24h?: number | null;
   }
 
   /**
@@ -243,6 +263,11 @@ export namespace RwaGetIDResponse {
     name?: string;
 
     /**
+     * Perpetuals market data of the token
+     */
+    perps_market_data?: Token.PerpsMarketData;
+
+    /**
      * Token asset platform and contract address
      */
     platforms?: { [key: string]: string };
@@ -267,6 +292,21 @@ export namespace RwaGetIDResponse {
        * Issuer name
        */
       name?: string;
+    }
+
+    /**
+     * Perpetuals market data of the token
+     */
+    export interface PerpsMarketData {
+      /**
+       * 24-hour perpetuals open interest in target currency
+       */
+      open_interest_24h?: number | null;
+
+      /**
+       * 24-hour perpetuals trading volume in target currency
+       */
+      volume_24h?: number | null;
     }
   }
 }
@@ -443,6 +483,11 @@ export namespace RwaGetMarketsResponse {
 }
 
 export interface RwaGetIDParams {
+  /**
+   * Include perpetuals market data. Default: false
+   */
+  perps_market_data?: boolean;
+
   /**
    * Include sparkline 7-day data. Default: false
    */
