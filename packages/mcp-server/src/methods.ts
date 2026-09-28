@@ -449,6 +449,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/trending_pools',
   },
   {
+    clientCallName: 'client.onchain.networks.wallets.trades.get',
+    fullyQualifiedName: 'onchain.networks.wallets.trades.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/wallets/{address}/trades',
+  },
+  {
     clientCallName: 'client.onchain.networks.wallets.transfers.get',
     fullyQualifiedName: 'onchain.networks.wallets.transfers.get',
     httpMethod: 'get',
@@ -501,6 +507,12 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'onchain.wallets.balances.get',
     httpMethod: 'get',
     httpPath: '/onchain/wallets/{address}/balances',
+  },
+  {
+    clientCallName: 'client.onchain.wallets.pnl.get',
+    fullyQualifiedName: 'onchain.wallets.pnl.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/wallets/{address}/pnl',
   },
   {
     clientCallName: 'client.ping.get',

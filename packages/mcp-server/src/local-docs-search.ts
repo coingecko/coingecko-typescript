@@ -2459,6 +2459,44 @@ const EMBEDDED_METHODS: MethodEntry[] = [
   },
   {
     name: 'get',
+    endpoint: '/onchain/networks/{network}/wallets/{address}/trades',
+    httpMethod: 'get',
+    summary: 'Trades by Wallet Address',
+    description: 'To query the trades of a wallet address on a network',
+    stainlessPath: '(resource) onchain.networks.wallets.trades > (method) get',
+    qualified: 'client.onchain.networks.wallets.trades.get',
+    params: [
+      'network: string;',
+      'address: string;',
+      'token?: string;',
+      'cursor?: string;',
+      'from?: string;',
+      'per_page?: number;',
+      'to?: string;',
+    ],
+    response:
+      '{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta: { next_cursor: string; }; }',
+    markdown:
+      "## get\n\n`client.onchain.networks.wallets.trades.get(network: string, address: string, token?: string, cursor?: string, from?: string, per_page?: number, to?: string): { data: object[]; meta: object; }`\n\n**get** `/onchain/networks/{network}/wallets/{address}/trades`\n\nTo query the trades of a wallet address on a network\n\n### Parameters\n\n- `network: string`\n\n- `address: string`\n\n- `token?: string`\n  Filter trades by token contract address, returning only trades involving this token.\n\n- `cursor?: string`\n  Cursor from the previous response, passed back unchanged to fetch the next page.\n\n- `from?: string`\n  Starting date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `to`.\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 100 \nValid values: 1...300\n\n- `to?: string`\n  Ending date in ISO date string (`YYYY-MM-DD` or `YYYY-MM-DDTHH:MM`) or UNIX timestamp. \n**Use ISO date string for best compatibility.** \nMust be provided together with `from`.\n\n### Returns\n\n- `{ data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]; meta: { next_cursor: string; }; }`\n\n  - `data: { id: string; attributes: { block_number: number; block_timestamp: string; from_token_address: string; from_token_amount: string; kind: string; pool_address: string; pool_dex: string; price_from_in_currency_token: string; price_from_in_usd: string; price_to_in_currency_token: string; price_to_in_usd: string; to_token_address: string; to_token_amount: string; tx_from_address: string; tx_hash: string; volume_in_usd: string; }; type: string; }[]`\n  - `meta: { next_cursor: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst trade = await client.onchain.networks.wallets.trades.get('address', { network: 'network' });\n\nconsole.log(trade);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.networks.wallets.trades.get',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst trade = await client.onchain.networks.wallets.trades.get('address', { network: 'network' });\n\nconsole.log(trade.data);",
+      },
+      python: {
+        method: 'onchain.networks.wallets.trades.get',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\ntrade = client.onchain.networks.wallets.trades.get(\n    address="address",\n    network="network",\n)\nprint(trade.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/networks/$NETWORK/wallets/$ADDRESS/trades \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get',
     endpoint: '/onchain/networks/{network}/wallets/{address}/transfers',
     httpMethod: 'get',
     summary: 'Token Transfers by Wallet Address',
@@ -2804,6 +2842,42 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       http: {
         example:
           'curl https://pro-api.coingecko.com/api/v3/onchain/wallets/$ADDRESS/balances \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
+      },
+    },
+  },
+  {
+    name: 'get',
+    endpoint: '/onchain/wallets/{address}/pnl',
+    httpMethod: 'get',
+    summary: 'PnL by Wallet Address',
+    description: 'To query the PnL of a wallet address across networks',
+    stainlessPath: '(resource) onchain.wallets.pnl > (method) get',
+    qualified: 'client.onchain.wallets.pnl.get',
+    params: [
+      'address: string;',
+      'networks: string;',
+      'page?: number;',
+      'per_page?: number;',
+      "sort?: 'realized_pnl_usd_desc' | 'unrealized_pnl_usd_desc' | 'total_buy_usd_desc' | 'total_sell_usd_desc';",
+    ],
+    response:
+      '{ data: { id: string; attributes: { networks: object[]; token_stats: object[]; total_realized_pnl_usd: string; total_tokens: number; total_unrealized_pnl_usd: string; wallet_address: string; }; type: string; }; }',
+    markdown:
+      "## get\n\n`client.onchain.wallets.pnl.get(address: string, networks: string, page?: number, per_page?: number, sort?: 'realized_pnl_usd_desc' | 'unrealized_pnl_usd_desc' | 'total_buy_usd_desc' | 'total_sell_usd_desc'): { data: object; }`\n\n**get** `/onchain/wallets/{address}/pnl`\n\nTo query the PnL of a wallet address across networks\n\n### Parameters\n\n- `address: string`\n\n- `networks: string`\n  Query PnL by networks, comma-separated if more than one. \n*refers to [`/onchain/networks`](/reference/networks-list).\n\n- `page?: number`\n  Page through results. \nDefault value: 1\n\n- `per_page?: number`\n  Total results per page. \nDefault value: 100 \nValid values: 1...300\n\n- `sort?: 'realized_pnl_usd_desc' | 'unrealized_pnl_usd_desc' | 'total_buy_usd_desc' | 'total_sell_usd_desc'`\n  Sort the token stats by field. \nDefault: `realized_pnl_usd_desc`\n\n### Returns\n\n- `{ data: { id: string; attributes: { networks: object[]; token_stats: object[]; total_realized_pnl_usd: string; total_tokens: number; total_unrealized_pnl_usd: string; wallet_address: string; }; type: string; }; }`\n\n  - `data: { id: string; attributes: { networks: { network: string; realized_pnl_usd: string; tokens: number; unrealized_pnl_usd: string; }[]; token_stats: { address: string; average_buy_price_usd: string; average_sell_price_usd: string; decimals: number; name: string; network: string; realized_pnl_usd: string; symbol: string; total_buy_count: number; total_buy_token_amount: string; total_buy_usd: string; total_sell_count: number; total_sell_token_amount: string; total_sell_usd: string; unrealized_pnl_usd: string; }[]; total_realized_pnl_usd: string; total_tokens: number; total_unrealized_pnl_usd: string; wallet_address: string; }; type: string; }`\n\n### Example\n\n```typescript\nimport Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko();\n\nconst pnl = await client.onchain.wallets.pnl.get('address', { networks: 'networks' });\n\nconsole.log(pnl);\n```",
+    perLanguage: {
+      typescript: {
+        method: 'client.onchain.wallets.pnl.get',
+        example:
+          "import Coingecko from '@coingecko/coingecko-typescript';\n\nconst client = new Coingecko({\n  proAPIKey: process.env['COINGECKO_PRO_API_KEY'], // This is the default and can be omitted\n});\n\nconst pnl = await client.onchain.wallets.pnl.get('address', { networks: 'networks' });\n\nconsole.log(pnl.data);",
+      },
+      python: {
+        method: 'onchain.wallets.pnl.get',
+        example:
+          'import os\nfrom coingecko_sdk import Coingecko\n\nclient = Coingecko(\n    pro_api_key=os.environ.get("COINGECKO_PRO_API_KEY"),  # This is the default and can be omitted\n)\npnl = client.onchain.wallets.pnl.get(\n    address="address",\n    networks="networks",\n)\nprint(pnl.data)',
+      },
+      http: {
+        example:
+          'curl https://pro-api.coingecko.com/api/v3/onchain/wallets/$ADDRESS/pnl \\\n    -H "x-cg-pro-api-key: $COINGECKO_PRO_API_KEY"',
       },
     },
   },

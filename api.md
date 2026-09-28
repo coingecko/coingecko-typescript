@@ -567,6 +567,16 @@ Methods:
 
 ### Wallets
 
+#### Trades
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/wallets/trades.ts">TradeGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/wallets/{address}/trades">client.onchain.networks.wallets.trades.<a href="./src/resources/onchain/networks/wallets/trades.ts">get</a>(address, { ...params }) -> TradeGetResponse</code>
+
 #### Transfers
 
 Types:
@@ -666,6 +676,16 @@ Types:
 Methods:
 
 - <code title="get /onchain/wallets/{address}/balances">client.onchain.wallets.balances.<a href="./src/resources/onchain/wallets/balances.ts">get</a>(address, { ...params }) -> BalanceGetResponse</code>
+
+### Pnl
+
+Types:
+
+- <code><a href="./src/resources/onchain/wallets/pnl.ts">PnlGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/wallets/{address}/pnl">client.onchain.wallets.pnl.<a href="./src/resources/onchain/wallets/pnl.ts">get</a>(address, { ...params }) -> PnlGetResponse</code>
 
 # Ping
 
