@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.1](https://github.com/coingecko/coingecko-typescript/compare/v8.2.0...v8.2.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* Add missing launchpad_details fields ([6a9030a](https://github.com/coingecko/coingecko-typescript/commit/6a9030a87772767efd6d72fc50853f274d3657ea))
+
 ## [8.2.0](https://github.com/coingecko/coingecko-typescript/compare/v8.1.0...v8.2.0) (2026-09-28)
 
 
