@@ -166,6 +166,11 @@ export namespace InfoGetResponse {
        * Zora URL
        */
       zora_url: string | null;
+
+      /**
+       * Launchpad details for pump-style tokens
+       */
+      launchpad_details?: Attributes.LaunchpadDetails;
     }
 
     export namespace Attributes {
@@ -214,6 +219,19 @@ export namespace InfoGetResponse {
         small?: string;
 
         thumb?: string;
+      }
+
+      /**
+       * Launchpad details for pump-style tokens
+       */
+      export interface LaunchpadDetails {
+        completed?: boolean;
+
+        completed_at?: string | null;
+
+        graduation_percentage?: number;
+
+        migrated_destination_pool_address?: string | null;
       }
     }
   }

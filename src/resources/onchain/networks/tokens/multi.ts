@@ -48,6 +48,16 @@ export namespace MultiGetAddressesResponse {
     export interface Attributes {
       address?: string;
 
+      /**
+       * Base token balance in pool
+       */
+      base_token_balance?: string;
+
+      /**
+       * Base token liquidity in USD
+       */
+      base_token_liquidity_usd?: string;
+
       base_token_price_native_currency?: string;
 
       base_token_price_quote_token?: string;
@@ -56,6 +66,11 @@ export namespace MultiGetAddressesResponse {
 
       fdv_usd?: string | null;
 
+      /**
+       * Last trade timestamp in UNIX
+       */
+      last_trade_timestamp?: string;
+
       market_cap_usd?: string | null;
 
       name?: string;
@@ -63,6 +78,16 @@ export namespace MultiGetAddressesResponse {
       pool_created_at?: string;
 
       price_change_percentage?: Attributes.PriceChangePercentage;
+
+      /**
+       * Quote token balance in pool
+       */
+      quote_token_balance?: string;
+
+      /**
+       * Quote token liquidity in USD
+       */
+      quote_token_liquidity_usd?: string;
 
       quote_token_price_base_token?: string;
 

@@ -98,7 +98,7 @@ export namespace PoolAddressItem {
     /**
      * Locked liquidity percentage
      */
-    locked_liquidity_percentage: string;
+    locked_liquidity_percentage: string | null;
 
     /**
      * Market cap in USD
@@ -118,7 +118,7 @@ export namespace PoolAddressItem {
     /**
      * Pool fee percentage
      */
-    pool_fee_percentage: string;
+    pool_fee_percentage: string | null;
 
     /**
      * Pool name without fee tier
@@ -174,6 +174,11 @@ export namespace PoolAddressItem {
      * Buy volume in USD over various timeframes
      */
     buy_volume_usd?: Attributes.BuyVolumeUsd;
+
+    /**
+     * Launchpad details for bonding curve pools
+     */
+    launchpad_details?: Attributes.LaunchpadDetails;
 
     /**
      * Net buy volume in USD over various timeframes
@@ -325,6 +330,19 @@ export namespace PoolAddressItem {
       m30?: string;
 
       m5?: string;
+    }
+
+    /**
+     * Launchpad details for bonding curve pools
+     */
+    export interface LaunchpadDetails {
+      completed?: boolean;
+
+      completed_at?: string | null;
+
+      graduation_percentage?: number;
+
+      migrated_destination_pool_address?: string | null;
     }
 
     /**
