@@ -48,6 +48,8 @@ describe('resource megafilter', () => {
           price_change_percentage_duration: '5m',
           price_change_percentage_max: 0,
           price_change_percentage_min: 0,
+          quote_token_addresses: 'quote_token_addresses',
+          quote_token_preset: 'rwa_stock',
           reserve_in_usd_max: 0,
           reserve_in_usd_min: 0,
           sell_tax_percentage_max: 0,

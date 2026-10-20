@@ -353,6 +353,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/onchain/networks/{network}/pools/{pool_address}/info',
   },
   {
+    clientCallName: 'client.onchain.networks.pools.liquidityEvents.get',
+    fullyQualifiedName: 'onchain.networks.pools.liquidityEvents.get',
+    httpMethod: 'get',
+    httpPath: '/onchain/networks/{network}/pools/{pool_address}/liquidity_events',
+  },
+  {
     clientCallName: 'client.onchain.networks.pools.multi.getAddresses',
     fullyQualifiedName: 'onchain.networks.pools.multi.getAddresses',
     httpMethod: 'get',

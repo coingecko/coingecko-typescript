@@ -3,6 +3,8 @@
 import { APIResource } from '../../../../core/resource';
 import * as InfoAPI from './info';
 import { Info, InfoGetParams, InfoGetResponse } from './info';
+import * as LiquidityEventsAPI from './liquidity-events';
+import { LiquidityEventGetParams, LiquidityEventGetResponse, LiquidityEvents } from './liquidity-events';
 import * as MultiAPI from './multi';
 import { Multi, MultiGetAddressesParams, MultiGetAddressesResponse } from './multi';
 import * as OhlcvAPI from './ohlcv';
@@ -21,6 +23,7 @@ import { path } from '../../../../internal/utils/path';
 
 export class Pools extends APIResource {
   info: InfoAPI.Info = new InfoAPI.Info(this._client);
+  liquidityEvents: LiquidityEventsAPI.LiquidityEvents = new LiquidityEventsAPI.LiquidityEvents(this._client);
   multi: MultiAPI.Multi = new MultiAPI.Multi(this._client);
   ohlcv: OhlcvAPI.Ohlcv = new OhlcvAPI.Ohlcv(this._client);
   trades: TradesAPI.Trades = new TradesAPI.Trades(this._client);
@@ -847,6 +850,7 @@ export interface PoolGetAddressParams {
 }
 
 Pools.Info = Info;
+Pools.LiquidityEvents = LiquidityEvents;
 Pools.Multi = Multi;
 Pools.Ohlcv = Ohlcv;
 Pools.Trades = Trades;
@@ -861,6 +865,12 @@ export declare namespace Pools {
   };
 
   export { Info as Info, type InfoGetResponse as InfoGetResponse, type InfoGetParams as InfoGetParams };
+
+  export {
+    LiquidityEvents as LiquidityEvents,
+    type LiquidityEventGetResponse as LiquidityEventGetResponse,
+    type LiquidityEventGetParams as LiquidityEventGetParams,
+  };
 
   export {
     Multi as Multi,

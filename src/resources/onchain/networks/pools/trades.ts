@@ -78,6 +78,11 @@ export namespace TradeGetResponse {
       from_token_amount: string;
 
       /**
+       * Whether the trade is flagged as anomalous
+       */
+      is_anomalous: boolean;
+
+      /**
        * Trade kind (buy or sell)
        */
       kind: string;
@@ -181,6 +186,11 @@ export namespace TradeGetRangeResponse {
       from_token_amount: string;
 
       /**
+       * Whether the trade is flagged as anomalous
+       */
+      is_anomalous: boolean;
+
+      /**
        * Trade kind (buy or sell)
        */
       kind: string;
@@ -260,6 +270,11 @@ export interface TradeGetParams {
   cursor?: string;
 
   /**
+   * Query param: Include trades flagged as anomalous. Default: `false`
+   */
+  include_anomalous?: boolean;
+
+  /**
    * Query param: Total results per page. Default value: 300 Valid values: 1...300
    */
   per_page?: number;
@@ -307,6 +322,11 @@ export interface TradeGetRangeParams {
    * the next page.
    */
   cursor?: string;
+
+  /**
+   * Query param: Include trades flagged as anomalous. Default: `false`
+   */
+  include_anomalous?: boolean;
 
   /**
    * Query param: Total results per page. Default value: 100 Valid values: 1...300

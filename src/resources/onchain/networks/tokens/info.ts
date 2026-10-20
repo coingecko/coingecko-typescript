@@ -133,6 +133,11 @@ export namespace InfoGetResponse {
       is_honeypot: boolean | string;
 
       /**
+       * Whether the token's name or symbol matches the GeckoTerminal NSFW keyword list
+       */
+      is_nsfw: boolean;
+
+      /**
        * Mint authority status
        */
       mint_authority: string | null;

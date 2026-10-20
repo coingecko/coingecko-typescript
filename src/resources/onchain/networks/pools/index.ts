@@ -1,6 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export { Info, type InfoGetResponse, type InfoGetParams } from './info';
+export {
+  LiquidityEvents,
+  type LiquidityEventGetResponse,
+  type LiquidityEventGetParams,
+} from './liquidity-events';
 export { Multi, type MultiGetAddressesResponse, type MultiGetAddressesParams } from './multi';
 export { Ohlcv, type OhlcvGetTimeframeResponse, type OhlcvGetTimeframeParams } from './ohlcv';
 export {

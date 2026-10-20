@@ -466,6 +466,17 @@ export interface MegafilterGetParams {
   price_change_percentage_min?: number;
 
   /**
+   * Filter pools whose quote token is one of these token addresses, comma-separated
+   * if more than one. Maximum: 50 addresses
+   */
+  quote_token_addresses?: string;
+
+  /**
+   * Filter pools whose quote token belongs to a preset group.
+   */
+  quote_token_preset?: 'rwa_stock';
+
+  /**
    * Maximum reserve in USD.
    */
   reserve_in_usd_max?: number;

@@ -165,6 +165,7 @@ const fuse = new Fuse(
     'client.onchain.networks.pools.get',
     'client.onchain.networks.pools.getAddress',
     'client.onchain.networks.pools.info.get',
+    'client.onchain.networks.pools.liquidityEvents.get',
     'client.onchain.networks.pools.multi.getAddresses',
     'client.onchain.networks.pools.ohlcv.getTimeframe',
     'client.onchain.networks.pools.trades.get',

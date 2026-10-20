@@ -26,6 +26,7 @@ describe('resource trades', () => {
       network: 'network',
       token: 'token',
       cursor: 'cursor',
+      include_anomalous: true,
       per_page: 0,
       trade_volume_in_usd_greater_than: 0,
       trading_period: '1d',
@@ -56,6 +57,7 @@ describe('resource trades', () => {
       to: 'to',
       token: 'token',
       cursor: 'cursor',
+      include_anomalous: true,
       per_page: 0,
       trade_volume_in_usd_greater_than: 0,
     });

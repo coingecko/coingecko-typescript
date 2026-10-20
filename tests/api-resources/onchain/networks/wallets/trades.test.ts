@@ -27,6 +27,7 @@ describe('resource trades', () => {
       token: 'token',
       cursor: 'cursor',
       from: 'from',
+      include_anomalous: true,
       per_page: 0,
       to: 'to',
     });

@@ -27,6 +27,7 @@ describe('resource trades', () => {
     const response = await client.onchain.networks.tokens.trades.get('token_address', {
       network: 'network',
       cursor: 'cursor',
+      include_anomalous: true,
       per_page: 0,
       trade_volume_in_usd_greater_than: 0,
       trading_period: '1d',
@@ -56,6 +57,7 @@ describe('resource trades', () => {
       from: 'from',
       to: 'to',
       cursor: 'cursor',
+      include_anomalous: true,
       per_page: 0,
       trade_volume_in_usd_greater_than: 0,
     });

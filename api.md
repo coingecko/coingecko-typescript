@@ -428,6 +428,16 @@ Methods:
 
 - <code title="get /onchain/networks/{network}/pools/{pool_address}/info">client.onchain.networks.pools.info.<a href="./src/resources/onchain/networks/pools/info.ts">get</a>(poolAddress, { ...params }) -> InfoGetResponse</code>
 
+#### LiquidityEvents
+
+Types:
+
+- <code><a href="./src/resources/onchain/networks/pools/liquidity-events.ts">LiquidityEventGetResponse</a></code>
+
+Methods:
+
+- <code title="get /onchain/networks/{network}/pools/{pool_address}/liquidity_events">client.onchain.networks.pools.liquidityEvents.<a href="./src/resources/onchain/networks/pools/liquidity-events.ts">get</a>(poolAddress, { ...params }) -> LiquidityEventGetResponse</code>
+
 #### Multi
 
 Types:
