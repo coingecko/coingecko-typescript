@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://github.com/coingecko/coingecko-typescript/compare/v8.2.1...v8.3.0) (2026-10-20)
+
+
+### Features
+
+* New liquidity_event, NSFW filter, pools-megafilter params, anomalous trades ([9d577c3](https://github.com/coingecko/coingecko-typescript/commit/9d577c343c2dbb81f8c107c6df08a180a73d1c90))
+
 ## [8.2.1](https://github.com/coingecko/coingecko-typescript/compare/v8.2.0...v8.2.1) (2026-10-02)
 
 
