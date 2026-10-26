@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.1](https://github.com/coingecko/coingecko-typescript/compare/v8.3.0...v8.3.1) (2026-10-26)
+
+
+### Chores
+
+* **mcp:** regenerate packages/mcp-server/yarn.lock ([#95](https://github.com/coingecko/coingecko-typescript/issues/95)) ([d0415bc](https://github.com/coingecko/coingecko-typescript/commit/d0415bcc231e14fbde31e3e1d1e5d4fd1fedd376))
+
 ## [8.3.0](https://github.com/coingecko/coingecko-typescript/compare/v8.2.1...v8.3.0) (2026-10-20)
 
 
