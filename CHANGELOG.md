@@ -1,5 +1,21 @@
 # Changelog
 
+## [9.0.0](https://github.com/coingecko/coingecko-typescript/compare/v8.3.1...v9.0.0) (2026-11-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* New fear-n-greed endpoint, and other Oct improvements
+
+### Features
+
+* New fear-n-greed endpoint, and other Oct improvements ([271e171](https://github.com/coingecko/coingecko-typescript/commit/271e1714266dc10b63d6b356520962d7f6c5e989))
+
+
+### Chores
+
+* back-sync 8.3.1 release from production ([ff1e097](https://github.com/coingecko/coingecko-typescript/commit/ff1e097dd92fe6f1ccb1e3b094e003f3a5540d97))
+
 ## [8.3.1](https://github.com/coingecko/coingecko-typescript/compare/v8.3.0...v8.3.1) (2026-10-26)
 
 
