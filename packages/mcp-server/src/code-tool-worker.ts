@@ -143,6 +143,7 @@ const fuse = new Fuse(
     'client.exchanges.volumeChart.get',
     'client.exchanges.volumeChart.getRange',
     'client.global.get',
+    'client.global.getFearAndGreedChart',
     'client.global.decentralizedFinanceDefi.get',
     'client.global.marketCapChart.get',
     'client.insights.get',

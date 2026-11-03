@@ -221,6 +221,12 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/global',
   },
   {
+    clientCallName: 'client.global.getFearAndGreedChart',
+    fullyQualifiedName: 'global.getFearAndGreedChart',
+    httpMethod: 'get',
+    httpPath: '/global/fear_and_greed_chart',
+  },
+  {
     clientCallName: 'client.global.decentralizedFinanceDefi.get',
     fullyQualifiedName: 'global.decentralizedFinanceDefi.get',
     httpMethod: 'get',

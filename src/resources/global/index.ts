@@ -4,7 +4,12 @@ export {
   DecentralizedFinanceDefi,
   type DecentralizedFinanceDefiGetResponse,
 } from './decentralized-finance-defi';
-export { Global, type GlobalGetResponse } from './global';
+export {
+  Global,
+  type GlobalGetResponse,
+  type GlobalGetFearAndGreedChartResponse,
+  type GlobalGetFearAndGreedChartParams,
+} from './global';
 export {
   MarketCapChart,
   type MarketCapChartGetResponse,

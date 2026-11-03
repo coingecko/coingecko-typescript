@@ -51,7 +51,12 @@ import {
   ExchangeGetResponse,
   Exchanges,
 } from './resources/exchanges/exchanges';
-import { Global, GlobalGetResponse } from './resources/global/global';
+import {
+  Global,
+  GlobalGetFearAndGreedChartParams,
+  GlobalGetFearAndGreedChartResponse,
+  GlobalGetResponse,
+} from './resources/global/global';
 import {
   NFTGetIDResponse,
   NFTGetListParams,
@@ -925,7 +930,12 @@ export declare namespace Coingecko {
     type ExchangeGetListParams as ExchangeGetListParams,
   };
 
-  export { Global as Global, type GlobalGetResponse as GlobalGetResponse };
+  export {
+    Global as Global,
+    type GlobalGetResponse as GlobalGetResponse,
+    type GlobalGetFearAndGreedChartResponse as GlobalGetFearAndGreedChartResponse,
+    type GlobalGetFearAndGreedChartParams as GlobalGetFearAndGreedChartParams,
+  };
 
   export {
     Insights as Insights,

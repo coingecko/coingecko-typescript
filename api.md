@@ -248,10 +248,12 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/global/global.ts">GlobalGetResponse</a></code>
+- <code><a href="./src/resources/global/global.ts">GlobalGetFearAndGreedChartResponse</a></code>
 
 Methods:
 
 - <code title="get /global">client.global.<a href="./src/resources/global/global.ts">get</a>() -> GlobalGetResponse</code>
+- <code title="get /global/fear_and_greed_chart">client.global.<a href="./src/resources/global/global.ts">getFearAndGreedChart</a>({ ...params }) -> GlobalGetFearAndGreedChartResponse</code>
 
 ## DecentralizedFinanceDefi
 

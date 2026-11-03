@@ -18,7 +18,12 @@ export {
   type ExchangeGetIDParams,
   type ExchangeGetListParams,
 } from './exchanges/exchanges';
-export { Global, type GlobalGetResponse } from './global/global';
+export {
+  Global,
+  type GlobalGetResponse,
+  type GlobalGetFearAndGreedChartResponse,
+  type GlobalGetFearAndGreedChartParams,
+} from './global/global';
 export { Insights, type InsightGetResponse, type InsightGetParams } from './insights';
 export { Key, type KeyGetResponse } from './key';
 export {

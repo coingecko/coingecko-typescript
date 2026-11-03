@@ -213,9 +213,9 @@ export interface TickerGetParams {
   include_exchange_logo?: boolean;
 
   /**
-   * Sort the order of responses. Default: trust_score_desc
+   * Sort the order of responses. Default: volume_desc
    */
-  order?: 'trust_score_desc' | 'trust_score_asc' | 'volume_desc' | 'volume_asc';
+  order?: 'last_traded_at_desc' | 'last_traded_at_asc' | 'volume_desc' | 'volume_asc';
 
   /**
    * Page through results

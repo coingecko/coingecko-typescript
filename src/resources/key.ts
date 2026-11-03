@@ -31,12 +31,12 @@ export interface KeyGetResponse {
   api_key_rate_limit_request_per_minute: number;
 
   /**
-   * Remaining API call credits this month
+   * Remaining API call credits this month for the account, across all API keys
    */
   current_remaining_monthly_calls: number;
 
   /**
-   * Total API calls made this month
+   * Total API calls made this month for the account, across all API keys
    */
   current_total_monthly_calls: number;
 

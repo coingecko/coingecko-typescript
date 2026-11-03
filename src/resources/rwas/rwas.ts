@@ -63,7 +63,7 @@ export interface RwaGetIDResponse {
   asset_type: 'stock' | 'commodity' | 'etf';
 
   /**
-   * Image URLs of the token with the largest market cap
+   * Image URLs of one of the RWA's tokens
    */
   image: RwaGetIDResponse.Image;
 
@@ -105,7 +105,7 @@ export interface RwaGetIDResponse {
 
 export namespace RwaGetIDResponse {
   /**
-   * Image URLs of the token with the largest market cap
+   * Image URLs of one of the RWA's tokens
    */
   export interface Image {
     /**

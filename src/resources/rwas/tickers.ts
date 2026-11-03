@@ -208,7 +208,7 @@ export interface TickerGetParams {
   issuer_ids?: string;
 
   /**
-   * Sort the order of responses. Default: last_traded_at_desc
+   * Sort the order of responses. Default: volume_desc
    */
   order?: 'last_traded_at_desc' | 'last_traded_at_asc' | 'volume_desc' | 'volume_asc';
 

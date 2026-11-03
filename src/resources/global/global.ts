@@ -20,6 +20,16 @@ export class Global extends APIResource {
   get(options?: RequestOptions): APIPromise<GlobalGetResponse> {
     return this._client.get('/global', options);
   }
+
+  /**
+   * To query historical fear and greed data by number of days away from now
+   */
+  getFearAndGreedChart(
+    query: GlobalGetFearAndGreedChartParams,
+    options?: RequestOptions,
+  ): APIPromise<GlobalGetFearAndGreedChartResponse> {
+    return this._client.get('/global/fear_and_greed_chart', { query, ...options });
+  }
 }
 
 export interface GlobalGetResponse {
@@ -82,14 +92,54 @@ export namespace GlobalGetResponse {
      * Volume change percentage in 24 hours in USD
      */
     volume_change_percentage_24h_usd: number;
+
+    /**
+     * Crypto Fear & Greed Index
+     */
+    fear_and_greed_index?: Data.FearAndGreedIndex;
   }
+
+  export namespace Data {
+    /**
+     * Crypto Fear & Greed Index
+     */
+    export interface FearAndGreedIndex {
+      /**
+       * Sentiment label based on the index value
+       */
+      sentiment: 'extreme_fear' | 'fear' | 'neutral' | 'greed' | 'extreme_greed';
+
+      /**
+       * Crypto Fear & Greed Index value
+       */
+      value: number;
+    }
+  }
+}
+
+export interface GlobalGetFearAndGreedChartResponse {
+  /**
+   * Fear and greed data points as [timestamp, value, sentiment]
+   */
+  fear_and_greed: Array<Array<number | string>>;
+}
+
+export interface GlobalGetFearAndGreedChartParams {
+  /**
+   * Data up to number of days ago.
+   */
+  days: '1' | '7' | '14' | '30' | '90' | '180' | '365' | 'max';
 }
 
 Global.DecentralizedFinanceDefi = DecentralizedFinanceDefi;
 Global.MarketCapChart = MarketCapChart;
 
 export declare namespace Global {
-  export { type GlobalGetResponse as GlobalGetResponse };
+  export {
+    type GlobalGetResponse as GlobalGetResponse,
+    type GlobalGetFearAndGreedChartResponse as GlobalGetFearAndGreedChartResponse,
+    type GlobalGetFearAndGreedChartParams as GlobalGetFearAndGreedChartParams,
+  };
 
   export {
     DecentralizedFinanceDefi as DecentralizedFinanceDefi,

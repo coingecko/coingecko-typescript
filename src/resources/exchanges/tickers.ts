@@ -213,13 +213,13 @@ export interface TickerGetParams {
   include_exchange_logo?: boolean;
 
   /**
-   * Sort the order of responses. Default: `trust_score_desc`
+   * Sort the order of responses. Default: `volume_desc`
    */
   order?:
     | 'market_cap_asc'
     | 'market_cap_desc'
-    | 'trust_score_desc'
-    | 'trust_score_asc'
+    | 'last_traded_at_desc'
+    | 'last_traded_at_asc'
     | 'volume_desc'
     | 'volume_asc'
     | 'base_target';
