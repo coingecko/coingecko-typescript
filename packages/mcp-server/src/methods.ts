@@ -167,6 +167,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/derivatives/exchanges/list',
   },
   {
+    clientCallName: 'client.derivatives.underlyings.get',
+    fullyQualifiedName: 'derivatives.underlyings.get',
+    httpMethod: 'get',
+    httpPath: '/derivatives/underlyings',
+  },
+  {
+    clientCallName: 'client.derivatives.underlyings.getList',
+    fullyQualifiedName: 'derivatives.underlyings.getList',
+    httpMethod: 'get',
+    httpPath: '/derivatives/underlyings/list',
+  },
+  {
     clientCallName: 'client.entities.getList',
     fullyQualifiedName: 'entities.getList',
     httpMethod: 'get',

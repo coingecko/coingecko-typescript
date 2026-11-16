@@ -187,6 +187,18 @@ Methods:
 - <code title="get /derivatives/exchanges/{id}">client.derivatives.exchanges.<a href="./src/resources/derivatives/exchanges.ts">getID</a>(id, { ...params }) -> ExchangeGetIDResponse</code>
 - <code title="get /derivatives/exchanges/list">client.derivatives.exchanges.<a href="./src/resources/derivatives/exchanges.ts">getList</a>() -> ExchangeGetListResponse</code>
 
+## Underlyings
+
+Types:
+
+- <code><a href="./src/resources/derivatives/underlyings.ts">UnderlyingGetResponse</a></code>
+- <code><a href="./src/resources/derivatives/underlyings.ts">UnderlyingGetListResponse</a></code>
+
+Methods:
+
+- <code title="get /derivatives/underlyings">client.derivatives.underlyings.<a href="./src/resources/derivatives/underlyings.ts">get</a>({ ...params }) -> UnderlyingGetResponse</code>
+- <code title="get /derivatives/underlyings/list">client.derivatives.underlyings.<a href="./src/resources/derivatives/underlyings.ts">getList</a>({ ...params }) -> UnderlyingGetListResponse</code>
+
 # Entities
 
 Types:

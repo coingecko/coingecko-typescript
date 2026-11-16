@@ -120,8 +120,9 @@ export interface OhlcvGetTimeframeParams {
   aggregate?: string;
 
   /**
-   * Query param: Return OHLCV data before this timestamp (integer seconds since
-   * epoch).
+   * Query param: Return OHLCV data up to and including the candle that contains this
+   * timestamp (integer seconds since epoch). That candle covers its full interval,
+   * so it may include trades after this timestamp.
    */
   before_timestamp?: number;
 

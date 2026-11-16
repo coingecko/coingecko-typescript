@@ -134,6 +134,8 @@ const fuse = new Fuse(
     'client.derivatives.exchanges.get',
     'client.derivatives.exchanges.getID',
     'client.derivatives.exchanges.getList',
+    'client.derivatives.underlyings.get',
+    'client.derivatives.underlyings.getList',
     'client.entities.getList',
     'client.exchangeRates.get',
     'client.exchanges.get',

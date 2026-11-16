@@ -7,7 +7,7 @@ import { RequestOptions } from '../internal/request-options';
 export class Entities extends APIResource {
   /**
    * To query all the supported entities on CoinGecko with entity ID, name, symbol,
-   * and country
+   * country, and FIGI
    */
   getList(
     query: EntityGetListParams | null | undefined = {},
@@ -40,6 +40,11 @@ export namespace EntityGetListResponse {
      * Ticker symbol of public company
      */
     symbol: string;
+
+    /**
+     * Financial Instrument Global Identifier (FIGI) of the entity
+     */
+    figi?: string | null;
   }
 }
 

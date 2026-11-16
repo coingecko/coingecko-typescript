@@ -9,3 +9,10 @@ export {
   type ExchangeGetParams,
   type ExchangeGetIDParams,
 } from './exchanges';
+export {
+  Underlyings,
+  type UnderlyingGetResponse,
+  type UnderlyingGetListResponse,
+  type UnderlyingGetParams,
+  type UnderlyingGetListParams,
+} from './underlyings';

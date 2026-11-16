@@ -10,11 +10,20 @@ import {
   ExchangeGetResponse,
   Exchanges,
 } from './exchanges';
+import * as UnderlyingsAPI from './underlyings';
+import {
+  UnderlyingGetListParams,
+  UnderlyingGetListResponse,
+  UnderlyingGetParams,
+  UnderlyingGetResponse,
+  Underlyings,
+} from './underlyings';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
 
 export class Derivatives extends APIResource {
   exchanges: ExchangesAPI.Exchanges = new ExchangesAPI.Exchanges(this._client);
+  underlyings: UnderlyingsAPI.Underlyings = new UnderlyingsAPI.Underlyings(this._client);
 
   /**
    * To query all the tickers from derivatives exchanges on CoinGecko
@@ -101,6 +110,7 @@ export namespace DerivativeGetResponse {
 }
 
 Derivatives.Exchanges = Exchanges;
+Derivatives.Underlyings = Underlyings;
 
 export declare namespace Derivatives {
   export { type DerivativeGetResponse as DerivativeGetResponse };
@@ -112,5 +122,13 @@ export declare namespace Derivatives {
     type ExchangeGetListResponse as ExchangeGetListResponse,
     type ExchangeGetParams as ExchangeGetParams,
     type ExchangeGetIDParams as ExchangeGetIDParams,
+  };
+
+  export {
+    Underlyings as Underlyings,
+    type UnderlyingGetResponse as UnderlyingGetResponse,
+    type UnderlyingGetListResponse as UnderlyingGetListResponse,
+    type UnderlyingGetParams as UnderlyingGetParams,
+    type UnderlyingGetListParams as UnderlyingGetListParams,
   };
 }

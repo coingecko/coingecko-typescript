@@ -246,6 +246,11 @@ export interface PublicTreasuryGetEntityIDResponse {
    * Official website URL
    */
   website_url: string;
+
+  /**
+   * Financial Instrument Global Identifier (FIGI) of the entity
+   */
+  figi?: string | null;
 }
 
 export namespace PublicTreasuryGetEntityIDResponse {
