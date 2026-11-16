@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/coingecko/coingecko-typescript/compare/v9.0.0...v9.1.0) (2026-11-16)
+
+
+### Features
+
+* New derivative underlying endpoints ([d6e33e0](https://github.com/coingecko/coingecko-typescript/commit/d6e33e023c93c8d3db79fb482e1d3b461e517b16))
+
 ## [9.0.0](https://github.com/coingecko/coingecko-typescript/compare/v8.3.1...v9.0.0) (2026-11-03)
 
 
