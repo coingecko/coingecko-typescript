@@ -77,6 +77,17 @@
     "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.11/tsc-multi.tgz",
     "tsconfig-paths": "^4.0.0"
   },
+  "overrides": {
+    "tmp": "^0.2.6"
+  },
+  "pnpm": {
+    "overrides": {
+      "tmp": "^0.2.6"
+    }
+  },
+  "resolutions": {
+    "tmp": "^0.2.6"
+  },
   "imports": {
     "@coingecko/coingecko-mcp": ".",
     "@coingecko/coingecko-mcp/*": "./src/*"
