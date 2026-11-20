@@ -43,7 +43,7 @@ export const remoteSandboxHandler = async ({
     COINGECKO_PRO_API_KEY: readEnv('COINGECKO_PRO_API_KEY') ?? client.proAPIKey ?? undefined,
     COINGECKO_DEMO_API_KEY: readEnv('COINGECKO_DEMO_API_KEY') ?? client.demoAPIKey ?? undefined,
     COINGECKO_BASE_URL:
-      readEnv('COINGECKO_BASE_URL') ?? environment ? undefined : client.baseURL ?? undefined,
+      readEnv('COINGECKO_BASE_URL') ?? (environment ? undefined : client.baseURL ?? undefined),
   };
   // Env vars forwarded by an upstream proxy (request header) take precedence.
   const mergedClientEnvs = { ...clientEnvs, ...reqContext.upstreamClientEnvs };
